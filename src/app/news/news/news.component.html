@@ -1,0 +1,166 @@
+<div class="tenant-container">
+  <div class="tenant-tenant">
+    <div class="tenant-top">
+      <div class="tenant-cteen-logo" (click)="this.rootmenu()">
+        <div class="tenant-logo">
+          <div class="tenant-cteen">
+            <div class="tenant-carea">
+              <img src="/assets/playground_assets/cbg1611-xw2mm.svg" alt="cbg1611" class="tenant-cbg" />
+              <img src="/assets/playground_assets/c1611-r7l6.svg" alt="c1611" class="tenant-c" />
+            </div>
+            <div class="tenant-teenarea">
+              <img src="/assets/playground_assets/teenbg1611-fa96.svg" alt="teenbg1611" class="tenant-teenbg" />
+              <div class="tenant-teen">
+                <img src="/assets/playground_assets/vector1611-g21.svg" alt="Vector1611" class="tenant-vector" />
+                <img src="/assets/playground_assets/vector1611-wb3a.svg" alt="Vector1611" class="tenant-vector1" />
+                <img src="/assets/playground_assets/vector1611-g3qj.svg" alt="Vector1611" class="tenant-vector2" />
+                <img src="/assets/playground_assets/vector1611-a17b.svg" alt="Vector1611" class="tenant-vector3" />
+              </div>
+            </div>
+          </div>
+          <div class="tenant-amutaname">
+            <img src="/assets/playground_assets/frame31611-y8o6.svg" alt="Frame31611" class="tenant-frame3" />
+            <img src="/assets/playground_assets/frame21611-g2q.svg" alt="Frame21611" class="tenant-frame2" />
+            <img src="/assets/playground_assets/frame11611-uz0l.svg" alt="Frame11611" class="tenant-frame1" />
+          </div>
+        </div>
+      </div>
+      <div> 
+        <img src="/assets/Logo Colel Chabad.png" alt="Frame14430" class="chabad-colel-logo" />
+        <img src="/assets/playground_assets/chabadLogo.svg" alt="Frame14430" class="chabad-get-chessed-logo" />
+      </div>
+      <div class="tenant-userinfo">
+        <span class="tenant-text"><span>{{ remult.user?.name }}</span></span>
+        <div class="tenant-location">
+          <span class="tenant-text02"><span>{{ remult.user?.isAdmin?'':remult.user?.isDonor?'':'רכז' }} סניף {{
+              remult.user?.branchName }}</span></span>
+          <img src="/assets/playground_assets/locationicon1611-e21.svg" alt="locationicon1611"
+            class="tenant-locationicon" />
+        </div>
+      </div>
+    </div>
+    <div class="tenant-nav" style="height: 110px;">
+      <img (click)="this.back()" src="/assets/playground_assets/backarea1611-o1l.svg" alt="backarea1611"
+        class="tenant-backarea" />
+    </div>
+    <div class="tenant-cards">
+      <div class="tenant-cardcontent">
+
+        <!-- <label for="uploadImage2" class="tenant-upload">
+            <img for="uploadImage2" src="/assets/playground_assets/upload1912-87eh.svg" alt="upload1912" />
+          </label>
+          <input excludeAcceptAllOption=true #fileInput type="file" (input)="onFileInput($event)"
+            accept="audio/mp3,video/mp4,video/avi,image/png,image/jpg,image/jpeg" id="uploadImage2"
+            style="display:none" /> -->
+        <div class="tenant-cardtitle">
+          <mat-select *ngIf="this.news" [(ngModel)]="this.news.group">
+            <mat-option *ngFor="let g of groups" [value]="g">{{ g.caption }}</mat-option>
+            <!-- <mat-option [value]="BranchGroup.noar">{{ BranchGroup.noar.caption }}</mat-option>
+            <mat-option [value]="BranchGroup.campus">{{ BranchGroup.campus.caption }}</mat-option>
+            <mat-option [value]="BranchGroup.all">{{ BranchGroup.all.caption }}</mat-option> -->
+          </mat-select>
+          <!-- <mat-select *ngIf="this.news">
+              <mat-option [(ngModel)]="this.news.group" [value]="BranchGroup.noar">{{ BranchGroup.noar.caption }}</mat-option>
+              <mat-option [(ngModel)]="this.news.group" [value]="BranchGroup.campus">{{ BranchGroup.campus.caption }}</mat-option>
+            </mat-select> -->
+          <div class="tenant-tenantnameaddress">
+            <!-- <data-control [field]="this.tenant.$.name"></data-control> -->
+            <input autofocus *ngIf="this.news" class="tenant-name" [(ngModel)]="this.news.subject" placeholder="נושא" />
+            <!-- <span *ngIf="this.tenant" class="tenant-name"><span>{{ this.tenant.name }}</span></span> -->
+            <!-- <div class="tenant-address"> 
+                <input *ngIf="this.volunteer" [(ngModel)]="this.volunteer.content" placeholder="תוכן" style="text-align: right; border: none;" />
+                <img src="/assets/playground_assets/location1612-cbw.svg" alt="location1612" class="tenant-location1" />
+              </div>
+              <div class="tenant-address">
+                <input *ngIf="this.volunteer" [(ngModel)]="this.volunteer.type" placeholder="סלולרי" style="text-align: right; border: none;" />
+                <img src="/assets/playground_assets/mobile.svg" alt="location1612" class="tenant-location1" />
+              </div> -->
+            <!-- <span *ngIf="this.tenant" class="tenant-address1"><span>{{ this.tenant.address }}</span></span> -->
+            <!-- <span *ngIf="this.tenant" class="tenant-address1"><span>{{ this.tenant.address }}</span></span> -->
+            <!-- <div class="tenant-address">
+                <input *ngIf="this.volunteer" [(ngModel)]="this.volunteer.phone" placeholder="טלפון" style="text-align: right; border: none;" /> -->
+            <!-- <span *ngIf="this.tenant" class="tenant-address1"><span>{{ this.tenant.address }}</span></span> -->
+            <!-- <img src="/assets/playground_assets/call.svg" alt="location1612" class="tenant-location1" />
+              </div> -->
+          </div>
+        </div>
+        <!-- <div class="tenant-frame6">
+            <div class="tenant-addvolunteer">
+              <span class="tenant-text06" (click)="this.selectVolunteers()"><span>:מתנדבים<mat-icon
+                    class="mat-icon-small-trim">edit</mat-icon></span></span>
+            </div>
+            <div class="tenant-volunteers">
+              <div class="tenant-volunteer" *ngFor="let v of this.volunteers">
+                <img src="/assets/playground_assets/rectangle21912-7uon-200h.png" alt="Rectangle21912"
+                  class="tenant-rectangle2" />
+                <span class="tenant-volunteer-name">
+                  <span>{{ v.volunteer.name }}</span>
+                </span>
+                <img (click)="this.removeVolunteer(v.volunteer.id,v.volunteer.name)"
+                  src="/assets/playground_assets/removevolunteer1912-ygle.svg" alt="removevolunteer1912"
+                  class="tenant-removevolunteer" />
+              </div>
+            </div>
+          </div> -->
+        <textarea *ngIf="this.news" class="news-content" rows="30" [(ngModel)]="this.news.content"></textarea>
+        <img src="/assets/playground_assets/sep21913-ke1h.svg" alt="sep21913" class="tenant-sep2" />
+        <!-- <div class="tenant-selectbirthday" (click)="this.selectBirthday()"> -->
+        <div class="tenant-selectbirthday">
+          <!-- <data-control *ngIf="this.tenant && this.tenant.$" class="tenant-birthday" [field]="this.tenant.$.birthday"></data-control> -->
+          <!-- <input type="date" *ngIf="this.volunteer" class="tenant-birthday" [(ngModel)]="this.volunteer.birthday" /> -->
+          <!-- <span *ngIf="this.tenant" class="tenant-birthday">{{ this.tenant.birthday | date:'dd.MM.yyyy' }}</span> -->
+          <input type="date" *ngIf="this.news" class="tenant-birthday" [(ngModel)]="this.news.fdate" />
+          <span class="tenant-text09"><span>:מתאריך </span></span>
+        </div>
+        <div class="tenant-selectbirthday">
+          <!-- <data-control *ngIf="this.tenant && this.tenant.$" class="tenant-birthday" [field]="this.tenant.$.birthday"></data-control> -->
+          <!-- <input type="date" *ngIf="this.news" class="tenant-birthday" [(ngModel)]="this.news.birthday" /> -->
+          <!-- <span *ngIf="this.tenant" class="tenant-birthday">{{ this.tenant.birthday | date:'dd.MM.yyyy' }}</span> -->
+          <input type="date" *ngIf="this.news" class="tenant-birthday" [(ngModel)]="this.news.tdate" />
+          <span class="tenant-text09"><span>:עד תאריך</span></span>
+        </div>
+        <img src="/assets/playground_assets/sep21913-4qn.svg" alt="sep21913" class="tenant-sep21" />
+        <!-- <div class="tenant-selectgoremmafne">
+            <span class="tenant-goremmafne"><span>כולל חב”ד</span></span>
+            <span class="tenant-text12"><span>:גורם מפנה</span></span>
+          </div> -->
+        <img src="/assets/playground_assets/sep21913-4756.svg" alt="sep21913" class="tenant-sep22" />
+
+        <!-- <div>
+            <span class="tenant-text15" (click)="this.selectLanguages()"><span>:שפות<mat-icon
+                  class="mat-icon-small-trim">edit</mat-icon></span></span>
+          </div>
+          <div class="tenant-selectlanguage">
+              <div class="tenant-news" *ngFor="let l of this.languages">
+                <img src="/assets/playground_assets/rectangle21912-7uon-200h.png" alt="Rectangle21912"
+                  class="tenant-rectangle2" />
+                <span class="tenant-news-name">
+                  <span>{{ l.caption }}</span>
+                </span>
+                <img (click)="this.removeLanguage(l)" src="/assets/playground_assets/removenews1912-ygle.svg"
+                  alt="removenews1912" class="tenant-removenews" />
+              </div>
+          </div> -->
+        <!-- <span class="tenant-languages"> -->
+        <!-- </span> -->
+        <img src="/assets/playground_assets/line71913-th2.svg" alt="Line71913" class="tenant-line7" />
+        <div>
+          <span class="tenant-text17">
+            <input maxlength="500"
+              *ngIf="this.news && (this.news.id || (this.news?.remark && this.news.remark.trim().length))"
+              [(ngModel)]="this.news.remark" style="text-align: right; border: 1px;" />
+          </span>
+          <span class="tenant-text19">
+            <span>
+              :הערה
+            </span>
+          </span>
+        </div>
+        <div class="tenant-back" (click)="this.save()">
+          <img src="/assets/playground_assets/rectangle11913-crl.svg" alt="Rectangle11913" class="tenant-rectangle1" />
+          <span class="tenant-text21"><span>שמור</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

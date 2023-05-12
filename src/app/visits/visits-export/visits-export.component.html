@@ -1,0 +1,178 @@
+<div class="export-container">
+    <div class="export-export">
+        <div class="export-top">
+            <div class="export-cteen-logo" (click)="this.rootmenu()">
+                <div class="export-logo">
+                    <div class="export-cteen">
+                        <div class="export-carea">
+                            <img src="/assets/playground_assets/cbg1258-4rj6.svg" alt="cbg1258" class="export-cbg" />
+                            <img src="/assets/playground_assets/c1259-7gtn.svg" alt="c1259" class="export-c" />
+                        </div>
+                        <div class="export-teenarea">
+                            <img src="/assets/playground_assets/teenbg1251-maq.svg" alt="teenbg1251"
+                                class="export-teenbg" />
+                            <div class="export-teen">
+                                <img src="/assets/playground_assets/vector1251-2pr.svg" alt="Vector1251"
+                                    class="export-vector" />
+                                <img src="/assets/playground_assets/vector1251-pbh.svg" alt="Vector1251"
+                                    class="export-vector1" />
+                                <img src="/assets/playground_assets/vector1251-4gw8.svg" alt="Vector1251"
+                                    class="export-vector2" />
+                                <img src="/assets/playground_assets/vector1251-ytm.svg" alt="Vector1251"
+                                    class="export-vector3" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="export-amutaname">
+                        <img src="/assets/playground_assets/frame31251-5w.svg" alt="Frame31251" class="export-frame3" />
+                        <img src="/assets/playground_assets/frame21252-is47.svg" alt="Frame21252"
+                            class="export-frame2" />
+                        <img src="/assets/playground_assets/frame11253-hjy.svg" alt="Frame11253"
+                            class="export-frame1" />
+                    </div>
+                </div>
+            </div>
+            <div> 
+              <img src="/assets/Logo Colel Chabad.png" alt="Frame14430" class="chabad-colel-logo" />
+              <img src="/assets/playground_assets/chabadLogo.svg" alt="Frame14430" class="chabad-get-chessed-logo" />
+            </div>
+            <app-branch-group (groupChanged)="this.groupChanged()"></app-branch-group>
+            <div class="export-userinfo">
+                <span class="export-text"><span>{{ remult.user?.name }}</span></span>
+                <div class="export-location">
+                    <span class="export-text02"><span>{{ remult.user?.isAdmin?'':remult.user?.isDonor?'':'רכז' }} סניף
+                            {{
+                            remult.user?.branchName }}</span></span>
+                    <img src="/assets/playground_assets/locationicon1253-rwl.svg" alt="locationicon1253"
+                        class="export-locationicon" />
+                </div>
+            </div>
+        </div>
+        <div class="export-nav">
+            <div class="export-title">
+                <span class="export-text04"><span>דוח דיווחים</span></span>
+            </div>
+            <img (click)="this.back()" src="/assets/playground_assets/back1255-ubnm.svg" alt="back1255"
+                class="export-back" />
+        </div>
+        <div class="export-data">
+            <div>
+                <span class="help-text">"שבוע פעילות" = "יום שני עד ראשון שאחריו"</span>
+            </div>
+            <div class="export-dataviewas">
+                <!-- <div class="export-cardcontent2"> -->
+                <div class="export-cardcontent">
+                    <!-- <mat-form-field class="example-full-width">
+                        <input matInput [matDatepickerFilter]="startFilter" [matDatepicker]="picker" placeholder="Choose a date">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                      </mat-form-field> -->
+                    <data-control class="export-text06" style="width: 100%; text-align: center;" dir="rtl"
+                        [field]="this.query.$.fdate"></data-control>
+                    <!-- <span class="export-text06"><span>________</span></span>
+            <span class="export-text08"><span>:מתאריך</span></span> -->
+                </div>
+                <div class="export-cardcontent1">
+                    <data-control class="export-text12" style="width: 100%;" dir="rtl"
+                        [field]="this.query.$.tdate"></data-control>
+                    <!-- <span class="export-text12"><span>:עד תאריך</span></span> -->
+                </div>
+                <!-- </div> -->
+                <!-- <div class="export-cardcontent2">
+            <span class="export-text14"><span>הצג רק ברמת סניפים</span></span>
+            <img
+              src="/assets/playground_assets/rectangle91251-x9lb-200h.png"
+              alt="Rectangle91251"
+              class="export-rectangle9"
+            />
+          </div> -->
+                <div class="export-cardcontent2">
+                    <div class="export-cardcontent3">
+                        <span class="export-text16">
+                            <span>מרוכז {{ (remult.user?.isAdmin || remult.user?.isDonor)? 'לפי סניפים':'' }}</span>
+                        </span>
+                        <input name="detailed" type="radio" checked [(ngModel)]="this.query.detailed" [value]="false">
+                    </div>
+
+                    <div class="export-cardcontent30">
+                        <ng-container class="export-cardcontent3">
+                            <span class="export-text16">
+                                <span>מפורט דיירים ומתנדבים</span>
+                            </span>
+                            <input name="detailed" type="radio" [(ngModel)]="this.query.detailed" [value]="true">
+                        </ng-container>
+                        <!-- <span style="color: blue;" *ngIf="this.query.detailed">{{ '(נא להמתין עד סיום ההפקה)' }}</span> -->
+
+
+                    </div>
+
+                </div>
+                <div *ngIf="!remult.user?.isManager" class="export-cardcontent1">
+                    <!-- <span style="height: 8px;"></span> -->
+                    <!-- <data-control class="export-text12" style="width: 100%;" dir="rtl"
+                        [field]="this.query.$.type"></data-control> -->
+                    <div
+                        style="display: flex; flex-direction: row; justify-content: space-between; width: 100%; direction: rtl;">
+                        <mat-label style="width: 100%;">סטטוס:</mat-label>
+                        <mat-select [(ngModel)]="this.query.type" style="color: blue;">
+                            <mat-option *ngFor="let et of ExportType.getOptions(true)" [value]="et">{{
+                                et.caption
+                                }}</mat-option>
+                        </mat-select>
+                    </div>
+                    <!-- <span style="color: blue; text-align: center;"
+                        *ngIf="!(this.query.type === ExportType.done)">{{ '(כלול גם דיווחים שלא בוצעו)'
+                        }}</span> -->
+                    <!-- <span class="export-text12"><span>:עד תאריך</span></span> -->
+                </div>
+
+                <!-- <div class="export-cardcontent1">
+                    <div
+                        style="display: flex; flex-direction: row; justify-content: space-between; width: 100%; direction: rtl;">
+                        <mat-label style="width: 100%;">קבוצה:</mat-label>
+                        <mat-select [(ngModel)]="this.query.group" style="color: blue;">
+                            <mat-option *ngFor="let et of BranchGroup.getOptions(true)" [value]="et">{{
+                                et.caption
+                                }}</mat-option>
+                        </mat-select>
+                    </div>
+                </div> -->
+
+                <!-- <div *ngIf="this.query.detailed" class="export-cardcontent1">
+                    <data-control class="export-text12" style="width: 100%;" dir="rtl"
+                        [field]="this.query.$.onlyDone"></data-control>
+                    <span style="color: blue;" *ngIf="!this.query.onlyDone">{{ '(מפיק לכל הדיירים - גם כאלו ללא דיווח)'
+                        }}</span>
+                </div> -->
+                <!-- <span>{{this.ext}}</span> -->
+                <div *ngIf="this.allowChangeExt" class="export-cardcontent5">
+                    <div class="export-cardcontent6">
+                        <span class="export-text161">
+                            <span>xlsx</span>
+                        </span>
+                        <input name="ext" type="radio" checked [(ngModel)]="this.ext" [value]="'xlsx'">
+                    </div>
+
+                    <div class="export-cardcontent6">
+                        <span class="export-text161">
+                            <span>csv</span>
+                        </span>
+                        <input name="ext" type="radio" [(ngModel)]="this.ext" [value]="'csv'">
+                    </div>
+
+                    <div class="export-cardcontent6">
+                        <span class="export-text161">
+                            <span>html</span>
+                        </span>
+                        <input name="ext" type="radio" [(ngModel)]="this.ext" [value]="'html'">
+                    </div>
+                </div>
+            </div>
+            <div class="export-close" (click)="this.export()">
+                <img src="/assets/playground_assets/rectangle11256-g5m5.svg" alt="Rectangle11256"
+                    class="export-rectangle1" />
+                <span class="export-text18"><span>הפקת דוח</span></span>
+            </div>
+        </div>
+    </div>
+</div>

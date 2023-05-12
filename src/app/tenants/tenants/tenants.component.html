@@ -1,0 +1,160 @@
+<div class="tenants-container">
+  <div class="tenants-tenants">
+    <div class="tenants-top">
+      <div class="tenants-cteen-logo" (click)="this.rootmenu()">
+        <div class="tenants-logo">
+          <div class="tenants-cteen">
+            <div class="tenants-carea">
+              <img alt="cbg1064" src="/assets/playground_assets/cbg1064-wke8.svg" class="tenants-cbg" />
+              <img alt="c1064" src="/assets/playground_assets/c1064-lftt.svg" class="tenants-c" />
+            </div>
+            <div class="tenants-teenarea">
+              <img alt="teenbg1064" src="/assets/playground_assets/teenbg1064-b5t.svg" class="tenants-teenbg" />
+              <div class="tenants-teen">
+                <img alt="Vector1064" src="/assets/playground_assets/vector1064-2ph.svg" class="tenants-vector" />
+                <img alt="Vector1064" src="/assets/playground_assets/vector1064-n4uc.svg" class="tenants-vector01" />
+                <img alt="Vector1064" src="/assets/playground_assets/vector1064-cvj.svg" class="tenants-vector02" />
+                <img alt="Vector1064" src="/assets/playground_assets/vector1064-h84e.svg" class="tenants-vector03" />
+              </div>
+            </div>
+          </div>
+          <div class="tenants-amutaname">
+            <img alt="Frame31110" src="/assets/playground_assets/frame31110-p938.svg" class="tenants-frame3" />
+            <img alt="Frame21110" src="/assets/playground_assets/frame21110-ewar.svg" class="tenants-frame2" />
+            <img alt="Frame11110" src="/assets/playground_assets/frame11110-hzp7.svg" class="tenants-frame1" />
+          </div>
+        </div>
+      </div>
+      <div> 
+        <img src="/assets/Logo Colel Chabad.png" alt="Frame14430" class="chabad-colel-logo" />
+        <img src="/assets/playground_assets/chabadLogo.svg" alt="Frame14430" class="chabad-get-chessed-logo" />
+      </div>
+      <div class="tenants-userinfo">
+        <span class="tenants-text"><span>{{ this.remult.user?.name }}</span></span>
+        <div class="tenants-location">
+          <span class="tenants-text02"><span>{{ remult.user?.isAdmin?'':remult.user?.isDonor?'':'רכז' }} סניף {{
+              this.remult.user?.branchName }}</span></span>
+          <img alt="locationicon3490" src="/assets/playground_assets/locationicon3490-ztjd.svg"
+            class="tenants-locationicon" />
+        </div>
+      </div>
+    </div>  
+    <div class="tenants-nav">
+      <div class="tenants-search" (click)="this.search()">
+        <img alt="Vector8552" src="/assets/playground_assets/vector8552-38yn.svg" class="tenants-vector04" />
+        <img alt="Vector8551" src="/assets/playground_assets/vector8551-n26r.svg" class="tenants-vector05" />
+      </div>
+      <div class="tenants-vector010" (click)="this.import()">
+        <img src="/assets/playground_assets/upload1424-9gen.svg" alt="upload1424" class="import-upload" />
+        <!-- <mat-icon>upload</mat-icon> -->
+        <!-- <label>
+        <mat-icon>upload</mat-icon>
+      </label> -->
+      </div>
+      <!-- <div class="tenants-search" (click)="this.export()">
+        <img
+          alt="Vector8552"
+          src="/assets/excel.ico"
+          class="tenants-vector04" 
+        />
+      </div> -->
+      <div class="tenants-title">
+        <span class="tenants-text04"><span>דיירים</span></span>
+        <span class="tenants-text06"><span>רשימת</span></span>
+      </div>
+      <img (click)="this.back()" alt="back8554" src="/assets/playground_assets/back8554-xqwn.svg"
+        class="tenants-back" />
+    </div>
+    <div class="tenants-cards">
+      <!-- (click)="this.edit()" -->
+      <div class="tenants-cardcontent" *ngFor="let t of this.tenants">
+        <div class="tenants-cardtitle">
+          <div class="tenants-tenantnameaddress">
+            <span class="tenants-text08"><span>{{ t.name }}</span></span>
+            <div class="tenants-group1">
+              <img alt="location1082" src="/assets/playground_assets/location1082-bpr7.svg" class="tenants-location1" />
+              <span class="tenants-text10"><span>{{ t.address }}</span></span>
+            </div>
+            <div *ngIf="t.mobile?.trim()!.length" class="tenants-group1">
+              <img (click)="this.call(t.mobile)" alt="location1082" src="/assets/playground_assets/mobile.svg"
+                class="tenants-location1" />
+              <span class="tenants-text10"><span>{{ t.mobile }}</span></span>
+            </div>
+            <div *ngIf="t.phone?.trim()!.length" class="tenants-group1">
+              <img alt="location1082" src="/assets/playground_assets/call.svg" class="tenants-location1" />
+              <span class="tenants-text10"><span>{{ t.phone }}</span></span>
+            </div>
+          </div>
+          <div class="tenants-tenantphoto" (click)="this.edit(t.id)">
+            <img alt="Vector1083" src="/assets/playground_assets/vector1083-8ojj.svg" class="tenants-vector06" />
+
+
+            <!-- <label for="uploadImage" style="display: flex; align-items: center;">
+              <img src="/assets/playground_assets/upload1110-f7e7.svg" alt="upload1110" class="tenants-upload" />
+            </label>
+            <input excludeAcceptAllOption=true #fileInput type="file" (input)="onFileInput($event, t)"
+              accept="audio/mp3,video/mp4,video/avi,image/png,image/jpg,image/jpeg" id="uploadImage" style="display:none" /> -->
+
+
+            <!-- <img
+              alt="upload1110"
+              src="/assets/playground_assets/upload1110-f7e7.svg"
+              (click)="this.upload()"
+              class="tenants-upload"
+            /> -->
+            <div class="tenants-group">
+              <img alt="Vector1083" src="/assets/playground_assets/vector1083-snlm.svg" class="tenants-vector07" />
+              <img alt="Vector1083" src="/assets/playground_assets/vector1083-gsye.svg" class="tenants-vector08" />
+              <img alt="Vector1083" src="/assets/playground_assets/vector1083-tan.svg" class="tenants-vector09" />
+            </div>
+          </div>
+        </div>
+        <img alt="sep1088" src="/assets/playground_assets/sep1088-o54o.svg" class="tenants-sep" />
+        <div class="tenants-volunteersbirthday">
+          <span class="tenants-text12" (click)="this.volunteersMobiles()"><span>:מתנדבים</span>
+            <div *ngFor="let v of t.volunteersNames">
+              <span style="padding-right: 7px;">{{ v }}</span>
+            </div>
+          </span>
+          <span class="tenants-text14">
+            <span>תאריך יום הולדת: {{ t.birthday | date:'dd.MM.yyyy' }}</span>
+          </span>
+          <span *ngIf="t.remark?.trim()!.length" class="tenants-text14-remark">
+            <span>הערה: {{ t.remark }}</span>
+          </span>
+        </div>
+        <div class="tenants-goremmafneactions">
+          <div class="tenants-actions">
+            <img alt="delete1084" src="/assets/playground_assets/delete1084-uqps.svg" (click)="this.delete(t)"
+              class="tenants-delete" />
+            <img alt="edit1084" src="/assets/playground_assets/edit1084-xhhm.svg" (click)="this.edit(t.id)"
+              class="tenants-edit" />
+
+
+            <!-- <label for="uploadImage2" style="display: flex; align-items: center;">
+              <img src="/assets/playground_assets/photo1085-ctgr.svg" alt="photo1085" class="tenants-photo" />
+            </label>
+            <input excludeAcceptAllOption=true #fileInput type="file" (input)="onFileInput($event, t)"
+              accept="audio/mp3,video/mp4,video/avi,image/png,image/jpg,image/jpeg" id="uploadImage2" style="display:none" /> -->
+
+
+            <!-- <img
+              alt="photo1085"
+              src="/assets/playground_assets/photo1085-ctgr.svg"
+              (click)="this.photos()"
+              class="tenants-photo"
+            /> -->
+          </div>
+          <span class="tenants-text16">
+            <span class="tenants-text17">גורם מפנה:</span>
+            <span>כולל חב”ד</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div (click)="this.addTenant()" class="tenants-addtenant">
+    <img alt="Rectangle18538" src="/assets/playground_assets/rectangle18538-l5z9.svg" class="tenants-rectangle1" />
+    <span class="tenants-text19"><span>הוספת דייר</span></span>
+  </div>
+</div>

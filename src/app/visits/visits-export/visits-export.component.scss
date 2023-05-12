@@ -1,0 +1,674 @@
+:host { 
+    display: contents; 
+  }
+  .export-container {
+    min-height: 100vh;
+    background-image: url('/assets/bg.blue.png');
+  }
+  .export-export {
+    width: 100%;
+    height: auto;
+    display: flex;
+    position: relative;
+    align-items: center;
+    flex-shrink: 0;
+    border-color: transparent;
+    flex-direction: column;
+    background-color: rgba(38, 195, 234, 1);
+    background-image: url('/assets/bg.blue.png');
+  }
+  .export-top {
+    display: flex;
+    padding: 0 15px;
+    position: relative;
+    align-self: stretch;
+    align-items: center;
+    flex-shrink: 0;
+    border-color: transparent;
+    margin-bottom: 0px;
+    justify-content: space-between;
+    background-color: rgba(255, 255, 255, 1);
+  }
+  .export-cteen-logo {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    align-items: center;
+    border-color: transparent;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .chabad-colel-logo {
+    top: 45px;
+    left: 80px;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+  }
+  .chabad-get-chessed-logo {
+    top: 0px;
+    left: 80px;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+  }
+  .export-logo {
+    width: 63.48833084106445px;
+    height: 100.27965545654297px;
+    display: flex;
+    position: relative;
+    align-items: center;
+    flex-shrink: 0;
+    border-color: transparent;
+    flex-direction: column;
+  }
+  .export-cteen {
+    width: 63px;
+    height: 89.90325164794922px;
+    display: flex;
+    padding: 0;
+    position: relative;
+    align-self: auto;
+    box-sizing: border-box;
+    align-items: flex-start;
+    flex-shrink: 1;
+    border-color: transparent;
+    border-style: none;
+    border-width: 0;
+    margin-right: 0;
+    border-radius: 0px 0px 0px 0px;
+    margin-bottom: -5px;
+    flex-direction: row;
+    justify-content: flex-start;
+    background-color: transparent;
+  }
+  .export-carea {
+    top: 0px;
+    left: 0px;
+    width: 60px;
+    height: 67px;
+    display: flex;
+    padding: 0;
+    position: absolute;
+    align-self: auto;
+    box-sizing: border-box;
+    align-items: flex-start;
+    flex-shrink: 1;
+    border-color: transparent;
+    border-style: none;
+    border-width: 0;
+    border-radius: 0px 0px 0px 0px;
+    flex-direction: row;
+    justify-content: flex-start;
+    background-color: transparent;
+  }
+  .export-cbg {
+    top: 0px;
+    left: 0px;
+    width: 60px;
+    height: 67px;
+    position: absolute;
+  }
+  .export-c {
+    top: 7.59393310546875px;
+    left: 10.354217529296875px;
+    width: 39px;
+    height: 54px;
+    position: absolute;
+  }
+  .export-teenarea {
+    top: 59.2852783203125px;
+    left: 12.77813720703125px;
+    width: 50.7101936340332px;
+    height: 30.61797332763672px;
+    display: flex;
+    padding: 0;
+    position: absolute;
+    align-self: auto;
+    box-sizing: border-box;
+    align-items: flex-start;
+    flex-shrink: 1;
+    border-color: transparent;
+    border-style: none;
+    border-width: 0;
+    border-radius: 0px 0px 0px 0px;
+    flex-direction: row;
+    justify-content: flex-start;
+    background-color: transparent;
+  }
+  .export-teenbg {
+    top: 0px;
+    left: 0px;
+    width: 51px;
+    height: 31px;
+    position: absolute;
+  }
+  .export-teen {
+    top: 6.6272125244140625px;
+    left: 5.747833251953125px;
+    width: 39.34962463378906px;
+    height: 20.21885108947754px;
+    display: flex;
+    padding: 0;
+    position: absolute;
+    align-self: auto;
+    box-sizing: border-box;
+    align-items: flex-start;
+    flex-shrink: 1;
+    border-color: transparent;
+    border-style: none;
+    border-width: 0;
+    border-radius: 0px 0px 0px 0px;
+    flex-direction: row;
+    justify-content: flex-start;
+    background-color: transparent;
+  }
+  .export-vector {
+    top: 1.5709927082061768px;
+    left: 0.0000010694303682612372px;
+    width: 8px;
+    height: 19px;
+    position: absolute;
+  }
+  .export-vector1 {
+    top: 3.201730728149414px;
+    left: 6.565080165863037px;
+    width: 11px;
+    height: 16px;
+    position: absolute;
+  }
+  .export-vector2 {
+    top: 1.6084747314453125px;
+    left: 17.249292373657227px;
+    width: 11px;
+    height: 16px;
+    position: absolute;
+  }
+  .export-vector3 {
+    top: -3.8355906895048975e-8px;
+    left: 27.523208618164062px;
+    width: 12px;
+    height: 16px;
+    position: absolute;
+  }
+  .export-amutaname {
+    width: 59.34217071533203px;
+    height: 6.678433418273926px;
+    display: flex;
+    position: relative;
+    align-items: center;
+    flex-shrink: 0;
+    border-color: transparent;
+    justify-content: flex-end;
+  }
+  .export-frame3 {
+    width: 20px;
+    height: 7px;
+    position: relative;
+    margin-right: 2px;
+  }
+  .export-frame2 {
+    width: 21px;
+    height: 7px;
+    position: relative;
+    margin-right: 2px;
+  }
+  .export-frame1 {
+    width: 15px;
+    height: 6px;
+    position: relative;
+  }
+  .export-userinfo {
+    display: flex;
+    position: relative;
+    align-items: flex-end;
+    border-color: transparent;
+    flex-direction: column;
+  }
+  .export-text {
+    color: rgba(35, 67, 142, 1);
+    height: auto;
+    font-size: 20px;
+    align-self: auto;
+    font-style: Black;
+    text-align: right;
+    font-family: Heebo;
+    font-weight: 900;
+    line-height: 107.87500143051147%;
+    font-stretch: normal;
+    margin-right: 0;
+    margin-bottom: 6px;
+    text-decoration: none;
+  }
+  .export-location {
+    display: flex;
+    padding: 2px 4px;
+    position: relative;
+    align-items: flex-start;
+    border-color: transparent;
+    background-color: rgba(227, 172, 120, 1);
+  }
+  .export-text02 {
+    color: rgba(255, 255, 255, 1);
+    height: auto;
+    font-size: 14px;
+    align-self: auto;
+    font-style: Medium;
+    text-align: right;
+    font-family: Heebo;
+    font-weight: 500;
+    line-height: 107.87500143051147%;
+    font-stretch: normal;
+    margin-right: 6px;
+    margin-bottom: 0;
+    text-decoration: none;
+  }
+  .export-locationicon {
+    width: 11px;
+    height: 14px;
+    position: relative;
+  }
+  .export-nav {
+    display: flex;
+    padding: 8px 50px;
+    position: relative;
+    align-self: stretch;
+    align-items: center;
+    flex-shrink: 0;
+    border-color: transparent;
+    margin-bottom: 0px;
+    justify-content: center;
+    background-color: rgba(227, 172, 120, 1);
+  }
+  .export-title {
+    display: flex;
+    position: relative;
+    flex-grow: 1;
+    align-items: center;
+    border-color: transparent;
+    margin-right: 0px;
+    justify-content: center;
+  }
+  .export-text04 {
+    color: rgba(255, 255, 255, 1);
+    height: auto;
+    flex-grow: 1;
+    font-size: 24px;
+    align-self: auto;
+    font-style: Black;
+    text-align: center;
+    font-family: Heebo;
+    font-weight: 700;
+    line-height: 107.87500143051147%;
+    font-stretch: normal;
+    margin-right: 0;
+    margin-bottom: 0;
+    text-decoration: none;
+  }
+  .help-text {
+    background-color: lightyellow;
+    padding: 6px;
+    border-width: thin;
+    border-style: solid;
+    text-decoration: underline;
+    // margin-bottom: 10px;
+    border-radius: 10px;
+    border-color: lightgray;
+    font-size: 12px;
+    font-weight: bolder;
+    word-wrap: break-word;
+    color: rgba(35, 67, 142, 1);
+}
+
+  .export-back {
+    width: 29px;
+    height: 29px;
+    position: relative;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25) ;
+  }
+  .export-data {
+    display: flex;
+    padding: 20px;
+    position: relative;
+    flex-grow: 1;
+    align-self: stretch;
+    align-items: center;
+    border-color: transparent;
+    flex-direction: column;
+    background-size: cover;
+    justify-content: center;
+    background-image: url("/assets/playground_assets/fcd47dff-7a3a-4c71-84be-8d23d6e7dfea-4mj7-200w.undefined");
+  }
+  .export-dataviewas {
+    display: flex;
+    padding: 25px 30px;
+    overflow: hidden;
+    position: relative;
+    flex-grow: 1;
+    align-self: stretch;
+    align-items: center;
+    border-color: transparent;
+    border-radius: 15px;
+    // margin-bottom: 20px;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 1);
+  }
+  .export-cardcontent {
+    display: flex;
+    padding: 12px 15px;
+    position: relative;
+    align-self: stretch;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) ;
+    align-items: center;
+    flex-shrink: 0;
+    border-color: rgba(227, 172, 120, 1);
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    justify-content: flex-end;
+    background-color: rgba(255, 255, 255, 1);
+  }
+  .export-text06 {
+    color: rgba(0, 0, 0, 1);
+    height: auto;
+    flex-grow: 1;
+    font-size: 20px;
+    align-self: stretch;
+    font-style: ExtraBold;
+    text-align: center;
+    font-family: Heebo;
+    font-weight: 800;
+    line-height: 107.87500143051147%;
+    font-stretch: normal;
+    margin-right: 5px;
+    margin-bottom: 0;
+    text-decoration: none;
+  }
+  .export-text08 {
+    color: rgba(0, 0, 0, 1);
+    width: 74px;
+    height: auto;
+    font-size: 20px;
+    align-self: stretch;
+    font-style: ExtraBold;
+    text-align: center;
+    font-family: Heebo;
+    font-weight: 800;
+    line-height: 107.87500143051147%;
+    font-stretch: normal;
+    margin-right: 0;
+    margin-bottom: 0;
+    text-decoration: none;
+  }
+  .export-cardcontent1 {
+    display: flex;
+    flex-direction: column;
+    padding: 12px 15px;
+    position: relative;
+    align-self: stretch;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) ;
+    align-items: center;
+    flex-shrink: 0;
+    border-color: rgba(227, 172, 120, 1);
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    justify-content: flex-end;
+    background-color: rgba(255, 255, 255, 1);
+  }
+  .export-text10 {
+    color: rgba(0, 0, 0, 1);
+    height: auto;
+    flex-grow: 1;
+    font-size: 20px;
+    align-self: stretch;
+    font-style: ExtraBold;
+    text-align: center;
+    font-family: Heebo;
+    font-weight: 800;
+    line-height: 107.87500143051147%;
+    font-stretch: normal;
+    margin-right: 5px;
+    margin-bottom: 0;
+    text-decoration: none;
+  }
+  .export-text12 {
+    color: rgba(0, 0, 0, 1);
+    height: auto;
+    font-size: 20px;
+    align-self: auto;
+    font-style: ExtraBold;
+    text-align: center;
+    font-family: Heebo;
+    font-weight: 800;
+    line-height: 107.87500143051147%;
+    font-stretch: normal;
+    margin-right: 0;
+    margin-bottom: 0;
+    text-decoration: none;
+  }
+  .export-cardcontent2 {
+    display: flex;
+    flex-direction: column;
+    padding: 12px 15px;
+    position: relative;
+    align-self: stretch;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) ;
+    align-items: center;
+    flex-shrink: 0;
+    border-color: rgba(227, 172, 120, 1);
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    justify-content: flex-end;
+    background-color: rgba(255, 255, 255, 1);
+  }
+  .export-cardcontent5 {
+    display: flex;
+    flex-direction: row;
+    padding: 12px 15px;
+    position: relative;
+    align-self: stretch;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) ;
+    align-items: center;
+    flex-shrink: 0;
+    border-color: rgba(227, 172, 120, 1);
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    justify-content: space-evenly;
+    background-color: rgba(255, 255, 255, 1);
+  }
+  .export-text14 {
+    color: rgba(0, 0, 0, 1);
+    height: auto;
+    font-size: 20px;
+    align-self: auto;
+    font-style: ExtraBold;
+    text-align: center;
+    font-family: Heebo;
+    font-weight: 800;
+    line-height: 107.87500143051147%;
+    font-stretch: normal;
+    margin-right: 5px;
+    margin-bottom: 0;
+    text-decoration: none;
+  }
+  .export-rectangle9 {
+    width: 21px;
+    height: 19px;
+    position: relative;
+    border-color: transparent;
+  }
+  .export-cardcontent3 {
+    display: flex;
+    padding: 12px 15px;
+    // flex-direction: column;
+    position: relative;
+    align-self: stretch;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) ;
+    align-items: center;
+    flex-shrink: 0;
+    border-color: rgba(227, 172, 120, 1);
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 15px;
+    justify-content: flex-end;
+    background-color: rgba(255, 255, 255, 1);
+  }
+  .export-cardcontent300 {
+    display: flex;
+    padding: 12px 15px;
+    flex-direction: column;
+    position: relative;
+    align-self: flex-end;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) ;
+    align-items: center;
+    flex-shrink: 0;
+    border-color: rgba(227, 172, 120, 1);
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 15px;
+    justify-content: flex-end;
+    background-color: rgba(255, 255, 255, 1);
+  }
+  .export-cardcontent30 {
+    display: flex;
+    flex-direction: row;
+    padding: 12px 15px;
+    position: relative;
+    align-self: stretch;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) ;
+    align-items: center;
+    flex-shrink: 0;
+    border-color: rgba(227, 172, 120, 1);
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 15px;
+    justify-content: flex-end;
+    background-color: rgba(255, 255, 255, 1);
+  }
+  .export-cardcontent4 {
+    display: flex;
+    padding: 12px 15px;
+    position: relative;
+    align-self: stretch;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) ;
+    align-items: center;
+    flex-shrink: 0;
+    border-color: rgba(227, 172, 120, 1);
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 15px;
+    justify-content: flex-end;
+    background-color: rgba(255, 255, 255, 1);
+  }
+  .export-cardcontent6 {
+    display: flex;
+    padding: 6px 9px;
+    position: relative;
+    align-self: stretch;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) ;
+    align-items: center;
+    flex-shrink: 0;
+    border-color: rgba(227, 172, 120, 1);
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 15px;
+    justify-content: flex-end;
+    background-color: rgba(255, 255, 255, 1);
+  }
+  .export-text16 {
+    color: rgba(0, 0, 0, 1);
+    height: auto;
+    font-size: 16px;
+    align-self: auto;
+    font-style: ExtraBold;
+    text-align: center;
+    font-family: Heebo;
+    font-weight: 800;
+    line-height: 107.87500143051147%;
+    font-stretch: normal;
+    margin-right: 5px;
+    margin-bottom: 0;
+    text-decoration: none;
+  }
+  .export-text161 {
+    color: rgba(0, 0, 0, 1);
+    height: auto;
+    font-size: 16px;
+    align-self: auto;
+    font-style: ExtraBold;
+    text-align: center;
+    font-family: Heebo;
+    font-weight: 800;
+    line-height: 107.87500143051147%;
+    font-stretch: normal;
+    margin-right: 5px;
+    margin-bottom: 0;
+    text-decoration: none;
+  }
+  .export-rectangle91 {
+    width: 21px;
+    height: 19px;
+    position: relative;
+    border-color: transparent;
+  }
+  .export-close {
+    bottom: 10px;
+    // left: calc(-110px/2);
+    width: 151px;
+    height: 52px;
+    display: flex;
+    padding: 0;
+    z-index: 1;
+    position: fixed;
+    align-self: auto;
+    box-sizing: border-box;
+    align-items: flex-start;
+    flex-shrink: 1;
+    border-color: transparent;
+    border-style: none;
+    border-width: 0;
+    margin-right: 0;
+    border-radius: 0px 0px 0px 0px;
+    margin-bottom: 0;
+    flex-direction: row;
+    justify-content: flex-start;
+    background-color: transparent;
+  }
+  .export-rectangle1 {
+    top: 0px;
+    left: 0px;
+    width: 151px;
+    height: 52px;
+    position: absolute;
+  }
+  .export-text18 {
+    top: 16px;
+    left: 19px;
+    color: rgba(255, 255, 255, 1);
+    width: 114px;
+    height: auto;
+    position: absolute;
+    font-size: 20px;
+    align-self: auto;
+    font-style: ExtraBold;
+    text-align: center;
+    font-family: Heebo;
+    font-weight: 800;
+    line-height: 107.87500143051147%;
+    font-stretch: normal;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+// @media(max-width: 479px) {
+//   .export-dataviewas {
+//     border-radius: 15%;
+//   }
+// }

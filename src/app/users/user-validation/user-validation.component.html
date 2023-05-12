@@ -1,0 +1,66 @@
+<div class="frame1-container">
+
+  <div class="frame1-frame1">
+    <img alt="BlueBack15" src="/assets/playground_assets/blueback15-ngn9-400w.png" class="frame1-blue-back" />
+    <img alt="GetPattern134" src="/assets/playground_assets/getpattern134-jw8dn-400w.png" class="frame1-get-pattern" />
+    <img alt="Rectangle41215" src="/assets/playground_assets/rectangle41215-9cwg-200h.png" class="frame1-rectangle4" />
+    <img alt="Speak120" src="/assets/playground_assets/speak120-sdd8.svg" class="frame1-speak" />
+    <img alt="Arrow122" src="/assets/playground_assets/arrow122-c7e7.svg" class="frame1-arrow" />
+    <span class="frame1-text">
+      <span class="frame1-text01">
+        <span>מוכנים</span>
+        <br />
+        <span></span>
+      </span>
+      <span class="frame1-text02"><span>?לעשות טוב</span></span>
+    </span>
+
+    <span class="frame1-text11">ברגעים אלו נשלח מסרון לסלולרי<br/>יש להזינו כאן</span>
+
+    <img src="/assets/playground_assets/back4448-v3lm.svg" alt="back4448" class="visits-back" (click)="this.back()" />
+
+    <!-- <span class="frame1-text06"><span>קוד אימות</span></span> -->
+    <!-- <span class="frame1-text08"><span>&lt; עדיין אין לי חשבון</span></span> -->
+    <input [(ngModel)]="this.signer.verifyCode" data-mask="000-000" class="frame1-text10" type="text" maxlength="6"
+      placeholder="000-000" (keypress)="isNumberKey($event);" />
+    <div class="frame1-cteen-logo">
+      <div class="frame1-group">
+        <img alt="Vector137" src="/assets/playground_assets/vector137-zh1m.svg" class="frame1-vector" />
+        <img alt="Vector138" src="/assets/playground_assets/vector138-tcnp.svg" class="frame1-vector01" />
+        <img alt="Vector139" src="/assets/playground_assets/vector139-xfp3.svg" class="frame1-vector02" />
+        <div class="frame1-group1">
+          <!-- teen -->
+          <img alt="Vector141" src="/assets/playground_assets/vector141-jjr.svg" class="frame1-vector03" />
+          <img alt="Vector142" src="/assets/playground_assets/vector142-qggd.svg" class="frame1-vector04" />
+          <img alt="Vector143" src="/assets/playground_assets/vector143-c50o.svg" class="frame1-vector05" />
+          <img alt="Vector144" src="/assets/playground_assets/vector144-07tm.svg" class="frame1-vector06" />
+        </div>
+      </div>
+      <div class="frame1-group3">
+        <!-- חבד נוער ישראל -->
+        <img alt="Vector146" src="/assets/playground_assets/vector146-5vs.svg" class="frame1-vector07" />
+        <img alt="Vector147" src="/assets/playground_assets/vector147-hgri.svg" class="frame1-vector08" />
+        <img alt="Vector148" src="/assets/playground_assets/vector148-lqcj.svg" class="frame1-vector09" />
+        <img alt="Vector149" src="/assets/playground_assets/vector149-nprc.svg" class="frame1-vector10" />
+        <img alt="Vector150" src="/assets/playground_assets/vector150-jln.svg" class="frame1-vector11" />
+        <img alt="Vector151" src="/assets/playground_assets/vector151-ezha.svg" class="frame1-vector12" />
+        <img alt="Vector152" src="/assets/playground_assets/vector152-wzrsg.svg" class="frame1-vector13" />
+        <img alt="Vector153" src="/assets/playground_assets/vector153-3wai.svg" class="frame1-vector14" />
+        <img alt="Vector154" src="/assets/playground_assets/vector154-nt2a.svg" class="frame1-vector15" />
+        <img alt="Vector155" src="/assets/playground_assets/vector155-5gnd.svg" class="frame1-vector16" />
+        <img alt="Vector156" src="/assets/playground_assets/vector156-agxf.svg" class="frame1-vector17" />
+        <img alt="Vector157" src="/assets/playground_assets/vector157-evfn.svg" class="frame1-vector18" />
+        <img alt="Vector158" src="/assets/playground_assets/vector158-9gar.svg" class="frame1-vector19" />
+        <img alt="Vector159" src="/assets/playground_assets/vector159-25um.svg" class="frame1-vector20" />
+      </div>
+    </div>
+    <img alt="Line11119" src="/assets/playground_assets/line11119-tyi7.svg" class="frame1-line1" />
+    <img alt="GetChessedLogo189" src="/assets/playground_assets/getchessedlogo189-qn61.svg"
+      class="frame1-get-chessed-logo" /> 
+    <div *ngIf="this.signer.mobile && this.signer.mobile.trim().length" class="frame1-group2">
+      <img alt="Rectangle11122" src="/assets/playground_assets/rectangle11122-mwn.svg" class="frame1-rectangle1" />
+      <button class="button-login" (click)="signIn()">!אני מוכנ/ה לעשות טוב</button>
+    </div>
+    <img alt="IMAGE11211" src="/assets/playground_assets/image11211-hf3-200w.png" class="frame1-i-m-a-g-e1" />
+  </div>
+</div>

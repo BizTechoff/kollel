@@ -1,0 +1,49 @@
+<div class="gallery" *ngIf="this.args">
+
+  <div class="top">
+    <mat-icon (click)="this.close()">close</mat-icon>
+      <mat-icon *ngIf="!remult.user?.isManager" (click)="this.download()">download</mat-icon>
+      <mat-icon *ngIf="!remult.user?.isManager" (click)="this.copy()">content_copy</mat-icon>
+    <div style="display: flex; flex-direction: row; align-items: center;">
+      <h2><span>{{ this.args.current?.branch?.name }}</span></h2>
+    </div>
+  </div>
+
+  <div class="middle">
+
+    <div class="center">
+      <ng-container *ngIf="this.args.current?.type?.id === 'video'">
+        <video class="gallery-media" oncontextmenu="return false;" crossorigin="anonymous" controlsList="nodownload"
+          autoplay>
+          <source [src]="this.args.current?.link">
+          Your browser does not support the video tag.
+        </video>
+      </ng-container>
+
+      <ng-container *ngIf="this.args.current?.type?.id === 'photo'">
+        <img class="gallery-media" oncontextmenu="return false;" crossorigin="anonymous"
+          [src]='this.args.current?.link'>
+      </ng-container>
+    </div>
+
+    <span>{{ this.args.current?.created | date:'HH:mm dd/MM/yyyy' }}</span>
+
+    <div class="nav">
+      <div *ngIf="this.args.media.length > 1" class="left">
+        <button mat-flat-button (click)="this.prev()">
+          <mat-icon>arrow_back_ios</mat-icon>
+        </button>
+      </div>
+
+      <div *ngIf="this.args.media.length > 1" class="rigth">
+        <button mat-flat-button (click)="this.next()">
+          <mat-icon>arrow_forward_ios</mat-icon>
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="bottom"></div>
+
+</div>

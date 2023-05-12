@@ -1,0 +1,133 @@
+:host {
+    display: contents;
+}
+
+.thanks-container {
+    min-height: 100vh;
+    background-image: url('/assets/bg.png');
+    // , url('/assets/bg.orange.png') ;
+    // opacity: 40%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+
+.thanks-thanks {
+    // width: 100%;
+    // height: 100%;
+    display: flex;
+    // padding: 10px;
+    overflow: hidden;
+    position: relative;
+    align-items: center;
+    flex-shrink: 0;
+    border-color: transparent;
+    border-radius: 2px;
+    flex-direction: column;
+    justify-content: center;
+    // background-color: rgba(255, 255, 255, 1);
+    // background-color: red;
+    // background-image: url('/assets/bg.blue.png');
+}
+
+.thanks-cteen-logo {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    align-self: stretch;
+    align-items: center;
+    flex-shrink: 0;
+    border-color: transparent;
+    margin-bottom: 10px;
+    justify-content: flex-end;
+}
+
+.thanks-frame21 {
+    display: flex;
+    padding: 10px;
+    position: relative;
+    align-items: center;
+    border-color: transparent;
+    justify-content: center;
+}
+
+.thanks-get-chessed-logo {
+    width: 161px;
+    height: 139px;
+    position: relative;
+}
+
+.thanks-frame22 {
+    display: flex;
+    padding: 10px;
+    position: relative;
+    flex-grow: 1;
+    align-self: stretch;
+    align-items: center;
+    border-color: transparent;
+    margin-bottom: 10px;
+    justify-content: center;
+}
+
+.thanks-clapping-hands-emoji-h161 {
+    width: auto;
+    height: auto;
+    position: relative;
+    flex-grow: 1;
+    align-self: stretch;
+    border-color: transparent;
+}
+
+.thanks-frame20 {
+    display: flex;
+    position: relative;
+    flex-grow: 1;
+    align-self: stretch;
+    align-items: center;
+    border-color: transparent;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.thanks-text {
+    color: rgba(227, 172, 120, 1);
+    height: auto;
+    font-size: 48px;
+    align-self: auto;
+    font-style: Black;
+    text-align: right;
+    font-family: Heebo;
+    font-weight: 900;
+    line-height: 107.87500143051147%;
+    font-stretch: normal;
+    margin-right: 0;
+    margin-bottom: 6px;
+    text-decoration: none;
+}
+
+.thanks-text1 {
+    color: rgba(227, 172, 120, 1);
+    height: auto;
+    font-size: 20px;
+    align-self: auto;
+    font-style: Regular;
+    text-align: center;
+    font-family: Heebo;
+    font-weight: 400;
+    line-height: 107.87500143051147%;
+    font-stretch: normal;
+    margin-right: 0;
+    margin-bottom: 0;
+    text-decoration: none;
+}
+
+//   @media(max-width: 479px) {
+//     .thanks-text {
+//       color: rgb(227, 172, 120);
+//       font-size: 48px;
+//       font-family: Heebo;
+//       font-weight: 900;
+//       line-height: 107.875%;
+//       text-decoration: none;
+//     }
+//   }

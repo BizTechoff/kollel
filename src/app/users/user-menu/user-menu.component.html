@@ -1,0 +1,134 @@
+<div class="menu-container">
+  <div class="menu-menu">
+    <img src="/assets/playground_assets/vector4426-ao9.svg" alt="Vector4426" class="menu-vector" />
+    <div class="menu-mainlayout">
+      <div class="menu-top">
+        <div class="menu-cteen-logo">
+          <div class="menu-logo">
+            <div class="menu-cteen">
+              <div class="menu-carea">
+                <img src="/assets/playground_assets/cbg4428-6k6a.svg" alt="cbg4428" class="menu-cbg" />
+                <img src="/assets/playground_assets/c4428-9dj.svg" alt="c4428" class="menu-c" />
+              </div>
+              <div class="menu-teenarea">
+                <img src="/assets/playground_assets/teenbg4428-vgo.svg" alt="teenbg4428" class="menu-teenbg" />
+                <div class="menu-teen">
+                  <img src="/assets/playground_assets/vector4428-1nkq.svg" alt="Vector4428" class="menu-vector1" />
+                  <img src="/assets/playground_assets/vector4428-rrta.svg" alt="Vector4428" class="menu-vector2" />
+                  <img src="/assets/playground_assets/vector4428-tgjo.svg" alt="Vector4428" class="menu-vector3" />
+                  <img src="/assets/playground_assets/vector4428-ngwf.svg" alt="Vector4428" class="menu-vector4" />
+                </div>
+              </div>
+            </div>
+            <div class="menu-amutaname">
+              <img src="/assets/playground_assets/frame34429-cev.svg" alt="Frame34429" class="menu-frame3" />
+              <img src="/assets/playground_assets/frame24429-1764.svg" alt="Frame24429" class="menu-frame2" />
+              <img src="/assets/playground_assets/frame14430-cils.svg" alt="Frame14430" class="menu-frame1" />
+            </div>
+          </div>
+        </div>
+        <div> 
+          <img src="/assets/Logo Colel Chabad.png" alt="Frame14430" class="chabad-colel-logo" />
+          <img src="/assets/playground_assets/chabadLogo.svg" alt="Frame14430" class="chabad-get-chessed-logo" />
+        </div>
+        <app-branch-group></app-branch-group>
+        <div class="menu-userinfo">
+          <span class="menu-text"><span>{{ remult.user?.name }}</span></span>
+          <div class="menu-location">
+            <span class="menu-text02"><span>{{ remult.user?.isAdmin?'':remult.user?.isDonor?'':'רכז' }} סניף {{
+                remult.user?.branchName }}</span></span>
+            <img src="/assets/playground_assets/locationicon4431-mwai.svg" alt="locationicon4431"
+              class="menu-locationicon" />
+          </div>
+        </div>
+      </div>
+      <div class="menu-center">
+        <div *ngIf="remult.user?.isManager" class="menu-visits" (click)="this.visits()">
+          <img src="/assets/playground_assets/image14536-ve6-200w.png" alt="IMAGE14536" class="menu-i-m-a-g-e1" />
+          <span class="menu-text04">
+            <span class="menu-text05">רשימת</span>
+            <span> דיווחים</span>
+          </span>
+        </div>
+        <div style="display: flex; flex-direction: row; justify-content: space-evenly; ">
+          <div *ngIf="remult.user?.isManager" class="menu-tenants" (click)="this.volunteers()">
+            <img src="/assets/playground_assets/volunteers.png" alt="IMAGE24536" class="menu-i-m-a-g-e2" />
+            <span class="menu-text07">
+              <span class="menu-text08">רשימת</span>
+              <span> מתנדבים</span>
+            </span>
+          </div>
+          <div *ngIf="remult.user?.isManager" class="menu-tenants" (click)="this.tenants()">
+            <img src="/assets/playground_assets/image24536-blef-200w.png" alt="IMAGE24536" class="menu-i-m-a-g-e2" />
+            <span class="menu-text07">
+              <span class="menu-text08">רשימת</span>
+              <span> דיירים</span>
+            </span>
+          </div>
+        </div>
+        <div class="menu-chart" (click)="this.chart()">
+          <img src="/assets/playground_assets/image14537-te5f-200h.png" alt="IMAGE14537" class="menu-i-m-a-g-e11" />
+          <span class="menu-text10">
+            <span class="menu-text11">מצב</span>
+            <span> נוכחי</span>
+          </span>
+        </div>
+        <div *ngIf="remult.user?.isAdmin" class="menu-chart" (click)="this.managers()">
+          <img src="/assets/playground_assets/shluchim.png" alt="IMAGE14537" class="menu-i-m-a-g-e11" />
+          <span class="menu-text10">
+            <span class="menu-text11">רכזים</span>
+          </span>
+        </div>
+        <div *ngIf="remult.user?.isAdmin" class="menu-chart" (click)="this.branches()">
+          <img src="/assets/playground_assets/branches.png" alt="IMAGE14537" class="menu-i-m-a-g-e11" />
+          <span class="menu-text10">
+            <span class="menu-text11">סניפים</span>
+          </span>
+        </div>
+        <div *ngIf="remult.user?.isAdmin" class="menu-chart" (click)="this.news()">
+          <img src="/assets/playground_assets/news.svg" alt="IMAGE14537" class="menu-i-m-a-g-e11" />
+          <span class="menu-text10">
+            <span class="menu-text11">הודעות הנהלה</span>
+          </span>
+        </div>
+        <div *ngIf="remult.user?.isAdmin" class="menu-chart" (click)="this.weeklyQuestion()">
+          <img src="/assets/playground_assets/help.svg" alt="IMAGE14537" class="menu-i-m-a-g-e11" />
+          <span class="menu-text10">
+            <span class="menu-text11">שאלת השבוע</span>
+          </span>
+        </div>
+        <div class="menu-chart" (click)="this.album()">
+          <img src="/assets/playground_assets/album.book.svg" alt="IMAGE14537" class="menu-i-m-a-g-e11" />
+          <span class="menu-text10">
+            <span class="menu-text11">אלבום</span>
+            <span> תמונות</span>
+          </span>
+        </div>
+        <div class="menu-chart" (click)="this.export()">
+          <img src="/assets/playground_assets/excel.svg" alt="IMAGE14537" class="menu-i-m-a-g-e11" />
+          <span class="menu-text10">
+            <span class="menu-text11">דוח דיווחים</span>
+          </span> 
+        </div>
+        <!-- <div class="menu-tenants" (click)="this.test()">
+          <img
+            src="/assets/playground_assets/image24536-blef-200w.png"
+            alt="IMAGE24536"
+            class="menu-i-m-a-g-e2"
+          />
+          <span class="menu-text07">
+            <span class="menu-text08">טסטים</span>
+          </span>
+        </div> -->
+      </div>
+      <div class="menu-frame27" (click)="this.logout()">
+        <div class="menu-exit">
+          <span class="menu-text13"><span>יציאה</span></span>
+        </div>
+      </div>
+      <div style="align-self: flex-start;">
+        <span>v:{{ terms.appVersion }}</span>
+      </div>
+    </div>
+  </div>
+</div>

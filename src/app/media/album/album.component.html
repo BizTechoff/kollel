@@ -1,0 +1,190 @@
+<div class="album-container">
+    <div class="album-album">
+        <div class="album-top">
+            <div class="album-cteen-logo" (click)="this.rootmenu()">
+                <div class="album-logo">
+                    <div class="album-cteen">
+                        <div class="album-carea">
+                            <img src="/assets/playground_assets/cbg8061-ql4.svg" alt="cbg8061" class="album-cbg" />
+                            <img src="/assets/playground_assets/c8062-rwc.svg" alt="c8062" class="album-c" />
+                        </div>
+                        <div class="album-teenarea">
+                            <img src="/assets/playground_assets/teenbg8064-v4f2.svg" alt="teenbg8064"
+                                class="album-teenbg" />
+                            <div class="album-teen">
+                                <img src="/assets/playground_assets/vector8066-v7x.svg" alt="Vector8066"
+                                    class="album-vector" />
+                                <img src="/assets/playground_assets/vector8067-o9y.svg" alt="Vector8067"
+                                    class="album-vector1" />
+                                <img src="/assets/playground_assets/vector8068-yhro.svg" alt="Vector8068"
+                                    class="album-vector2" />
+                                <img src="/assets/playground_assets/vector8069-g6si.svg" alt="Vector8069"
+                                    class="album-vector3" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="album-amutaname">
+                        <img src="/assets/playground_assets/frame38071-hsp4.svg" alt="Frame38071"
+                            class="album-frame3" />
+                        <img src="/assets/playground_assets/frame28077-t2g.svg" alt="Frame28077" class="album-frame2" />
+                        <img src="/assets/playground_assets/frame18083-wz0r.svg" alt="Frame18083"
+                            class="album-frame1" />
+                    </div>
+                </div>
+            </div>
+            <div> 
+              <img src="/assets/Logo Colel Chabad.png" alt="Frame14430" class="chabad-colel-logo" />
+              <img src="/assets/playground_assets/chabadLogo.svg" alt="Frame14430" class="chabad-get-chessed-logo" />
+            </div>
+            <app-branch-group (groupChanged)="this.groupChanged()"></app-branch-group>
+            <div class="album-userinfo">
+                <span class="album-text"><span>{{ remult.user?.name }}</span></span>
+                <div class="album-location">
+                    <span class="album-text02"><span>{{ remult.user?.isAdmin?'':remult.user?.isDonor?'':'רכז' }} סניף {{
+                            remult.user?.branchName }}</span></span>
+                    <img src="/assets/playground_assets/locationicon8092-tdx.svg" alt="locationicon8092"
+                        class="album-locationicon" />
+                </div>
+            </div>
+        </div>
+        <div class="album-nav">
+
+            <div *ngIf="this.remult.user?.isManager" style="display: flex;">
+                <!-- upload to branch-profile -->
+                <label for="uploadImage" style="display: flex; align-items: center;">
+                    <img src="/assets/playground_assets/upload8013-fkng.svg" alt="upload8013" class="album-upload" />
+                </label>
+                <input excludeAcceptAllOption=true #fileInput type="file" (input)="onFileInput($event, 'profile')"
+                    accept="audio/mp3,video/mp4,video/avi,image/png,image/jpg,image/jpeg" id="uploadImage"
+                    style="display:none" />
+
+                <div style="box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25); display: flex;">
+                    <button (click)="this.uploadText()"
+                        style="margin-top: 5px; color: rgba(38, 195, 234, 1); border-radius: 15px; background-color: white; border: none;">
+                        <mat-icon style="font-size:18px; height:12px; width:12px;">edit_note</mat-icon>
+                    </button>
+                </div>
+            </div>
+
+            <!-- <img src="/assets/playground_assets/upload8013-fkng.svg" alt="upload8013" class="album-upload" (click)="this.upload()" /> -->
+            <span class="album-text04"><span>אלבום</span></span>
+            <img src="/assets/playground_assets/back8095-8h4a.svg" alt="back8095" class="album-back"
+                (click)="this.back()" />
+        </div>
+        <div>
+            <div *ngFor="let b of this.media">
+                <div class="album-crad">
+                    <div class="album-title">
+                        <span class="album-text080">
+                            <span>{{ b.last? 'עדכון אחרון: ' + (b.last | date:'HH:mm dd/MM/yyyy') : '' }}</span>
+                        </span>
+                        <span class="album-text08"><span>{{ b.branch? b.branch.name : '' }}</span></span>
+                    </div>
+                    <ul class="image-gallery">
+                        <li *ngFor="let m of b.media" (click)="this.mediaClicked(b.branch, m)">
+
+                            <ng-container *ngIf="m.type.id === 'video'">
+                                <mat-icon class="overlay-options">play_circle</mat-icon>
+                                <!-- <span class="overlay-date">{{ m.created | date:'HH:mm dd/MM/yyyy' }}</span> -->
+                                <video oncontextmenu="return false;" crossorigin="anonymous" controlsList="nodownload">
+                                    <source [src]="m.link">
+                                    <!-- <source [src]="m.link + '#t=1'"> -->
+                                    Your browser does not support the video tag.
+                                </video>
+                                <!-- <mat-icon class="overlay-options">videocam</mat-icon> -->
+                            </ng-container>
+
+                            <ng-container *ngIf="m.type.id === 'photo'">
+                                <!-- <span class="overlay-date">{{ m.created | date:'HH:mm dd/MM/yyyy' }}</span> -->
+                                <img oncontextmenu="return false;" crossorigin="anonymous" [src]='m.link'>
+                            </ng-container>
+
+                            <!-- <img [src]='m.link' alt="" loading="lazy"> -->
+                            <!-- <div class="overlay-options">
+                                    <span>{{ m.created | date:'dd/MM/yyyy' }}</span>
+                                    <div (click)="this.close()">
+                                        <mat-icon>close</mat-icon>
+                                    </div>
+                                </div>  -->
+                            <!-- <div class="overlay">
+                                <img [src]='m.link' alt="">
+                            </div> -->
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="album-actions">
+            <div class="album-group3" (click)="this.close()">
+                <img src="/assets/playground_assets/rectangle18012-0hg.svg" alt="Rectangle18012"
+                    class="album-rectangle1" />
+                <span class="album-text10"><span>סגור</span></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- other items here -->
+<!-- <div class="image-video" *ngIf="m.type.id === 'video'">
+                                <video oncontextmenu="return false;" crossorigin="anonymous" controls controlsList="nodownload">
+                                    <source [src]="m.link + '#t=1'">
+                                    Your browser does not support the video tag.
+                                </video> 
+                            </div>
+                            <div class="image-photo" *ngIf="m.type.id === 'photo'">
+                                <img oncontextmenu="return false;" crossorigin="anonymous" [src]='m.link'>
+                            </div>  -->
+<!-- <span *ngIf="!this.remult.user?.isManager">{{ b.branch.name }}</span> -->
+<!-- <div class="album-crad" *ngFor="let m of b.media">
+
+                    <ul class="image-gallery">
+                        <li>
+                          <img src="https://source.unsplash.com/VWcPlbHglYc" alt="" />
+                          <div class="overlay"><span>Image title</span></div>
+                        </li>
+                      </ul>
+
+                    <div class="album-mediacontainer" *ngIf="m.type.id === 'video'">
+                        <video *ngIf="this.remult.user?.isManager" oncontextmenu="return false;" crossorigin="anonymous" class="album-media" width="100%" controls controlsList="nodownload">
+                            <source [src]="m.link + '#t=1'">
+                            Your browser does not support the video tag.
+                        </video>
+                        <video *ngIf="!this.remult.user?.isManager" crossorigin="anonymous" class="album-media" width="100%" controls controlsList="nodownload">
+                            <source [src]="m.link + '#t=1'">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="album-mediacontainer" *ngIf="m.type.id === 'photo'">
+                        <img *ngIf="this.remult.user?.isManager" oncontextmenu="return false;" crossorigin="anonymous" class="album-media" [src]='m.link' width="100%">
+                        <img *ngIf="!this.remult.user?.isManager" crossorigin="anonymous" class="album-media" [src]='m.link' width="100%">
+                    </div> 
+                </div> -->
+<!-- <div class="album">
+    <div class="card" *ngFor="let m of this.media">
+        <span class="title" *ngIf="m.branch">{{ m.branch.name }} | {{ m.created | date:'dd/MM/yyyy' }}</span>
+        <span>{{ m.type.id }} | {{ MediaType.video.id }} | {{ m.type === MediaType.video }}</span>
+        <div class="media-container" *ngIf="m.type.id === 'video'">
+            <video class="media" width="100%" controls>
+                <source [src]="m.link + '#t=1'">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="media-container" *ngIf="m.type.id === 'photo'">
+            <img class="media" [src]='m.link' width="100%">
+        </div>
+
+        <div *ngIf="m.type.includes('audio')">
+            <audio width="100%" controls>
+                <source [src]="img.link">
+                Your browser does not support the audio tag.
+            </audio>
+        </div>
+
+        <div *ngIf="!(m.type.includes('video') || m.type.includes('audio'))">
+            <img [src]='m.link' width="100%">
+        </div>
+    </div>
+</div> -->

@@ -1,0 +1,93 @@
+<div class="visits-container">
+  <div class="visits-visits">
+    <div class="visits-top">
+      <div class="visits-cteen-logo" (click)="this.rootmenu()">
+        <div class="visits-logo">
+          <div class="visits-cteen">
+            <div class="visits-carea">
+              <img src="/assets/playground_assets/cbg4444-ttw6.svg" alt="cbg4444" class="visits-cbg" />
+              <img src="/assets/playground_assets/c4444-v1kx.svg" alt="c4444" class="visits-c" />
+            </div>
+            <div class="visits-teenarea">
+              <img src="/assets/playground_assets/teenbg4444-bxy.svg" alt="teenbg4444" class="visits-teenbg" />
+              <div class="visits-teen">
+                <img src="/assets/playground_assets/vector4445-qh3.svg" alt="Vector4445" class="visits-vector" />
+                <img src="/assets/playground_assets/vector4445-xwap.svg" alt="Vector4445" class="visits-vector1" />
+                <img src="/assets/playground_assets/vector4445-ek14.svg" alt="Vector4445" class="visits-vector2" />
+                <img src="/assets/playground_assets/vector4445-uxs.svg" alt="Vector4445" class="visits-vector3" />
+              </div>
+            </div>
+          </div>
+          <div class="visits-amutaname">
+            <img src="/assets/playground_assets/frame34445-eg3.svg" alt="Frame34445" class="visits-frame3" />
+            <img src="/assets/playground_assets/frame24446-r68.svg" alt="Frame24446" class="visits-frame2" />
+            <img src="/assets/playground_assets/frame14446-pxkl.svg" alt="Frame14446" class="visits-frame1" />
+          </div>
+        </div>
+      </div>
+      <div> 
+        <img src="/assets/Logo Colel Chabad.png" alt="Frame14430" class="chabad-colel-logo" />
+        <img src="/assets/playground_assets/chabadLogo.svg" alt="Frame14430" class="chabad-get-chessed-logo" />
+      </div>
+      <app-branch-group (groupChanged)="this.groupChanged()"></app-branch-group>
+      <div class="visits-userinfo">
+        <span class="visits-text"><span>{{ this.remult.user?.name }}</span></span>
+        <div class="visits-location">
+          <span class="visits-text02">{{ remult.user?.isAdmin?'':remult.user?.isDonor?'':'רכז' }} סניף {{ this.remult.user?.branchName }}</span>
+          <img src="/assets/playground_assets/locationicon4447-a7.svg" alt="locationicon4447"
+            class="visits-locationicon" />
+        </div>
+      </div>
+    </div>
+    <div class="visits-nav">
+      <img alt="pastedImage" src="/assets/playground_assets/pastedimage-6vof.svg" class="visits-search"
+        (click)="this.search()" />
+      <div class="visits-title">
+        <span class="visits-text03"><span>סניפים</span></span>
+        <span class="visits-text05"><span>רשימת</span></span>
+      </div>
+      <img src="/assets/playground_assets/back4448-v3lm.svg" alt="back4448" class="visits-back" (click)="this.back()" />
+    </div>
+    <div class="visits-cards">
+      <div class="visits-cardtitle-totals">
+        <span class="visits-text09">סה"כ דיירים: {{  totals.tenants }}</span>
+        <span class="visits-text09">סה"כ מתנדבים: {{ totals.volunteers }}</span>
+      </div>
+      <div class="visits-cardcontent" *ngFor="let m of branches">
+        <div class="visits-cardtitle">
+          <div class="visits-tenantnameaddress">
+            <span class="visits-text07"><span>{{ m.name }}</span></span>
+            <div class="visits-privatedetails">
+              <div *ngIf="m.address" class="visits-addresscontainer">
+                <span class="visits-text09">{{ m.address }}</span>
+                <img src="/assets/playground_assets/location4452-yc8ah.svg" alt="location4452"
+                  class="visits-location1" />
+              </div>
+              <div *ngIf="m.group" class="visits-addresscontainer">
+                <span class="visits-text11"><span>{{ m.group.caption }}</span></span>
+                <img src="/assets/playground_assets/group.svg" alt="location4452"
+                  class="visits-location1" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <img src="/assets/playground_assets/sep4454-bwsr.svg" alt="sep4454" class="visits-sep" />
+        <div class="tenants-summary">
+            <span class="visits-text14">{{ 'מתנדבים: ' + m.volunteersCount }}</span>
+            <span class="visits-text14">{{ 'דיירים: ' + m.tenantsCount }}</span>
+          </div>
+          <span *ngIf="m.remark?.trim()!.length" class="visits-text15">
+            <span>הערה: {{ m.remark }}</span>
+          </span>
+          <div class="tenants-actions">
+            <img alt="delete1084" src="/assets/playground_assets/delete1084-uqps.svg" (click)="this.delete(m)"
+              class="tenants-delete" />
+            <img alt="edit1084" src="/assets/playground_assets/edit1084-xhhm.svg" (click)="this.edit(m.id)"
+              class="tenants-edit" />
+          </div>
+        <div class="visits-addtenant" (click)="this.addBranch()">
+          <img src="/assets/playground_assets/rectangle14454-mlr.svg" alt="Rectangle14454" class="visits-rectangle1" />
+          <span class="visits-text17"><span>הוספת סניף</span></span>
+        </div>
+      </div>
+    </div>

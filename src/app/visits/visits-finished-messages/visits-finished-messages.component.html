@@ -1,0 +1,187 @@
+<div class="frame-container">
+    <div class="frame-frame">
+      <img
+        src="/assets/playground_assets/blueback1327-tm5-400w.png"
+        alt="BlueBack1327"
+        class="frame-blue-back"
+      />
+      <img
+        src="/assets/playground_assets/getpattern1328-kn2l-400w.png"
+        alt="GetPattern1328"
+        class="frame-get-pattern"
+      />
+      <img
+        src="/assets/playground_assets/rectangle31329-q19d-200h.png"
+        alt="Rectangle31329"
+        class="frame-rectangle3"
+      />
+      <div class="frame-cteen-logo" (click)="this.rootmenu()">
+        <div class="frame-group">
+          <img
+            src="/assets/playground_assets/vector1332-097g.svg"
+            alt="Vector1332"
+            class="frame-vector"
+          />
+          <img
+            src="/assets/playground_assets/vector1333-ect.svg"
+            alt="Vector1333"
+            class="frame-vector01"
+          />
+          <img
+            src="/assets/playground_assets/vector1334-i2hd.svg"
+            alt="Vector1334"
+            class="frame-vector02"
+          />
+          <div>
+            <img
+              src="/assets/playground_assets/vector1336-uohr.svg"
+              alt="Vector1336"
+              class="frame-vector03"
+            />
+            <img
+              src="/assets/playground_assets/vector1337-sl4k.svg"
+              alt="Vector1337"
+              class="frame-vector04"
+            />
+            <img
+              src="/assets/playground_assets/vector1338-8w2c.svg"
+              alt="Vector1338"
+              class="frame-vector05"
+            />
+            <img
+              src="/assets/playground_assets/vector1339-ppeu.svg"
+              alt="Vector1339"
+              class="frame-vector06"
+            />
+          </div>
+        </div>
+        <div class="frame-group2">
+          <img
+            src="/assets/playground_assets/vector1341-6rbx.svg"
+            alt="Vector1341"
+            class="frame-vector07"
+          />
+          <img
+            src="/assets/playground_assets/vector1342-yqvd.svg"
+            alt="Vector1342"
+            class="frame-vector08"
+          />
+          <img
+            src="/assets/playground_assets/vector1343-5c57.svg"
+            alt="Vector1343"
+            class="frame-vector09"
+          />
+          <img
+            src="/assets/playground_assets/vector1344-y898.svg"
+            alt="Vector1344"
+            class="frame-vector10"
+          />
+          <img
+            src="/assets/playground_assets/vector1345-ah8m.svg"
+            alt="Vector1345"
+            class="frame-vector11"
+          />
+          <img
+            src="/assets/playground_assets/vector1346-lshk.svg"
+            alt="Vector1346"
+            class="frame-vector12"
+          />
+          <img
+            src="/assets/playground_assets/vector1347-qw1.svg"
+            alt="Vector1347"
+            class="frame-vector13"
+          />
+          <img
+            src="/assets/playground_assets/vector1348-9gwar.svg"
+            alt="Vector1348"
+            class="frame-vector14"
+          />
+          <img
+            src="/assets/playground_assets/vector1349-lb.svg"
+            alt="Vector1349"
+            class="frame-vector15"
+          />
+          <img
+            src="/assets/playground_assets/vector1350-plxm.svg"
+            alt="Vector1350"
+            class="frame-vector16"
+          />
+          <img
+            src="/assets/playground_assets/vector1351-q0ph.svg"
+            alt="Vector1351"
+            class="frame-vector17"
+          />
+          <img
+            src="/assets/playground_assets/vector1352-pv7h.svg"
+            alt="Vector1352"
+            class="frame-vector18"
+          />
+          <img
+            src="/assets/playground_assets/vector1353-icxg.svg"
+            alt="Vector1353"
+            class="frame-vector19"
+          />
+          <img
+            src="/assets/playground_assets/vector1354-zjmj.svg"
+            alt="Vector1354"
+            class="frame-vector20"
+          />
+        </div>
+      </div>
+      <div> 
+        <img src="/assets/Logo Colel Chabad.png" alt="Frame14430" class="chabad-colel-logo" />
+        <img src="/assets/playground_assets/chabadLogo.svg" alt="Frame14430" class="chabad-get-chessed-logo" />
+      </div>
+      <div class="frame-group3" (click)="this.saw()">
+        <img
+          src="/assets/playground_assets/rectangle11356-4p7.svg"
+          alt="Rectangle11356"
+          class="frame-rectangle1"
+        />
+        <span class="frame-text"><span>ראיתי</span></span>
+      </div>
+      <span class="frame-text02"><span> {{ remult.user?.name }} </span></span>
+      <div class="frame-group1">
+        <img
+          src="/assets/playground_assets/location1361-cseu.svg"
+          alt="location1361"
+          class="frame-location"
+        />
+        <span class="frame-text04"><span> {{ remult.user?.isAdmin?'':remult.user?.isDonor?'':'רכז' }} סניף {{ remult.user?.branchName }} </span></span>
+      </div>
+      <img (click)="this.back()"
+        src="/assets/playground_assets/frame1363-c1.svg"
+        alt="Frame1363"
+        class="frame-frame1"
+      />
+      <img
+        src="/assets/playground_assets/rectangle51366-bf7d.svg"
+        alt="Rectangle51366"
+        class="frame-rectangle5"
+      />
+      <img
+        src="/assets/playground_assets/rectangle61367-lthk.svg"
+        alt="Rectangle61367"
+        class="frame-rectangle6"
+      />
+      <span class="frame-text06"><span>{{ this.subject }}</span></span>
+      <span class="frame-text10">
+        <span>{{ this.message }}</span>
+      </span>
+      <span class="frame-text08"><span>:תשובתך</span></span>
+      <span class="frame-text12">
+        <textarea rows="10" maxlength="1000" class="feedback" [(ngModel)]="this.feedback"></textarea>
+      </span>
+      <img
+        src="/assets/playground_assets/line21370-3fw.svg"
+        alt="Line21370"
+        class="frame-line2"
+      />
+      <img
+        src="/assets/playground_assets/line31371-lh83.svg"
+        alt="Line31371"
+        class="frame-line3"
+      />
+    </div>
+  </div>
+  

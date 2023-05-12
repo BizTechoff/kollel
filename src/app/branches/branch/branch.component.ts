@@ -1,0 +1,55 @@
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { remult } from 'remult';
+import { RouteHelperService } from '../../common-ui-elements';
+import { UIToolsService } from '../../common/UIToolsService';
+import { terms } from '../../terms';
+import { UserMenuComponent } from '../../users/user-menu/user-menu.component';
+import { Branch } from '../branch';
+import { BranchesComponent } from '../branches/branches.component';
+import { BranchGroup } from '../branchGroup';
+
+@Component({
+  selector: 'app-branch',
+  templateUrl: './branch.component.html',
+  styleUrls: ['./branch.component.scss']
+})
+export class BranchComponent implements OnInit {
+
+  branch!: Branch
+  title = ''
+  constructor(
+    private routeHelper: RouteHelperService,
+    private route: ActivatedRoute,
+    private ui: UIToolsService) {
+  }
+  terms = terms;
+  remult = remult;
+  BranchGroup = BranchGroup
+
+  async ngOnInit(): Promise<void> {
+    let id = this.route.snapshot.paramMap.get('id') ?? '';
+    if (id?.trim().length) {
+      this.title= 'עדכון סניף'
+      this.branch = await remult.repo(Branch).findId(id)
+    }
+    else {
+      this.title= 'הוספת סניף חדש'
+      this.branch = remult.repo(Branch).create()
+    }
+  }
+
+  async save() {
+    await this.branch.save()
+    this.back()
+  }
+
+  back() {
+    this.routeHelper.navigateToComponent(BranchesComponent)
+  }
+
+  rootmenu() {
+    this.routeHelper.navigateToComponent(UserMenuComponent)
+  }
+
+}

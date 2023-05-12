@@ -1,0 +1,141 @@
+<div class="import-container">
+    <div class="import-import">
+        <div class="import-top">
+            <div class="import-cteen-logo" (click)="this.rootmenu()">
+                <div class="import-logo">
+                    <div class="import-cteen">
+                        <div class="import-carea">
+                            <img src="/assets/playground_assets/cbg1428-6pjg.svg" alt="cbg1428" class="import-cbg" />
+                            <img src="/assets/playground_assets/c1429-dpnn.svg" alt="c1429" class="import-c" />
+                        </div>
+                        <div class="import-teenarea">
+                            <img src="/assets/playground_assets/teenbg1421-svwe.svg" alt="teenbg1421"
+                                class="import-teenbg" />
+                            <div class="import-teen">
+                                <img src="/assets/playground_assets/vector1421-wenq.svg" alt="Vector1421"
+                                    class="import-vector" />
+                                <img src="/assets/playground_assets/vector1421-zhts.svg" alt="Vector1421"
+                                    class="import-vector1" />
+                                <img src="/assets/playground_assets/vector1421-flca.svg" alt="Vector1421"
+                                    class="import-vector2" />
+                                <img src="/assets/playground_assets/vector1421-mw78.svg" alt="Vector1421"
+                                    class="import-vector3" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="import-amutaname">
+                        <img src="/assets/playground_assets/frame31421-nmrh.svg" alt="Frame31421"
+                            class="import-frame3" />
+                        <img src="/assets/playground_assets/frame21422-vtpp.svg" alt="Frame21422"
+                            class="import-frame2" />
+                        <img src="/assets/playground_assets/frame11423-3sg.svg" alt="Frame11423"
+                            class="import-frame1" />
+                    </div>
+                </div>
+            </div>
+            <div> 
+              <img src="/assets/Logo Colel Chabad.png" alt="Frame14430" class="chabad-colel-logo" />
+              <img src="/assets/playground_assets/chabadLogo.svg" alt="Frame14430" class="chabad-get-chessed-logo" />
+            </div>
+            <div class="import-userinfo">
+                <span class="import-text"><span>{{ this.remult.user?.name }}</span></span>
+                <div class="import-location">
+                    <span class="import-text02"><span>{{ this.remult.user?.isAdmin?'':this.remult.user?.isDonor?'':'רכז'
+                            }} סניף {{
+                            this.remult.user?.branchName }}</span></span>
+                    <img src="/assets/playground_assets/locationicon1423-8f2c.svg" alt="locationicon1423"
+                        class="import-locationicon" />
+                </div>
+            </div>
+        </div>
+        <div class="import-nav">
+            <div>
+                <label for="uploadImage" style="display: flex; align-items: center;" id="openFileSelector">
+                    <img src="/assets/playground_assets/upload1424-9gen.svg" alt="upload1424" class="import-upload" />
+                </label>
+                <input excludeAcceptAllOption=true #fileInput type="file" (input)="onFileInput($event, 'profile')"
+                    accept="*.xlsx" id="uploadImage" style="display:none" />
+            </div>
+            <span class="import-text04"><span>העלאת קובץ דיירים</span></span>
+            <!-- <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <span class="import-text04"><span>העלאת קובץ דיירים</span></span>
+      <div>
+        <a href="https://eshel-app.s3.eu-central-1.amazonaws.com/excel/%D7%A8%D7%A9%D7%99%D7%9E%D7%AA+%D7%93%D7%99%D7%99%D7%A8%D7%99%D7%9D+%D7%9C%D7%A7%D7%9C%D7%99%D7%98%D7%94.xlsx">קובץ לדוגמא</a>
+      </div> 
+    </div> --> 
+            <img src="/assets/playground_assets/back1424-j39m.svg" alt="back1424" class="import-back"
+                (click)="this.back()" />
+        </div>
+        <div style="align-self: flex-start; padding-left: 5px;">
+            <a href="https://eshel-app.s3.eu-central-1.amazonaws.com/excel/%D7%A8%D7%A9%D7%99%D7%9E%D7%AA+%D7%93%D7%99%D7%99%D7%A8%D7%99%D7%9D+%D7%9C%D7%A7%D7%9C%D7%99%D7%98%D7%94.xlsx">קובץ לדוגמא</a>
+          </div> 
+        <div class="import-cards">
+            
+            <div class="import-crad">
+                <!-- <div class="import-title">
+                    <span class="import-text06"><span>{{ this.today | date:'dd/MM/yyyy' }}</span></span>
+                    <span class="import-text08"><span>{{ this.remult.user?.branchName }}</span></span>
+                </div> -->
+                <div class="import-data" style="overflow: auto;">
+                    <table dir="rtl" [width]="'100%'">
+                        <tr>
+                            <th>{{ 'שם' }}</th>
+                            <th>{{ 'כתובת' }}</th>
+                            <th>{{ 'טלפון' }}</th>
+                            <th>{{ 'תאריך לידה' }}</th>
+                            <th>{{ '' }}</th>
+                        </tr>
+                        <ng-container *ngFor="let r of rows" style="border: 1px solid red">
+                            <tr>
+                                <td contenteditable>{{ r.name }}</td>
+                                <td contenteditable>{{ r.address }}</td>
+                                <td contenteditable>{{ r.phone }}</td>
+                                <td contenteditable>{{ r.birthday }}</td>
+                                <td [style.text-align]="'center'"><mat-icon (click)="this.remove(r)">cancel</mat-icon>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="5" *ngIf="r.error.trim().length" [style.background-color]="r.color">{{
+                                    r.error }}</td>
+                            </tr>
+                        </ng-container>
+                        <tr>
+                            <td colspan="5">
+                                <button (click)="this.addRow()" style="width: 100%; background-color: rgba(38, 195, 234, 1);">
+                                    <mat-icon>add</mat-icon>
+                                </button>
+                            </td>
+                        </tr>
+                    </table>
+                    <!-- <tr><td>טען קובץ</td></tr> -->
+                    <!-- <table>
+                        <tr>
+                            <td rowspan="2">Column 1 Heading</td>
+                            <td colspan="3">Call Standard</td>
+                            <td rowspan="2">Column 3 Heading</td>
+                        </tr>
+                        <tr>
+                            <td>Flagged</td>
+                            <td>Percent</td>
+                            <td>Days</td>
+                        </tr>
+                        <tr>
+                            <td>Column 1 Value</td>
+                            <td>4</td>
+                            <td>1%</td>
+                            <td>6</td>
+                            <td>Column 3 Value</td>
+                        </tr>
+                    </table> -->
+                </div>
+            </div>
+        </div>
+        <div class="import-actions">
+            <div class="import-close" (click)="this.add()">
+                <img src="/assets/playground_assets/rectangle11426-zpys.svg" alt="Rectangle11426"
+                    class="import-rectangle1" />
+                <span class="import-text10"><span>קלוט</span></span>
+            </div>
+        </div>
+    </div>
+</div>

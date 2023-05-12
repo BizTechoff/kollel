@@ -1,0 +1,144 @@
+<div class="visit-container">
+  <div class="visit-visit">
+    <div class="visit-top">
+      <div class="visit-cteen-logo" (click)="this.rootmenu()">
+        <div class="visit-logo">
+          <div class="visit-cteen">
+            <div class="visit-carea">
+              <img src="/assets/playground_assets/cbg2021-tdn.svg" alt="cbg2021" class="visit-cbg" />
+              <img src="/assets/playground_assets/c2021-helg.svg" alt="c2021" class="visit-c" />
+            </div>
+            <div class="visit-teenarea">
+              <img src="/assets/playground_assets/teenbg2021-f1xl.svg" alt="teenbg2021" class="visit-teenbg" />
+              <div class="visit-teen">
+                <img src="/assets/playground_assets/vector2021-ifc.svg" alt="Vector2021" class="visit-vector" />
+                <img src="/assets/playground_assets/vector2021-0pb5.svg" alt="Vector2021" class="visit-vector1" />
+                <img src="/assets/playground_assets/vector2021-5ge8.svg" alt="Vector2021" class="visit-vector2" />
+                <img src="/assets/playground_assets/vector2021-ed2f.svg" alt="Vector2021" class="visit-vector3" />
+              </div>
+            </div>
+          </div>
+          <div class="visit-amutaname">
+            <img src="/assets/playground_assets/frame32021-0i479.svg" alt="Frame32021" class="visit-frame3" />
+            <img src="/assets/playground_assets/frame22021-2qb.svg" alt="Frame22021" class="visit-frame2" />
+            <img src="/assets/playground_assets/frame12021-kt5r.svg" alt="Frame12021" />
+          </div>
+        </div>
+      </div>
+      <div class="visit-userinfo">
+        <span class="visit-text"><span>{{ this.remult.user?.name }}</span></span>
+        <div class="visit-location">
+          <span class="visit-text02"><span>{{ remult.user?.isAdmin?'':remult.user?.isDonor?'':'רכז' }} סניף {{
+              this.remult.user?.branchName }}</span></span>
+          <img src="/assets/playground_assets/locationicon2021-pg78.svg" alt="locationicon2021"
+            class="visit-locationicon" />
+        </div>
+      </div>
+    </div>
+    <div class="visit-nav" style="background-image: url('/assets/playground_assets/visit.bg.png');">
+      <img (click)="this.back()" src="/assets/playground_assets/backarea2021-f5i.svg" alt="backarea2021"
+        class="visit-backarea" />
+      <span *ngIf="this.visit?.tenant"
+        style="font-size: xx-large; font-weight: bolder; background-color: transparent; color: white; stroke: rgba(38, 195, 234, 1); stroke-width: 5px;">{{
+        this.visit.tenant.name }}</span>
+        <span *ngIf="this.visit?.tenant"
+        style="font-size: large; font-weight: bolder; background-color: transparent; color: white; stroke: rgba(38, 195, 234, 1); stroke-width: 5px;">{{
+        this.visit.tenant.address }}</span>
+
+      <!-- upload to visit-profile -->
+      <label for="uploadImage" style="display: flex; align-items: center;">
+        <img src="/assets/playground_assets/upload2123-7rkq.svg" alt="upload2123" class="visit-upload" />
+      </label>
+      <input excludeAcceptAllOption=true #fileInput type="file" (input)="onFileInput($event, 'profile')"
+        accept="audio/mp3,video/mp4,video/avi,image/png,image/jpg,image/jpeg" id="uploadImage" style="display:none" />
+
+    </div>
+    <div class="visit-cards">
+      <div class="visit-cardcontent">
+        <div class="visit-frame14">
+          <div class="visit-visited" (click)="this.visited()" [style.borderWidth]="this.isVisited()?'1px':'0px'">
+            <img *ngIf="this.isVisited()" src="/assets/playground_assets/frame2022-n47q.svg" alt="Frame2022"
+              class="visit-frame" />
+            <div class="visit-frame20">
+              <div class="visit-frame24">
+                <img src="/assets/playground_assets/image12022-d77o-200w.png" alt="IMAGE12022"
+                  class="visit-i-m-a-g-e1" />
+              </div>
+              <div class="visit-frame22">
+                <span class="visit-text04"><span>ביקרתי</span></span>
+              </div>
+            </div>
+          </div>
+          <div class="visit-delivered" (click)="this.delivered()" [style.borderWidth]="this.isDelivered()?'1px':'0px'">
+            <img *ngIf="this.isDelivered()" src="/assets/playground_assets/frame2022-p2bn.svg" alt="Frame2022"
+              class="visit-frame1" />
+            <div class="visit-frame201">
+              <div class="visit-frame241">
+                <img src="/assets/playground_assets/paperbagi0212023-ql6-200w.png" alt="PaperBagI0212023"
+                  class="visit-paper-bag-i021" />
+              </div>
+              <div class="visit-frame221">
+                <span class="visit-text06"><span>מסרתי</span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="visit-frame17">
+          <div class="visit-frame15">
+            <img src="/assets/playground_assets/line42023-0at.svg" alt="Line42023" class="visit-line4" />
+          </div>
+          <div class="visit-frame6">
+            <div class="visit-addvolunteer">
+              <span class="visit-text08" (click)="this.selectVolunteers()"><span>:מתנדבים<mat-icon
+                    class="mat-icon-small-trim">edit</mat-icon></span></span>
+            </div>
+            <div *ngIf="this.volunteers" class="visit-volunteers">
+              <div class="visit-volunteer" *ngFor="let v of this.volunteers">
+                <img src="/assets/playground_assets/rectangle22023-bk8-200h.png" alt="Rectangle22023"
+                  class="visit-rectangle2" />
+                <span *ngIf="v.volunteer" class="visit-text10"><span>{{ v.volunteer.name }}</span></span>
+                <img *ngIf="v.volunteer" (click)="this.removeVolunteer(v.volunteer.id,v.volunteer.name)"
+                  src="/assets/playground_assets/removevolunteer2023-zasm.svg" alt="removevolunteer2023"
+                  class="visit-removevolunteer" />
+              </div>
+            </div>
+          </div>
+          <div class="visit-frame16">
+            <div style="display: flex; flex-direction: row; justify-content: right; align-items: center;">
+              <div (click)="this.save()"><mat-icon>save</mat-icon></div>
+              <div style="display: flex; flex-direction: column; justify-content: right; gap: 2px;">
+                <span class="visit-text12"><span>תשובת המתנדב לשאלה השבועית</span></span>
+                <input *ngIf="this.visit" [(ngModel)]="this.visit.volunteerWeeklyAnswer" placeholder="אין תשובה עדיין"
+                  style="text-align: right; border: none;" />
+                <span class="visit-text12"><span>הערה</span></span>
+                <input *ngIf="this.visit" [(ngModel)]="this.visit.remark" placeholder="אין הערה"
+                  style="text-align: right; border: none;" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="visit-actions">
+      <div class="visit-bottombar">
+        <img (click)="this.next()" src="/assets/playground_assets/next2022-7q7b.svg" alt="next2022"
+          class="visit-next" />
+
+        <!-- upload to branch-album -->
+        <!-- <label for="uploadImage" style="display: flex; align-items: center;">
+          <img src="/assets/playground_assets/upload2022-zhy1.svg" alt="upload2022" class="visit-upload1" />
+        </label>
+        <input multiple excludeAcceptAllOption=true #fileInput type="file" (input)="onFileInput($event, 'album')"
+          accept="audio/mp3,video/mp4,video/avi,image/png,image/jpg,image/jpeg" id="uploadImage" style="display:none" /> -->
+
+        <!-- <img (click)="this.uploadToBranch()"
+          src="/assets/playground_assets/upload2022-zhy1.svg"
+          alt="upload2022"
+          class="visit-upload1"
+        /> -->
+        <img (click)="this.prev()" src="/assets/playground_assets/prev2022-hke8.svg" alt="prev2022"
+          class="visit-prev" />
+      </div>
+    </div>
+  </div>
+</div>

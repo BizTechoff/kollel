@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg width='27' height='27' viewBox='0 0 27 27' fill='none' xmlns='http://www.w3.org/2000/svg'>
+<g clip-path='url(#clip0_1_493)' filter='url(#filter0_d_1_493)'>
+<path d='M13.5 4C8.25329 4 4 8.25329 4 13.5C4 18.7467 8.25329 23 13.5 23C18.7467 23 23 18.7467 23 13.5C23 8.2533 18.7467 4 13.5 4Z' fill='#23438E'/>
+<g clip-path='url(#clip1_1_493)'>
+<path d='M9.80818 8.28409H16.2848L15.4355 9.12225H9.80818C9.53666 9.12225 9.28943 9.23634 9.1098 9.4199C8.93016 9.60374 8.81896 9.85677 8.81896 10.1346V17.1494C8.81896 17.4273 8.93044 17.6803 9.1098 17.8642C9.28943 18.0477 9.53666 18.1618 9.80818 18.1618H16.6623C16.9338 18.1618 17.1811 18.0477 17.3607 17.8642C17.5403 17.6803 17.6515 17.4273 17.6515 17.1494V11.9163L18.4705 11.0835V17.1494C18.4705 17.6589 18.2671 18.1215 17.9396 18.4567C17.6121 18.7919 17.1598 19 16.6623 19H9.80818C9.3104 19 8.85842 18.7919 8.53089 18.4567C8.20336 18.1215 8 17.6586 8 17.1494V10.1346C8 9.6252 8.20336 9.16263 8.53089 8.82742C8.85842 8.49222 9.31067 8.28409 9.80818 8.28409' fill='white'/>
+<path d='M16.6178 8.86891L11.5857 14.019L13.119 15.5883L18.1512 10.4382L16.6178 8.86891Z' fill='white'/>
+<path fill-rule='evenodd' clip-rule='evenodd' d='M18.8532 8.99038L18.0326 8.15053C17.8367 7.95003 17.5158 7.95003 17.3199 8.15053L16.9636 8.51511L18.497 10.0844L18.8532 9.71954C19.0491 9.51903 19.0491 9.1906 18.8532 8.9901' fill='white'/>
+<path fill-rule='evenodd' clip-rule='evenodd' d='M10.8838 16.3068L11.065 15.365L11.2463 14.4232L11.9853 15.1794L12.7239 15.9354L11.8037 16.1209L10.8838 16.3068Z' fill='white'/>
+</g>
+</g>
+<defs>
+<filter id='filter0_d_1_493' x='0' y='0' width='27' height='27' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'>
+<feFlood flood-opacity='0' result='BackgroundImageFix'/>
+<feColorMatrix in='SourceAlpha' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0' result='hardAlpha'/>
+<feOffset/>
+<feGaussianBlur stdDeviation='2'/>
+<feComposite in2='hardAlpha' operator='out'/>
+<feColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0'/>
+<feBlend mode='normal' in2='BackgroundImageFix' result='effect1_dropShadow_1_493'/>
+<feBlend mode='normal' in='SourceGraphic' in2='effect1_dropShadow_1_493' result='shape'/>
+</filter>
+<clipPath id='clip0_1_493'>
+<rect width='19' height='19' fill='white' transform='translate(23 23) rotate(-180)'/>
+</clipPath>
+<clipPath id='clip1_1_493'>
+<rect width='11' height='11' fill='white' transform='translate(8 8)'/>
+</clipPath>
+</defs>
+</svg>

@@ -1,0 +1,784 @@
+:host { 
+    display: contents; 
+  }
+  .tenant-container {
+    min-height: 100vh;
+  }
+  .tenant-tenant {
+    width: 100%;
+    height: auto;
+    display: flex;
+    position: relative;
+    align-items: center;
+    flex-shrink: 0;
+    border-color: transparent;
+    flex-direction: column;
+    background-color: rgba(227, 172, 120, 1);
+  }
+  .tenant-top {
+    display: flex;
+    padding: 0 15px;
+    position: relative;
+    align-self: stretch;
+    align-items: center;
+    flex-shrink: 0;
+    border-color: transparent;
+    margin-bottom: 0px;
+    justify-content: space-between;
+    background-color: rgba(255, 255, 255, 1);
+  }
+  .tenant-cteen-logo {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    align-items: center;
+    border-color: transparent;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .chabad-colel-logo {
+    top: 45px;
+    left: 80px;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+  }
+  .chabad-get-chessed-logo {
+    top: 0px;
+    left: 80px;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+  }
+  .tenant-logo {
+    width: 63.48833084106445px;
+    height: 100.27965545654297px;
+    display: flex;
+    position: relative;
+    align-items: center;
+    flex-shrink: 0;
+    border-color: transparent;
+    flex-direction: column;
+  }
+  .tenant-cteen {
+    width: 63px;
+    height: 89.90325164794922px;
+    display: flex;
+    padding: 0;
+    position: relative;
+    align-self: auto;
+    box-sizing: border-box;
+    align-items: flex-start;
+    flex-shrink: 1;
+    border-color: transparent;
+    border-style: none;
+    border-width: 0;
+    margin-right: 0;
+    border-radius: 0px 0px 0px 0px;
+    margin-bottom: -5px;
+    flex-direction: row;
+    justify-content: flex-start;
+    background-color: transparent;
+  }
+  .tenant-carea {
+    top: 0px;
+    left: 0px;
+    width: 60px;
+    height: 67px;
+    display: flex;
+    padding: 0;
+    position: absolute;
+    align-self: auto;
+    box-sizing: border-box;
+    align-items: flex-start;
+    flex-shrink: 1;
+    border-color: transparent;
+    border-style: none;
+    border-width: 0;
+    border-radius: 0px 0px 0px 0px;
+    flex-direction: row;
+    justify-content: flex-start;
+    background-color: transparent;
+  }
+  .tenant-cbg {
+    top: 0px;
+    left: 0px;
+    width: 60px;
+    height: 67px;
+    position: absolute;
+  }
+  .tenant-c {
+    top: 7.59393310546875px;
+    left: 10.354217529296875px;
+    width: 39px;
+    height: 54px;
+    position: absolute;
+  }
+  .tenant-teenarea {
+    top: 59.2852783203125px;
+    left: 12.77813720703125px;
+    width: 50.7101936340332px;
+    height: 30.61797332763672px;
+    display: flex;
+    padding: 0;
+    position: absolute;
+    align-self: auto;
+    box-sizing: border-box;
+    align-items: flex-start;
+    flex-shrink: 1;
+    border-color: transparent;
+    border-style: none;
+    border-width: 0;
+    border-radius: 0px 0px 0px 0px;
+    flex-direction: row;
+    justify-content: flex-start;
+    background-color: transparent;
+  }
+  .tenant-teenbg {
+    top: 0px;
+    left: 0px;
+    width: 51px;
+    height: 31px;
+    position: absolute;
+  }
+  .tenant-teen {
+    top: 6.6272125244140625px;
+    left: 5.747833251953125px;
+    width: 39.34962463378906px;
+    height: 20.21885108947754px;
+    display: flex;
+    padding: 0;
+    position: absolute;
+    align-self: auto;
+    box-sizing: border-box;
+    align-items: flex-start;
+    flex-shrink: 1;
+    border-color: transparent;
+    border-style: none;
+    border-width: 0;
+    border-radius: 0px 0px 0px 0px;
+    flex-direction: row;
+    justify-content: flex-start;
+    background-color: transparent;
+  }
+  .tenant-vector {
+    top: 1.5709927082061768px;
+    left: 0.0000010694303682612372px;
+    width: 8px;
+    height: 19px;
+    position: absolute;
+  }
+  .tenant-vector1 {
+    top: 3.201730728149414px;
+    left: 6.565080165863037px;
+    width: 11px;
+    height: 16px;
+    position: absolute;
+  }
+  .tenant-vector2 {
+    top: 1.6084747314453125px;
+    left: 17.249292373657227px;
+    width: 11px;
+    height: 16px;
+    position: absolute;
+  }
+  .tenant-vector3 {
+    top: -3.8355906895048975e-8px;
+    left: 27.523208618164062px;
+    width: 12px;
+    height: 16px;
+    position: absolute;
+  }
+  .tenant-amutaname {
+    width: 59.34217071533203px;
+    height: 6.678433418273926px;
+    display: flex;
+    position: relative;
+    align-items: center;
+    flex-shrink: 0;
+    border-color: transparent;
+    justify-content: flex-end;
+  }
+  .tenant-frame3 {
+    width: 20px;
+    height: 7px;
+    position: relative;
+    margin-right: 2px;
+  }
+  .tenant-frame2 {
+    width: 21px;
+    height: 7px;
+    position: relative;
+    margin-right: 2px;
+  }
+  .tenant-frame1 {
+    width: 15px;
+    height: 6px;
+    position: relative;
+  }
+  .tenant-userinfo {
+    display: flex;
+    position: relative;
+    align-items: flex-end;
+    border-color: transparent;
+    flex-direction: column;
+  }
+  .tenant-text {
+    color: rgba(35, 67, 142, 1);
+    height: auto;
+    font-size: 20px;
+    align-self: auto;
+    font-style: Black;
+    text-align: right;
+    font-family: Heebo;
+    font-weight: 900;
+    line-height: 107.87500143051147%;
+    font-stretch: normal;
+    margin-right: 0;
+    margin-bottom: 6px;
+    text-decoration: none;
+  }
+  .tenant-location {
+    display: flex;
+    padding: 2px 4px;
+    position: relative;
+    align-items: flex-start;
+    border-color: transparent;
+    background-color: rgba(227, 172, 120, 1);
+  }
+  .tenant-text02 {
+    color: rgba(255, 255, 255, 1);
+    height: auto;
+    font-size: 14px;
+    align-self: auto;
+    font-style: Medium;
+    text-align: right;
+    font-family: Heebo;
+    font-weight: 500;
+    line-height: 107.87500143051147%;
+    font-stretch: normal;
+    margin-right: 6px;
+    margin-bottom: 0;
+    text-decoration: none;
+  }
+  .tenant-locationicon {
+    width: 11px;
+    height: 14px;
+    position: relative;
+  }
+  .tenant-nav {
+    height: 151;
+    display: flex;
+    padding: 8px 0 8px 10px;
+    position: relative;
+    align-self: stretch;
+    align-items: flex-start;
+    flex-shrink: 0;
+    border-color: transparent;
+    margin-bottom: 0px;
+    justify-content: flex-end;
+    background-color: rgba(38, 195, 234, 1);
+  }
+  .tenant-backarea {
+    top: 0;
+    right: 0;
+    width: auto;
+    height: auto;
+    position: absolute;
+  }
+  .tenant-cards {
+    display: flex;
+    padding: 20px 50px;
+    position: relative;
+    flex-grow: 1;
+    align-self: stretch;
+    align-items: center;
+    border-color: transparent;
+    flex-direction: column;
+  }
+  .tenant-cardcontent {
+    // top: -50;
+    width: 290px;
+    height: 400px;
+    display: flex;
+    padding: 10px 15px;
+    position: relative;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) ;
+    align-items: flex-end;
+    flex-shrink: 0;
+    border-color: transparent;
+    border-radius: 15px;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 1);
+  }
+  .mat-icon-small-trim{
+    width: 10px; 
+    height: 10px; 
+    font-size: small;
+    color: rgba(227, 172, 120, 1);
+    // vertical-align: top;
+  }
+  .tenant-upload {
+    display: flex;
+    // justify-content: center;
+    width: 38px;
+    height: 38px;
+    position: relative;
+    // padding: 10px;
+    // padding-right: 200px;
+    // background-color: red;
+    // align-items: center;
+    align-self: flex-start;
+    justify-content: center;
+    // align-content: center;
+    // text-align: center;
+    // margin-bottom: 7px;
+  }
+  .tenant-cardtitle {
+    width: 255px;
+    display: flex;
+    padding: 5px 0;
+    z-index: 1;
+    position: relative;
+    align-items: center;
+    flex-shrink: 0;
+    border-color: transparent;
+    margin-bottom: 7px;
+    justify-content: flex-end;
+  }
+  .tenant-tenantnameaddress {
+    width: 255px;
+    display: flex;
+    position: relative;
+    flex-grow: 1;
+    align-items: flex-end;
+    flex-shrink: 0;
+    border-color: transparent;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .tenant-name {
+    color: rgba(38, 195, 234, 1);
+    height: auto;
+    font-size: 20px;
+    align-self: stretch;
+    font-style: Bold;
+    text-align: right;
+    font-family: Heebo;
+    font-weight: 700;
+    line-height: 107.87500143051147%;
+    font-stretch: normal;
+    margin-right: 0;
+    margin-bottom: 2px;
+    text-decoration: none;
+    border: none;
+  }
+  .tenant-address {
+    display: flex;
+    padding: 2px 5px;
+    position: relative;
+    align-items: flex-start;
+    border-color: transparent;
+    background-color: rgba(227, 172, 120, 1);
+  }
+  .tenant-address1 {
+    color: rgba(255, 255, 255, 1);
+    height: auto;
+    font-size: 14px;
+    align-self: auto;
+    font-style: Medium;
+    text-align: right;
+    font-family: Heebo;
+    font-weight: 500;
+    line-height: 107.87500143051147%;
+    font-stretch: normal;
+    margin-right: 6px;
+    margin-bottom: 0;
+    text-decoration: none;
+  }
+  .tenant-location1 {
+    width: 11px;
+    height: 14px;
+    position: relative;
+  }
+  .tenant-sep {
+    width: 260px;
+    height: 0px;
+    z-index: 2;
+    position: relative;
+    align-self: stretch;
+    margin-bottom: 7px;
+  }
+  .tenant-frame6 {
+    display: flex;
+    z-index: 3;
+    position: relative;
+    align-items: flex-end;
+    border-color: transparent;
+    margin-bottom: 7px;
+    flex-direction: column;
+  }
+  .tenant-addvolunteer {
+    width: 260px;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    align-items: center;
+    flex-shrink: 0;
+    border-color: transparent;
+    margin-bottom: 0px;
+    justify-content: flex-end;
+  }
+  .tenant-text06 {
+    color: rgba(38, 195, 234, 1);
+    height: auto;
+    font-size: 14px;
+    align-self: auto;
+    font-style: Bold;
+    text-align: right;
+    font-family: Heebo;
+    font-weight: 700;
+    line-height: 107.87500143051147%;
+    font-stretch: normal;
+    margin-right: 0;
+    margin-bottom: 0;
+    text-decoration: none;
+  }
+  .tenant-volunteers {
+    width: 260px;
+    display: flex;
+    padding: 10px 0;
+    overflow: hidden;
+    position: relative;
+    align-items: center;
+    flex-shrink: 0;
+    border-color: transparent;
+    justify-content: flex-end;
+  }
+  .tenant-volunteer {
+    width: 115px;
+    height: 20px;
+    display: flex;
+    padding: 0;
+    position: relative;
+    align-self: auto;
+    box-sizing: border-box;
+    align-items: flex-start;
+    flex-shrink: 1;
+    border-color: transparent;
+    border-style: none;
+    border-width: 0;
+    margin-right: 0;
+    border-radius: 0px 0px 0px 0px;
+    margin-bottom: 0;
+    flex-direction: row;
+    justify-content: flex-start;
+    background-color: transparent;
+  }
+  .tenant-rectangle2 {
+    top: 0px;
+    left: 0px;
+    width: 114px;
+    height: 20px;
+    position: absolute;
+    border-color: transparent;
+  }
+  .tenant-volunteer-name {
+    top: 3px;
+    left: 9px;
+    color: rgba(255, 255, 255, 1);
+    height: auto;
+    position: absolute;
+    font-size: 14px;
+    align-self: auto;
+    font-style: Medium;
+    text-align: right;
+    font-family: Heebo;
+    font-weight: 500;
+    line-height: 107.87500143051147%;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .tenant-removevolunteer {
+    top: 0px;
+    left: 102px;
+    width: 13px;
+    height: 13px;
+    position: absolute;
+  }
+  .news-content{
+    width: 100%;
+    height: 100%;
+    direction: rtl;
+  }
+  .tenant-sep2 {
+    width: 260px;
+    height: 5px;
+    z-index: 4;
+    position: relative;
+    align-self: stretch;
+    margin-bottom: 7px;
+  }
+  .tenant-selectbirthday {
+    display: flex;
+    // padding: 10px 0;
+    z-index: 5;
+    position: relative;
+    align-self: stretch;
+    align-items: center;
+    flex-shrink: 0;
+    border-color: transparent;
+    // margin-bottom: 7px;
+    justify-content: flex-end;
+  }
+  .tenant-birthday {
+    color: rgba(38, 195, 234, 1);
+    height: auto;
+    font-size: 14px;
+    align-self: auto;
+    font-style: Regular;
+    text-align: right;
+    font-family: Heebo;
+    font-weight: 400;
+    line-height: 107.87500143051147%;
+    font-stretch: normal;
+    margin-right: 10px;
+    margin-bottom: 0;
+    text-decoration: none;
+    // align-content: center;
+    text-align: center;
+    // vertical-align: bottom;
+    // ali
+    border: none;
+  }
+  .tenant-text09 {
+    color: rgba(38, 195, 234, 1);
+    height: auto;
+    font-size: 14px;
+    align-self: auto;
+    font-style: Bold;
+    text-align: right;
+    font-family: Heebo;
+    font-weight: 700;
+    line-height: 107.87500143051147%;
+    font-stretch: normal;
+    margin-right: 0;
+    margin-bottom: 0;
+    text-decoration: none;
+  }
+  .tenant-sep21 {
+    width: 260px;
+    height: 0px;
+    z-index: 6;
+    position: relative;
+    align-self: stretch;
+    margin-bottom: 7px;
+  }
+  .tenant-selectgoremmafne {
+    display: flex;
+    padding: 10px 0;
+    z-index: 7;
+    position: relative;
+    align-self: stretch;
+    align-items: flex-start;
+    flex-shrink: 0;
+    border-color: transparent;
+    margin-bottom: 7px;
+    justify-content: flex-end;
+  }
+  .tenant-goremmafne {
+    color: rgba(38, 195, 234, 1);
+    height: auto;
+    font-size: 14px;
+    align-self: auto;
+    font-style: Regular;
+    text-align: right;
+    font-family: Heebo;
+    font-weight: 400;
+    line-height: 107.87500143051147%;
+    font-stretch: normal;
+    margin-right: 10px;
+    margin-bottom: 0;
+    text-decoration: none;
+  }
+  .tenant-text12 {
+    color: rgba(38, 195, 234, 1);
+    height: auto;
+    font-size: 14px;
+    align-self: auto;
+    font-style: Bold;
+    text-align: right;
+    font-family: Heebo;
+    font-weight: 700;
+    line-height: 107.87500143051147%;
+    font-stretch: normal;
+    margin-right: 0;
+    margin-bottom: 0;
+    text-decoration: none;
+  }
+  .tenant-sep22 {
+    width: 260px;
+    height: 0px;
+    z-index: 8;
+    position: relative;
+    align-self: stretch;
+    margin-bottom: 7px;
+  }
+  .tenant-selectlanguage {
+    display: flex;
+    padding: 10px 0;
+    z-index: 9;
+    position: relative;
+    align-self: stretch;
+    align-items: flex-start;
+    flex-shrink: 0;
+    border-color: transparent;
+    margin-bottom: 7px;
+    justify-content: flex-end;
+  }
+  .tenant-languages {
+    color: rgba(38, 195, 234, 1);
+    height: auto;
+    font-size: 14px;
+    align-self: auto;
+    font-style: Regular;
+    text-align: right;
+    font-family: Heebo;
+    font-weight: 400;
+    line-height: 107.87500143051147%;
+    font-stretch: normal;
+    margin-right: 10px;
+    margin-bottom: 0;
+    text-decoration: none;
+  }
+  .tenant-text15 {
+    color: rgba(38, 195, 234, 1);
+    height: auto;
+    font-size: 14px;
+    align-self: auto;
+    font-style: Bold;
+    text-align: right;
+    font-family: Heebo;
+    font-weight: 700;
+    line-height: 107.87500143051147%;
+    font-stretch: normal;
+    margin-right: 0;
+    margin-bottom: 0;
+    text-decoration: none;
+  }
+  .tenant-line7 {
+    width: 260px;
+    height: 0px;
+    z-index: 10;
+    position: relative;
+    align-self: stretch;
+    margin-bottom: 7px;
+  }
+  .tenant-frame10 {
+    display: flex;
+    // padding: 10px 0;
+    z-index: 11;
+    position: relative;
+    align-self: stretch;
+    align-items: flex-start;
+    flex-shrink: 0;
+    border-color: transparent;
+    margin-bottom: 7px;
+    justify-content: flex-end;
+  }
+  .tenant-text17 {
+    color: rgba(35, 67, 142, 1);
+    height: auto;
+    // flex-grow: 1;
+    font-size: 14px;
+    // align-self: auto;
+    font-style: Regular;
+    // text-align: right;
+    font-family: Heebo;
+    font-weight: 400;
+    line-height: 107.87500143051147%;
+    font-stretch: normal;
+    margin-right: 10px;
+    margin-bottom: 0;
+    text-decoration: none;
+    align-content: center;
+    text-align: center;
+    align-items: center;
+    align-self: center;
+  }
+  .tenant-text19 {
+    color: rgba(35, 67, 142, 1);
+    height: auto;
+    font-size: 14px;
+    align-self: auto;
+    font-style: Bold;
+    text-align: left;
+    font-family: Heebo;
+    font-weight: 700;
+    line-height: 107.87500143051147%;
+    font-stretch: normal;
+    margin-right: 0;
+    margin-bottom: 0;
+    text-decoration: none;
+  }
+  .tenant-back {
+    bottom: -30px;
+    left: 70px;
+    width: 151px;
+    height: 52px;
+    display: flex;
+    padding: 0;
+    z-index: 12;
+    position: absolute;
+    align-self: auto;
+    box-sizing: border-box;
+    align-items: flex-start;
+    flex-shrink: 1;
+    border-color: transparent;
+    border-style: none;
+    border-width: 0;
+    margin-right: 0;
+    border-radius: 0px 0px 0px 0px;
+    margin-bottom: 0;
+    flex-direction: row;
+    justify-content: flex-start;
+    background-color: transparent;
+  }
+  .tenant-rectangle1 {
+    top: 0px;
+    left: 0px;
+    width: 151px;
+    height: 52px;
+    position: absolute;
+  }
+  .tenant-text21 {
+    top: 16px;
+    left: 29px;
+    color: rgba(255, 255, 255, 1);
+    width: 99px;
+    height: auto;
+    position: absolute;
+    font-size: 20px;
+    align-self: auto;
+    font-style: ExtraBold;
+    text-align: center;
+    font-family: Heebo;
+    font-weight: 800;
+    line-height: 107.87500143051147%;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  @media(max-width: 479px) {
+    .tenant-tenant {
+      height: 667px;
+    }
+    .tenant-birthday {
+      color: rgb(38, 195, 234);
+      font-size: 14px;
+      font-family: Heebo;
+      font-weight: 400;
+      line-height: 107.875%;
+      text-decoration: none;
+    }
+  }
+  

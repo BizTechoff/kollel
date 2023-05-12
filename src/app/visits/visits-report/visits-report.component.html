@@ -1,0 +1,31 @@
+<div class="report">
+    <div class="header">
+        <div class="summary">
+            <span class="delivered">{{ 'נמסרו: ' + this.summary.delivered }}</span>
+            <span class="visited">{{ 'בוקרו: ' + this.summary.visited }}</span>
+            <span class="count">{{ 'נותרו: ' + this.summary.count }}</span>
+            <!-- {{ 'נותרו: ' + v.summary.count + ' | נמסרו: ' + v.summary.delivered + ' | בוקרו: ' + v.summary.visited }} -->
+        </div>
+        <hr/>
+        <!-- <div class="title"></div>
+        <div class="selector">
+            <div class="branch"></div>
+        </div> -->
+    </div>
+    <div class="data">
+        <div class="card" *ngFor="let v of this.visits">
+            <div class="branch">{{ v.branch }}</div>
+            <!-- <div class="visit" *ngFor="let r of v.rows">
+                {{ r.tenant.name }}
+            </div> -->
+            <div class="summary">
+                <span class="delivered">{{ 'נמסרו: ' + v.summary.delivered }}</span>
+                <span class="visited">{{ 'בוקרו: ' + v.summary.visited }}</span>
+                <span class="count">{{ 'נותרו: ' + v.summary.count }}</span>
+                <!-- {{ 'נותרו: ' + v.summary.count + ' | נמסרו: ' + v.summary.delivered + ' | בוקרו: ' + v.summary.visited }} -->
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+    </div>
+</div>

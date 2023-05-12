@@ -1,0 +1,15 @@
+<div style="width: 100%; display: flex; flex-direction: column; justify-content: space-between;" dir="rtl">
+    <div style="display: flex; justify-content: space-between;">
+        <span>הוספת טקסט כתמונה</span>
+        <span style="width: 50px;"></span>
+        <span>{{ this.args.text.length }} / {{ this.maxLength }}</span>
+    </div>
+    <div>
+        <textarea autofocus style="width: 100%; resize: none;" [(ngModel)]="this.args.text" rows="4"
+            [maxlength]="this.maxLength" aria-setsize="" placeholder="יש להזין את הטקסט כאן.."></textarea>
+    </div>
+    <div style="display: flex; justify-content: space-between;">
+        <button mat-flat-button color="accent" (click)="this.save()">שמור</button>
+        <button mat-flat-button (click)="this.close()">ביטול</button>
+    </div>
+</div>

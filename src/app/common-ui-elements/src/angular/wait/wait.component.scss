@@ -1,0 +1,28 @@
+// .html{
+//     background-image: url('/assets/logo.svg');
+// }
+.basic-container {
+    display: inline-block;
+    position: relative;
+}
+
+img {
+    max-width: 100%;
+    position: absolute;
+    max-height: 100%;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    clip-path: circle(45% at 50% 49%);
+}
+
+.avatar {
+    // background-color: transparent;
+    background: transparent url('/assets/logo.svg') no-repeat center center;
+    // animation: rotation 2s infinite linear !important;
+    // background-repeat: no-repeat;
+    // background-position: center;
+    background-size: 60%;
+    // width: 80px !important;;
+    // height: 80px !important;
+}

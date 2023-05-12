@@ -1,0 +1,80 @@
+<div *ngIf="this.manager" class="manager-container">
+  <div class="manager-manager">
+    <div class="manager-top">
+      <div class="manager-cteen-logo" (click)="this.rootmenu()">
+        <div class="manager-logo">
+          <div class="manager-cteen">
+            <div class="manager-carea">
+              <img src="/assets/playground_assets/cbg2031-4nxr.svg" alt="cbg2031" class="manager-cbg" />
+              <img src="/assets/playground_assets/c2031-yaft.svg" alt="c2031" class="manager-c" />
+            </div>
+            <div class="manager-teenarea">
+              <img src="/assets/playground_assets/teenbg2031-k8x.svg" alt="teenbg2031" class="manager-teenbg" />
+              <div class="manager-teen">
+                <img src="/assets/playground_assets/vector2031-uu3l.svg" alt="Vector2031" class="manager-vector" />
+                <img src="/assets/playground_assets/vector2031-8z7a.svg" alt="Vector2031" class="manager-vector1" />
+                <img src="/assets/playground_assets/vector2031-e08g.svg" alt="Vector2031" class="manager-vector2" />
+                <img src="/assets/playground_assets/vector2031-7is.svg" alt="Vector2031" class="manager-vector3" />
+              </div>
+            </div>
+          </div>
+          <div class="manager-amutaname">
+            <img src="/assets/playground_assets/frame32031-2fd.svg" alt="Frame32031" class="manager-frame3" />
+            <img src="/assets/playground_assets/frame22031-efgx.svg" alt="Frame22031" class="manager-frame2" />
+            <img src="/assets/playground_assets/frame12031-0sqa.svg" alt="Frame12031" class="manager-frame1" />
+          </div>
+        </div>
+      </div>
+      <div> 
+        <img src="/assets/Logo Colel Chabad.png" alt="Frame14430" class="chabad-colel-logo" />
+        <img src="/assets/playground_assets/chabadLogo.svg" alt="Frame14430" class="chabad-get-chessed-logo" />
+      </div>
+      <div class="manager-userinfo">
+        <span class="manager-text"><span>{{ this.remult.user?.name }}</span></span>
+        <div class="manager-location">
+          <span class="manager-text02"><span>{{ remult.user?.isAdmin?'':remult.user?.isDonor?'':'רכז' }} סניף {{
+            this.remult.user?.branchName }}</span></span>
+          <img src="/assets/playground_assets/locationicon2031-gznd.svg" alt="locationicon2031"
+            class="manager-locationicon" />
+        </div>
+      </div>
+    </div>
+    <div class="manager-nav">
+      <div class="manager-title">
+        <span class="manager-text04"><span>{{ this.title }}</span></span>
+      </div>
+      <img src="/assets/playground_assets/back2031-qvn.svg" alt="back2031" class="manager-back" (click)="this.back()" />
+    </div>
+    <div class="manager-data">
+      <div class="manager-dataviewas">
+        <div class="manager-cardcontent" (click)="this.selectBranch()">
+          <div class="manager-search">
+            <img src="/assets/playground_assets/vector2031-n52p.svg" alt="Vector2031" class="manager-vector4" />
+            <img src="/assets/playground_assets/vector2031-8sa.svg" alt="Vector2031" class="manager-vector5" style="width: 8px; top: 13px;" />
+          </div>
+          <span class="manager-text06"><span>{{ this.selectedBranch?this.selectedBranch.name:'' }}</span></span>
+          <span class="manager-text08"><span>:סניף</span></span>
+        </div>
+        <div class="manager-cardcontent1">
+          <span class="manager-text10"><input style="font-size: 14pt; width: 100%; direction: rtl; border-color: rgba(227, 172, 120, 1);" type="text"
+              [(ngModel)]="this.manager.name"></span>
+          <span class="manager-text12"><span>:שם</span></span>
+        </div>
+        <div class="manager-cardcontent2">
+          <span class="manager-text14"><input style="font-size: 14pt; width: 100%; direction: rtl; border-color: rgba(227, 172, 120, 1);" type="text"
+              [(ngModel)]="this.manager.mobile"></span>
+          <span class="manager-text16"><span>:סלולרי</span></span>
+        </div>
+        <div class="manager-cardcontent3">
+          <span class="manager-text18"><input style="font-size: 14pt; width: 100%; direction: rtl; border-color: rgba(227, 172, 120, 1);" type="text"
+              [(ngModel)]="this.manager.remark"></span>
+          <span class="manager-text20"><span>:הערה</span></span>
+        </div>
+      </div>
+      <div class="manager-save" (click)="this.save()">
+        <img src="/assets/playground_assets/rectangle12031-jahj.svg" alt="Rectangle12031" class="manager-rectangle1" />
+        <span class="manager-text22"><span>שמור</span></span>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,44 @@
+.report {
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: space-around;
+    width: 100%;
+    height: 100%;
+    // background-image: url('/assets/bg.blue.png');
+}
+
+.branch{
+    text-decoration: underline;
+}
+
+.data {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 5px;
+}
+
+.summary {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: start;
+}
+
+.delivered{
+    color: green;
+    // text-align: end;
+}
+
+.visited{
+    color: green;
+    // text-align: end;
+}
+
+// .count{
+//     color: ;
+// }
+
+// .card{
+//     text-align: end;
+// }

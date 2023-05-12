@@ -1,0 +1,844 @@
+:host {
+    display: contents;
+  }
+  
+  .visits-container {
+    min-height: 100vh;
+    background-image: url('/assets/bg.blue.png');
+  }
+  
+  .visits-visits {
+    width: 100%;
+    height: auto;
+    display: flex;
+    position: relative;
+    align-items: center;
+    flex-shrink: 0;
+    border-color: transparent;
+    flex-direction: column;
+    background-color: rgba(38, 195, 234, 1);
+    background-image: url('/assets/bg.blue.png');
+  }
+  
+  .visits-top {
+    display: flex;
+    padding: 0 15px;
+    position: relative;
+    align-self: stretch;
+    align-items: center;
+    flex-shrink: 0;
+    border-color: transparent;
+    margin-bottom: 0px;
+    justify-content: space-between;
+    background-color: rgba(255, 255, 255, 1);
+  }
+  
+  .visits-cteen-logo {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    align-items: center;
+    border-color: transparent;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+.chabad-colel-logo {
+  top: 45px;
+  left: 80px;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+}
+.chabad-get-chessed-logo {
+  top: 0px;
+  left: 80px;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+}
+  .visits-logo {
+    width: 63.48833084106445px;
+    height: 100.27965545654297px;
+    display: flex;
+    position: relative;
+    align-items: center;
+    flex-shrink: 0;
+    border-color: transparent;
+    flex-direction: column;
+  }
+  
+  .visits-cteen {
+    width: 63px;
+    height: 89.90325164794922px;
+    display: flex;
+    padding: 0;
+    position: relative;
+    align-self: auto;
+    box-sizing: border-box;
+    align-items: flex-start;
+    flex-shrink: 1;
+    border-color: transparent;
+    border-style: none;
+    border-width: 0;
+    margin-right: 0;
+    border-radius: 0px 0px 0px 0px;
+    margin-bottom: -5px;
+    flex-direction: row;
+    justify-content: flex-start;
+    background-color: transparent;
+  }
+  
+  .visits-carea {
+    top: 0px;
+    left: 0px;
+    width: 60px;
+    height: 67px;
+    display: flex;
+    padding: 0;
+    position: absolute;
+    align-self: auto;
+    box-sizing: border-box;
+    align-items: flex-start;
+    flex-shrink: 1;
+    border-color: transparent;
+    border-style: none;
+    border-width: 0;
+    border-radius: 0px 0px 0px 0px;
+    flex-direction: row;
+    justify-content: flex-start;
+    background-color: transparent;
+  }
+  
+  .visits-cbg {
+    top: 0px;
+    left: 0px;
+    width: 60px;
+    height: 67px;
+    position: absolute;
+  }
+  
+  .visits-c {
+    top: 7.59393310546875px;
+    left: 10.354217529296875px;
+    width: 39px;
+    height: 54px;
+    position: absolute;
+  }
+  
+  .visits-teenarea {
+    top: 59.2852783203125px;
+    left: 12.77813720703125px;
+    width: 50.7101936340332px;
+    height: 30.61797332763672px;
+    display: flex;
+    padding: 0;
+    position: absolute;
+    align-self: auto;
+    box-sizing: border-box;
+    align-items: flex-start;
+    flex-shrink: 1;
+    border-color: transparent;
+    border-style: none;
+    border-width: 0;
+    border-radius: 0px 0px 0px 0px;
+    flex-direction: row;
+    justify-content: flex-start;
+    background-color: transparent;
+  }
+  
+  .visits-teenbg {
+    top: 0px;
+    left: 0px;
+    width: 51px;
+    height: 31px;
+    position: absolute;
+  }
+  
+  .visits-teen {
+    top: 6.6272125244140625px;
+    left: 5.747833251953125px;
+    width: 39.34962463378906px;
+    height: 20.21885108947754px;
+    display: flex;
+    padding: 0;
+    position: absolute;
+    align-self: auto;
+    box-sizing: border-box;
+    align-items: flex-start;
+    flex-shrink: 1;
+    border-color: transparent;
+    border-style: none;
+    border-width: 0;
+    border-radius: 0px 0px 0px 0px;
+    flex-direction: row;
+    justify-content: flex-start;
+    background-color: transparent;
+  }
+  
+  .visits-vector {
+    top: 1.5709927082061768px;
+    left: 0.0000010694303682612372px;
+    width: 8px;
+    height: 19px;
+    position: absolute;
+  }
+  
+  .visits-vector01 {
+    top: 3.201730728149414px;
+    left: 6.565080165863037px;
+    width: 11px;
+    height: 16px;
+    position: absolute;
+  }
+  
+  .visits-vector02 {
+    top: 1.6084747314453125px;
+    left: 17.249292373657227px;
+    width: 11px;
+    height: 16px;
+    position: absolute;
+  }
+  
+  .visits-vector03 {
+    top: -3.8355906895048975e-8px;
+    left: 27.523208618164062px;
+    width: 12px;
+    height: 16px;
+    position: absolute;
+  }
+  
+  .visits-amutaname {
+    width: 59.34217071533203px;
+    height: 6.678433418273926px;
+    display: flex;
+    position: relative;
+    align-items: center;
+    flex-shrink: 0;
+    border-color: transparent;
+    justify-content: flex-end;
+  }
+  
+  .visits-frame3 {
+    width: 20px;
+    height: 7px;
+    position: relative;
+    margin-right: 2px;
+  }
+  
+  .visits-frame2 {
+    width: 21px;
+    height: 7px;
+    position: relative;
+    margin-right: 2px;
+  }
+  
+  .visits-frame1 {
+    width: 15px;
+    height: 6px;
+    position: relative;
+  }
+  
+  .visits-userinfo {
+    display: flex;
+    position: relative;
+    align-items: flex-end;
+    border-color: transparent;
+    flex-direction: column;
+  }
+  
+  .visits-text {
+    color: rgba(35, 67, 142, 1);
+    height: auto;
+    font-size: 20px;
+    align-self: auto;
+    font-style: Black;
+    text-align: right;
+    font-family: Heebo;
+    font-weight: 900;
+    line-height: 107.87500143051147%;
+    font-stretch: normal;
+    margin-right: 0;
+    margin-bottom: 6px;
+    text-decoration: none;
+  }
+  
+  .visits-location {
+    display: flex;
+    padding: 2px 4px;
+    position: relative;
+    align-items: flex-start;
+    border-color: transparent;
+    background-color: rgba(227, 172, 120, 1);
+  }
+  
+  .visits-text02 {
+    color: rgba(255, 255, 255, 1);
+    height: auto;
+    font-size: 14px;
+    align-self: auto;
+    font-style: Medium;
+    text-align: right;
+    font-family: Heebo;
+    font-weight: 500;
+    line-height: 107.87500143051147%;
+    font-stretch: normal;
+    margin-right: 6px;
+    margin-bottom: 0;
+    text-decoration: none;
+  }
+  
+  .visits-locationicon {
+    width: 11px;
+    height: 14px;
+    position: relative;
+  }
+  
+  .visits-nav {
+    display: flex;
+    padding: 8px 50px;
+    z-index: 1;
+    position: relative;
+    align-self: stretch;
+    align-items: center;
+    flex-shrink: 0;
+    border-color: transparent;
+    margin-bottom: 0px;
+    justify-content: center;
+    background-color: rgba(227, 172, 120, 1);
+  }
+  
+  .visits-search {
+    width: 26px;
+    height: 22.999126434326172px;
+    display: flex;
+    padding: 0;
+    position: relative;
+    align-self: auto;
+    box-sizing: border-box;
+    align-items: flex-start;
+    flex-shrink: 1;
+    border-color: transparent;
+    border-style: none;
+    border-width: 0;
+    margin-right: 0px;
+    border-radius: 0px 0px 0px 0px;
+    margin-bottom: 0;
+    flex-direction: row;
+    justify-content: flex-start;
+    background-color: transparent;
+  }
+  
+  .visits-vector04 {
+    top: 0px;
+    left: 0px;
+    width: 19px;
+    height: 18px;
+    position: absolute;
+  }
+  
+  .visits-vector05 {
+    top: 14.9927978515625px;
+    left: 15.125179290771484px;
+    width: 2px;
+    height: 12px;
+    position: absolute;
+  }
+  
+  .visits-title {
+    display: flex;
+    position: relative;
+    flex-grow: 1;
+    align-items: center;
+    border-color: transparent;
+    margin-right: 0px;
+    justify-content: center;
+  }
+  
+  .visits-text04 {
+    color: rgba(255, 255, 255, 1);
+    height: auto;
+    font-size: 24px;
+    align-self: auto;
+    font-style: Bold;
+    text-align: right;
+    font-family: Heebo;
+    font-weight: 700;
+    line-height: 107.87500143051147%;
+    font-stretch: normal;
+    margin-right: 10px;
+    margin-bottom: 0;
+    text-decoration: none;
+  }
+  
+  .visits-text06 {
+    color: rgba(255, 255, 255, 1);
+    height: auto;
+    font-size: 24px;
+    align-self: auto;
+    font-style: Regular;
+    text-align: left;
+    font-family: Heebo;
+    font-weight: 400;
+    line-height: 107.87500143051147%;
+    font-stretch: normal;
+    margin-right: 0;
+    margin-bottom: 0;
+    text-decoration: none;
+  }
+  
+  .visits-back {
+    width: 29px;
+    height: 29px;
+    position: relative;
+    //box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25) ;
+  }
+  
+  .visits-cards {
+    overflow-y: scroll;
+    height: 400px;
+    display: flex;
+    padding: 20px 50px;
+    z-index: 2;
+    position: relative;
+    flex-grow: 1;
+    align-self: stretch;
+    align-items: center;
+    border-color: transparent;
+    margin-bottom: 0px;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .visits-cardcontent {
+    display: flex;
+    padding: 12px 15px;
+    position: relative;
+    align-self: stretch;
+    //box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) ;
+    align-items: center;
+    border-color: rgba(227, 172, 120, 1);
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 15px;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 1);
+  }
+  
+  .visits-cardtitle {
+    display: flex;
+    position: relative;
+    align-self: stretch;
+    align-items: center;
+    flex-shrink: 0;
+    border-color: transparent;
+    margin-bottom: 5px;
+    justify-content: flex-end;
+  }
+  
+  .visits-tenantnameaddress {
+    width: 187px;
+    display: flex;
+    position: relative;
+    flex-grow: 1;
+    align-items: flex-end;
+    flex-shrink: 0;
+    border-color: transparent;
+    margin-right: 8px;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .visits-text08 {
+    color: rgba(38, 195, 234, 1);
+    height: auto;
+    font-size: 20px;
+    align-self: stretch;
+    font-style: Bold;
+    text-align: right;
+    font-family: Heebo;
+    font-weight: 700;
+    line-height: 107.87500143051147%;
+    font-stretch: normal;
+    margin-right: 0;
+    margin-bottom: 2px;
+    text-decoration: none;
+  }
+  
+  .visits-address {
+    display: flex;
+    padding: 2px 5px;
+    position: relative;
+    align-items: flex-start;
+    border-color: transparent;
+    background-color: rgba(227, 172, 120, 1);
+  }
+  
+  .visits-text10 {
+    color: rgba(255, 255, 255, 1);
+    height: auto;
+    font-size: 14px;
+    align-self: auto;
+    font-style: Medium;
+    text-align: right;
+    font-family: Heebo;
+    font-weight: 500;
+    line-height: 107.87500143051147%;
+    font-stretch: normal;
+    margin-right: 6px;
+    margin-bottom: 0;
+    text-decoration: none;
+  }
+  
+  .visits-location1 {
+    width: 11px;
+    height: 14px;
+    position: relative;
+  }
+  
+  .visits-tenantphoto {
+    width: 50px;
+    height: 55px;
+    display: flex;
+    padding: 0;
+    position: relative;
+    align-self: auto;
+    box-sizing: border-box;
+    align-items: flex-start;
+    flex-shrink: 1;
+    border-color: transparent;
+    border-style: none;
+    border-width: 0;
+    margin-right: 0;
+    border-radius: 0px 0px 0px 0px;
+    margin-bottom: 0;
+    flex-direction: row;
+    justify-content: flex-start;
+    background-color: transparent;
+  }
+  
+  .visits-vector06 {
+    top: 0px;
+    left: 0px;
+    width: 47px;
+    height: 47px;
+    position: absolute;
+  }
+  
+  .visits-group {
+    top: 13px;
+    left: 12px;
+    width: 38px;
+    height: 42px;
+    display: flex;
+    padding: 0;
+    position: absolute;
+    align-self: auto;
+    box-sizing: border-box;
+    align-items: flex-start;
+    flex-shrink: 1;
+    border-color: transparent;
+    border-style: none;
+    border-width: 0;
+    border-radius: 0px 0px 0px 0px;
+    flex-direction: row;
+    justify-content: flex-start;
+    background-color: transparent;
+  }
+  
+  .visits-vector07 {
+    top: 0px;
+    left: 0px;
+    width: 25px;
+    height: 9px;
+    position: absolute;
+  }
+  
+  .visits-vector08 {
+    top: 10.860291481018066px;
+    left: 0.5303184390068054px;
+    width: 24px;
+    height: 11px;
+    position: absolute;
+  }
+  
+  .visits-vector09 {
+    top: 11.075312614440918px;
+    left: 9.417405128479004px;
+    width: 6px;
+    height: 6px;
+    position: absolute;
+  }
+  
+  .visits-upload {
+    top: 23px;
+    left: 19px;
+    width: 19px;
+    height: 19px;
+    position: absolute;
+    //box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25) ;
+  }
+  
+  .visits-sep {
+    width: 245px;
+    height: 0px;
+    position: relative;
+    align-self: stretch;
+    margin-bottom: 5px;
+  }
+  
+  .visits-volunteers {
+    display: flex;
+    position: relative;
+    align-self: stretch;
+    align-items: center;
+    flex-shrink: 0;
+    border-color: transparent;
+    margin-bottom: 5px;
+    justify-content: flex-end;
+  }
+  
+  .visits-text12 {
+    color: rgba(38, 195, 234, 1);
+    height: auto;
+    flex-grow: 1;
+    font-size: 14px;
+    align-self: auto;
+    font-style: Bold;
+    text-align: right;
+    font-family: Heebo;
+    font-weight: 700;
+    line-height: 107.87500143051147%;
+    font-stretch: normal;
+    margin-right: 5px;
+    margin-bottom: 0;
+    text-decoration: none;
+  }
+  
+  .visits-text14 {
+    color: rgba(38, 195, 234, 1);
+    height: auto;
+    font-size: 14px;
+    align-self: auto;
+    font-style: Bold;
+    text-align: right;
+    font-family: Heebo;
+    font-weight: 700;
+    line-height: 107.87500143051147%;
+    font-stretch: normal;
+    margin-right: 0;
+    margin-bottom: 0;
+    text-decoration: none;
+  }
+  
+  .visits-text15 {
+    color: rgba(35, 67, 142, 1);
+    height: auto;
+    font-size: 14px;
+    align-self: stretch;
+    font-style: Regular;
+    text-align: left;
+    font-family: Heebo;
+    font-weight: 400;
+    line-height: 107.87500143051147%;
+    font-stretch: normal;
+    margin-right: 0;
+    margin-bottom: 0;
+    text-decoration: none;
+  }
+  
+  .menu-text13 {
+    color: rgba(255, 255, 255, 1);
+    height: auto;
+    flex-grow: 1;
+    font-size: 20px;
+    align-self: stretch;
+    font-style: ExtraBold;
+    text-align: center;
+    font-family: Heebo;
+    font-weight: 800;
+    line-height: 107.87500143051147%;
+    font-stretch: normal;
+    margin-right: 0;
+    margin-bottom: 0;
+    text-decoration: none;
+  }
+  
+  .menu-frame27 {
+    z-index: 3;
+    left: calc(50% - (100px / 2));
+    width: 80px;
+    bottom: 0;
+    height: auto;
+    display: flex;
+    padding: 10px;
+    position: fixed;
+    flex-grow: 1;
+    align-self: stretch;
+    align-items: center;
+    border-color: transparent;
+    flex-direction: column;
+    justify-content: center;
+    border-color: white;
+    border-width: 5px;
+  }
+  
+  .menu-exit {
+    width: 100px;
+    height: auto;
+    display: flex;
+    padding: 10px;
+    overflow: hidden;
+    position: relative;
+    align-items: center;
+    flex-shrink: 0;
+    border-color: transparent;
+    border-radius: 15px;
+    justify-content: center;
+    background-color: rgba(227, 172, 120, 1);
+  }
+  
+  .visits-weekly-answer {
+    // top: 620px;
+    // bottom: 20px;
+    // left: 0px;
+    width: 100%;
+    height: auto; 
+    display: flex;
+    padding: 10px;//, 10px, 0px, 10px;
+    z-index: 3;
+    position: relative;
+    align-self: flex-start;
+    box-sizing: border-box;
+    align-items: left;
+    // flex-shrink: 1;
+    border-color: transparent;
+    // margin-right: 0;
+    border-radius: 15px;
+    border-width: 5px;
+    border-color: rgba(227, 172, 120, 1);
+    // margin-bottom: 0;
+    flex-direction: row;
+    // justify-content: left;
+    background-color: rgba(38, 195, 234, 1);
+  }
+  
+  .visits-weekly-answer-text {
+    // top: 8px;
+    // left: 0px;
+    color: rgb(0, 0, 0);
+    // background-color: rgba(38, 195, 234, 1);
+    width: 100%;
+    height: auto;
+    // position: absolute;
+    font-size: 17px;
+    align-self: auto;
+    font-style: ExtraBold;
+    direction: rtl;
+    text-align: center;
+    font-family: Heebo;
+    font-weight: 800;
+    line-height: 107.87500143051147%;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  
+  .visits-addtenant {
+    top: 580px;
+    left: 110px;
+    width: 151px;
+    height: 52px;
+    display: flex;
+    padding: 0;
+    position: absolute;
+    align-self: auto;
+    box-sizing: border-box;
+    align-items: flex-start;
+    flex-shrink: 1;
+    border-color: transparent;
+    border-style: none;
+    border-width: 0;
+    margin-right: 0;
+    border-radius: 0px 0px 0px 0px;
+    margin-bottom: 0;
+    flex-direction: row;
+    justify-content: flex-start;
+    background-color: transparent;
+  }
+  
+  .visits-rectangle1 {
+    top: 0px;
+    left: 0px;
+    width: 151px;
+    height: 52px;
+    position: absolute;
+    //box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.25) ;
+  }
+  
+  @media(max-width: 479px) {
+    .visits-visits {
+      height: 100%;
+    }
+  
+    .visits-vector05 {
+      width: 10px;
+      height: 8px;
+    }
+  
+    .visits-cards {
+      height: 100%;
+    }
+  
+    .visits-sep {
+      width: 100%;
+      height: 10px;
+      margin-top: 5px;
+    }
+  
+    .visits-text14 {
+      color: rgb(38, 195, 234);
+      font-size: 14px;
+      font-family: Heebo;
+      font-weight: 700;
+      line-height: 107.875%;
+      text-decoration: none;
+    }
+  
+    .visits-text17 {
+      top: 16px;
+      left: 19px;
+      color: rgba(255, 255, 255, 1);
+      width: 114px;
+      height: auto;
+      position: absolute;
+      font-size: 20px;
+      align-self: auto;
+      font-style: ExtraBold;
+      text-align: center;
+      font-family: Heebo;
+      font-weight: 800;
+      line-height: 107.87500143051147%;
+      font-stretch: normal;
+      text-decoration: none;
+    }
+  
+    .visits-addtenant {
+      left: 0px;
+      right: 0px;
+      margin: auto;
+      position: fixed;
+      align-self: center;
+      // border-color: rgba(38, 195, 234, 1);
+      // border-style: solid;
+      // border-width: 2px;
+      // border-radius: 15px;
+    }
+  
+    .visits-rectangle1 {
+      top: 0px;
+      left: 0px;
+      right: 0px;
+      bottom: 0px;
+      margin: auto;
+    }
+  }

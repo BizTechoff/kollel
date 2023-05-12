@@ -1,0 +1,510 @@
+:host { 
+    display: contents; 
+  }
+  .frame-container {
+    min-height: 100vh;
+  }
+  .frame-frame {
+    width: 100%;
+    height: 667px;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    align-items: flex-start;
+    flex-shrink: 0;
+    border-color: rgba(0, 0, 0, 0.10000000149011612);
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 2px;
+    background-color: rgba(229, 229, 229, 1);
+  }
+  .feedback {
+    width: 100%; 
+    height: 100%; 
+    text-align: right; 
+    border: none; 
+    resize: none;
+  }
+  .frame-blue-back {
+    top: 0px;
+    left: 0px;
+    width: 375px;
+    height: 667px;
+    position: absolute;
+    border-color: transparent;
+  }
+  .frame-get-pattern {
+    top: 0px;
+    left: 0px;
+    width: 375px;
+    height: 667px;
+    position: absolute;
+    border-color: transparent;
+  }
+  .frame-rectangle3 {
+    top: -10px;
+    left: -14px;
+    width: 407px;
+    height: 126px;
+    position: absolute;
+    border-color: transparent;
+  }
+  .chabad-colel-logo {
+    top: 45px;
+    left: 80px;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+  }
+  .chabad-get-chessed-logo {
+    top: 0px;
+    left: 80px;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+  }
+  .frame-cteen-logo {
+    top: -27px;
+    left: 9px;
+    width: 69px;
+    height: 131px;
+    display: flex;
+    overflow: hidden;
+    position: absolute;
+    align-items: flex-start;
+    flex-shrink: 0;
+    border-color: transparent;
+  }
+  .frame-group {
+    top: 0.0005062679992988706px;
+    left: 0.0002627570938784629px;
+    width: 63.48836135864258px;
+    height: 118.74336242675781px;
+    display: flex;
+    padding: 0;
+    position: absolute;
+    align-self: auto;
+    box-sizing: border-box;
+    align-items: flex-start;
+    flex-shrink: 1;
+    border-color: transparent;
+    border-style: none;
+    border-width: 0;
+    margin-right: 0;
+    border-radius: 0px 0px 0px 0px;
+    margin-bottom: 0;
+    flex-direction: row;
+    justify-content: flex-start;
+    background-color: transparent;
+  }
+  .frame-vector {
+    top: 0px;
+    left: 0px;
+    width: 60px;
+    height: 95px;
+    position: absolute;
+  }
+  .frame-vector01 {
+    top: 88.12531280517578px;
+    left: 12.778130531311035px;
+    width: 51px;
+    height: 31px;
+    position: absolute;
+  }
+  .frame-vector02 {
+    top: 34.43395233154297px;
+    left: 12.35422420501709px;
+    width: 39px;
+    height: 54px;
+    position: absolute;
+  }
+  .frame-group1 {
+    top: 94.75251770019531px;
+    left: 18.525968551635742px;
+    width: 39.34962463378906px;
+    height: 20.21885108947754px;
+    display: flex;
+    padding: 0;
+    position: absolute;
+    align-self: auto;
+    box-sizing: border-box;
+    align-items: flex-start;
+    flex-shrink: 1;
+    border-color: transparent;
+    border-style: none;
+    border-width: 0;
+    border-radius: 0px 0px 0px 0px;
+    flex-direction: row;
+    justify-content: flex-start;
+    background-color: transparent;
+  }
+  .frame-vector03 {
+    top: 1.5709927082061768px;
+    left: 0.0000010694303682612372px;
+    width: 8px;
+    height: 19px;
+    position: absolute;
+  }
+  .frame-vector04 {
+    top: 3.201730728149414px;
+    left: 6.565080165863037px;
+    width: 11px;
+    height: 16px;
+    position: absolute;
+  }
+  .frame-vector05 {
+    top: 1.6084747314453125px;
+    left: 17.249292373657227px;
+    width: 11px;
+    height: 16px;
+    position: absolute;
+  }
+  .frame-vector06 {
+    top: -3.8355906895048975e-8px;
+    left: 27.523208618164062px;
+    width: 12px;
+    height: 16px;
+    position: absolute;
+  }
+  .frame-group2 {
+    top: 117.22106170654297px;
+    left: 13.553194046020508px;
+    width: 55.44821548461914px;
+    height: 13.78048324584961px;
+    display: flex;
+    padding: 0;
+    position: absolute;
+    align-self: auto;
+    box-sizing: border-box;
+    align-items: flex-start;
+    flex-shrink: 1;
+    border-color: transparent;
+    border-style: none;
+    border-width: 0;
+    margin-right: 0;
+    border-radius: 0px 0px 0px 0px;
+    margin-bottom: 0;
+    flex-direction: row;
+    justify-content: flex-start;
+    background-color: transparent;
+  }
+  .frame-vector07 {
+    top: 7.233056545257568px;
+    left: -0.000001369945266560535px;
+    width: 4px;
+    height: 7px;
+    position: absolute;
+  }
+  .frame-vector08 {
+    top: 6.751234531402588px;
+    left: 4.196527004241943px;
+    width: 5px;
+    height: 7px;
+    position: absolute;
+  }
+  .frame-vector09 {
+    top: 6.394792556762695px;
+    left: 8.651869773864746px;
+    width: 4px;
+    height: 6px;
+    position: absolute;
+  }
+  .frame-vector10 {
+    top: 5.387690544128418px;
+    left: 12.369112968444824px;
+    width: 6px;
+    height: 7px;
+    position: absolute;
+  }
+  .frame-vector11 {
+    top: 5.056967258453369px;
+    left: 18.211275100708008px;
+    width: 2px;
+    height: 4px;
+    position: absolute;
+  }
+  .frame-vector12 {
+    top: 4.4204888343811035px;
+    left: 21.876245498657227px;
+    width: 4px;
+    height: 6px;
+    position: absolute;
+  }
+  .frame-vector13 {
+    top: 3.6000468730926514px;
+    left: 25.478178024291992px;
+    width: 4px;
+    height: 7px;
+    position: absolute;
+  }
+  .frame-vector14 {
+    top: 3.324737787246704px;
+    left: 29.826791763305664px;
+    width: 2px;
+    height: 6px;
+    position: absolute;
+  }
+  .frame-vector15 {
+    top: 3.018232583999634px;
+    left: 31.820919036865234px;
+    width: 3px;
+    height: 6px;
+    position: absolute;
+  }
+  .frame-vector16 {
+    top: 2.113675117492676px;
+    left: 34.315792083740234px;
+    width: 4px;
+    height: 7px;
+    position: absolute;
+  }
+  .frame-vector17 {
+    top: 1.4692504405975342px;
+    left: 40.11069869995117px;
+    width: 4px;
+    height: 6px;
+    position: absolute;
+  }
+  .frame-vector18 {
+    top: 0.6803834438323975px;
+    left: 44.142581939697266px;
+    width: 2px;
+    height: 3px;
+    position: absolute;
+  }
+  .frame-vector19 {
+    top: 0.6403228640556335px;
+    left: 46.90547561645508px;
+    width: 4px;
+    height: 6px;
+    position: absolute;
+  }
+  .frame-vector20 {
+    top: 0.000001995892262129928px;
+    left: 50.913246154785156px;
+    width: 5px;
+    height: 6px;
+    position: absolute;
+  }
+  .frame-group3 {
+    top: 580px;
+    left: 114px;
+    width: 151px;
+    height: 52px;
+    display: flex;
+    padding: 0;
+    position: absolute;
+    align-self: auto;
+    box-sizing: border-box;
+    align-items: flex-start;
+    flex-shrink: 1;
+    border-color: transparent;
+    border-style: none;
+    border-width: 0;
+    margin-right: 0;
+    border-radius: 0px 0px 0px 0px;
+    margin-bottom: 0;
+    flex-direction: row;
+    justify-content: flex-start;
+    background-color: transparent;
+  }
+  .frame-rectangle1 {
+    top: 0px;
+    left: 0px;
+    width: 151px;
+    height: 52px;
+    position: absolute;
+ // box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.25) ;
+  }
+  .frame-text {
+    top: 16px;
+    left: 53px;
+    color: rgba(255, 255, 255, 1);
+    height: auto;
+    position: absolute;
+    font-size: 20px;
+    align-self: auto;
+    font-style: ExtraBold;
+    text-align: center;
+    font-family: Heebo;
+    font-weight: 800;
+    line-height: 107.87500143051147%;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .frame-text02 {
+    top: 38px;
+    left: 199px;
+    color: rgba(35, 67, 142, 1);
+    height: auto;
+    position: absolute;
+    font-size: 20px;
+    align-self: auto;
+    font-style: Black;
+    text-align: right;
+    font-family: Heebo;
+    font-weight: 900;
+    line-height: 107.87500143051147%;
+    font-stretch: normal;
+    margin-right: 0;
+    margin-bottom: 0;
+    text-decoration: none;
+  }
+  .frame-group1 {
+    top: 66px;
+    left: 206px;
+    width: 129px;
+    height: 20px;
+    display: flex;
+    padding: 0;
+    position: absolute;
+    align-self: auto;
+    box-sizing: border-box;
+    align-items: flex-start;
+    flex-shrink: 1;
+    border-color: transparent;
+    border-style: none;
+    border-width: 0;
+    margin-right: 0;
+    border-radius: 0px 0px 0px 0px;
+    margin-bottom: 0;
+    flex-direction: row;
+    justify-content: flex-start;
+    background-color: rgba(227, 172, 120, 1);
+  }
+  .frame-location {
+    top: 3px;
+    left: 113px;
+    width: 11px;
+    height: 14px;
+    position: absolute;
+  }
+  .frame-text04 {
+    top: 3px;
+    left: 4px;
+    color: rgba(255, 255, 255, 1);
+    height: auto;
+    position: absolute;
+    font-size: 14px;
+    align-self: auto;
+    font-style: Medium;
+    text-align: right;
+    font-family: Heebo;
+    font-weight: 500;
+    line-height: 107.87500143051147%;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .frame-frame1 {
+    top: 124px;
+    left: 304px;
+    width: 29px;
+    height: 29px;
+    position: absolute;
+  // box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25) ;
+  }
+  .frame-rectangle5 {
+    top: 176px;
+    left: 37px;
+    width: 296px;
+    height: 136px;
+    position: absolute;
+ // box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.25) ;
+  }
+  .frame-rectangle6 {
+    top: 320px;
+    left: 37px;
+    width: 296px;
+    height: 246px;
+    position: absolute;
+ // box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.25) ;
+  }
+  .frame-text06 {
+    top: 190px;
+    left: 133px;
+    color: rgba(255, 255, 255, 1);
+    height: auto;
+    position: absolute;
+    font-size: 16px;
+    align-self: auto;
+    font-style: Bold;
+    text-align: right;
+    font-family: Heebo;
+    font-weight: 700;
+    line-height: 107.87500143051147%;
+    font-stretch: normal;
+    margin-right: 0;
+    margin-bottom: 0;
+    text-decoration: none;
+  }
+  .frame-text08 {
+    top: 334px;
+    left: 158px;
+    color: rgba(35, 67, 142, 1);
+    height: auto;
+    position: absolute;
+    font-size: 16px;
+    align-self: auto;
+    font-style: Bold;
+    text-align: right;
+    font-family: Heebo;
+    font-weight: 700;
+    line-height: 107.87500143051147%;
+    font-stretch: normal;
+    margin-right: 0;
+    margin-bottom: 0;
+    text-decoration: none;
+  }
+  .frame-line2 {
+    top: 214px;
+    left: 317px;
+    width: 267px;
+    height: 0px;
+    position: absolute;
+  }
+  .frame-line3 {
+    top: 358px;
+    left: 317px;
+    width: 267px;
+    height: 0px;
+    position: absolute;
+  }
+  .frame-text10 {
+    top: 229px;
+    left: 52px;
+    color: rgba(255, 255, 255, 1);
+    width: 267px;
+    height: auto;
+    position: absolute;
+    font-size: 14px;
+    align-self: auto;
+    font-style: Regular;
+    text-align: right;
+    font-family: Heebo;
+    font-weight: 400;
+    line-height: 107.87500143051147%;
+    font-stretch: normal;
+    margin-right: 0;
+    margin-bottom: 0;
+    text-decoration: none;
+  }
+  .frame-text12 {
+    top: 373px;
+    left: 52px;
+    color: rgba(35, 67, 142, 1);
+    width: 267px;
+    height: auto;
+    position: absolute;
+    font-size: 14px;
+    align-self: auto;
+    font-style: Regular;
+    text-align: right;
+    font-family: Heebo;
+    font-weight: 400;
+    line-height: 107.87500143051147%;
+    font-stretch: normal;
+    margin-right: 0;
+    margin-bottom: 0;
+    text-decoration: none;
+  }
+  

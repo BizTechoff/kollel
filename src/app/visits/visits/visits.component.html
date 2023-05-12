@@ -1,0 +1,100 @@
+<div class="visits-container">
+  <div class="visits-visits">
+    <div class="visits-top">
+      <div class="visits-cteen-logo" (click)="this.rootmenu()">
+        <div class="visits-logo">
+          <div class="visits-cteen">
+            <div class="visits-carea">
+              <img src="/assets/playground_assets/cbg1914-wdrm.svg" alt="cbg1914" class="visits-cbg" />
+              <img src="/assets/playground_assets/c1914-h6zu.svg" alt="c1914" class="visits-c" />
+            </div>
+            <div class="visits-teenarea">
+              <img src="/assets/playground_assets/teenbg1914-jckf.svg" alt="teenbg1914" class="visits-teenbg" />
+              <div class="visits-teen">
+                <img src="/assets/playground_assets/vector1914-nv8p.svg" alt="Vector1914" class="visits-vector" />
+                <img src="/assets/playground_assets/vector1914-3rdg.svg" alt="Vector1914" class="visits-vector01" />
+                <img src="/assets/playground_assets/vector1914-c6wb.svg" alt="Vector1914" class="visits-vector02" />
+                <img src="/assets/playground_assets/vector1914-c4wk.svg" alt="Vector1914" class="visits-vector03" />
+              </div>
+            </div>
+          </div>
+          <div class="visits-amutaname">
+            <img src="/assets/playground_assets/frame31915-b8fl.svg" alt="Frame31915" class="visits-frame3" />
+            <img src="/assets/playground_assets/frame21915-8nzb.svg" alt="Frame21915" class="visits-frame2" />
+            <img src="/assets/playground_assets/frame11915-wqq.svg" alt="Frame11915" class="visits-frame1" />
+          </div>
+        </div>
+      </div>
+      <div> 
+        <img src="/assets/Logo Colel Chabad.png" alt="Frame14430" class="chabad-colel-logo" />
+        <img src="/assets/playground_assets/chabadLogo.svg" alt="Frame14430" class="chabad-get-chessed-logo" />
+      </div>
+      <div class="visits-userinfo">
+        <span class="visits-text"><span> {{ remult.user?.name }} </span></span>
+        <div class="visits-location">
+          <span class="visits-text02"><span>{{ remult.user?.isAdmin?'':remult.user?.isDonor?'':'רכז' }} סניף {{ remult.user?.branchName }}</span></span>
+          <img src="/assets/playground_assets/locationicon1915-rc69.svg" alt="locationicon1915"
+            class="visits-locationicon" />
+        </div>
+      </div>
+    </div>
+    <div class="visits-nav">
+      <div class="visits-search" (click)="this.search()">
+        <mat-icon style="font-size:18px;height:20px">person</mat-icon>
+        <img src="/assets/playground_assets/vector1915-5neih.svg" alt="Vector1915" class="visits-vector04" />
+        <img src="/assets/playground_assets/vector1915-r5bg.svg" alt="Vector1915" class="visits-vector05" />
+      </div>
+      <div class="visits-search" (click)="this.searchAddress()">
+        <mat-icon style="font-size:18px;height:20px">home</mat-icon>
+        <img src="/assets/playground_assets/vector1915-5neih.svg" alt="Vector1915" class="visits-vector04" />
+        <img src="/assets/playground_assets/vector1915-r5bg.svg" alt="Vector1915" class="visits-vector05" />
+      </div>
+      <div class="visits-title">
+        <span class="visits-text04"><span>דיווחים</span></span>
+        <span class="visits-text06"><span>רשימת</span></span>
+      </div>
+      <img (click)="this.back()" src="/assets/playground_assets/back1915-xq3i.svg" alt="back1915" class="visits-back" />
+    </div>
+    
+    <div class="visits-weekly-answer">
+      <span class="visits-weekly-answer-text"><span>השאלה השבועית: {{ weeklyQuestion }}</span>
+    </span>
+    </div>
+    <div class="visits-cards">
+      
+      <div class="visits-cardcontent" *ngFor="let v of this.visits" (click)="this.edit(v.id)"
+        [style.borderColor]="this.isNone(v)?  'rgba(227, 172, 120, 1)':'green'" [style.borderWidth]="this.isNone(v)?  '2px':'7px'">
+        <div class="visits-cardtitle">
+          <div class="visits-tenantnameaddress">
+            <span *ngIf="v.tenant" class="visits-text08"><span>{{ v.tenant.name }}</span></span>
+            <div class="visits-address">
+              <span *ngIf="v.tenant" class="visits-text10"><span>{{ v.tenant.address }}</span></span>
+              <img src="/assets/playground_assets/location1915-msq3.svg" alt="location1915" class="visits-location1" />
+            </div>
+          </div>
+          <div class="visits-tenantphoto">
+            <img src="/assets/playground_assets/vector1915-0vb.svg" alt="Vector1915" class="visits-vector06" />
+            <div class="visits-group">
+              <img src="/assets/playground_assets/vector1915-19zi.svg" alt="Vector1915" class="visits-vector07" />
+              <img src="/assets/playground_assets/vector1915-lp2n.svg" alt="Vector1915" class="visits-vector08" />
+              <img src="/assets/playground_assets/vector1915-og6.svg" alt="Vector1915" class="visits-vector09" />
+              <img hidden src="/assets/playground_assets/upload1915-d0nh.svg" alt="upload1915" class="visits-upload" />
+            </div>
+          </div>
+        </div>
+        <img src="/assets/playground_assets/sep1915-grj.svg" alt="sep1915" class="visits-sep" />
+        <div class="visits-volunteers">
+          <span class="visits-text12"><span>{{ v.volunteersNames }}</span></span>
+          <span class="visits-text14">:מתנדבים</span>
+        </div>
+        <span *ngIf="v.remark?.trim()!.length" class="visits-text15"><span>הערה: </span>{{ v.remark }}</span>
+      </div>
+    </div>
+    
+    <div class="menu-frame27" (click)="this.finished()">
+      <div class="menu-exit">
+        <span class="menu-text13"><span>סיימתי לדווח</span></span>
+      </div>
+    </div>
+  </div>
+</div>

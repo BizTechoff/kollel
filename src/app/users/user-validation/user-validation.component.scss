@@ -1,0 +1,494 @@
+:host { 
+    display: contents; 
+  }
+  .frame1-container {
+    min-height: 100vh;
+  }
+  .frame1-frame1 {
+    width: 100%;
+    height: 667px;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    align-items: flex-start;
+    flex-shrink: 0;
+    border-color: rgba(0, 0, 0, 0.10000000149011612);
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 2px;
+    background-color: rgba(229, 229, 229, 0.20000000298023224);
+  }
+  .frame1-blue-back {
+    top: 0px;
+    left: 0px;
+    width: 375px;
+    height: 667px;
+    position: absolute;
+    border-color: transparent;
+  }
+  .frame1-get-pattern {
+    top: 0px;
+    left: 0px;
+    width: 375px;
+    height: 667px;
+    position: absolute;
+    border-color: transparent;
+  }
+  .frame1-rectangle4 {
+    top: 565px;
+    left: -17px;
+    width: 413px;
+    height: 127px;
+    position: absolute;
+    border-color: transparent;
+  }
+  .frame1-speak {
+    top: -90px;
+    left: -80px;
+    width: 541px;
+    height: 351px;
+    position: absolute;
+  }
+  .frame1-arrow {
+    top: 38px;
+    left: 260px;
+    width: 75px;
+    height: 47px;
+    position: absolute;
+  }
+  .frame1-text {
+    top: 102px;
+    left: 162px;
+    color: rgba(35, 67, 142, 1);
+    height: auto;
+    position: absolute;
+    font-size: 32px;
+    align-self: auto;
+    font-style: Regular;
+    text-align: right;
+    font-family: Heebo;
+    font-weight: 400;
+    line-height: 107.87500143051147%;
+    font-stretch: normal;
+    margin-right: 0;
+    margin-bottom: 0;
+    text-decoration: none;
+  }
+  .frame1-text01 {
+    font-weight: 400;
+  }
+  .frame1-text02 {
+    font-weight: bolder;
+  }
+  .frame1-text06 {
+    top: 283px;
+    left: 275px;
+    color: rgba(255, 255, 255, 1);
+    height: auto;
+    position: absolute;
+    font-size: 14px;
+    align-self: auto;
+    font-style: Medium;
+    text-align: right;
+    font-family: Heebo;
+    font-weight: 500;
+    line-height: 107.87500143051147%;
+    font-stretch: normal;
+    margin-right: 0;
+    margin-bottom: 0;
+    text-decoration: none;
+  }
+  .frame1-text08 {
+    top: 369px;
+    left: 125px;
+    color: rgba(255, 255, 255, 1);
+    height: auto;
+    position: absolute;
+    font-size: 14px;
+    align-self: auto;
+    font-style: Bold;
+    text-align: right;
+    font-family: Heebo;
+    font-weight: 700;
+    line-height: 107.87500143051147%;
+    font-stretch: normal;
+    margin-right: 0;
+    margin-bottom: 0;
+    text-decoration: none;
+  }
+  .frame1-text10 {
+    top: 311px;
+    left: 75px;
+    // color: rgba(255, 255, 255, 1);
+    height: auto;
+    position: absolute;
+    font-size: 20px;
+    align-self: auto;
+    font-style: Bold;
+    text-align: right;
+    font-family: Heebo;
+    font-weight: 700;
+    line-height: 107.87500143051147%;
+    font-stretch: normal;
+    margin-right: 0;
+    margin-bottom: 0;
+    text-decoration: none;
+    text-align: center;
+    // border: none;
+    border-bottom: 25px;
+    border-color: green;
+    border-radius: 25px;
+  }
+  .frame1-text11 {
+    top: 260px;
+    right: 50px;
+    // color: rgba(255, 255, 255, 1);
+    height: auto;
+    position: absolute;
+    font-size: 20px;
+    align-self: auto;
+    font-style: Bold;
+    text-align: center;
+    font-family: Heebo;
+    font-weight: 700;
+    line-height: 107.87500143051147%;
+    font-stretch: normal;
+    margin-right: 0;
+    margin-bottom: 0;
+    text-decoration: none;
+    text-align: center;
+    // border: none;
+    border-bottom: 25px;
+    border-color: green;
+    border-radius: 25px;
+    color: white;
+  }
+  .frame1-cteen-logo {
+    top: -45px;
+    left: 29px;
+    width: 103px;
+    height: 196px;
+    display: flex;
+    overflow: hidden;
+    position: absolute;
+    align-items: flex-start;
+    flex-shrink: 0;
+    border-color: transparent;
+  }
+  .frame1-group {
+    top: 0.0007574696792289615px;
+    left: 0.0003922315954696387px;
+    width: 94.7724838256836px;
+    height: 177.6618194580078px;
+    display: flex;
+    padding: 0;
+    position: absolute;
+    align-self: auto;
+    box-sizing: border-box;
+    align-items: flex-start;
+    flex-shrink: 1;
+    border-color: transparent;
+    border-style: none;
+    border-width: 0;
+    margin-right: 0;
+    border-radius: 0px 0px 0px 0px;
+    margin-bottom: 0;
+    flex-direction: row;
+    justify-content: flex-start;
+    background-color: transparent;
+  }
+  .frame1-vector {
+    top: 0px;
+    left: 0px;
+    width: 90px;
+    height: 142px;
+    position: absolute;
+  }
+  .frame1-vector01 {
+    top: 131.8516082763672px;
+    left: 19.074600219726562px;
+    width: 76px;
+    height: 46px;
+    position: absolute;
+  }
+  .frame1-vector02 {
+    top: 51.519500732421875px;
+    left: 18.44181251525879px;
+    width: 59px;
+    height: 81px;
+    position: absolute;
+  }
+  .frame1-group1 {
+    top: 141.76712036132812px;
+    left: 27.654706954956055px;
+    width: 58.73929214477539px;
+    height: 30.2511043548584px;
+    display: flex;
+    padding: 0;
+    position: absolute;
+    align-self: auto;
+    box-sizing: border-box;
+    align-items: flex-start;
+    flex-shrink: 1;
+    border-color: transparent;
+    border-style: none;
+    border-width: 0;
+    border-radius: 0px 0px 0px 0px;
+    flex-direction: row;
+    justify-content: flex-start;
+    background-color: transparent;
+  }
+  .frame1-vector03 {
+    top: 2.3504981994628906px;
+    left: 0.0000013199771728977794px;
+    width: 12px;
+    height: 28px;
+    position: absolute;
+  }
+  .frame1-vector04 {
+    top: 4.790380954742432px;
+    left: 9.800046920776367px;
+    width: 16px;
+    height: 23px;
+    position: absolute;
+  }
+  .frame1-vector05 {
+    top: 2.406578302383423px;
+    left: 25.748943328857422px;
+    width: 16px;
+    height: 23px;
+    position: absolute;
+  }
+  .frame1-vector06 {
+    top: 0.000005300659722706769px;
+    left: 41.08536911010742px;
+    width: 18px;
+    height: 24px;
+    position: absolute;
+  }
+  .frame1-group3 {
+    top: 175.38418579101562px;
+    left: 20.231578826904297px;
+    width: 82.77052307128906px;
+    height: 20.618127822875977px;
+    display: flex;
+    padding: 0;
+    position: absolute;
+    align-self: auto;
+    box-sizing: border-box;
+    align-items: flex-start;
+    flex-shrink: 1;
+    border-color: transparent;
+    border-style: none;
+    border-width: 0;
+    margin-right: 0;
+    border-radius: 0px 0px 0px 0px;
+    margin-bottom: 0;
+    flex-direction: row;
+    justify-content: flex-start;
+    background-color: transparent;
+  }
+  .frame1-vector07 {
+    top: 10.821975708007812px;
+    left: -0.0000013539224710257258px;
+    width: 5px;
+    height: 10px;
+    position: absolute;
+  }
+  .frame1-vector08 {
+    top: 10.101081848144531px;
+    left: 6.264381408691406px;
+    width: 7px;
+    height: 10px;
+    position: absolute;
+  }
+  .frame1-vector09 {
+    top: 9.567779541015625px;
+    left: 12.91511058807373px;
+    width: 6px;
+    height: 9px;
+    position: absolute;
+  }
+  .frame1-vector10 {
+    top: 8.060970306396484px;
+    left: 18.464038848876953px;
+    width: 9px;
+    height: 10px;
+    position: absolute;
+  }
+  .frame1-vector11 {
+    top: 7.566147327423096px;
+    left: 27.184947967529297px;
+    width: 3px;
+    height: 6px;
+    position: absolute;
+  }
+  .frame1-vector12 {
+    top: 6.613859176635742px;
+    left: 32.655845642089844px;
+    width: 6px;
+    height: 9px;
+    position: absolute;
+  }
+  .frame1-vector13 {
+    top: 5.386327743530273px;
+    left: 38.03264236450195px;
+    width: 6px;
+    height: 10px;
+    position: absolute;
+  }
+  .frame1-vector14 {
+    top: 4.974414825439453px;
+    left: 44.524051666259766px;
+    width: 3px;
+    height: 9px;
+    position: absolute;
+  }
+  .frame1-vector15 {
+    top: 4.515827178955078px;
+    left: 47.50079345703125px;
+    width: 4px;
+    height: 9px;
+    position: absolute;
+  }
+  .frame1-vector16 {
+    top: 3.1624433994293213px;
+    left: 51.22502136230469px;
+    width: 5px;
+    height: 10px;
+    position: absolute;
+  }
+  .frame1-vector17 {
+    top: 2.19826602935791px;
+    left: 59.875389099121094px;
+    width: 6px;
+    height: 9px;
+    position: absolute;
+  }
+  .frame1-vector18 {
+    top: 1.0179764032363892px;
+    left: 65.89399719238281px;
+    width: 3px;
+    height: 4px;
+    position: absolute;
+  }
+  .frame1-vector19 {
+    top: 0.9580384492874146px;
+    left: 70.01831817626953px;
+    width: 6px;
+    height: 9px;
+    position: absolute;
+  }
+  .frame1-vector20 {
+    top: 0.0000011225516800550395px;
+    left: 76.00093078613281px;
+    width: 7px;
+    height: 9px;
+    position: absolute;
+  }
+  .frame1-line1 {
+    top: 339px;
+    left: 335px;
+    width: 298px;
+    height: 0px;
+    position: absolute;
+  }
+  .frame1-get-chessed-logo {
+    top: 572px;
+    left: 38px;
+    width: 84px;
+    height: 73px;
+    position: absolute;
+  }
+  .frame1-group2 {
+    top: 414px;
+    left: 70px;
+    width: 239px;
+    height: 52px;
+    display: flex;
+    padding: 0;
+    position: absolute;
+    align-self: auto;
+    box-sizing: border-box;
+    align-items: flex-start;
+    flex-shrink: 1;
+    border-color: transparent;
+    border-style: none;
+    border-width: 0;
+    margin-right: 0;
+    border-radius: 0px 0px 0px 0px;
+    margin-bottom: 0;
+    flex-direction: row;
+    justify-content: flex-start;
+    background-color: transparent;
+  }
+  .frame1-rectangle1 {
+    top: 0px;
+    left: 0px;
+    width: 239px;
+    height: 52px;
+    position: absolute;
+    // box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.25) ;
+  }
+  .button-login {
+    top: 14px;
+    left: 14px;
+    color: rgba(255, 255, 255, 1);
+    height: auto;
+    position: absolute;
+    font-size: 20px;
+    align-self: auto;
+    font-style: ExtraBold;
+    text-align: right;
+    font-family: Heebo;
+    font-weight: 800;
+    line-height: 107.87500143051147%;
+    font-stretch: normal;
+    text-decoration: none;
+
+    background-color: transparent;
+    border: none;
+  }
+  .frame1-text12 {
+    top: 16px;
+    left: 16px;
+    color: rgba(255, 255, 255, 1);
+    height: auto;
+    position: absolute;
+    font-size: 20px;
+    align-self: auto;
+    font-style: ExtraBold;
+    text-align: right;
+    font-family: Heebo;
+    font-weight: 800;
+    line-height: 107.87500143051147%;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .frame1-i-m-a-g-e1 {
+    top: 466px;
+    left: 201px;
+    width: 174px;
+    height: 179px;
+    position: absolute;
+    border-color: transparent;
+  } 
+  .visits-back {
+    top: 200px;
+    right: 50px;
+    width: 29px;
+    height: 29px;
+    position: absolute;
+  }
+  @media(max-width: 479px) {
+    .frame1-frame1 {
+      width: 375px;
+    }
+    .frame1-rectangle4 {
+      width: 393px;
+    }
+    .frame1-vector {
+      height: 182px;
+    }
+  }
+  

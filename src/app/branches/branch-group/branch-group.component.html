@@ -1,0 +1,6 @@
+<div *ngIf="remult.authenticated() && !remult.user?.isManager"
+    style="display: flex; flex-direction: column; justify-content: space-between; width: 100%; direction: rtl;">
+    <mat-radio-button (change)="this.onGroupChanged(BranchGroup.noar)" [checked]="this.selected === BranchGroup.noar">&nbsp;נוער</mat-radio-button>
+    <mat-radio-button (change)="this.onGroupChanged(BranchGroup.campus)" [checked]="this.selected === BranchGroup.campus">&nbsp;קמפוס</mat-radio-button>
+    <mat-radio-button (change)="this.onGroupChanged(BranchGroup.all)" [checked]="this.selected === BranchGroup.all">&nbsp;נוער + קמפוס</mat-radio-button>
+</div>
