@@ -6,7 +6,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "c-teen": {
+    "kollel": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -42,7 +42,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/c-teen",
+            "outputPath": "dist/kollel",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -96,10 +96,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "c-teen:build:production"
+              "browserTarget": "kollel:build:production"
             },
             "development": {
-              "browserTarget": "c-teen:build:development"
+              "browserTarget": "kollel:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -107,7 +107,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "c-teen:build"
+            "browserTarget": "kollel:build"
           }
         },
         "test": {
@@ -132,5 +132,5 @@
       }
     }
   },
-  "defaultProject": "c-teen"
+  "defaultProject": "kollel"
 }

@@ -1,6 +1,6 @@
 {
-  "name": "c-teen",
-  "version": "2023.05.03",
+  "name": "kollel",
+  "version": "2023.05.12",
   "scripts": {
     "dev": "concurrently -k -n \"API,WEB\" -c \"bgBlue.bold,bgGreen.bold\" \"ts-node-dev -P tsconfig.server.json src/server/\" \"ng serve --proxy-config proxy.conf.json --open\"",
     "ng": "ng",

@@ -178,7 +178,7 @@ export class AppComponent implements OnInit, OnDestroy {
         if (this.activeRoute.firstChild.routeConfig)
           return this.activeRoute.firstChild.routeConfig.path;
       }
-    return 'c-teen';
+    return 'kollel';
   }
 
   shouldDisplayRoute(route: Route) {

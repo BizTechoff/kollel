@@ -6,7 +6,7 @@ export class HelperController {
     @BackendMethod({ allowed: true })
     async getVersion() {
         return '2.1.0'
-        // var pjson = require('../../../../c-teen/src/app/');
+        // var pjson = require('../../../../kollel/src/app/');
         // return pjson.version
         // return process.env['npm_package_version'] as string
     }

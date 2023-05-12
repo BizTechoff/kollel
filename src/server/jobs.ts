@@ -28,14 +28,14 @@ last-sent
 */
 
 export const runEveryFullHours = () => {
-    const Hour = 60 * 60 * 1000;
-    const currentDate = new Date()
-    const firstCall = Hour - (currentDate.getMinutes() * 60 + currentDate.getSeconds()) * 1000 - currentDate.getMilliseconds();
-    console.log(`jobsRun will start in: ${('00' + new Date(firstCall).getMinutes()).slice(-2)}:${('00' + new Date(firstCall).getSeconds()).slice(-2)} min`)
-    setTimeout(() => {
-        api.withRemult(undefined!, undefined!, () => jobsRun());
-        setInterval(() => api.withRemult(undefined!, undefined!, () => jobsRun()), Hour);
-    }, firstCall);
+    // const Hour = 60 * 60 * 1000;
+    // const currentDate = new Date()
+    // const firstCall = Hour - (currentDate.getMinutes() * 60 + currentDate.getSeconds()) * 1000 - currentDate.getMilliseconds();
+    // console.log(`jobsRun will start in: ${('00' + new Date(firstCall).getMinutes()).slice(-2)}:${('00' + new Date(firstCall).getSeconds()).slice(-2)} min`)
+    // setTimeout(() => {
+    //     api.withRemult(undefined!, undefined!, () => jobsRun());
+    //     setInterval(() => api.withRemult(undefined!, undefined!, () => jobsRun()), Hour);
+    // }, firstCall);
     // api.withRemult(undefined!, undefined!, async () => await jobsRun())
 };
 

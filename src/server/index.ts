@@ -12,13 +12,13 @@ import { getRequestMiddleware } from './getRequestMiddleware';
 import './jobs';
 import { runEveryFullHours } from './jobs';
 import { migrate } from './migration';
-
+ 
 config(); //loads the configuration from the .env file
 // process.env['TZ'] = 'Asia/Jerusalem'
 // SqlDatabase.LogToConsole = true 
 async function startup() {
 
-    console.log('c-teen.startup')
+    console.log('kollel.startup')
 
     const app = express();
     app.use(sslRedirect());
@@ -105,7 +105,7 @@ async function startup() {
         res.send(JSON.stringify(result));
     })
 
-    app.use(express.static('dist/c-teen'));
+    app.use(express.static('dist/kollel'));
     app.use('/*', async (req, res) => {
         req.session
         if (req.headers.accept?.includes("json")) {
@@ -114,7 +114,7 @@ async function startup() {
             return;
         }
         try {
-            res.sendFile(process.cwd() + '/dist/c-teen/index.html');
+            res.sendFile(process.cwd() + '/dist/kollel/index.html');
         } catch (err) {
             res.sendStatus(500);
         }
