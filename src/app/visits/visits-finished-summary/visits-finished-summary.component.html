@@ -1,57 +1,26 @@
 <div class="frame-container">
-    <div class="frame-frame">
-      <img
-        src="/assets/playground_assets/blueback1710-8m17-400w.png"
-        alt="BlueBack1710"
-        class="frame-blue-back"
-      />
-      <img
-        src="/assets/playground_assets/getpattern1711-0ev5-400w.png"
-        alt="GetPattern1711"
-        class="frame-get-pattern"
-      />
-      <img
-        src="/assets/playground_assets/rectangle31712-qaf-500w.png"
-        alt="Rectangle31712"
-        class="frame-rectangle3"
-      />
-      <div class="frame-frame1"></div>
-      <img
-        src="/assets/playground_assets/rectangle51714-514j.svg"
-        alt="Rectangle51714"
-        class="frame-rectangle5"
-      />
-      <img
-        src="/assets/playground_assets/rectangle81715-a77t.svg"
-        alt="Rectangle81715"
-        class="frame-rectangle8"
-      />
-      <img
-        src="/assets/playground_assets/rectangle91716-wkab.svg"
-        alt="Rectangle91716"
-        class="frame-rectangle9"
-      />
-      <img
-        src="/assets/playground_assets/rectangle101717-ztf8p.svg"
-        alt="Rectangle101717"
-        class="frame-rectangle10"
-      /> 
-      <span class="frame-text"><span> {{ remult.user?.name }} </span></span>
-      <span class="frame-text02"><span>היום שהיה לך</span></span>
-      <div>
-        <img
-          src="/assets/playground_assets/location1722-oo9.svg"
-          alt="location1722"
-          class="frame-location"
-        />
-        <span class="frame-text04"><span> {{ remult.user?.isAdmin?'':remult.user?.isDonor?'':'ראש כולל' }} כולל {{ remult.user?.branchName }} </span></span>
-      </div>
-      <!-- <img
+  <div class="frame-frame">
+    <img src="/assets/playground_assets/blueback1710-8m17-400w.png" alt="BlueBack1710" class="frame-blue-back" />
+    <img src="/assets/playground_assets/getpattern1711-0ev5-400w.png" alt="GetPattern1711" class="frame-get-pattern" />
+    <img src="/assets/playground_assets/rectangle31712-qaf-500w.png" alt="Rectangle31712" class="frame-rectangle3" />
+    <div class="frame-frame1"></div>
+    <img src="/assets/playground_assets/rectangle51714-514j.svg" alt="Rectangle51714" class="frame-rectangle5" />
+    <!-- <img src="/assets/playground_assets/rectangle81715-a77t.svg" alt="Rectangle81715" class="frame-rectangle8" /> -->
+    <img src="/assets/playground_assets/rectangle91716-wkab.svg" alt="Rectangle91716" class="frame-rectangle9" />
+    <img src="/assets/playground_assets/rectangle101717-ztf8p.svg" alt="Rectangle101717" class="frame-rectangle10" />
+    <span class="frame-text"><span> {{ remult.user?.name }} </span></span>
+    <span class="frame-text02"><span>היום שהיה לך</span></span>
+    <div>
+      <img src="/assets/playground_assets/location1722-oo9.svg" alt="location1722" class="frame-location" />
+      <span class="frame-text04"><span> {{ remult.user?.isAdmin?'':remult.user?.isDonor?'':'ראש כולל' }} כולל {{
+          remult.user?.branchName }} </span></span>
+    </div>
+    <!-- <img
         src="/assets/playground_assets/frame1724-4bvm.svg"
         alt="Frame1724"
         class="frame-frame2"
       /> -->
-      <!-- <div class="frame-frame3" (click)="this.rootmenu()">
+    <!-- <div class="frame-frame3" (click)="this.rootmenu()">
         <div class="frame-group7">
           <div class="frame-group">
             <img
@@ -166,75 +135,38 @@
           </div>
         </div>
       </div> -->
-      <div (click)="this.rootmenu()"> 
-        <img src="/assets/Logo Colel Chabad.png" alt="Frame14430" class="chabad-colel-logo" />
-        <!-- <img src="/assets/playground_assets/chabadLogo.svg" alt="Frame14430" class="chabad-get-chessed-logo" /> -->
-      </div>
-      <div class="frame-group3" (click)="this.ok()">
-        <img
-          src="/assets/playground_assets/rectangle11754-40re.svg"
-          alt="Rectangle11754"
-          class="frame-rectangle1"
-        />
-        <span class="frame-text06"><span>אישור</span></span>
-      </div>
-      <div class="frame-group11">
-        <img
-          src="/assets/playground_assets/ellipse11757-du4o-200h.png"
-          alt="Ellipse11757"
-          class="frame-ellipse1"
-        />
-        <img
-          src="/assets/playground_assets/image11758-waoqu-200h.png"
-          alt="IMAGE11758"
-          class="frame-i-m-a-g-e1"
-        />
-      </div>
-      <div class="frame-group12">
-        <img
-          src="/assets/playground_assets/ellipse11760-op3d-200h.png"
-          alt="Ellipse11760"
-          class="frame-ellipse11"
-        />
-      </div>
-      <div class="frame-group13">
-        <img
-          src="/assets/playground_assets/ellipse11762-xuph-200h.png"
-          alt="Ellipse11762"
-          class="frame-ellipse12"
-        />
-      </div>
-      <div class="frame-group14">
-        <img
-          src="/assets/playground_assets/ellipse11764-nsi-200h.png"
-          alt="Ellipse11764"
-          class="frame-ellipse13"
-        />
-      </div>
-      <span class="frame-text08"><span>דיירים</span></span>
-      <span class="frame-text10"><span>מסירות</span></span>
-      <span class="frame-text12"><span>ביקורים</span></span>
-      <img
-        src="/assets/playground_assets/image11768-yy6-200w.png"
-        alt="IMAGE11768"
-        class="frame-i-m-a-g-e11"
-      />
-      <span class="frame-text14"><span>דיווחים חסרים</span></span>
-      <span class="frame-text16"><span> {{ countSum.tenants }} </span></span>
-      <span class="frame-text18"><span> {{ countSum.delivers }} </span></span>
-      <span class="frame-text20"> {{ countSum.visits }} </span>
-      <span class="frame-text21"> {{ countSum.missings }} </span>
-      <!-- cheurho -->
-      <img
-        src="/assets/playground_assets/image11774-cue-200h.png"
-        alt="IMAGE11774"
-        class="frame-i-m-a-g-e12"
-      />
-      <img
-        src="/assets/playground_assets/line21775-t3ip.svg"
-        alt="Line21775"
-        class="frame-line2"
-      />
+    <div (click)="this.rootmenu()">
+      <img src="/assets/Logo Colel Chabad.png" alt="Frame14430" class="chabad-colel-logo" />
+      <!-- <img src="/assets/playground_assets/chabadLogo.svg" alt="Frame14430" class="chabad-get-chessed-logo" /> -->
     </div>
+    <div class="frame-group3" (click)="this.ok()">
+      <img src="/assets/playground_assets/rectangle11754-40re.svg" alt="Rectangle11754" class="frame-rectangle1" />
+      <span class="frame-text06"><span>אישור</span></span>
+    </div>
+    <div class="frame-group11">
+      <img src="/assets/playground_assets/ellipse11757-du4o-200h.png" alt="Ellipse11757" class="frame-ellipse1" />
+      <img src="/assets/playground_assets/image11758-waoqu-200h.png" alt="IMAGE11758" class="frame-i-m-a-g-e1" />
+    </div>
+    <!-- <div class="frame-group12">
+      <img src="/assets/playground_assets/ellipse11760-op3d-200h.png" alt="Ellipse11760" class="frame-ellipse11" />
+    </div> -->
+    <div class="frame-group13">
+      <img src="/assets/playground_assets/ellipse11762-xuph-200h.png" alt="Ellipse11762" class="frame-ellipse12" />
+    </div>
+    <div class="frame-group14">
+      <img src="/assets/playground_assets/ellipse11764-nsi-200h.png" alt="Ellipse11764" class="frame-ellipse13" />
+    </div>
+    <span class="frame-text08"><span>{{ this.query.group.caption }}</span></span>
+    <!-- <span class="frame-text10"><span>מסירות</span></span> -->
+    <span class="frame-text12"><span>ביקורים</span></span>
+    <img src="/assets/playground_assets/image11768-yy6-200w.png" alt="IMAGE11768" class="frame-i-m-a-g-e11" />
+    <span class="frame-text14"><span>דיווחים חסרים</span></span>
+    <span class="frame-text16"><span> {{ countSum.tenants }} </span></span>
+    <!-- <span class="frame-text18"><span> {{ countSum.delivers }} </span></span> -->
+    <span class="frame-text20"> {{ countSum.visits }} </span>
+    <span class="frame-text21"> {{ countSum.missings }} </span>
+    <!-- cheurho -->
+    <img src="/assets/playground_assets/image11774-cue-200h.png" alt="IMAGE11774" class="frame-i-m-a-g-e12" />
+    <img src="/assets/playground_assets/line21775-t3ip.svg" alt="Line21775" class="frame-line2" />
   </div>
-  
+</div>

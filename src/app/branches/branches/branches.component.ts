@@ -18,13 +18,14 @@ export class BranchesComponent implements OnInit {
 
   branches = [] as Branch[]
   query = new BranchController()
-  totals = { tenants: 0, volunteers: 0 }
+  totals = { tenants: 0 }//, volunteers: 0 }
 
   constructor(
     private routeHelper: RouteHelperService,
     private ui: UIToolsService) { }
   terms = terms;
   remult = remult;
+  BranchGroup = BranchGroup;
 
   async ngOnInit(): Promise<void> {
     remult.user!.lastComponent = BranchesComponent.name
@@ -32,12 +33,20 @@ export class BranchesComponent implements OnInit {
     await this.retrieve()
   }
 
+  clear() {
+    this.branches.splice(0)
+    this.totals.tenants = 0
+    // this.totals.volunteers = 0
+  }
+
   async retrieve() {
+    this.clear();
+
     this.branches = await this.query.getBranches(true)
     this.totals.tenants = this.branches.reduce(
       (sum, current) => sum + current.tenantsCount, 0);
-    this.totals.volunteers = this.branches.reduce(
-      (sum, current) => sum + current.volunteersCount, 0);
+    // this.totals.volunteers = this.branches.reduce(
+    //   (sum, current) => sum + current.volunteersCount, 0);
 
     // .filter(item => item.tax === '25.00')
 

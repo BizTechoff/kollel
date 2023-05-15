@@ -54,7 +54,7 @@ export class ManagersComponent implements OnInit {
     let vols = this.managers.map(m => ({ id: m.id, caption: m.name }))
     let id = ''
     await this.ui.selectValuesDialog({
-      title: 'חיפוש ראש כולל/ת',
+      title: 'חיפוש ראש כולל',
       values: vols,
       onSelect: (v) => { id = v.id }
     })

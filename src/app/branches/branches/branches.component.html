@@ -51,8 +51,8 @@
     </div>
     <div class="visits-cards">
       <div class="visits-cardtitle-totals">
-        <span class="visits-text09">סה"כ דיירים: {{ totals.tenants }}</span>
-        <span class="visits-text09">סה"כ מתנדבים: {{ totals.volunteers }}</span>
+        <span class="visits-text09">סה"כ {{ this.query.group.caption }}: {{ totals.tenants }}</span>
+        <!-- <span class="visits-text09">סה"כ מתנדבים: {{ totals.volunteers }}</span> -->
       </div>
       <div class="visits-cardcontent" *ngFor="let m of branches">
         <div class="visits-cardtitle">
@@ -73,8 +73,8 @@
         </div>
         <img src="/assets/playground_assets/sep4454-bwsr.svg" alt="sep4454" class="visits-sep" />
         <div class="tenants-summary">
-          <span class="visits-text14">{{ 'מתנדבים: ' + m.volunteersCount }}</span>
-          <span class="visits-text14">{{ 'דיירים: ' + m.tenantsCount }}</span>
+          <!-- <span class="visits-text14">{{ 'מתנדבים: ' + m.volunteersCount }}</span> -->
+          <span class="visits-text14">{{ this.query.group.caption + ': ' + m.tenantsCount }}</span>
         </div>
         <span *ngIf="m.remark?.trim()!.length" class="visits-text15">
           <span>הערה: {{ m.remark }}</span>

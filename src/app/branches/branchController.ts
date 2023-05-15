@@ -15,7 +15,7 @@ export class BranchController extends ControllerBase {
 
     @BackendMethod({ allowed: Allow.authenticated })
     async getBranches(counter = false) {
-        
+        // console.log('g',this.group)
         let result = await remult.repo(Branch).find({
             where: {
                 system: false,
@@ -33,11 +33,11 @@ export class BranchController extends ControllerBase {
                     branch: b,
                     active: true
                 })
-                b.volunteersCount = await remult.repo(User).count({
-                    active: true,
-                    volunteer: true,
-                    id: (await remult.repo(UserBranch).find({ where: { branch: b } })).map(ub => ub.user?.id)
-                })
+                // b.volunteersCount = await remult.repo(User).count({
+                //     active: true,
+                //     volunteer: true,
+                //     id: (await remult.repo(UserBranch).find({ where: { branch: b } })).map(ub => ub.user?.id)
+                // })
             }
         }
 

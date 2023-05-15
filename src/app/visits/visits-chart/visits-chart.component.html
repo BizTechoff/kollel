@@ -1,41 +1,15 @@
 <div class="chart-container">
   <div class="chart-chart">
     <div class="chart-top">
-      <!-- <div class="chart-cteen-logo" (click)="this.rootmenu()">
-        <div class="chart-logo">
-          <div class="chart-cteen">
-            <div class="chart-carea">
-              <img src="/assets/playground_assets/cbg9138-p4ve.svg" alt="cbg9138" class="chart-cbg" />
-              <img src="/assets/playground_assets/c9138-mtxf.svg" alt="c9138" class="chart-c" />
-            </div>
-            <div class="chart-teenarea">
-              <img src="/assets/playground_assets/teenbg9138-826.svg" alt="teenbg9138" class="chart-teenbg" />
-              <div class="chart-teen">
-                <img src="/assets/playground_assets/vector9138-nmzo.svg" alt="Vector9138" class="chart-vector" />
-                <img src="/assets/playground_assets/vector9138-xepb.svg" alt="Vector9138" class="chart-vector1" />
-                <img src="/assets/playground_assets/vector9138-7eq3.svg" alt="Vector9138" class="chart-vector2" />
-                <img src="/assets/playground_assets/vector9138-qa1n.svg" alt="Vector9138" class="chart-vector3" />
-              </div>
-            </div>
-          </div>
-          <div class="chart-amutaname">
-            <img src="/assets/playground_assets/frame39139-87g9.svg" alt="Frame39139" class="chart-frame3" />
-            <img src="/assets/playground_assets/frame29139-ry4q.svg" alt="Frame29139" class="chart-frame2" />
-            <img src="/assets/playground_assets/frame19140-2yps.svg" alt="Frame19140" class="chart-frame1" />
-          </div>
-        </div>
-      </div> -->
-      <div (click)="this.rootmenu()"> 
+      <div (click)="this.rootmenu()">
         <img src="/assets/Logo Colel Chabad.png" alt="Frame14430" class="chabad-colel-logo" />
-        <!-- <img src="/assets/playground_assets/chabadLogo.svg" alt="Frame14430" class="chabad-get-chessed-logo" /> -->
       </div>
       <app-branch-group (groupChanged)="this.groupChanged()"></app-branch-group>
-
       <div class="chart-userinfo">
         <span class="chart-text"><span>{{ remult.user?.name }}</span></span>
         <div class="chart-location">
-          <span class="chart-text2"><span>{{ remult.user?.isAdmin?'':remult.user?.isDonor?'':'ראש כולל' }} כולל {{
-              remult.user?.branchName }}</span></span>
+          <span class="chart-text2"><span>{{ remult.user?.isAdmin?'':remult.user?.isDonor?'':'ראש כולל' }} {{
+              remult.user?.branchName?.replace('כולל','') }}</span></span>
           <img src="/assets/playground_assets/locationicon9141-tasn.svg" alt="locationicon9141"
             class="chart-locationicon" />
         </div>
@@ -70,7 +44,6 @@
           </canvas>
         </div>
         <div class="report" *ngIf="this.showAsList">
-          <!-- <span>{{ this.query.group.id }}</span> -->
           <app-visits-report [group]="this.query.group"></app-visits-report>
         </div>
       </div>
@@ -81,82 +54,3 @@
     </div>
   </div>
 </div>
-
-
-<!-- <div class="frame-container">
-    <div class="frame-frame">
-        <img src="/assets/playground_assets/blueback1277-4qjq-400w.png" alt="BlueBack1277" class="frame-blue-back" />
-        <img src="/assets/playground_assets/getpattern1278-ll8-400w.png" alt="GetPattern1278"
-            class="frame-get-pattern" />
-        <img src="/assets/playground_assets/rectangle71279-ego.svg" alt="Rectangle71279" class="frame-rectangle7" />
-        <img src="/assets/playground_assets/rectangle31280-oeyf-200h.png" alt="Rectangle31280"
-            class="frame-rectangle3" />
-        <div class="frame-cteen-logo" (click)="this.rootmenu()">
-            <div class="frame-group">
-                <img src="/assets/playground_assets/vector1283-ucab.svg" alt="Vector1283" class="frame-vector" />
-                <img src="/assets/playground_assets/vector1284-qvvb.svg" alt="Vector1284" class="frame-vector01" />
-                <img src="/assets/playground_assets/vector1285-0ya.svg" alt="Vector1285" class="frame-vector02" />
-                <div>
-                    <img src="/assets/playground_assets/vector1287-wobd.svg" alt="Vector1287" class="frame-vector03" />
-                    <img src="/assets/playground_assets/vector1288-ra0q.svg" alt="Vector1288" class="frame-vector04" />
-                    <img src="/assets/playground_assets/vector1289-jzrd.svg" alt="Vector1289" class="frame-vector05" />
-                    <img src="/assets/playground_assets/vector1290-zn7n.svg" alt="Vector1290" class="frame-vector06" />
-                </div>
-            </div>
-            <div class="frame-group2">
-                <img src="/assets/playground_assets/vector1292-3o1.svg" alt="Vector1292" class="frame-vector07" />
-                <img src="/assets/playground_assets/vector1293-3ilh.svg" alt="Vector1293" class="frame-vector08" />
-                <img src="/assets/playground_assets/vector1294-3fxl.svg" alt="Vector1294" class="frame-vector09" />
-                <img src="/assets/playground_assets/vector1295-1r8n.svg" alt="Vector1295" class="frame-vector10" />
-                <img src="/assets/playground_assets/vector1296-x2j.svg" alt="Vector1296" class="frame-vector11" />
-                <img src="/assets/playground_assets/vector1297-cw1p.svg" alt="Vector1297" class="frame-vector12" />
-                <img src="/assets/playground_assets/vector1298-5m5l.svg" alt="Vector1298" class="frame-vector13" />
-                <img src="/assets/playground_assets/vector1299-vwa.svg" alt="Vector1299" class="frame-vector14" />
-                <img src="/assets/playground_assets/vector1300-pztn.svg" alt="Vector1300" class="frame-vector15" />
-                <img src="/assets/playground_assets/vector1301-ig8h.svg" alt="Vector1301" class="frame-vector16" />
-                <img src="/assets/playground_assets/vector1302-tmr5.svg" alt="Vector1302" class="frame-vector17" />
-                <img src="/assets/playground_assets/vector1303-s9dg.svg" alt="Vector1303" class="frame-vector18" />
-                <img src="/assets/playground_assets/vector1304-loxm.svg" alt="Vector1304" class="frame-vector19" />
-                <img src="/assets/playground_assets/vector1305-8d9.svg" alt="Vector1305" class="frame-vector20" />
-            </div>
-        </div>
-        <div class="frame-group3" (click)="this.back()">
-            <img src="/assets/playground_assets/rectangle11307-a3yj.svg" alt="Rectangle11307"
-                class="frame-rectangle1" />
-            <span class="frame-text">
-                <span>סגור</span>
-            </span>
-        </div>
-        <span class="frame-text07"><span> {{ remult.user?.name }} </span></span>
-        <div class="frame-group1">
-            <img src="/assets/playground_assets/location1313-6an55.svg" alt="location1313" class="frame-location" />
-            <span class="frame-text09"><span> {{ remult.user?.isAdmin?'':remult.user?.isDonor?'':'ראש כולל' }} כולל {{
-                    remult.user?.branchName }} </span></span>
-        </div>
-        <img (click)="this.back()" src="/assets/playground_assets/frame1315-o6e5.svg" alt="Frame1315"
-            class="frame-frame1" />
-        <div>
-            <img src="/assets/playground_assets/rectangle51318-h82m.svg" alt="Rectangle51318"
-                class="frame-rectangle5" />
-            <div *ngIf="!this.showAsList" class="frame-rectangle50">
-                <canvas baseChart [colors]="pieChartColors" [data]="pieChartDataStatuses"
-                    [labels]="pieChartLabelsStatuses" [chartType]="pieChartType" [options]="pieChartOptionsByStatuses"
-                    [plugins]="pieChartPlugins" [legend]="pieChartLegend"></canvas>
-            </div>
-        </div>
-        <div *ngIf="this.showAsList" class="frame-rectangle50">
-            <app-visits-report style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; width: 100%;"></app-visits-report>
-        </div>
-
-        <span class="frame-text11">
-            <span class="frame-text12">מצב</span>
-            <span> נוכחי</span>
-        </span>
-        <div style="display: flex; flex-direction: row; justify-content: center;">
-            <img *ngIf="remult.user?.isAdmin || remult.user?.isDonor" class="frame-text05" src="/assets/list.svg" (click)="this.list()" />
-            <span class="frame-text14"><span>סטטוס דיווחים</span></span>
-        </div>
-
-    </div>
-
-</div> -->

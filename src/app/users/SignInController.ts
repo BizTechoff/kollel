@@ -236,9 +236,10 @@ export class SignInController extends ControllerBase {
                         if (ub?.length) {
                             remult.user.branch = ub[0].branch.id
                             remult.user.branchName = ub[0].branch.name
+                            remult.user.group = ub[0].branch.group?.id
                             result.userInfo.branch = ub[0].branch.id
                             result.userInfo.branchName = ub[0].branch.name
-                            result.userInfo.group  = BranchGroup.all.id
+                            result.userInfo.group = ub[0].branch.group?.id
                         }
                     }
                     else {

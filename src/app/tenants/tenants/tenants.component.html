@@ -32,8 +32,8 @@
       <div class="tenants-userinfo">
         <span class="tenants-text"><span>{{ this.remult.user?.name }}</span></span>
         <div class="tenants-location">
-          <span class="tenants-text02"><span>{{ remult.user?.isAdmin?'':remult.user?.isDonor?'':'ראש כולל' }} כולל {{
-              this.remult.user?.branchName }}</span></span>
+          <span class="tenants-text02"><span>{{ remult.user?.isAdmin?'':remult.user?.isDonor?'':'ראש כולל' }} {{
+              this.remult.user?.branchName?.replace('כולל','') }}</span></span>
           <img alt="locationicon3490" src="/assets/playground_assets/locationicon3490-ztjd.svg"
             class="tenants-locationicon" />
         </div>
@@ -59,7 +59,7 @@
         />
       </div> -->
       <div class="tenants-title">
-        <span class="tenants-text04"><span>דיירים</span></span>
+        <span class="tenants-text04"><span>אברכים</span></span>
         <span class="tenants-text06"><span>רשימת</span></span>
       </div>
       <img (click)="this.back()" alt="back8554" src="/assets/playground_assets/back8554-xqwn.svg"

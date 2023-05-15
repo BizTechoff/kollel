@@ -856,7 +856,7 @@ async function createMonthlyReport() {
             for await (const u of remult.repo(User).query({ where: { manager: true } })) {
                 let message = `סיכום חודשי
 החודש הגיעו ${visitsVolunteers.length} מתנדבים מתוך ${vCount} שקיימים בסניפך\n
-החודש קיבלו ${visitsTenants.length} דיירים מתוך ${tCount} שקיימים בסניפך\n
+החודש קיבלו ${visitsTenants.length} אברכים מתוך ${tCount} שקיימים בסניפך\n
 פרוייקט ההתנדבות גט חסד`
 
                 await addNotification({

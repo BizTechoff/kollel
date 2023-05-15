@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { remult } from 'remult';
+import { BranchGroup } from '../../branches/branchGroup';
 import { BranchesComponent } from '../../branches/branches/branches.component';
 import { RouteHelperService } from '../../common-ui-elements';
 import { HomeComponent } from '../../home/home.component';
@@ -12,10 +13,11 @@ import { terms } from '../../terms';
 import { VisitsChartComponent } from '../../visits/visits-chart/visits-chart.component';
 import { VisitsExportComponent } from '../../visits/visits-export/visits-export.component';
 import { VisitsFinishedMessagesComponent } from '../../visits/visits-finished-messages/visits-finished-messages.component';
-import { ManagersComponent } from '../managers/managers.component';
 import { SignInController } from '../SignInController';
+import { ManagersComponent } from '../managers/managers.component';
 import { UserMenu2Component } from '../user-menu2/user-menu2.component';
 import { VolunteersComponent } from '../volunteers/volunteers.component';
+import { VisitsComponent } from '../../visits/visits/visits.component';
 
 @Component({
   selector: 'app-user-menu',
@@ -24,6 +26,7 @@ import { VolunteersComponent } from '../volunteers/volunteers.component';
 })
 export class UserMenuComponent implements OnInit {
 
+  group!: BranchGroup
   constructor(
     private routeHelper: RouteHelperService) {
   }
@@ -31,7 +34,8 @@ export class UserMenuComponent implements OnInit {
   remult = remult;
 
   async ngOnInit(): Promise<void> {
-    // remult.user!.group = BranchGroup.all.id
+    this.group = BranchGroup.fromId(remult.user!.group)
+    // await this.groupChanged()
   }
 
   async logout() {
@@ -39,16 +43,16 @@ export class UserMenuComponent implements OnInit {
     remult.user = undefined;
     this.routeHelper.navigateToComponent(HomeComponent)
   }
- 
+
   // async groupChanged() {
-  //   let group = BranchGroup.fromId(remult.user!.group)
-  //   if (group) {
-  //     remult.user!.group = group.id
+  //   this.group = BranchGroup.fromId(remult.user!.group)
+  //   if (this.group) {
+  //     remult.user!.group = this.group.id
   //   }
   // }
 
   async visits() {
-    this.routeHelper.navigateToComponent(VisitsFinishedMessagesComponent)
+    this.routeHelper.navigateToComponent(VisitsComponent);//VisitsFinishedMessagesComponent)
   }
 
   async tenants() {

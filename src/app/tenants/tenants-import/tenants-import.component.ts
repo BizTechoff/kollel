@@ -179,7 +179,7 @@ export class TenantsImportComponent implements OnInit {
             }
           }
         }
-        this.ui.info(`נקלטו ${count} דיירים בהצלחה`)
+        this.ui.info(`נקלטו ${count} אברכים בהצלחה`)
       }
       else {
         this.ui.info(`שגיאה כולל שלך`)

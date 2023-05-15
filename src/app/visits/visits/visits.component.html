@@ -32,7 +32,7 @@
       <div class="visits-userinfo">
         <span class="visits-text"><span> {{ remult.user?.name }} </span></span>
         <div class="visits-location">
-          <span class="visits-text02"><span>{{ remult.user?.isAdmin?'':remult.user?.isDonor?'':'ראש כולל' }} כולל {{ remult.user?.branchName }}</span></span>
+          <span class="visits-text02"><span>{{ remult.user?.isAdmin?'':remult.user?.isDonor?'':'ראש כולל' }} {{ remult.user?.branchName?.replace('כולל','') }}</span></span>
           <img src="/assets/playground_assets/locationicon1915-rc69.svg" alt="locationicon1915"
             class="visits-locationicon" />
         </div>
@@ -50,16 +50,16 @@
         <img src="/assets/playground_assets/vector1915-r5bg.svg" alt="Vector1915" class="visits-vector05" />
       </div>
       <div class="visits-title">
-        <span class="visits-text04"><span>דיווחים</span></span>
-        <span class="visits-text06"><span>רשימת</span></span>
+        <span class="visits-text04"><span>נוכחות</span></span>
+        <span class="visits-text06"><span>דיווחי</span></span>
       </div>
       <img (click)="this.back()" src="/assets/playground_assets/back1915-xq3i.svg" alt="back1915" class="visits-back" />
     </div>
     
-    <div class="visits-weekly-answer">
+    <!-- <div class="visits-weekly-answer">
       <span class="visits-weekly-answer-text"><span>השאלה השבועית: {{ weeklyQuestion }}</span>
     </span>
-    </div>
+    </div> -->
     <div class="visits-cards">
       
       <div class="visits-cardcontent" *ngFor="let v of this.visits" (click)="this.edit(v.id)"

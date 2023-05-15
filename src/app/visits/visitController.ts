@@ -65,7 +65,7 @@ export class VisitController extends ControllerBase {
     @Field<VisitController, BranchGroup>(() => BranchGroup, {
         caption: 'קבוצה'
     })
-    group = BranchGroup.all
+    group = BranchGroup.fromId(remult.user!.group)
 
 
     @BackendMethod({ allowed: [Roles.admin, Roles.donor] })
@@ -1206,10 +1206,9 @@ export class VisitController extends ControllerBase {
             }
         }
 
-        let once = false
         let branchWeek = [] as { key: string, volunteers: string[] }[]
         let totalWeek = [] as { week: string, tt: number, tvol: number, td: number, tv: number }[]
-        //['רחובות נוער'],//['רחובות נוער','יהוד'],// ['קריית גת'],//,'רחובות'],
+
         // build data
         for await (const v of remult.repo(Visit).query({
             where: {
@@ -1218,9 +1217,6 @@ export class VisitController extends ControllerBase {
                     : await remult.repo(Branch).find({
                         where:
                         {
-                            // name:['רחובות נוער'],
-                            // name:['יהוד'],
-                            // name: ['רחובות נוער', 'יהוד'],
                             active: true,
                             system: false,
                             group: this.group === BranchGroup.all
@@ -1359,21 +1355,13 @@ export class VisitController extends ControllerBase {
 
                         case ExportType.done: {
                             if (w.totalDelivered + w.totalVisited === w.totalTenants) {
-                                // console.log(b.branch + ' stay')
                             }
                             else {
-                                // console.log(b.branch + ' removed')
                                 let i = b.weeks.indexOf(w)
-                                // console.log(i, 1, b.weeks.length)
                                 b.weeks.splice(i, 1)
-                                // b.weeks = b.weeks.splice(i, 1)
-                                // console.log(i, 1, b.weeks.length)
                                 if (!b.weeks.length) {
                                     i = m.branches.indexOf(b)
-                                    // console.log(i, 2, m.branches.length)
                                     m.branches.splice(i, 1)
-                                    // console.log(i, 2, m.branches.length)
-                                    // m.branches = m.branches.splice(i, 1)
                                 }
                             }
                             break;
@@ -1384,11 +1372,9 @@ export class VisitController extends ControllerBase {
                             else {
                                 let i = b.weeks.indexOf(w)
                                 b.weeks.splice(i, 1)
-                                // b.weeks = b.weeks.splice(i, 1)
                                 if (!b.weeks.length) {
                                     i = m.branches.indexOf(b)
                                     m.branches.splice(i, 1)
-                                    // m.branches = m.branches.splice(i, 1)
                                 }
                             }
                             break;
@@ -1399,11 +1385,9 @@ export class VisitController extends ControllerBase {
                             else {
                                 let i = b.weeks.indexOf(w)
                                 b.weeks.splice(i, 1)
-                                // b.weeks = b.weeks.splice(i, 1)
                                 if (!b.weeks.length) {
                                     i = m.branches.indexOf(b)
                                     m.branches.splice(i, 1)
-                                    // m.branches = m.branches.splice(i, 1)
                                 }
                             }
                             break;
@@ -1460,12 +1444,9 @@ export class VisitController extends ControllerBase {
                     fm.branches.push(fb)
                 }
 
-                // r = fb.weeks.length ? 1 : 4
                 let maxVisits = 0
                 let weeks = 0
                 for (const w of b.weeks) {
-                    // let key = b.branch + '-' + w.week//??????????????????????????????????????????
-                    // r += 2
                     let www = b.weeksCounter.indexOf(w.week)
 
                     let fw = fb.weeks.find(ww => ww.week === w.week)
@@ -1473,7 +1454,6 @@ export class VisitController extends ControllerBase {
                         fw = {
                             week: w.week,
                             col: www * 5 + 2,
-                            // col: fb.weeks.length * 5 + 2,
                             visits: w.visits.length
                         }
                         fb.weeks.push(fw)
@@ -1537,24 +1517,24 @@ export class VisitController extends ControllerBase {
                 for (const w of b.weeks) {
                     let fw = fb.weeks.find(ww => ww.week === w.week)!
                     aoa[fm.row][fw.col] = w.week
-                    aoa[fm.row + 1][fw.col] = 'דייר'
-                    aoa[fm.row + 1][fw.col + 1] = 'מתנדב'
-                    aoa[fm.row + 1][fw.col + 2] = 'מסרו'
-                    aoa[fm.row + 1][fw.col + 3] = 'ביקרו'
+                    aoa[fm.row + 1][fw.col] = this.group.single
+                    // aoa[fm.row + 1][fw.col + 1] = 'מתנדב'
+                    // aoa[fm.row + 1][fw.col + 2] = 'מסרו'
+                    aoa[fm.row + 1][fw.col + 3] = 'נוכחו'
 
                     let tw = totalWeek.find(tw => tw.week === w.week)
                     if (tw) {
                         if (!remult.user?.isManager) {
                             aoa[fm.row + 2][fw.col] = tw.tt.toString()
-                            aoa[fm.row + 2][fw.col + 1] = tw.tvol.toString()
-                            aoa[fm.row + 2][fw.col + 2] = tw.td.toString()
+                            // aoa[fm.row + 2][fw.col + 1] = tw.tvol.toString()
+                            // aoa[fm.row + 2][fw.col + 2] = tw.td.toString()
                             aoa[fm.row + 2][fw.col + 3] = tw.tv.toString()
                         }
                     }
 
                     aoa[fb.row][fw.col] = w.totalTenants.toString()
-                    aoa[fb.row][fw.col + 1] = w.totalVolunteers.toString()
-                    aoa[fb.row][fw.col + 2] = w.totalDelivered.toString()
+                    // aoa[fb.row][fw.col + 1] = w.totalVolunteers.toString()
+                    // aoa[fb.row][fw.col + 2] = w.totalDelivered.toString()
                     aoa[fb.row][fw.col + 3] = w.totalVisited.toString()
                     let rr = fb.row
                     for (const v of w.visits) {
@@ -1564,8 +1544,8 @@ export class VisitController extends ControllerBase {
                         }
                         v.volunteers.sort((a, b) => a.localeCompare(b))
                         aoa[rr][fw.col] = v.tenant
-                        aoa[rr][fw.col + 1] = v.volunteers.join(', ')
-                        aoa[rr][fw.col + 2] = v.delivered
+                        // aoa[rr][fw.col + 1] = v.volunteers.join(', ')
+                        // aoa[rr][fw.col + 2] = v.delivered
                         aoa[rr][fw.col + 3] = v.visited
                         // console.log('w.branch', b.branch, 'b.week', w.week, 'v.tenant', v.tenant, 'rr', rr, 'fw.row', fb.row, 'aoa.length', aoa.length)
                     }

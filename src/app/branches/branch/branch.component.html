@@ -49,7 +49,7 @@
       <div class="manager-dataviewas">
         <div class="manager-cardcontent">
           <mat-select *ngIf="this.branch" [(ngModel)]="this.branch.group">
-            <mat-option *ngFor="let g of BranchGroup.getOptions(false)" [value]="g">{{ g.caption }}</mat-option>
+            <mat-option *ngFor="let g of BranchGroup.getOptions(true)" [value]="g">{{ g.caption }}</mat-option>
           </mat-select>
           <span class="manager-text08"><span>:קבוצה</span></span>
         </div>

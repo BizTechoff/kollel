@@ -75,32 +75,70 @@ export class VisitsExportComponent implements OnInit {
       // excel-sheet
       let wb = xlsx.utils.book_new();
       wb.Workbook = { Views: [{ RTL: true }] };
-
-      let group = this.query.group === BranchGroup.all
-        ? 'נוער+קמפוס'
-        : this.query.group === BranchGroup.avrach
-          ? 'נוער'
-          : 'קמפוס'
-
-      // let ws = xlsx.utils.json_to_sheet(result)
       let ws = xlsx.utils.aoa_to_sheet(result)
-      // let csv = xlsx.utils.sheet_to_csv(ws, {  })
-      // console.log('csv', csv)
+      var name = `` +
+        `${this.query.fdate.getDate()}-` +
+        `${this.query.tdate.getDate()}.` +
+        `${this.query.tdate.getMonth() + 1}.` +
+        `${this.query.tdate.getFullYear()}` +
+        ` ${this.query.group.caption}`
+
       xlsx.utils.book_append_sheet(
         wb,
         ws,
-        `${this.query.fdate.getDate()}-${this.query.tdate.getDate()}.${this.query.tdate.getMonth() + 1}.${this.query.tdate.getFullYear()} ${group}`)
-      // `${dateFormat(this.query.fdate, '.')}-${dateFormat(this.query.tdate, '.')}`);
+        name)
       xlsx.writeFile(
         wb,
-        `גט חסד דוח דיווחים${this.query.detailed ? ' מפורט' : ''}.${this.ext}`,
+        `דוח דיווחים${this.query.detailed ? ' מפורט' : ''}.${this.ext}`,
         {
           bookType: this.ext === 'html' ? 'html' : this.ext === 'csv' ? 'csv' : 'xlsx',
           Props: { Company: 'BizTechoff™' },
           cellStyles: true
         });
+    }
+  }
+
+  validate() {
+    if (!this.query.fdate) {
+      this.query.fdate = new Date()
+      // this.ui.info('לא צויין תאריך התחלה')
+      // return false
+    }
+    this.query.fdate = firstDateOfWeek(this.query.fdate)
+    if (!this.query.tdate) {
+      this.query.tdate = this.query.fdate
+    }
+    this.query.tdate = lastDateOfWeek(this.query.tdate)
+    if (this.query.tdate < this.query.fdate) {
+      this.query.tdate = lastDateOfWeek(this.query.fdate)
+    }
+    if (dateDiff(this.query.fdate, this.query.tdate) > 45) {
+      this.ui.info('מקסימום טווח של 45 יום')
+      return false
+    }
+    // if (!this.query.detailed) {
+    //   this.query.type = ExportType.done
+    // }
+    return true
+  }
+
+  back() {
+    this.routeHelper.navigateToComponent(UserMenuComponent)
+  }
+
+  rootmenu() {
+    this.routeHelper.navigateToComponent(UserMenuComponent)
+  }
+
+}
 
 
+
+
+      // let ws = xlsx.utils.json_to_sheet(result)
+      // let csv = xlsx.utils.sheet_to_csv(ws, {  })
+      // console.log('csv', csv)
+      // `${dateFormat(this.query.fdate, '.')}-${dateFormat(this.query.tdate, '.')}`);
       // let rows = [
       //   { v: "Courier: 24", t: "s", s: { font: { name: "Courier", sz: 24 } } },
       //   { v: "bold & color", t: "s", s: { font: { bold: true, color: { rgb: "FF0000" } } } },
@@ -145,40 +183,3 @@ export class VisitsExportComponent implements OnInit {
       // } 
       // xlsx.utils.book_append_sheet(wb, '')
       // xlsx.utils.sheet_to_csv(wb.Sheets[0]), `${dateFormat(this.query.fdate, '.')}-${dateFormat(this.query.tdate, '.')}`);
-
-    }
-  }
-
-  validate() {
-    if (!this.query.fdate) {
-      this.query.fdate = new Date()
-      // this.ui.info('לא צויין תאריך התחלה')
-      // return false
-    }
-    this.query.fdate = firstDateOfWeek(this.query.fdate)
-    if (!this.query.tdate) {
-      this.query.tdate = this.query.fdate
-    }
-    this.query.tdate = lastDateOfWeek(this.query.tdate)
-    if (this.query.tdate < this.query.fdate) {
-      this.query.tdate = lastDateOfWeek(this.query.fdate)
-    }
-    if (dateDiff(this.query.fdate, this.query.tdate) > 45) {
-      this.ui.info('מקסימום טווח של 45 יום')
-      return false
-    }
-    // if (!this.query.detailed) {
-    //   this.query.type = ExportType.done
-    // }
-    return true
-  }
-
-  back() {
-    this.routeHelper.navigateToComponent(UserMenuComponent)
-  }
-
-  rootmenu() {
-    this.routeHelper.navigateToComponent(UserMenuComponent)
-  }
-
-}

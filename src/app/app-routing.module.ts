@@ -49,7 +49,7 @@ const routes: Routes = [
   { path: 'visit', component: VisitComponent, canActivate: [ManagerGuard], data: { name: 'דיווח' } },
   { path: 'tenant', component: TenantComponent, canActivate: [ManagerGuard], data: { name: 'דייר' } },
   { path: 'volunteer', component: VolunteerComponent, canActivate: [ManagerGuard], data: { name: 'מתנדב' } },
-  { path: 'manager', component: ManagerComponent, canActivate: [AdminGuard], data: { name: 'ראש כולל/ת' } },
+  { path: 'manager', component: ManagerComponent, canActivate: [AdminGuard], data: { name: 'ראש כולל' } },
   { path: 'branch', component: BranchComponent, canActivate: [AdminGuard], data: { name: 'כולל' } },
   { path: 'news', component: NewsComponent, canActivate: [AdminGuard], data: { name: 'הודעה מתפרצת' } },
   { path: 'valid', component: UserValidationComponent, canActivate: [NotAuthenticatedGuard], data: { name: 'אימות סלולרי' } },

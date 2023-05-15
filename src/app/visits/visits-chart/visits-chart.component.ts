@@ -136,13 +136,14 @@ export class VisitsChartComponent implements OnInit {
       if (this.count.length) {
         countSum = this.count[0]
       }
-      this.pieChartDataStatuses.push(countSum.delivers,
+      this.pieChartDataStatuses.push(
+        // countSum.delivers,
         countSum.visits,
         countSum.missings)
       // this.pieChartLabelsStatuses.slice(0)
       this.pieChartLabelsStatuses.push(
-        `מסרו: ${countSum.delivers}`,
-        `ביקרו: ${countSum.visits}`,
+        // `מסרו: ${countSum.delivers}`,
+        `נוכחו: ${countSum.visits}`,
         `חסרים: ${countSum.missings}`)
     }
     else {

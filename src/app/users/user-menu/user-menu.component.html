@@ -27,16 +27,17 @@
             </div>
           </div>
         </div> -->
-        <div> 
+        <div>
           <img src="/assets/Logo Colel Chabad.png" alt="Frame14430" class="chabad-colel-logo" />
           <!-- <img src="/assets/playground_assets/chabadLogo.svg" alt="Frame14430" class="chabad-get-chessed-logo" /> -->
         </div>
         <app-branch-group></app-branch-group>
+        <!-- <app-branch-group (groupChanged)="this.groupChanged()"></app-branch-group> -->
         <div class="menu-userinfo">
           <span class="menu-text"><span>{{ remult.user?.name }}</span></span>
           <div class="menu-location">
-            <span class="menu-text02"><span>{{ remult.user?.isAdmin?'':remult.user?.isDonor?'':'ראש כולל' }} כולל {{
-                remult.user?.branchName }}</span></span>
+            <span class="menu-text02"><span>{{ remult.user?.isAdmin?'':remult.user?.isDonor?'':'ראש כולל' }} {{
+                remult.user?.branchName?.replace('כולל','') }}</span></span>
             <img src="/assets/playground_assets/locationicon4431-mwai.svg" alt="locationicon4431"
               class="menu-locationicon" />
           </div>
@@ -46,25 +47,23 @@
         <div *ngIf="remult.user?.isManager" class="menu-visits" (click)="this.visits()">
           <img src="/assets/playground_assets/image14536-ve6-200w.png" alt="IMAGE14536" class="menu-i-m-a-g-e1" />
           <span class="menu-text04">
-            <span class="menu-text05">רשימת</span>
-            <span> דיווחים</span>
+            <span class="menu-text05">דיווחי</span>
+            <span> נוכחות</span>
           </span>
         </div>
-        <div style="display: flex; flex-direction: row; justify-content: space-evenly; ">
-          <div *ngIf="remult.user?.isManager" class="menu-tenants" (click)="this.volunteers()">
-            <img src="/assets/playground_assets/volunteers.png" alt="IMAGE24536" class="menu-i-m-a-g-e2" />
-            <span class="menu-text07">
-              <span class="menu-text08">רשימת</span>
-              <span> מתנדבים</span>
-            </span>
-          </div>
-          <div *ngIf="remult.user?.isManager" class="menu-tenants" (click)="this.tenants()">
-            <img src="/assets/playground_assets/image24536-blef-200w.png" alt="IMAGE24536" class="menu-i-m-a-g-e2" />
-            <span class="menu-text07">
-              <span class="menu-text08">רשימת</span>
-              <span> דיירים</span>
-            </span>
-          </div>
+        <div *ngIf="false" class="menu-tenants" (click)="this.volunteers()">
+          <img src="/assets/playground_assets/volunteers.png" alt="IMAGE24536" class="menu-i-m-a-g-e2" />
+          <span class="menu-text07">
+            <span class="menu-text08">רשימת</span>
+            <span> מתנדבים</span>
+          </span>
+        </div>
+        <div *ngIf="remult.user?.isManager" class="menu-tenants" (click)="this.tenants()">
+          <img src="/assets/playground_assets/volunteers.png" alt="IMAGE24536" class="menu-i-m-a-g-e2" />
+          <span class="menu-text07">
+            <span class="menu-text08">רשימת</span>
+            <span> {{ this.group.caption }}</span>
+          </span>
         </div>
         <div class="menu-chart" (click)="this.chart()">
           <img src="/assets/playground_assets/image14537-te5f-200h.png" alt="IMAGE14537" class="menu-i-m-a-g-e11" />
@@ -90,8 +89,8 @@
           <span class="menu-text10">
             <span class="menu-text11">הודעות הנהלה</span>
           </span>
-        </div> -->
-        <!-- <div *ngIf="remult.user?.isAdmin" class="menu-chart" (click)="this.weeklyQuestion()">
+        </div>
+        <div *ngIf="remult.user?.isAdmin" class="menu-chart" (click)="this.weeklyQuestion()">
           <img src="/assets/playground_assets/help.svg" alt="IMAGE14537" class="menu-i-m-a-g-e11" />
           <span class="menu-text10">
             <span class="menu-text11">שאלת השבוע</span>
@@ -108,7 +107,7 @@
           <img src="/assets/playground_assets/excel.svg" alt="IMAGE14537" class="menu-i-m-a-g-e11" />
           <span class="menu-text10">
             <span class="menu-text11">דוח דיווחים</span>
-          </span> 
+          </span>
         </div>
         <!-- <div class="menu-tenants" (click)="this.test()">
           <img
