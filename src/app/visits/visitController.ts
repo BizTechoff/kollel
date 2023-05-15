@@ -152,13 +152,13 @@ export class VisitController extends ControllerBase {
             // page: page
         })
 
-        for (const r of rows) {
-            r.volunteersNames =
-                (await remult.repo(VisitVolunteer).find({
-                    where: { visit: { $id: r.id } }
-                }))
-                    .map(v => v.volunteer?.name).join(', ')
-        }
+        // for (const r of rows) {
+        //     r.volunteersNames =
+        //         (await remult.repo(VisitVolunteer).find({
+        //             where: { visit: { $id: r.id } }
+        //         }))
+        //             .map(v => v.volunteer?.name).join(', ')
+        // }
 
         return rows
     }

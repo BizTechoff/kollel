@@ -913,17 +913,17 @@ async function createWeeklyVisits() {
                     await remult.repo(Visit).save(visit)
                 }
                 ++result
-                for await (const tv of remult.repo(TenantVolunteer).query({ where: { tenant: tenant } })) {
-                    let vv = await remult.repo(VisitVolunteer).findFirst(
-                        {
-                            visit: visit,
-                            volunteer: tv.volunteer
-                        },
-                        { createIfNotFound: true })
-                    if (vv.isNew()) {
-                        await remult.repo(VisitVolunteer).save(vv)
-                    }
-                }
+                // for await (const tv of remult.repo(TenantVolunteer).query({ where: { tenant: tenant } })) {
+                //     let vv = await remult.repo(VisitVolunteer).findFirst(
+                //         {
+                //             visit: visit,
+                //             volunteer: tv.volunteer
+                //         },
+                //         { createIfNotFound: true })
+                //     if (vv.isNew()) {
+                //         await remult.repo(VisitVolunteer).save(vv)
+                //     }
+                // }
             }
         }
         await logJob(today, 'createWeeklyVisits', JosStatus.done, '')
