@@ -15,7 +15,7 @@ import { UserValidationComponent } from '../user-validation/user-validation.comp
 export class UserRegistrationComponent implements OnInit {
 
   register = new RegisterController()
-  branch = '..מחפש סניף'
+  branch = '..מחפש כולל'
   foundBrnach = false
 
   constructor(
@@ -39,11 +39,11 @@ export class UserRegistrationComponent implements OnInit {
       this.foundBrnach = await this.register.setBranchIfExists(branchId)
     }
     if (!this.foundBrnach) {
-      this.info('לא נמצא סניף')
-      this.branch = 'לא נמצא סניף'
+      this.info('לא נמצא כולל')
+      this.branch = 'לא נמצא כולל'
     }
     else {
-      this.branch = 'הצטרפות לסניף ' + this.register.branch?.name
+      this.branch = 'הצטרפות לכולל ' + this.register.branch?.name
     }
   }
 

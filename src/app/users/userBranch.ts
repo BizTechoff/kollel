@@ -3,13 +3,13 @@ import { Branch } from "../branches/branch";
 import { User } from "./user";
 
 @Entity<UserBranch>('users_branches', {
-    caption: 'סניפים של מתנדב',
+    caption: 'כוללים של מתנדב',
     allowApiCrud: () => remult.authenticated()
 })
 export class UserBranch extends IdEntity {
 
     @Field<UserBranch, Branch>(() => Branch, {
-        caption: 'סניף'
+        caption: 'כולל'
     })
     branch!: Branch
 

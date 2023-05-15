@@ -44,14 +44,14 @@
           alt="location1722"
           class="frame-location"
         />
-        <span class="frame-text04"><span> {{ remult.user?.isAdmin?'':remult.user?.isDonor?'':'רכז' }} סניף {{ remult.user?.branchName }} </span></span>
+        <span class="frame-text04"><span> {{ remult.user?.isAdmin?'':remult.user?.isDonor?'':'ראש כולל' }} כולל {{ remult.user?.branchName }} </span></span>
       </div>
       <!-- <img
         src="/assets/playground_assets/frame1724-4bvm.svg"
         alt="Frame1724"
         class="frame-frame2"
       /> -->
-      <div class="frame-frame3" (click)="this.rootmenu()">
+      <!-- <div class="frame-frame3" (click)="this.rootmenu()">
         <div class="frame-group7">
           <div class="frame-group">
             <img
@@ -165,10 +165,10 @@
             />
           </div>
         </div>
-      </div>
-      <div> 
+      </div> -->
+      <div (click)="this.rootmenu()"> 
         <img src="/assets/Logo Colel Chabad.png" alt="Frame14430" class="chabad-colel-logo" />
-        <img src="/assets/playground_assets/chabadLogo.svg" alt="Frame14430" class="chabad-get-chessed-logo" />
+        <!-- <img src="/assets/playground_assets/chabadLogo.svg" alt="Frame14430" class="chabad-get-chessed-logo" /> -->
       </div>
       <div class="frame-group3" (click)="this.ok()">
         <img

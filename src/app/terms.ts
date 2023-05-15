@@ -13,7 +13,7 @@ export const terms = {
     hello: "Hello",
     invalidOperation: "Invalid Operation",
     admin: 'אדמין',
-    manager: 'רכז',
+    manager: 'ראש כולל',
     volunteer: 'מתנדב',
     tenant: 'דייר',
     yes: 'כן',

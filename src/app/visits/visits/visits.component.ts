@@ -51,7 +51,7 @@ export class VisitsComponent implements OnInit {
     }
     content = content.trim()
     this.weeklyQuestion = content
-    // this.weeklyQuestion = 'היי בוקר טוב יש למלא את כל הטפסים ששלחנו לכם כל אחד לפי הצוות שלו ולעדכן חזרה את הרכז לא לשכוח זאת תודה ופסח כשר ושמח'
+    // this.weeklyQuestion = 'היי בוקר טוב יש למלא את כל הטפסים ששלחנו לכם כל אחד לפי הצוות שלו ולעדכן חזרה את הראש כולל לא לשכוח זאת תודה ופסח כשר ושמח'
     // this.weeklyQuestion += this.weeklyQuestion 
   }
 

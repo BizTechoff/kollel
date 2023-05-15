@@ -3,7 +3,7 @@ import { Branch } from "../branches/branch";
 import { News } from "./news";
 
 @Entity<NewsBranch>('news_branches', {
-    caption: 'הודעה לסניף',
+    caption: 'הודעה לכולל',
     allowApiCrud: () => remult.authenticated()
 })
 export class NewsBranch extends IdEntity {
@@ -14,7 +14,7 @@ export class NewsBranch extends IdEntity {
     news!: News
 
     @Field<NewsBranch, Branch>(() => Branch, {
-        caption: 'סניף'
+        caption: 'כולל'
     })
     branch!: Branch
     

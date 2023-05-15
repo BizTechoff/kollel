@@ -1,7 +1,7 @@
 <div class="chart-container">
   <div class="chart-chart">
     <div class="chart-top">
-      <div class="chart-cteen-logo" (click)="this.rootmenu()">
+      <!-- <div class="chart-cteen-logo" (click)="this.rootmenu()">
         <div class="chart-logo">
           <div class="chart-cteen">
             <div class="chart-carea">
@@ -24,17 +24,17 @@
             <img src="/assets/playground_assets/frame19140-2yps.svg" alt="Frame19140" class="chart-frame1" />
           </div>
         </div>
-      </div>
-      <div> 
+      </div> -->
+      <div (click)="this.rootmenu()"> 
         <img src="/assets/Logo Colel Chabad.png" alt="Frame14430" class="chabad-colel-logo" />
-        <img src="/assets/playground_assets/chabadLogo.svg" alt="Frame14430" class="chabad-get-chessed-logo" />
+        <!-- <img src="/assets/playground_assets/chabadLogo.svg" alt="Frame14430" class="chabad-get-chessed-logo" /> -->
       </div>
       <app-branch-group (groupChanged)="this.groupChanged()"></app-branch-group>
 
       <div class="chart-userinfo">
         <span class="chart-text"><span>{{ remult.user?.name }}</span></span>
         <div class="chart-location">
-          <span class="chart-text2"><span>{{ remult.user?.isAdmin?'':remult.user?.isDonor?'':'רכז' }} סניף {{
+          <span class="chart-text2"><span>{{ remult.user?.isAdmin?'':remult.user?.isDonor?'':'ראש כולל' }} כולל {{
               remult.user?.branchName }}</span></span>
           <img src="/assets/playground_assets/locationicon9141-tasn.svg" alt="locationicon9141"
             class="chart-locationicon" />
@@ -130,7 +130,7 @@
         <span class="frame-text07"><span> {{ remult.user?.name }} </span></span>
         <div class="frame-group1">
             <img src="/assets/playground_assets/location1313-6an55.svg" alt="location1313" class="frame-location" />
-            <span class="frame-text09"><span> {{ remult.user?.isAdmin?'':remult.user?.isDonor?'':'רכז' }} סניף {{
+            <span class="frame-text09"><span> {{ remult.user?.isAdmin?'':remult.user?.isDonor?'':'ראש כולל' }} כולל {{
                     remult.user?.branchName }} </span></span>
         </div>
         <img (click)="this.back()" src="/assets/playground_assets/frame1315-o6e5.svg" alt="Frame1315"

@@ -31,7 +31,7 @@ export class HomeComponent implements OnInit {
 
     // let u = await remult.repo(User).findFirst({ mobile: this.signer.mobile, active: true }, { useCache: false });
     // if(u && u.admin && u.manager){
-    //   let yes = await this.ui.yesNoQuestion(`כן - כניסה כאדמין\nלא - כניסה כרכז`)
+    //   let yes = await this.ui.yesNoQuestion(`כן - כניסה כאדמין\nלא - כניסה כראש כולל`)
     // }
     try {
       let isDevMode = false

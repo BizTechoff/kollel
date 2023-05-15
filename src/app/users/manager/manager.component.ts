@@ -28,7 +28,7 @@ export class ManagerComponent implements OnInit {
   page = 1
   tenantPhotoLink = ''
   selectedBranch!: Branch
-  title= 'הוספת רכז חדש'
+  title= 'הוספת ראש כולל חדש'
 
   args!: {
     id: string,
@@ -51,13 +51,13 @@ export class ManagerComponent implements OnInit {
     this.args.id = this.route.snapshot.paramMap.get('id') ?? '';
     //console.log(`VisitComponent: {id: ${this.args.id}}`)
     if (this.args.id?.trim().length) {
-      this.title= 'עדכון רכז'
+      this.title= 'עדכון ראש כולל'
       // console.log(this.title)
       await this.reloadId()
       // await this.addBranch('', this.manager.id)
     }
     else {
-      this.title= 'הוספת רכז חדש'
+      this.title= 'הוספת ראש כולל חדש'
       //console.log('new tenant')
       this.manager = remult.repo(User).create()
       // this.volunteer.address = this.remult.user?.branchName!
@@ -69,7 +69,7 @@ export class ManagerComponent implements OnInit {
 
   async save() {
     if (!this.selectedBranch) {
-      this.ui.error('חובה לשייך סניף')
+      this.ui.error('חובה לשייך כולל')
     }
     else {
       let isNew = this.args.id?.trim().length === 0
@@ -232,7 +232,7 @@ export class ManagerComponent implements OnInit {
       vols.push({ caption: v.name, id: v.id })
     }
     await this.ui.selectValuesDialog({
-      title: 'בחירת סניפים',
+      title: 'בחירת כוללים',
       values: vols,
       onSelect: async (v) => { await this.addBranch(v.id, '') },
       onAdd: async (v) => { await this.addNewVolunteer(v.caption) }

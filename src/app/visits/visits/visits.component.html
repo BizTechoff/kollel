@@ -1,7 +1,7 @@
 <div class="visits-container">
   <div class="visits-visits">
     <div class="visits-top">
-      <div class="visits-cteen-logo" (click)="this.rootmenu()">
+      <!-- <div class="visits-cteen-logo" (click)="this.rootmenu()">
         <div class="visits-logo">
           <div class="visits-cteen">
             <div class="visits-carea">
@@ -24,15 +24,15 @@
             <img src="/assets/playground_assets/frame11915-wqq.svg" alt="Frame11915" class="visits-frame1" />
           </div>
         </div>
-      </div>
-      <div> 
+      </div> -->
+      <div (click)="this.rootmenu()"> 
         <img src="/assets/Logo Colel Chabad.png" alt="Frame14430" class="chabad-colel-logo" />
-        <img src="/assets/playground_assets/chabadLogo.svg" alt="Frame14430" class="chabad-get-chessed-logo" />
+        <!-- <img src="/assets/playground_assets/chabadLogo.svg" alt="Frame14430" class="chabad-get-chessed-logo" /> -->
       </div>
       <div class="visits-userinfo">
         <span class="visits-text"><span> {{ remult.user?.name }} </span></span>
         <div class="visits-location">
-          <span class="visits-text02"><span>{{ remult.user?.isAdmin?'':remult.user?.isDonor?'':'רכז' }} סניף {{ remult.user?.branchName }}</span></span>
+          <span class="visits-text02"><span>{{ remult.user?.isAdmin?'':remult.user?.isDonor?'':'ראש כולל' }} כולל {{ remult.user?.branchName }}</span></span>
           <img src="/assets/playground_assets/locationicon1915-rc69.svg" alt="locationicon1915"
             class="visits-locationicon" />
         </div>

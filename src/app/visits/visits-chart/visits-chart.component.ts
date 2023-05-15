@@ -156,7 +156,7 @@ export class VisitsChartComponent implements OnInit {
       }
       else {
         this.pieChartDataStatuses.push(0)
-        this.pieChartLabelsStatuses.push(`לא נמצאו סניפים עם דיווחים`)
+        this.pieChartLabelsStatuses.push(`לא נמצאו כוללים עם דיווחים`)
       }
     }
   }

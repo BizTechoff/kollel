@@ -46,7 +46,7 @@ export class JobType {
         אנא בדוק עם המתנדבים!\n
         פרוייקט ההתנדבות גט חסד`)
 
-    static managerEndOfMonthReport = new JobType('רכז דוח סוף חודש')
+    static managerEndOfMonthReport = new JobType('ראש כולל דוח סוף חודש')
 
     constructor(public caption = '', public message = '') { }
     id!: string

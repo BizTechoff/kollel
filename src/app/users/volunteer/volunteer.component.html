@@ -2,7 +2,7 @@
 <div *ngIf="this.volunteer" class="manager-container">
   <div class="manager-manager">
     <div class="manager-top">
-      <div class="manager-cteen-logo" (click)="this.rootmenu()">
+      <!-- <div class="manager-cteen-logo" (click)="this.rootmenu()">
         <div class="manager-logo">
           <div class="manager-cteen">
             <div class="manager-carea">
@@ -25,15 +25,15 @@
             <img src="/assets/playground_assets/frame12031-0sqa.svg" alt="Frame12031" class="manager-frame1" />
           </div>
         </div>
-      </div>
-      <div> 
+      </div> -->
+      <div (click)="this.rootmenu()"> 
         <img src="/assets/Logo Colel Chabad.png" alt="Frame14430" class="chabad-colel-logo" />
-        <img src="/assets/playground_assets/chabadLogo.svg" alt="Frame14430" class="chabad-get-chessed-logo" />
+        <!-- <img src="/assets/playground_assets/chabadLogo.svg" alt="Frame14430" class="chabad-get-chessed-logo" /> -->
       </div>
       <div class="manager-userinfo">
         <span class="manager-text"><span>{{ this.remult.user?.name }}</span></span>
         <div class="manager-location">
-          <span class="manager-text02"><span>{{ remult.user?.isAdmin?'':remult.user?.isDonor?'':'רכז' }} סניף {{
+          <span class="manager-text02"><span>{{ remult.user?.isAdmin?'':remult.user?.isDonor?'':'ראש כולל' }} כולל {{
               this.remult.user?.branchName }}</span></span>
           <img src="/assets/playground_assets/locationicon2031-gznd.svg" alt="locationicon2031"
             class="manager-locationicon" />

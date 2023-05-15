@@ -12,7 +12,7 @@ export interface exportData {
     [caption: string]: any;
 }
 
-const COLUMN_BRANCH = 'סניף'
+const COLUMN_BRANCH = 'כולל'
 const COLUMN_TENANT = 'דייר'
 const COLUMN_VOLUNTEERS = 'מתנדבים'
 const COLUMN_DELIVERED = 'מסרו'

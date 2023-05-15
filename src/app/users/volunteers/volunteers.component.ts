@@ -129,7 +129,7 @@ export class VolunteersComponent implements OnInit {
               .map(ub => ub.branch.id)
           }
         })
-      , 'רשימת מתנדבים סניף ' + remult.user?.branchName,
+      , 'רשימת מתנדבים כולל ' + remult.user?.branchName,
       this.busy)
   }
 

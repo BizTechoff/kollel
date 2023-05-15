@@ -3,8 +3,8 @@ import { remult } from 'remult';
 import * as xlsx from 'xlsx';
 import { BranchGroup } from '../../branches/branchGroup';
 import { RouteHelperService } from '../../common-ui-elements';
-import { dateDiff, firstDateOfWeek, lastDateOfWeek, resetDateTime } from '../../common/dateFunc';
 import { UIToolsService } from '../../common/UIToolsService';
+import { dateDiff, firstDateOfWeek, lastDateOfWeek, resetDateTime } from '../../common/dateFunc';
 import { terms } from '../../terms';
 import { UserMenuComponent } from '../../users/user-menu/user-menu.component';
 import { VisitController } from '../visitController';
@@ -46,7 +46,7 @@ export class VisitsExportComponent implements OnInit {
     this.query.fdate = firstDateOfWeek(today)
     this.query.tdate = lastDateOfWeek(today)
     this.query.detailed = false
-    this.query.type =ExportType.all
+    this.query.type = ExportType.all
     //  remult.user!.isManager
     //   ? ExportType.all
     //   : ExportType.doneAndNotDone
@@ -60,6 +60,9 @@ export class VisitsExportComponent implements OnInit {
       console.log(`AlbumComponent.groupChanged: { this.query.group: ${this.query.group.id}, group: ${group.id}`)
       if (group !== this.query.group) {
         this.query.group = group
+        // var swap = this.query.type
+        // this.query.type = undefined!
+        // this.query.type = swap
       }
     }
   }
@@ -75,7 +78,7 @@ export class VisitsExportComponent implements OnInit {
 
       let group = this.query.group === BranchGroup.all
         ? 'נוער+קמפוס'
-        : this.query.group === BranchGroup.noar
+        : this.query.group === BranchGroup.avrach
           ? 'נוער'
           : 'קמפוס'
 

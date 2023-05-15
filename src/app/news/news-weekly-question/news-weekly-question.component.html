@@ -1,7 +1,7 @@
 <div class="tenant-container">
     <div class="tenant-tenant">
       <div class="tenant-top">
-        <div class="tenant-cteen-logo" (click)="this.rootmenu()">
+        <!-- <div class="tenant-cteen-logo" (click)="this.rootmenu()">
           <div class="tenant-logo">
             <div class="tenant-cteen">
               <div class="tenant-carea">
@@ -24,15 +24,15 @@
               <img src="/assets/playground_assets/frame11611-uz0l.svg" alt="Frame11611" class="tenant-frame1" />
             </div>
           </div>
-        </div>
-        <div> 
+        </div> -->
+        <div (click)="this.rootmenu()"> 
           <img src="/assets/Logo Colel Chabad.png" alt="Frame14430" class="chabad-colel-logo" />
-          <img src="/assets/playground_assets/chabadLogo.svg" alt="Frame14430" class="chabad-get-chessed-logo" />
+          <!-- <img src="/assets/playground_assets/chabadLogo.svg" alt="Frame14430" class="chabad-get-chessed-logo" /> -->
         </div>
         <div class="tenant-userinfo">
           <span class="tenant-text"><span>{{ remult.user?.name }}</span></span>
           <div class="tenant-location">
-            <span class="tenant-text02"><span>{{ remult.user?.isAdmin?'':remult.user?.isDonor?'':'רכז' }} סניף {{ remult.user?.branchName }}</span></span>
+            <span class="tenant-text02"><span>{{ remult.user?.isAdmin?'':remult.user?.isDonor?'':'ראש כולל' }} כולל {{ remult.user?.branchName }}</span></span>
             <img src="/assets/playground_assets/locationicon1611-e21.svg" alt="locationicon1611"
               class="tenant-locationicon" />
           </div>

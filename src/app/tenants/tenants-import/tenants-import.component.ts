@@ -182,7 +182,7 @@ export class TenantsImportComponent implements OnInit {
         this.ui.info(`נקלטו ${count} דיירים בהצלחה`)
       }
       else {
-        this.ui.info(`שגיאה סניף שלך`)
+        this.ui.info(`שגיאה כולל שלך`)
       }
     }
   }

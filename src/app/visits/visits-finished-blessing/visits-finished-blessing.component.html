@@ -15,7 +15,7 @@
         src="/assets/playground_assets/rectangle31235-ky19-200h.png"
         class="frame-rectangle3"
       />
-      <div class="frame-cteen-logo" (click)="this.rootmenu()">
+      <!-- <div class="frame-cteen-logo" (click)="this.rootmenu()">
         <div class="frame-group">
           <img
             alt="Vector1238"
@@ -128,10 +128,10 @@
           />
         </div>
       </div>
-      
-      <div> 
+       -->
+      <div (click)="this.rootmenu()"> 
         <img src="/assets/Logo Colel Chabad.png" alt="Frame14430" class="chabad-colel-logo" />
-        <img src="/assets/playground_assets/chabadLogo.svg" alt="Frame14430" class="chabad-get-chessed-logo" />
+        <!-- <img src="/assets/playground_assets/chabadLogo.svg" alt="Frame14430" class="chabad-get-chessed-logo" /> -->
       </div>
       <span class="frame-text"><span>!תודה רבה</span></span>
       <div class="frame-group3" (click)="this.thanks()">
@@ -151,7 +151,7 @@
           src="/assets/playground_assets/location1270-mfem.svg"
           class="frame-location"
         />
-        <span class="frame-text10"><span> {{ remult.user?.isAdmin?'':remult.user?.isDonor?'':'רכז' }} סניף {{ remult.user?.branchName }} </span></span>
+        <span class="frame-text10"><span> {{ remult.user?.isAdmin?'':remult.user?.isDonor?'':'ראש כולל' }} כולל {{ remult.user?.branchName }} </span></span>
       </div>
       <img (click)="this.back()"
         alt="Frame1272"

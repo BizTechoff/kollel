@@ -2,7 +2,7 @@ import { Entity, Field, Fields, IdEntity, isBackend, remult, Validators } from "
 import { BranchGroup } from "./branchGroup";
 
 @Entity<Branch>('branches', {
-    caption: 'דייר',
+    caption: 'כולל',
     allowApiCrud: () => remult.authenticated(),
     allowApiRead: true,
     validation: async (row, col) => {
@@ -35,7 +35,7 @@ export class Branch extends IdEntity {
         caption: 'קבוצה',
         dbName: 'group_'
     })
-    group = BranchGroup.noar
+    group = BranchGroup.avrach
 
     @Fields.string<Branch>({
         validate: [Validators.required.withMessage('לא הוזן שם')],

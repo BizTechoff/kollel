@@ -136,7 +136,7 @@ export class TenantsComponent implements OnInit {
           },
           orderBy: { name: 'asc', address: 'asc' }
         })
-      , 'רשימת דיירים סניף ' + remult.user?.branchName,
+      , 'רשימת דיירים כולל ' + remult.user?.branchName,
       this.busy)
   }
 

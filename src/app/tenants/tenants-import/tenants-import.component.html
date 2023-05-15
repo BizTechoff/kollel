@@ -1,7 +1,7 @@
 <div class="import-container">
     <div class="import-import">
         <div class="import-top">
-            <div class="import-cteen-logo" (click)="this.rootmenu()">
+            <!-- <div class="import-cteen-logo" (click)="this.rootmenu()">
                 <div class="import-logo">
                     <div class="import-cteen">
                         <div class="import-carea">
@@ -32,16 +32,16 @@
                             class="import-frame1" />
                     </div>
                 </div>
-            </div>
-            <div> 
+            </div> -->
+            <div (click)="this.rootmenu()"> 
               <img src="/assets/Logo Colel Chabad.png" alt="Frame14430" class="chabad-colel-logo" />
-              <img src="/assets/playground_assets/chabadLogo.svg" alt="Frame14430" class="chabad-get-chessed-logo" />
+              <!-- <img src="/assets/playground_assets/chabadLogo.svg" alt="Frame14430" class="chabad-get-chessed-logo" /> -->
             </div>
             <div class="import-userinfo">
                 <span class="import-text"><span>{{ this.remult.user?.name }}</span></span>
                 <div class="import-location">
-                    <span class="import-text02"><span>{{ this.remult.user?.isAdmin?'':this.remult.user?.isDonor?'':'רכז'
-                            }} סניף {{
+                    <span class="import-text02"><span>{{ this.remult.user?.isAdmin?'':this.remult.user?.isDonor?'':'ראש כולל'
+                            }} כולל {{
                             this.remult.user?.branchName }}</span></span>
                     <img src="/assets/playground_assets/locationicon1423-8f2c.svg" alt="locationicon1423"
                         class="import-locationicon" />

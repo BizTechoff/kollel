@@ -1,7 +1,7 @@
 <div class="export-container">
     <div class="export-export">
         <div class="export-top">
-            <div class="export-cteen-logo" (click)="this.rootmenu()">
+            <!-- <div class="export-cteen-logo" (click)="this.rootmenu()">
                 <div class="export-logo">
                     <div class="export-cteen">
                         <div class="export-carea">
@@ -31,16 +31,16 @@
                             class="export-frame1" />
                     </div>
                 </div>
-            </div>
-            <div> 
+            </div> -->
+            <div (click)="this.rootmenu()"> 
               <img src="/assets/Logo Colel Chabad.png" alt="Frame14430" class="chabad-colel-logo" />
-              <img src="/assets/playground_assets/chabadLogo.svg" alt="Frame14430" class="chabad-get-chessed-logo" />
+              <!-- <img src="/assets/playground_assets/chabadLogo.svg" alt="Frame14430" class="chabad-get-chessed-logo" /> -->
             </div>
             <app-branch-group (groupChanged)="this.groupChanged()"></app-branch-group>
             <div class="export-userinfo">
                 <span class="export-text"><span>{{ remult.user?.name }}</span></span>
                 <div class="export-location">
-                    <span class="export-text02"><span>{{ remult.user?.isAdmin?'':remult.user?.isDonor?'':'רכז' }} סניף
+                    <span class="export-text02"><span>{{ remult.user?.isAdmin?'':remult.user?.isDonor?'':'ראש כולל' }} כולל
                             {{
                             remult.user?.branchName }}</span></span>
                     <img src="/assets/playground_assets/locationicon1253-rwl.svg" alt="locationicon1253"
@@ -79,7 +79,7 @@
                 </div>
                 <!-- </div> -->
                 <!-- <div class="export-cardcontent2">
-            <span class="export-text14"><span>הצג רק ברמת סניפים</span></span>
+            <span class="export-text14"><span>הצג רק ברמת כוללים</span></span>
             <img
               src="/assets/playground_assets/rectangle91251-x9lb-200h.png"
               alt="Rectangle91251"
@@ -89,7 +89,7 @@
                 <div class="export-cardcontent2">
                     <div class="export-cardcontent3">
                         <span class="export-text16">
-                            <span>מרוכז {{ (remult.user?.isAdmin || remult.user?.isDonor)? 'לפי סניפים':'' }}</span>
+                            <span>מרוכז {{ (remult.user?.isAdmin || remult.user?.isDonor)? 'לפי כוללים':'' }}</span>
                         </span>
                         <input name="detailed" type="radio" checked [(ngModel)]="this.query.detailed" [value]="false">
                     </div>
@@ -97,7 +97,7 @@
                     <div class="export-cardcontent30">
                         <ng-container class="export-cardcontent3">
                             <span class="export-text16">
-                                <span>מפורט דיירים ומתנדבים</span>
+                                <span>מפורט {{ this.query.group.caption }}</span>
                             </span>
                             <input name="detailed" type="radio" [(ngModel)]="this.query.detailed" [value]="true">
                         </ng-container>
@@ -115,7 +115,7 @@
                         style="display: flex; flex-direction: row; justify-content: space-between; width: 100%; direction: rtl;">
                         <mat-label style="width: 100%;">סטטוס:</mat-label>
                         <mat-select [(ngModel)]="this.query.type" style="color: blue;">
-                            <mat-option *ngFor="let et of ExportType.getOptions(true)" [value]="et">{{
+                            <mat-option *ngFor="let et of ExportType.getOptions(true, this.query.group)" [value]="et">{{
                                 et.caption
                                 }}</mat-option>
                         </mat-select>

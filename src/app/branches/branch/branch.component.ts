@@ -30,11 +30,11 @@ export class BranchComponent implements OnInit {
   async ngOnInit(): Promise<void> {
     let id = this.route.snapshot.paramMap.get('id') ?? '';
     if (id?.trim().length) {
-      this.title= 'עדכון סניף'
+      this.title= 'עדכון כולל'
       this.branch = await remult.repo(Branch).findId(id)
     }
     else {
-      this.title= 'הוספת סניף חדש'
+      this.title= 'הוספת כולל חדש'
       this.branch = remult.repo(Branch).create()
     }
   }

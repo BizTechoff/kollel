@@ -32,7 +32,7 @@ let hebrewMonths = [
     'דצמבר'
 ]
 
-const COLUMN_BRANCH = 'סניף'
+const COLUMN_BRANCH = 'כולל'
 const COLUMN_TENANT = 'דייר'
 const COLUMN_VOLUNTEERS = 'מתנדבים'
 const COLUMN_DELIVERED = 'מסרו'
@@ -654,7 +654,7 @@ export class VisitController extends ControllerBase {
             if (r === aoa.length) {
                 aoa[r] = [] as string[]
             }
-            aoa[r][c] = 'סניף'
+            aoa[r][c] = 'כולל'
             aoa[r][c + 2] = 'דייר'
             aoa[r][c + 3] = 'מתנדבים'
             aoa[r][c + 4] = 'מסרו'
@@ -674,7 +674,7 @@ export class VisitController extends ControllerBase {
             let colIndex = 0
 
             // let monthRow = {} as exportDataRow
-            // monthRow['סניף'] = m.month
+            // monthRow['כולל'] = m.month
             // rows.push(monthRow)
 
             let volunteersIds = [] as string[]
@@ -978,7 +978,7 @@ export class VisitController extends ControllerBase {
                 aoa[fm.row] = [] as string[]
                 aoa[fm.row][0] = m.month
                 aoa[fm.row + 1] = [] as string[]
-                aoa[fm.row + 1][0] = 'סניף'
+                aoa[fm.row + 1][0] = 'כולל'
                 aoa[fm.row + 2] = [] as string[]
                 aoa[fm.row + 2][0] = 'סה"כ'
             }
@@ -1515,7 +1515,7 @@ export class VisitController extends ControllerBase {
             if (!aoa[fm.row + 1]) {
                 aoa[fm.row + 1] = [] as string[]
             }
-            aoa[fm.row + 1][0] = 'סניף'
+            aoa[fm.row + 1][0] = 'כולל'
             if (!remult.user?.isManager) {
                 if (!aoa[fm.row + 2]) {
                     aoa[fm.row + 2] = [] as string[]
@@ -1976,7 +1976,7 @@ export class VisitController extends ControllerBase {
             if (!aoa[fm.row + 1]) {
                 aoa[fm.row + 1] = [] as string[]
             }
-            aoa[fm.row + 1][0] = 'סניף'
+            aoa[fm.row + 1][0] = 'כולל'
             if (!aoa[fm.row + 2]) {
                 aoa[fm.row + 2] = [] as string[]
             }

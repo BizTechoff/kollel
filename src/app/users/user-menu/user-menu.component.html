@@ -3,7 +3,7 @@
     <img src="/assets/playground_assets/vector4426-ao9.svg" alt="Vector4426" class="menu-vector" />
     <div class="menu-mainlayout">
       <div class="menu-top">
-        <div class="menu-cteen-logo">
+        <!-- <div class="menu-cteen-logo">
           <div class="menu-logo">
             <div class="menu-cteen">
               <div class="menu-carea">
@@ -26,16 +26,16 @@
               <img src="/assets/playground_assets/frame14430-cils.svg" alt="Frame14430" class="menu-frame1" />
             </div>
           </div>
-        </div>
+        </div> -->
         <div> 
           <img src="/assets/Logo Colel Chabad.png" alt="Frame14430" class="chabad-colel-logo" />
-          <img src="/assets/playground_assets/chabadLogo.svg" alt="Frame14430" class="chabad-get-chessed-logo" />
+          <!-- <img src="/assets/playground_assets/chabadLogo.svg" alt="Frame14430" class="chabad-get-chessed-logo" /> -->
         </div>
         <app-branch-group></app-branch-group>
         <div class="menu-userinfo">
           <span class="menu-text"><span>{{ remult.user?.name }}</span></span>
           <div class="menu-location">
-            <span class="menu-text02"><span>{{ remult.user?.isAdmin?'':remult.user?.isDonor?'':'רכז' }} סניף {{
+            <span class="menu-text02"><span>{{ remult.user?.isAdmin?'':remult.user?.isDonor?'':'ראש כולל' }} כולל {{
                 remult.user?.branchName }}</span></span>
             <img src="/assets/playground_assets/locationicon4431-mwai.svg" alt="locationicon4431"
               class="menu-locationicon" />
@@ -73,30 +73,30 @@
             <span> נוכחי</span>
           </span>
         </div>
-        <div *ngIf="remult.user?.isAdmin" class="menu-chart" (click)="this.managers()">
-          <img src="/assets/playground_assets/shluchim.png" alt="IMAGE14537" class="menu-i-m-a-g-e11" />
-          <span class="menu-text10">
-            <span class="menu-text11">רכזים</span>
-          </span>
-        </div>
         <div *ngIf="remult.user?.isAdmin" class="menu-chart" (click)="this.branches()">
           <img src="/assets/playground_assets/branches.png" alt="IMAGE14537" class="menu-i-m-a-g-e11" />
           <span class="menu-text10">
-            <span class="menu-text11">סניפים</span>
+            <span class="menu-text11">כוללים</span>
           </span>
         </div>
-        <div *ngIf="remult.user?.isAdmin" class="menu-chart" (click)="this.news()">
+        <div *ngIf="remult.user?.isAdmin" class="menu-chart" (click)="this.managers()">
+          <img src="/assets/playground_assets/shluchim.png" alt="IMAGE14537" class="menu-i-m-a-g-e11" />
+          <span class="menu-text10">
+            <span class="menu-text11">ראשי כולל</span>
+          </span>
+        </div>
+        <!-- <div *ngIf="remult.user?.isAdmin" class="menu-chart" (click)="this.news()">
           <img src="/assets/playground_assets/news.svg" alt="IMAGE14537" class="menu-i-m-a-g-e11" />
           <span class="menu-text10">
             <span class="menu-text11">הודעות הנהלה</span>
           </span>
-        </div>
-        <div *ngIf="remult.user?.isAdmin" class="menu-chart" (click)="this.weeklyQuestion()">
+        </div> -->
+        <!-- <div *ngIf="remult.user?.isAdmin" class="menu-chart" (click)="this.weeklyQuestion()">
           <img src="/assets/playground_assets/help.svg" alt="IMAGE14537" class="menu-i-m-a-g-e11" />
           <span class="menu-text10">
             <span class="menu-text11">שאלת השבוע</span>
           </span>
-        </div>
+        </div> -->
         <div class="menu-chart" (click)="this.album()">
           <img src="/assets/playground_assets/album.book.svg" alt="IMAGE14537" class="menu-i-m-a-g-e11" />
           <span class="menu-text10">

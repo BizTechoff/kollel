@@ -33,7 +33,7 @@ import { MediaType } from "./mediaTypes";
 export class Media extends IdEntity {
 
     @Field<Media, Branch>(() => Branch, {
-        caption: 'סניף',
+        caption: 'כולל',
         validate: (row, col) => {
             if (col) {
                 if (col.value) {

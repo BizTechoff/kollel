@@ -46,8 +46,8 @@ export class BranchesComponent implements OnInit {
   async groupChanged() {
     let group = BranchGroup.fromId(remult.user!.group)
     if (group) {
-      console.log(`BranchesComponent.groupChanged: { this.query.group: ${this.query.group.id}, group: ${group.id}`)
       if (group !== this.query.group) {
+        console.log(`BranchesComponent.groupChanged: { from: ${this.query.group.id}, to: ${group.id} }`)
         this.query.group = group
         await this.retrieve()
       }
@@ -70,7 +70,7 @@ export class BranchesComponent implements OnInit {
     let id = ''
     let caption = ''
     await this.ui.selectValuesDialog({
-      title: 'חיפוש סניף',
+      title: 'חיפוש כולל',
       values: vols,
       onSelect: (v) => { id = v.id; caption = v.caption }
     })

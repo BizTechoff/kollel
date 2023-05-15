@@ -10,7 +10,7 @@ export class ExcelController extends ControllerBase {
     @Fields.string<ExcelController>({ caption: 'קובץ' })
     file = ''
 
-    @Fields.string<ExcelController>({ caption: 'סניף' })
+    @Fields.string<ExcelController>({ caption: 'כולל' })
     branch = ''
 
     @Fields.string<ExcelController>({ caption: 'נתונים' })

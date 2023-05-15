@@ -54,7 +54,7 @@ export class Tenant extends IdEntity {
     volunteersNames = this.volunteers.map(u => u.name) //.join(', ')
 
     @Field<Tenant, Branch>(() => Branch, {
-        caption: 'סניף',
+        caption: 'כולל',
         validate: (row, col) => [Validators.required]
     })
     branch!: Branch

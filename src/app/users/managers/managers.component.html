@@ -1,7 +1,7 @@
 <div class="visits-container">
     <div class="visits-visits">
       <div class="visits-top">
-        <div class="visits-cteen-logo" (click)="this.rootmenu()">
+        <!-- <div class="visits-cteen-logo" (click)="this.rootmenu()">
           <div class="visits-logo">
             <div class="visits-cteen">
               <div class="visits-carea">
@@ -24,16 +24,16 @@
               <img src="/assets/playground_assets/frame14446-pxkl.svg" alt="Frame14446" class="visits-frame1" />
             </div>
           </div>
-        </div>
-        <div> 
+        </div> -->
+        <div (click)="this.rootmenu()"> 
           <img src="/assets/Logo Colel Chabad.png" alt="Frame14430" class="chabad-colel-logo" />
-          <img src="/assets/playground_assets/chabadLogo.svg" alt="Frame14430" class="chabad-get-chessed-logo" />
+          <!-- <img src="/assets/playground_assets/chabadLogo.svg" alt="Frame14430" class="chabad-get-chessed-logo" /> -->
         </div>
       <app-branch-group (groupChanged)="this.groupChanged()"></app-branch-group>
         <div class="visits-userinfo">
           <span class="visits-text"><span>{{ this.remult.user?.name }}</span></span>
           <div class="visits-location">
-            <span class="visits-text02">{{ remult.user?.isAdmin?'':remult.user?.isDonor?'':'רכז' }} סניף {{ this.remult.user?.branchName }}</span>
+            <span class="visits-text02">{{ remult.user?.isAdmin?'':remult.user?.isDonor?'':'ראש כולל' }} כולל {{ this.remult.user?.branchName }}</span>
             <img src="/assets/playground_assets/locationicon4447-a7.svg" alt="locationicon4447"
               class="visits-locationicon" />
           </div>
@@ -42,7 +42,7 @@
       <div class="visits-nav">
         <img alt="pastedImage" src="/assets/playground_assets/pastedimage-6vof.svg" class="visits-search" (click)="this.search()" />
         <div class="visits-title">
-          <span class="visits-text03"><span>רכזים</span></span>
+          <span class="visits-text03"><span>ראשי כולל</span></span>
           <span class="visits-text05"><span>רשימת</span></span>
         </div>
         <img src="/assets/playground_assets/back4448-v3lm.svg" alt="back4448" class="visits-back" (click)="this.back()" />
@@ -77,7 +77,7 @@
           <img src="/assets/playground_assets/sep4454-bwsr.svg" alt="sep4454" class="visits-sep" />
           <div class="visits-volunteers">
             <span class="visits-text12"><span>{{ m.branchesNames.join(', ') }}</span></span>
-            <span class="visits-text14">:סניף</span>
+            <span class="visits-text14">:כולל</span>
           </div>
           <span *ngIf="m.remark?.trim()!.length" class="visits-text15">
             <span>הערה: {{ m.remark }}</span>
@@ -92,7 +92,7 @@
       </div>
       <div class="visits-addtenant" (click)="this.addManager()">
         <img src="/assets/playground_assets/rectangle14454-mlr.svg" alt="Rectangle14454" class="visits-rectangle1" />
-        <span class="visits-text17"><span>הוספת רכז/ת</span></span>
+        <span class="visits-text17"><span>הוספת ראש כולל</span></span>
       </div>
     </div>
   </div>

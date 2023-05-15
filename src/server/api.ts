@@ -54,13 +54,14 @@ export const api = remultExpress({
                 let branch = await branchRepo.insert({
                     name: 'הנהלה',
                     address: 'הכנסת אורחים 1 ירושלים',
-                    email: 'eshel.app.board@gmail.com',
-                    system: true
+                    email: 'kollel@gmail.com',
+                    system: true,
+                    group: undefined
                 })
-            }
+            } 
         } catch (err) {
             console.log('initApi-err', err)
         }
-
+ 
     }
 });

@@ -7,7 +7,7 @@ import { UserBranch } from "./userBranch";
 export class RegisterController extends ControllerBase {
 
     @Field<RegisterController, Branch>(() => Branch, {
-        caption: 'סניף',
+        caption: 'כולל',
         validate: (row, col) => [Validators.required]
     })
     branch!: Branch
@@ -85,7 +85,7 @@ export class RegisterController extends ControllerBase {
     async register() {
         this.ok = false
         // if (this.branch?.trim().length) { }
-        // else return 'חובה להזין סניף'
+        // else return 'חובה להזין כולל'
         if (this.name?.trim().length) { }
         else return 'חובה להזין שם'
         if (this.mobile?.trim().length) { }
