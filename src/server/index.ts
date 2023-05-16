@@ -12,6 +12,7 @@ import { getRequestMiddleware } from './getRequestMiddleware';
 import './jobs';
 import { runEveryFullHours } from './jobs';
 import { migrate } from './migration';
+import { SqlDatabase } from 'remult';
  
 config(); //loads the configuration from the .env file
 // process.env['TZ'] = 'Asia/Jerusalem'

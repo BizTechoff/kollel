@@ -232,16 +232,17 @@ export class SignInController extends ControllerBase {
                             remult.user!.isTenant = true
                         }
                         //set user-branch
-                        let ub = await remult.repo(UserBranch).find({ where: { user: { $id: u.id } } })
-                        if (ub?.length) {
-                            remult.user.branch = ub[0].branch.id
-                            remult.user.branchName = ub[0].branch.name
-                            remult.user.group = ub[0].branch.group?.id
-                            result.userInfo.branch = ub[0].branch.id
-                            result.userInfo.branchName = ub[0].branch.name
-                            result.userInfo.group = ub[0].branch.group?.id
+                        let ub = await remult.repo(UserBranch).findFirst({ user: { $id: u.id } }, {useCache: false})
+                        if (ub) {
+                            console.log('u.id',u.id,ub.branch,ub.user,ub)
+                            remult.user.branch = ub.branch.id
+                            remult.user.branchName = ub.branch.name
+                            remult.user.group = ub.branch.group?.id
+                            result.userInfo.branch = ub.branch.id
+                            result.userInfo.branchName = ub.branch.name
+                            result.userInfo.group = ub.branch.group?.id
                         }
-                    }
+                    } 
                     else {
                         result.error = 'משתמש זה איננו פעיל'
                     }

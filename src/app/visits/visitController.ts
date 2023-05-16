@@ -1520,7 +1520,7 @@ export class VisitController extends ControllerBase {
                     aoa[fm.row + 1][fw.col] = this.group.single
                     // aoa[fm.row + 1][fw.col + 1] = 'מתנדב'
                     // aoa[fm.row + 1][fw.col + 2] = 'מסרו'
-                    aoa[fm.row + 1][fw.col + 3] = 'נוכחו'
+                    aoa[fm.row + 1][fw.col + 1] = 'נוכחו'
 
                     let tw = totalWeek.find(tw => tw.week === w.week)
                     if (tw) {
@@ -1528,14 +1528,14 @@ export class VisitController extends ControllerBase {
                             aoa[fm.row + 2][fw.col] = tw.tt.toString()
                             // aoa[fm.row + 2][fw.col + 1] = tw.tvol.toString()
                             // aoa[fm.row + 2][fw.col + 2] = tw.td.toString()
-                            aoa[fm.row + 2][fw.col + 3] = tw.tv.toString()
+                            aoa[fm.row + 2][fw.col + 1] = tw.tv.toString()
                         }
                     }
 
                     aoa[fb.row][fw.col] = w.totalTenants.toString()
                     // aoa[fb.row][fw.col + 1] = w.totalVolunteers.toString()
                     // aoa[fb.row][fw.col + 2] = w.totalDelivered.toString()
-                    aoa[fb.row][fw.col + 3] = w.totalVisited.toString()
+                    aoa[fb.row][fw.col + 1] = w.totalVisited.toString()
                     let rr = fb.row
                     for (const v of w.visits) {
                         rr += 1
@@ -1546,7 +1546,7 @@ export class VisitController extends ControllerBase {
                         aoa[rr][fw.col] = v.tenant
                         // aoa[rr][fw.col + 1] = v.volunteers.join(', ')
                         // aoa[rr][fw.col + 2] = v.delivered
-                        aoa[rr][fw.col + 3] = v.visited
+                        aoa[rr][fw.col + 1] = v.visited
                         // console.log('w.branch', b.branch, 'b.week', w.week, 'v.tenant', v.tenant, 'rr', rr, 'fw.row', fb.row, 'aoa.length', aoa.length)
                     }
                 }

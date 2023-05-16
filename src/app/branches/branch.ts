@@ -11,7 +11,8 @@ import { BranchGroup } from "./branchGroup";
         }
     },
     backendPrefilter: () => {
-        return { group: BranchGroup.avrach }
+        return { group: { $ne: [BranchGroup.tenant] } }
+        // return { group: [BranchGroup.avrach, undefined!] }
     },
     apiPrefilter: async () => {
         if (remult.user?.isAdmin) {

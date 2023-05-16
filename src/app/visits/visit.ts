@@ -139,6 +139,11 @@ export class Visit extends IdEntity {
     volunteerWeeklyAnswer = ''
 
     @Fields.date<Visit>({
+        // allowApiUpdate: false
+    })
+    statusModified = new Date();
+
+    @Fields.date<Visit>({
         allowApiUpdate: false
     })
     created = new Date();

@@ -118,14 +118,16 @@ export class VisitComponent implements OnInit {
   isVisited() {
     return this.visit?.status?.id === VisitStatus.visited.id
   }
-
+ 
   async visited() {
     if (this.visit) {
       if (this.visit.status === VisitStatus.visited) {
         this.visit.status = VisitStatus.none
+        this.visit.statusModified = undefined!
       }
       else {
         this.visit.status = VisitStatus.visited
+        this.visit.statusModified = new Date()
       }
       await remult.repo(Visit).save(this.visit)
     }
