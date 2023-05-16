@@ -10,6 +10,9 @@ import { BranchGroup } from "./branchGroup";
             // let c = await remult.repo(Tenant)
         }
     },
+    backendPrefilter: () => {
+        return { group: BranchGroup.avrach }
+    },
     apiPrefilter: async () => {
         if (remult.user?.isAdmin) {
             return {}

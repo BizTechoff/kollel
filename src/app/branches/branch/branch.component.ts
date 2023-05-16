@@ -6,8 +6,8 @@ import { UIToolsService } from '../../common/UIToolsService';
 import { terms } from '../../terms';
 import { UserMenuComponent } from '../../users/user-menu/user-menu.component';
 import { Branch } from '../branch';
-import { BranchesComponent } from '../branches/branches.component';
 import { BranchGroup } from '../branchGroup';
+import { BranchesComponent } from '../branches/branches.component';
 
 @Component({
   selector: 'app-branch',
@@ -30,12 +30,13 @@ export class BranchComponent implements OnInit {
   async ngOnInit(): Promise<void> {
     let id = this.route.snapshot.paramMap.get('id') ?? '';
     if (id?.trim().length) {
-      this.title= 'עדכון כולל'
+      this.title = 'עדכון כולל'
       this.branch = await remult.repo(Branch).findId(id)
     }
     else {
-      this.title= 'הוספת כולל חדש'
+      this.title = 'הוספת כולל חדש'
       this.branch = remult.repo(Branch).create()
+      this.branch.group = BranchGroup.fromId(remult.user!.group)
     }
   }
 

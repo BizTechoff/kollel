@@ -9,7 +9,6 @@ import { JosStatus } from "../app/jobs/jobStatus"
 import { Notification } from "../app/notifications/notification"
 import { NotificationStatus } from "../app/notifications/notificationStatus"
 import { Tenant } from "../app/tenants/tenant"
-import { TenantVolunteer } from "../app/tenants/TenantVolunteer"
 import { User } from "../app/users/user"
 import { UserBranch } from "../app/users/userBranch"
 import { Visit } from "../app/visits/visit"
@@ -27,7 +26,23 @@ group by weeks-keys
 last-sent
 */
 
-export const runEveryFullHours = () => {
+let isProduction = (process.env['NODE_ENV'] ?? '') === 'production'
+console.log('isProduction: ', isProduction)
+
+export const runEveryFullHours = async () => {
+    if (isProduction) {
+        const Hour = 60 * 60 * 1000;
+        const currentDate = new Date()
+        const firstCall = Hour - (currentDate.getMinutes() * 60 + currentDate.getSeconds()) * 1000 - currentDate.getMilliseconds();
+        console.log(`jobsRun will start in: ${('00' + new Date(firstCall).getMinutes()).slice(-2)}:${('00' + new Date(firstCall).getSeconds()).slice(-2)} min`)
+        setTimeout(async () => {
+            await api.withRemult(undefined!, undefined!, async () => await jobsRun());
+            setInterval(async () => await api.withRemult(undefined!, undefined!, async () => await jobsRun()), Hour);
+        }, firstCall);
+    }
+    else {
+        // await api.withRemult(undefined!, undefined!, async () => await createWeeklyVisits());
+    }
     // const Hour = 60 * 60 * 1000;
     // const currentDate = new Date()
     // const firstCall = Hour - (currentDate.getMinutes() * 60 + currentDate.getSeconds()) * 1000 - currentDate.getMilliseconds();
@@ -41,13 +56,16 @@ export const runEveryFullHours = () => {
 
 const jobsRun = async () => {
 
-    let isProduction = (process.env['NODE_ENV'] ?? '') === 'production'
+
     console.info('isProduction', isProduction)
     let now = new Date()
     console.log(`jobsRun exec at: ${now}`)
 
     if (!isProduction) {
 
+        // now.setDate(now.getDate() + 2)
+        // now.setHours(3)
+        // await createWeeklyVisits()
         // console.log('process.env.TZ',process.env['TZ'])
         // await createVolunteerFourWeeksDelivered()
         // await createTenantTwoWeeksMissing()
@@ -60,80 +78,80 @@ const jobsRun = async () => {
         // await createVolunteerThreeWeeksMissing()
         let enableAllJobs = (process.env['JOBS_ENABLE_ALL'] ?? 'false') === 'true'
 
-        if (now.getDate() === 1) {
-            // now is the last month + 1 
-            console.log(`jobsRun today is: lastDateOfMonth + 1`)
+        // if (now.getDate() === 1) {
+        //     // now is the last month + 1 
+        //     console.log(`jobsRun today is: lastDateOfMonth + 1`)
 
-            if (enableAllJobs) {
-                let hour = now.getHours()
-                if (hour >= 3 && hour <= 4)//3am
-                {
-                    await createMonthlyReport()
-                }
-            }
-        }
+        //     if (enableAllJobs) {
+        //         let hour = now.getHours()
+        //         if (hour >= 3 && hour <= 4)//3am
+        //         {
+        //             await createMonthlyReport()
+        //         }
+        //     }
+        // }
 
         switch (now.getDay()) {
 
-            case DayOfWeek.sunday.value: {
-                console.log(`jobsRun today is: ${DayOfWeek.sunday.caption}`)
-                if (enableAllJobs) {
-                    let hour = now.getHours()
-                    if (hour >= 3 && hour <= 4)//3am
-                    {
-                        await createTenantThisWeekBirthday()// to manager
-                    }
-                }
-                else {
-                    console.log(`jobsRun enableAllJobs = '${enableAllJobs}'`)
-                }
-                break;
-            }
+            // case DayOfWeek.sunday.value: {
+            //     console.log(`jobsRun today is: ${DayOfWeek.sunday.caption}`)
+            //     if (enableAllJobs) {
+            //         let hour = now.getHours()
+            //         if (hour >= 3 && hour <= 4)//3am
+            //         {
+            //             await createTenantThisWeekBirthday()// to manager
+            //         }
+            //     }
+            //     else {
+            //         console.log(`jobsRun enableAllJobs = '${enableAllJobs}'`)
+            //     }
+            //     break;
+            // }
 
-            case DayOfWeek.monday.value: {
+            case DayOfWeek.thursday.value: {
                 let hour = now.getHours()
                 if (hour >= 3 && hour <= 4)//3am
                 {
                     await createWeeklyVisits()
-                    if (enableAllJobs) {
-                        await createTenantTwoWeeksMissing()// to manager
-                        await createVolunteerTwoWeeksMissing()// to volunteer
-                        await createVolunteerThreeWeeksMissing()// to manager
-                        await createVolunteerFourWeeksDelivered()// to volunteer
-                    }
-                    else {
-                        console.log(`jobsRun enableAllJobs = '${enableAllJobs}'`)
-                    }
+                    // if (enableAllJobs) {
+                    //     await createTenantTwoWeeksMissing()// to manager
+                    //     await createVolunteerTwoWeeksMissing()// to volunteer
+                    //     await createVolunteerThreeWeeksMissing()// to manager
+                    //     await createVolunteerFourWeeksDelivered()// to volunteer
+                    // }
+                    // else {
+                    //     console.log(`jobsRun enableAllJobs = '${enableAllJobs}'`)
+                    // }
                 }
                 break
             }
 
-            case DayOfWeek.thursday.value: {
-                console.log(`jobsRun today is: ${DayOfWeek.thursday.caption}`)
-                let hour = now.getHours()
-                if (hour >= 3 && hour <= 4)//3am
-                {
-                    await createManagerTodayIsThursday()
-                }
-                if (hour >= 21 && hour <= 22)//pm
-                {
-                    await createManagerThursdayMissingFeedback()
-                }
-                break;
-            }
+            // case DayOfWeek.thursday.value: {
+            //     console.log(`jobsRun today is: ${DayOfWeek.thursday.caption}`)
+            //     let hour = now.getHours()
+            //     if (hour >= 3 && hour <= 4)//3am
+            //     {
+            //         await createManagerTodayIsThursday()
+            //     }
+            //     if (hour >= 21 && hour <= 22)//pm
+            //     {
+            //         await createManagerThursdayMissingFeedback()
+            //     }
+            //     break;
+            // }
 
-            case DayOfWeek.saturday.value: {
-                console.log(`jobsRun today is: ${DayOfWeek.saturday.caption}`)
-                let hour = now.getHours()
-                if (hour >= 21 && hour <= 22)//pm
-                {
-                    await createManagerSaturdayMissingReport()
-                }
-            }
+            // case DayOfWeek.saturday.value: {
+            //     console.log(`jobsRun today is: ${DayOfWeek.saturday.caption}`)
+            //     let hour = now.getHours()
+            //     if (hour >= 21 && hour <= 22)//pm
+            //     {
+            //         await createManagerSaturdayMissingReport()
+            //     }
+            // }
 
         }
 
-        await sendNotifications()
+        // await sendNotifications()
     }
 }
 
@@ -884,10 +902,14 @@ async function createWeeklyVisits() {
     let job = await remult.repo(Job).findFirst({
         name: 'createWeeklyVisits',
         date: { "$gte": fdate, "$lte": tdate },
-        status: JosStatus.done
+        status: [JosStatus.done, JosStatus.processing]
     })
     if (job) {
-        console.log(`Job 'createWeeklyVisits' already done`)
+        if (job.status === JosStatus.done) {
+            console.log(`Job 'createWeeklyVisits' already done`)
+        } else if (job.status === JosStatus.processing) {
+            console.log(`Job 'createWeeklyVisits' still running`)
+        }
         return
     }
 

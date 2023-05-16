@@ -12,8 +12,8 @@
     <span class="frame-text02"><span>היום שהיה לך</span></span>
     <div>
       <img src="/assets/playground_assets/location1722-oo9.svg" alt="location1722" class="frame-location" />
-      <span class="frame-text04"><span> {{ remult.user?.isAdmin?'':remult.user?.isDonor?'':'ראש כולל' }} כולל {{
-          remult.user?.branchName }} </span></span>
+      <span class="frame-text04"><span> {{ remult.user?.isAdmin?'':remult.user?.isDonor?'':'ראש כולל' }} {{
+          remult.user?.branchName?.replace('כולל','') }} </span></span>
     </div>
     <!-- <img
         src="/assets/playground_assets/frame1724-4bvm.svg"

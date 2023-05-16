@@ -32,7 +32,7 @@
       <div class="visits-userinfo">
         <span class="visits-text"><span>{{ this.remult.user?.name }}</span></span>
         <div class="visits-location">
-          <span class="visits-text02">{{ remult.user?.isAdmin?'':remult.user?.isDonor?'':'ראש כולל' }} כולל {{ this.remult.user?.branchName }}</span>
+          <span class="visits-text02">{{ remult.user?.isAdmin?'':remult.user?.isDonor?'':'ראש כולל' }} {{ this.remult.user?.branchName?.replace('כולל','') }}</span>
           <img src="/assets/playground_assets/locationicon4447-a7.svg" alt="locationicon4447"
             class="visits-locationicon" />
         </div>

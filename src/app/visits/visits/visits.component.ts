@@ -75,12 +75,18 @@ export class VisitsComponent implements OnInit {
     this.routeHelper.navigateToComponent(UserMenuComponent)
   }
 
+  async call(mobile = '') {
+    if (mobile?.trim().length) {
+      window.open(`tel:${mobile}`, '_blank')
+    }
+  }
+
   async search() {
     let vols = this.visits.map(v => ({ id: v.id, caption: v.tenant.name }))
     let id = ''
     await this.ui.selectValuesDialog({
       allowAdd: false,
-      title: 'חיפוש דיווח לפי דייר',
+      title: `חיפוש דיווח לפי ${this.query.group.single}`,
       values: vols,
       onSelect: (v) => { id = v.id }
     })

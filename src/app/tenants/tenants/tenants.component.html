@@ -71,7 +71,21 @@
         <div class="tenants-cardtitle">
           <div class="tenants-tenantnameaddress">
             <span class="tenants-text08"><span>{{ t.name }}</span></span>
-            <div class="tenants-group1">
+
+            <div *ngIf="t.address" class="visits-address">
+              <span class="visits-text10"><span>{{ t.address }}</span></span>
+              <img src="/assets/playground_assets/location1915-msq3.svg" alt="location1915" class="visits-location1" />
+            </div>
+            <div *ngIf="t.mobile" class="visits-address">
+              <span (click)="this.call(t.mobile)" class="visits-text10"><span>{{ t.mobile }}</span></span>
+              <img src="/assets/playground_assets/call.svg" alt="location1915" class="visits-location1" />
+            </div>
+            <div *ngIf="t.phone" class="visits-address">
+              <span (click)="this.call(t.phone)" class="visits-text10"><span>{{ t.phone }}</span></span>
+              <img src="/assets/playground_assets/call.svg" alt="location1915" class="visits-location1" />
+            </div>
+
+            <!-- <div *ngIf="t.address" class="tenants-group1">
               <img alt="location1082" src="/assets/playground_assets/location1082-bpr7.svg" class="tenants-location1" />
               <span class="tenants-text10"><span>{{ t.address }}</span></span>
             </div>
@@ -81,13 +95,13 @@
               <span class="tenants-text10"><span>{{ t.mobile }}</span></span>
             </div>
             <div *ngIf="t.phone?.trim()!.length" class="tenants-group1">
-              <img alt="location1082" src="/assets/playground_assets/call.svg" class="tenants-location1" />
+              <img (click)="this.call(t.phone)" alt="location1082" src="/assets/playground_assets/call.svg" class="tenants-location1" />
               <span class="tenants-text10"><span>{{ t.phone }}</span></span>
-            </div>
+            </div> -->
           </div>
           <div class="tenants-tenantphoto" (click)="this.edit(t.id)">
             <img alt="Vector1083" src="/assets/playground_assets/vector1083-8ojj.svg" class="tenants-vector06" />
-
+ 
 
             <!-- <label for="uploadImage" style="display: flex; align-items: center;">
               <img src="/assets/playground_assets/upload1110-f7e7.svg" alt="upload1110" class="tenants-upload" />
@@ -111,14 +125,15 @@
         </div>
         <img alt="sep1088" src="/assets/playground_assets/sep1088-o54o.svg" class="tenants-sep" />
         <div class="tenants-volunteersbirthday">
-          <span class="tenants-text12" (click)="this.volunteersMobiles()"><span>:מתנדבים</span>
+          <!-- <span class="tenants-text12" (click)="this.volunteersMobiles()"><span>:מתנדבים</span>
             <div *ngFor="let v of t.volunteersNames">
               <span style="padding-right: 7px;">{{ v }}</span>
             </div>
-          </span>
-          <span class="tenants-text14">
+          </span> -->
+          <!-- <span class="tenants-text14">
             <span>תאריך יום הולדת: {{ t.birthday | date:'dd.MM.yyyy' }}</span>
-          </span>
+          </span> -->
+          <img *ngIf="t.remark?.trim()!.length" src="/assets/playground_assets/sep1915-grj.svg" alt="sep1915" class="visits-sep" />
           <span *ngIf="t.remark?.trim()!.length" class="tenants-text14-remark">
             <span>הערה: {{ t.remark }}</span>
           </span>
@@ -145,16 +160,16 @@
               class="tenants-photo"
             /> -->
           </div>
-          <span class="tenants-text16">
+          <!-- <span class="tenants-text16">
             <span class="tenants-text17">גורם מפנה:</span>
             <span>כולל חב”ד</span>
-          </span>
+          </span> -->
         </div>
       </div>
     </div>
   </div>
   <div (click)="this.addTenant()" class="tenants-addtenant">
     <img alt="Rectangle18538" src="/assets/playground_assets/rectangle18538-l5z9.svg" class="tenants-rectangle1" />
-    <span class="tenants-text19"><span>הוספת דייר</span></span>
+    <span class="tenants-text19"><span>הוספת {{ this.group.single }}</span></span>
   </div>
 </div>

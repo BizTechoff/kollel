@@ -49,11 +49,11 @@ async function startup() {
 
     // })
 
-    // runEveryFullHours()
+    await runEveryFullHours()
     // await createWeeklyVisits()
 
     // migrate()
-
+  
     app.get("/api/s3Url", async (req, res) => {//?key=[key]&f=[fname]&branch=[branch]
         // console.log('upload.10')
         let result: { url: string, error: string } = { url: '', error: '' };

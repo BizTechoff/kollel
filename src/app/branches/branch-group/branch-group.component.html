@@ -1,4 +1,4 @@
-<div *ngIf="remult.authenticated() && !remult.user?.isManager"
+<div *ngIf="remult.authenticated() && !remult.user?.isManager && false"
     style="display: flex; flex-direction: column; justify-content: space-between; width: 100%; direction: rtl;gap: 3px;">
     <mat-radio-button (change)="this.onGroupChanged(BranchGroup.avrach)" [checked]="this.selected === BranchGroup.avrach">&nbsp;אברכים</mat-radio-button>
     <mat-radio-button (change)="this.onGroupChanged(BranchGroup.tenant)" [checked]="this.selected === BranchGroup.tenant">&nbsp;דיירים</mat-radio-button>

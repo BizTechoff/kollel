@@ -82,7 +82,7 @@ export class VisitComponent implements OnInit {
         //console.log(`reload return: ${this.visits.length} visits, this.curIndex: ${this.curIndex}, id: ${this.args.id}`)
         if (this.curIndex !== -1) {
           this.visit = this.visits[this.curIndex]
-          await this.reloadVolunteers()
+          // await this.reloadVolunteers()
           // this.volunteers.push(...this.volunteers)
           //console.log('reloadId.visit.id', 'this.curIndex', this.curIndex, this.visit.id, this.isVisited(), this.isDelivered(), this.visit.status, VisitStatus.visited)
         }
@@ -142,7 +142,7 @@ export class VisitComponent implements OnInit {
         this.curIndex = 0
       }
       this.visit = this.visits[this.curIndex]
-      await this.reloadVolunteers()
+      // await this.reloadVolunteers()
     }
     // if (this.curIndex >= this.visits.length - 1) {
     //   if (this.visits.length > 0) {
@@ -165,7 +165,7 @@ export class VisitComponent implements OnInit {
         this.curIndex = this.visits.length - 1
       }
       this.visit = this.visits[this.curIndex]
-      await this.reloadVolunteers()
+      // await this.reloadVolunteers()
     }
     // if (this.curIndex <= 0) {
     //   if (this.args.page > 1) {

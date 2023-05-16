@@ -33,8 +33,8 @@
       <div class="manager-userinfo">
         <span class="manager-text"><span>{{ this.remult.user?.name }}</span></span>
         <div class="manager-location">
-          <span class="manager-text02"><span>{{ remult.user?.isAdmin?'':remult.user?.isDonor?'':'ראש כולל' }} כולל {{
-              this.remult.user?.branchName }}</span></span>
+          <span class="manager-text02"><span>{{ remult.user?.isAdmin?'':remult.user?.isDonor?'':'ראש כולל' }} {{
+              this.remult.user?.branchName?.replace('כולל','') }}</span></span>
           <img src="/assets/playground_assets/locationicon2031-gznd.svg" alt="locationicon2031"
             class="manager-locationicon" />
         </div>
@@ -66,15 +66,15 @@
               type="text" [(ngModel)]="this.tenant.phone"></span>
           <span class="manager-text16"><span>:טלפון</span></span>
         </div>
-        <div class="manager-cardcontent2" (click)="this.setDate()">
+        <!-- <div class="manager-cardcontent2" (click)="this.setDate()">
           <span class="manager-text14">
-            <!-- <span>{{ this.tenant.birthday | date:'yyyy-MM-dd' }}</span> -->
-            <!-- <data-control [field]="this.tenant.$.birthday"></data-control> -->
             <input style="font-size: 14pt; width: 100%; direction: rtl; border-color: rgba(227, 172, 120, 1);"
               type="date" [(ngModel)]="this.tenant.birthday"></span>
           <span class="manager-text16"><span>:ת.לידה</span></span>
-        </div>
-        <div class="manager-cardcontent2">
+        </div> -->
+            <!-- <span>{{ this.tenant.birthday | date:'yyyy-MM-dd' }}</span> -->
+            <!-- <data-control [field]="this.tenant.$.birthday"></data-control> -->
+        <!-- <div class="manager-cardcontent2">
           <span class="manager-text14">
             <input style="font-size: 14pt; width: 100%; direction: rtl; border-color: rgba(227, 172, 120, 1);"
               type="text" [(ngModel)]="this.tenant.referrer"></span>
@@ -85,7 +85,7 @@
             <input style="font-size: 14pt; width: 100%; direction: rtl; border-color: rgba(227, 172, 120, 1);"
               type="text" [(ngModel)]="this.tenant.languages"></span>
           <span class="manager-text16"><span>:שפות</span></span>
-        </div>
+        </div> -->
         <div class="manager-cardcontent3">
           <span class="manager-text18">
             <input style="font-size: 14pt; width: 100%; direction: rtl; border-color: rgba(227, 172, 120, 1);"
@@ -93,7 +93,7 @@
           <span class="manager-text20"><span>:הערה</span></span>
         </div>
         <hr />
-        <div class="manager-cardcontent3">
+        <!-- <div class="manager-cardcontent3">
           <span class="manager-text18">
             <button (click)="this.selectVolunteers()" style="width: 100%;">הוספת מתנדב</button></span>
           <span class="manager-text20"><span>:מתנדבים</span></span>
@@ -106,7 +106,7 @@
             <mat-label>{{ v.volunteer.name }}</mat-label>
             <mat-icon style="font-size:18px; height:12px; width:12px;">close</mat-icon>
           </div>
-        </div>
+        </div> -->
       </div>
       <div class="manager-save" (click)="this.save()">
         <img src="/assets/playground_assets/rectangle12031-jahj.svg" alt="Rectangle12031" class="manager-rectangle1" />

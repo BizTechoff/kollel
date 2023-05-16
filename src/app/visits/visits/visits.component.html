@@ -40,15 +40,15 @@
     </div>
     <div class="visits-nav">
       <div class="visits-search" (click)="this.search()">
-        <mat-icon style="font-size:18px;height:20px">person</mat-icon>
+        <!-- <mat-icon style="font-size:18px;height:20px">person</mat-icon> -->
         <img src="/assets/playground_assets/vector1915-5neih.svg" alt="Vector1915" class="visits-vector04" />
         <img src="/assets/playground_assets/vector1915-r5bg.svg" alt="Vector1915" class="visits-vector05" />
       </div>
-      <div class="visits-search" (click)="this.searchAddress()">
+      <!-- <div class="visits-search" (click)="this.searchAddress()">
         <mat-icon style="font-size:18px;height:20px">home</mat-icon>
         <img src="/assets/playground_assets/vector1915-5neih.svg" alt="Vector1915" class="visits-vector04" />
         <img src="/assets/playground_assets/vector1915-r5bg.svg" alt="Vector1915" class="visits-vector05" />
-      </div>
+      </div> -->
       <div class="visits-title">
         <span class="visits-text04"><span>נוכחות</span></span>
         <span class="visits-text06"><span>דיווחי</span></span>
@@ -71,6 +71,14 @@
               <span *ngIf="v.tenant" class="visits-text10"><span>{{ v.tenant.address }}</span></span>
               <img src="/assets/playground_assets/location1915-msq3.svg" alt="location1915" class="visits-location1" />
             </div>
+            <div *ngIf="v.tenant.mobile" class="visits-address">
+              <span (click)="this.call(v.tenant.mobile)" class="visits-text10"><span>{{ v.tenant.mobile }}</span></span>
+              <img src="/assets/playground_assets/call.svg" alt="location1915" class="visits-location1" />
+            </div>
+            <div *ngIf="v.tenant.phone" class="visits-address">
+              <span (click)="this.call(v.tenant.phone)" class="visits-text10"><span>{{ v.tenant.phone }}</span></span>
+              <img src="/assets/playground_assets/call.svg" alt="location1915" class="visits-location1" />
+            </div>
           </div>
           <div class="visits-tenantphoto">
             <img src="/assets/playground_assets/vector1915-0vb.svg" alt="Vector1915" class="visits-vector06" />
@@ -82,11 +90,11 @@
             </div>
           </div>
         </div>
-        <img src="/assets/playground_assets/sep1915-grj.svg" alt="sep1915" class="visits-sep" />
-        <div class="visits-volunteers">
+        <img *ngIf="v.remark?.trim()!.length" src="/assets/playground_assets/sep1915-grj.svg" alt="sep1915" class="visits-sep" />
+        <!-- <div class="visits-volunteers">
           <span class="visits-text12"><span>{{ v.volunteersNames }}</span></span>
           <span class="visits-text14">:מתנדבים</span>
-        </div>
+        </div> -->
         <span *ngIf="v.remark?.trim()!.length" class="visits-text15"><span>הערה: </span>{{ v.remark }}</span>
       </div>
     </div>

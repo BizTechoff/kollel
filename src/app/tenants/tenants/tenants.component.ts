@@ -10,6 +10,7 @@ import { Tenant } from '../tenant';
 import { TenantComponent } from '../tenant/tenant.component';
 import { TenantController } from '../tenantController';
 import { TenantsImportComponent } from '../tenants-import/tenants-import.component';
+import { BranchGroup } from '../../branches/branchGroup';
 
 @Component({
   selector: 'app-tenants',
@@ -20,6 +21,7 @@ export class TenantsComponent implements OnInit {
 
   tenants = [] as Tenant[]
   query = new TenantController()
+  group!:BranchGroup
 
   constructor(
     private routeHelper: RouteHelperService,
@@ -30,6 +32,7 @@ export class TenantsComponent implements OnInit {
   remult = remult;
 
   async ngOnInit(): Promise<void> {
+    this.group = BranchGroup.fromId(remult.user!.group)
     remult.user!.lastComponent = TenantsComponent.name
     //console.log('TenantsComponent.ngOnInit')
     this.tenants = await this.query.getTenants()
@@ -63,7 +66,7 @@ export class TenantsComponent implements OnInit {
     // }
     let id = ''
     await this.ui.selectValuesDialog({
-      title: 'חיפוש דייר',
+      title: `חיפוש ${this.group.single}`,
       values: vols,
       onSelect: (v) => { id = v.id }
     })

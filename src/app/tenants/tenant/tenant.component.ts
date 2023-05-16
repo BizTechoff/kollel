@@ -15,6 +15,7 @@ import { TenantController } from '../tenantController';
 import { TenantsComponent } from '../tenants/tenants.component';
 import { TenantVolunteer } from '../TenantVolunteer';
 import { TenantVolunteerController } from '../tenantVolunteerController';
+import { BranchGroup } from '../../branches/branchGroup';
 
 @Component({
   selector: 'app-tenant',
@@ -31,6 +32,7 @@ export class TenantComponent implements OnInit {
   page = 1
   tenantPhotoLink = ''
   title = ''
+  group!:BranchGroup
 
   args!: {
     id: string
@@ -44,6 +46,7 @@ export class TenantComponent implements OnInit {
   remult = remult;
 
   async ngOnInit(): Promise<void> {
+    this.group = BranchGroup.fromId(remult.user!.group)
     //console.log(`VisitComponent: { this.route.snapshot.paramMap: ${JSON.stringify(this.route.snapshot.paramMap)}}`)
     if (!this.args) {
       this.args = { id: '' }
@@ -51,12 +54,12 @@ export class TenantComponent implements OnInit {
     this.args.id = this.route.snapshot.paramMap.get('id') ?? '';
     //console.log(`VisitComponent: {id: ${this.args.id}}`)
     if (this.args.id?.trim().length) {
-      this.title = 'עדכון דייר'
+      this.title = `עדכון ${this.group.single}`
       await this.reloadId()
     }
     else {
       //console.log('new tenant')
-      this.title = 'הוספת דייר חדש'
+      this.title = `הוספת ${this.group.single} חדש`
       this.tenant = remult.repo(Tenant).create()
       this.tenant.active = true
       this.tenant.branch = await remult.repo(Branch).findId(remult.user!.branch)
@@ -99,10 +102,10 @@ export class TenantComponent implements OnInit {
       //   this.tenant.birthday = new Date(formatedDate)
       //   // this.tenant.birthday = resetDateTime(this.tenant.birthday)
       // }
-      await this.reloadVolunteers()
-      await this.setLanguages()
+      // await this.reloadVolunteers()
+      // await this.setLanguages()
       //console.log('reloadId.volunteersNames', this.tenant.volunteers)
-      await this.tenantPhoto()
+      // await this.tenantPhoto()
       // //console.log('reloadId.visit.id', this.visit.id, this.isVisited(), this.isDelivered(), this.visit.status, VisitStatus.visited)
     }
   }

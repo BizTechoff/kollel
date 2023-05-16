@@ -37,7 +37,7 @@ import { VisitsComponent } from './visits/visits/visits.component';
 const defaultRoute = terms.home;
 const routes: Routes = [
   { path: defaultRoute, component: HomeComponent, canActivate: [NotAuthenticatedGuard], data: { name: 'בית' } },
-  { path: 'register', component: UserRegistrationComponent, canActivate: [NotAuthenticatedGuard], data: { name: 'רישום מתנדב' } },
+  // { path: 'register', component: UserRegistrationComponent, canActivate: [NotAuthenticatedGuard], data: { name: 'רישום מתנדב' } },
   { path: 'menu', component: UserMenuComponent, canActivate: [ManagerOrAboveGuard], data: { name: 'תפריט' } },
   { path: 'visits', component: VisitsComponent, canActivate: [ManagerGuard], data: { name: 'דיווחים' } },
   { path: 'blessing', component: VisitsFinishedBlessingComponent, canActivate: [ManagerGuard], data: { name: 'זיקוקין' } },

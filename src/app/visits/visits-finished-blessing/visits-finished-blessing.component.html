@@ -151,7 +151,7 @@
           src="/assets/playground_assets/location1270-mfem.svg"
           class="frame-location"
         />
-        <span class="frame-text10"><span> {{ remult.user?.isAdmin?'':remult.user?.isDonor?'':'ראש כולל' }} כולל {{ remult.user?.branchName }} </span></span>
+        <span class="frame-text10"><span> {{ remult.user?.isAdmin?'':remult.user?.isDonor?'':'ראש כולל' }} {{ remult.user?.branchName?.replace('כולל','') }} </span></span>
       </div>
       <img (click)="this.back()"
         alt="Frame1272"

@@ -32,8 +32,8 @@
       <div class="tenant-userinfo">
         <span class="tenant-text"><span>{{ remult.user?.name }}</span></span>
         <div class="tenant-location">
-          <span class="tenant-text02"><span>{{ remult.user?.isAdmin?'':remult.user?.isDonor?'':'ראש כולל' }} כולל {{
-              remult.user?.branchName }}</span></span>
+          <span class="tenant-text02"><span>{{ remult.user?.isAdmin?'':remult.user?.isDonor?'':'ראש כולל' }} {{
+              remult.user?.branchName?.replace('כולל','') }}</span></span>
           <img src="/assets/playground_assets/locationicon1611-e21.svg" alt="locationicon1611"
             class="tenant-locationicon" />
         </div>

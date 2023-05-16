@@ -32,8 +32,8 @@
       <div class="manager-userinfo">
         <span class="manager-text"><span>{{ this.remult.user?.name }}</span></span>
         <div class="manager-location">
-          <span class="manager-text02"><span>{{ remult.user?.isAdmin?'':remult.user?.isDonor?'':'ראש כולל' }} כולל {{
-            this.remult.user?.branchName }}</span></span>
+          <span class="manager-text02"><span>{{ remult.user?.isAdmin?'':remult.user?.isDonor?'':'ראש כולל' }} {{
+            this.remult.user?.branchName?.replace('כולל','') }}</span></span>
           <img src="/assets/playground_assets/locationicon2031-gznd.svg" alt="locationicon2031"
             class="manager-locationicon" />
         </div>
@@ -47,12 +47,12 @@
     </div>
     <div class="manager-data">
       <div class="manager-dataviewas">
-        <div class="manager-cardcontent">
+        <!-- <div class="manager-cardcontent">
           <mat-select *ngIf="this.branch" [(ngModel)]="this.branch.group">
             <mat-option *ngFor="let g of BranchGroup.getOptions(true)" [value]="g">{{ g.caption }}</mat-option>
           </mat-select>
           <span class="manager-text08"><span>:קבוצה</span></span>
-        </div>
+        </div> -->
         <div class="manager-cardcontent1">
           <span class="manager-text10"><input style="font-size: 14pt; width: 100%; direction: rtl; border-color: rgba(227, 172, 120, 1);" type="text"
               [(ngModel)]="this.branch.name"></span>

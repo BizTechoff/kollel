@@ -6,14 +6,14 @@ import * as xlsx from 'xlsx';
 //https://www.youtube.com/watch?v=yGYeYJpRWPM&ab_channel=SamMeech-Ward
 
 // const aws =  require('aws-sdk')
-
+ 
 const s3Client = async () => {
     let result = undefined
     if (process.env['S3_CHANNEL_OPENED'] === 'true') {
         const region = process.env['AWS_S3_IAM_BTO_REGION']!
         const accessKeyId = process.env['AWS_S3_IAM_BTO_APP_ACCESS_KEY_ID']!
         const secretAccessKey = process.env['AWS_S3_IAM_BTO_APP_SECRET_ACCESS_KEY']!
-
+ 
         const aws = require('aws-sdk')
         result = new aws.S3({
             region,
@@ -36,7 +36,7 @@ export async function generateUploadURL(action: string, fName: string, branch: s
     if (s3) {
         const params = ({
             Bucket: process.env['AWS_S3_IAM_BTO_APP_BUCKET']!,
-            Key: excel ?
+            Key:'kollel/' + excel ?
                 'excel/tenants' + '/' + branch + "/" + fName :
                 'dev' + '/' + branch + "/" + fName,
             Expires: 60 //sec
@@ -54,7 +54,7 @@ export async function download(fileName = '', branch = '') {
     if (fileName?.trim().length) {
         const s3 = await s3Client()
         if (s3) {
-            let key = 'excel/tenants' + '/' + branch + "/" + fileName
+            let key ='kollel/' + 'excel/tenants' + '/' + branch + "/" + fileName
             const params = ({
                 Bucket: process.env['AWS_S3_IAM_BTO_APP_BUCKET']!,
                 Key: key
@@ -119,7 +119,7 @@ export async function downloadByLink(link = '') {
             if (s3) {
                 const params = ({
                     Bucket: process.env['AWS_S3_IAM_BTO_APP_BUCKET']!,
-                    Key: key
+                    Key: 'kollel/' + key
                 })
                 var fileStream = await s3.getObject(params).createReadStream()
                 

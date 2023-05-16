@@ -263,7 +263,9 @@ export class SignInController extends ControllerBase {
                 }
             }
             else {
-                result.error = terms.invalidSignIn;
+                if (!result.error?.trim().length) {
+                    result.error = terms.invalidSignIn;
+                }
             }
         }
         else {

@@ -17,7 +17,7 @@ export class DayOfWeek {
     }
 }
 
-export const dayOfCreatingVisits = DayOfWeek.monday
+export const dayOfCreatingVisits = DayOfWeek.sunday
 export const dayOfHomeVisits = DayOfWeek.thursday
 
 export function firstDateOfWeek(date: Date) {

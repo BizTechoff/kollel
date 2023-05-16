@@ -66,7 +66,7 @@ export class Tenant extends IdEntity {
     name = '';
 
     @Fields.string<Tenant>({
-        validate: [Validators.required.withMessage('לא הוזנה כתובת')],
+        // validate: [Validators.required.withMessage('לא הוזנה כתובת')],
         caption: 'כתובת'
     })
     address = '';

@@ -49,7 +49,7 @@ export class uploader {
 
         if (isDevMode) {
           if (!this.excel) {
-            console.info(`DesvMode = 'true', Files NOT uploaded! `)
+            console.info(`DevMode = 'true', Files NOT uploaded! `)
             continue
           }
         }

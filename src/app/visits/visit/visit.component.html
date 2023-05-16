@@ -1,7 +1,7 @@
 <div class="visit-container">
   <div class="visit-visit">
     <div class="visit-top">
-      <div class="visit-cteen-logo" (click)="this.rootmenu()">
+      <!-- <div class="visit-cteen-logo" (click)="this.rootmenu()">
         <div class="visit-logo">
           <div class="visit-cteen">
             <div class="visit-carea">
@@ -24,12 +24,16 @@
             <img src="/assets/playground_assets/frame12021-kt5r.svg" alt="Frame12021" />
           </div>
         </div>
+      </div> -->
+      <div (click)="this.rootmenu()"> 
+        <img src="/assets/Logo Colel Chabad.png" alt="Frame14430" class="chabad-colel-logo" />
+        <!-- <img src="/assets/playground_assets/chabadLogo.svg" alt="Frame14430" class="chabad-get-chessed-logo" /> -->
       </div>
       <div class="visit-userinfo">
         <span class="visit-text"><span>{{ this.remult.user?.name }}</span></span>
         <div class="visit-location">
-          <span class="visit-text02"><span>{{ remult.user?.isAdmin?'':remult.user?.isDonor?'':'ראש כולל' }} כולל {{
-              this.remult.user?.branchName }}</span></span>
+          <span class="visit-text02"><span>{{ remult.user?.isAdmin?'':remult.user?.isDonor?'':'ראש כולל' }} {{
+              this.remult.user?.branchName?.replace('כולל','') }}</span></span>
           <img src="/assets/playground_assets/locationicon2021-pg78.svg" alt="locationicon2021"
             class="visit-locationicon" />
         </div>
@@ -41,7 +45,7 @@
       <span *ngIf="this.visit?.tenant"
         style="font-size: xx-large; font-weight: bolder; background-color: transparent; color: white; stroke: rgba(38, 195, 234, 1); stroke-width: 5px;">{{
         this.visit.tenant.name }}</span>
-        <span *ngIf="this.visit?.tenant"
+      <span *ngIf="this.visit?.tenant"
         style="font-size: large; font-weight: bolder; background-color: transparent; color: white; stroke: rgba(38, 195, 234, 1); stroke-width: 5px;">{{
         this.visit.tenant.address }}</span>
 
@@ -61,15 +65,15 @@
               class="visit-frame" />
             <div class="visit-frame20">
               <div class="visit-frame24">
-                <img src="/assets/playground_assets/image12022-d77o-200w.png" alt="IMAGE12022"
+                <img [src]="this.isVisited()?'/assets/validated.svg':'/assets/unValidated.svg'" alt="IMAGE12022"
                   class="visit-i-m-a-g-e1" />
               </div>
               <div class="visit-frame22">
-                <span class="visit-text04"><span>ביקרתי</span></span>
+                <span class="visit-text04"><span><b *ngIf="!this.isVisited()">?</b> נוכח</span></span>
               </div>
             </div>
           </div>
-          <div class="visit-delivered" (click)="this.delivered()" [style.borderWidth]="this.isDelivered()?'1px':'0px'">
+          <!-- <div class="visit-delivered" (click)="this.delivered()" [style.borderWidth]="this.isDelivered()?'1px':'0px'">
             <img *ngIf="this.isDelivered()" src="/assets/playground_assets/frame2022-p2bn.svg" alt="Frame2022"
               class="visit-frame1" />
             <div class="visit-frame201">
@@ -81,13 +85,13 @@
                 <span class="visit-text06"><span>מסרתי</span></span>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
         <div class="visit-frame17">
           <div class="visit-frame15">
             <img src="/assets/playground_assets/line42023-0at.svg" alt="Line42023" class="visit-line4" />
           </div>
-          <div class="visit-frame6">
+          <!-- <div class="visit-frame6">
             <div class="visit-addvolunteer">
               <span class="visit-text08" (click)="this.selectVolunteers()"><span>:מתנדבים<mat-icon
                     class="mat-icon-small-trim">edit</mat-icon></span></span>
@@ -102,14 +106,17 @@
                   class="visit-removevolunteer" />
               </div>
             </div>
-          </div>
+          </div> -->
           <div class="visit-frame16">
             <div style="display: flex; flex-direction: row; justify-content: right; align-items: center;">
-              <div (click)="this.save()"><mat-icon>save</mat-icon></div>
               <div style="display: flex; flex-direction: column; justify-content: right; gap: 2px;">
-                <span class="visit-text12"><span>תשובת המתנדב לשאלה השבועית</span></span>
+                <span class="visit-text12"><span>{{ ' ' }}</span></span>
+                <div (click)="this.save()"><mat-icon>save</mat-icon></div>
+              </div>
+              <div style="display: flex; flex-direction: column; justify-content: right; gap: 2px;">
+                <!-- <span class="visit-text12"><span>תשובת המתנדב לשאלה השבועית</span></span>
                 <input *ngIf="this.visit" [(ngModel)]="this.visit.volunteerWeeklyAnswer" placeholder="אין תשובה עדיין"
-                  style="text-align: right; border: none;" />
+                  style="text-align: right; border: none;" /> -->
                 <span class="visit-text12"><span>הערה</span></span>
                 <input *ngIf="this.visit" [(ngModel)]="this.visit.remark" placeholder="אין הערה"
                   style="text-align: right; border: none;" />

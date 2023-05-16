@@ -40,8 +40,8 @@
             <div class="album-userinfo">
                 <span class="album-text"><span>{{ remult.user?.name }}</span></span>
                 <div class="album-location">
-                    <span class="album-text02"><span>{{ remult.user?.isAdmin?'':remult.user?.isDonor?'':'ראש כולל' }} כולל {{
-                            remult.user?.branchName }}</span></span>
+                    <span class="album-text02"><span>{{ remult.user?.isAdmin?'':remult.user?.isDonor?'':'ראש כולל' }} {{
+                            remult.user?.branchName?.replace('כולל','') }}</span></span>
                     <img src="/assets/playground_assets/locationicon8092-tdx.svg" alt="locationicon8092"
                         class="album-locationicon" />
                 </div>

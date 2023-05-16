@@ -56,9 +56,9 @@
                 class="export-back" />
         </div>
         <div class="export-data">
-            <div>
+            <!-- <div>
                 <span class="help-text">"שבוע פעילות" = "יום שני עד ראשון שאחריו"</span>
-            </div>
+            </div> -->
             <div class="export-dataviewas">
                 <!-- <div class="export-cardcontent2"> -->
                 <div class="export-cardcontent">
@@ -97,7 +97,7 @@
                     <div class="export-cardcontent30">
                         <ng-container class="export-cardcontent3">
                             <span class="export-text16">
-                                <span>מפורט {{ this.query.group.caption }}</span>
+                                <span>מפורט עם {{ this.query.group.caption }}</span>
                             </span>
                             <input name="detailed" type="radio" [(ngModel)]="this.query.detailed" [value]="true">
                         </ng-container>

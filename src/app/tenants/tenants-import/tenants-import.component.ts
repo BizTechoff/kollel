@@ -18,7 +18,7 @@ import { TenantsComponent } from '../tenants/tenants.component';
 })
 export class TenantsImportComponent implements OnInit {
 
-  rows = [] as { id: number, name: string, address: string, phone: string, birthday: string, color: string, error: string }[]
+  rows = [] as { id: number, name: string, address: string, phone: string, /*birthday: string,*/ color: string, error: string }[]
   today = resetDateTime()
   constructor(
     private routeHelper: RouteHelperService,
@@ -40,7 +40,7 @@ export class TenantsImportComponent implements OnInit {
   async addTenants() { }
 
   async onFileInput(e: any, target: string) {
-    this.rows = [] as { id: number, name: string, address: string, phone: string, birthday: string, color: string, error: string }[]
+    this.rows = [] as { id: number, name: string, address: string, phone: string, /*birthday: string,*/ color: string, error: string }[]
 
     let s3 = new uploader(
       true,
@@ -53,19 +53,19 @@ export class TenantsImportComponent implements OnInit {
       let branch = await remult.repo(Branch).findId(remult.user?.branch!)
       if (branch) {
         for (const l of links) {
-
+ 
           let excel = new ExcelController()
           excel.file = l.file
           excel.branch = branch.email
           // excel.branch = l.br
           await excel.import()
-          // let data =  excel.data
+          // let data =  excel.data  
           // console.log('onFileInput.import().data', excel.data?.length, excel.data?.join(','))
           let counter = 0
           for (const d of excel.data) {
             // console.log('onFileInput.import().d', d)
             let split = d.split('|')
-            let r = { id: ++counter, name: split[0], address: split[1], phone: split[2], birthday: split[3], color: 'transperant', error: '' }
+            let r = { id: ++counter, name: split[0], address: split[1], phone: split[2], /*birthday: split[3],*/ color: 'transperant', error: '' }
             this.rows.push(r)
             // id: ++counter,
             // name: split[0],
@@ -108,7 +108,7 @@ export class TenantsImportComponent implements OnInit {
       name: '',
       address: '',
       phone: '',
-      birthday: '',
+      // birthday: '',
       color: 'transperant',
       error: ''
     })
@@ -121,17 +121,21 @@ export class TenantsImportComponent implements OnInit {
       if (branch) {
         // console.log('this.rows', JSON.stringify(this.rows))
         for (let i = this.rows.length - 1; i >= 0; --i) {
+          console.log(1,i)
           let r = this.rows[i]
           // console.log('current: ' + JSON.stringify(r))
           if (!(r.name?.trim().length ?? 0)) {
+            console.log(2)
             r.error = 'שם: שדה חובה'
             r.color = 'red'
           }
           else if (!(r.address?.trim().length ?? 0)) {
+            console.log(3)
             r.error = 'כתובת: שדה חובה'
             r.color = 'red'
           }
           else {
+            console.log(4)
             let found =
               r.phone?.trim().length ?
                 await remult.repo(Tenant).findFirst({
@@ -151,18 +155,20 @@ export class TenantsImportComponent implements OnInit {
               r.color = 'red'
             } 
             else {
-              let date!: Date
-              try { date = new Date(r.birthday) }
-              catch (err) { console.error(`error convert date '${r.birthday}', err: ${err}`) }
-              if (date) {
+              console.log(5)
+              // let date!: Date
+              // try { date = new Date(r.birthday) }
+              // catch (err) { console.error(`error convert date '${r.birthday}', err: ${err}`) }
+              // if (date) {
                 try {
                   await remult.repo(Tenant).insert({
                     branch: branch,
                     name: r.name,
                     address: r.address,
-                    phone: r.phone,
-                    birthday: r.birthday?.trim().length ? date : undefined!
+                    phone: r.phone//,
+                    // birthday: r.birthday?.trim().length ? date : undefined!
                   })
+                  console.log(6)
                   this.remove(r)
                   ++count
                 }
@@ -171,11 +177,11 @@ export class TenantsImportComponent implements OnInit {
                   r.error = 'שגיאה: ' + JSON.stringify(r)
                   r.color = 'red'
                 }
-              }
-              else {
-                r.error = 'תאריך: לא חוקי'
-                r.color = 'red'
-              }
+              // }
+              // else {
+              //   r.error = 'תאריך: לא חוקי'
+              //   r.color = 'red'
+              // }
             }
           }
         }
@@ -187,7 +193,7 @@ export class TenantsImportComponent implements OnInit {
     }
   }
 
-  async remove(r: { id: number, name: string, address: string, phone: string, birthday: string, color: string }) {
+  async remove(r: { id: number, name: string, address: string, phone: string, /*birthday: string,*/ color: string }) {
     let i = this.rows.findIndex(itm => itm.id === r.id)
     if (i >= 0) {
       this.rows.splice(i, 1)

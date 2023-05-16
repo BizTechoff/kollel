@@ -41,8 +41,8 @@
                 <span class="import-text"><span>{{ this.remult.user?.name }}</span></span>
                 <div class="import-location">
                     <span class="import-text02"><span>{{ this.remult.user?.isAdmin?'':this.remult.user?.isDonor?'':'ראש כולל'
-                            }} כולל {{
-                            this.remult.user?.branchName }}</span></span>
+                            }} {{
+                            this.remult.user?.branchName?.replace('כולל','') }}</span></span>
                     <img src="/assets/playground_assets/locationicon1423-8f2c.svg" alt="locationicon1423"
                         class="import-locationicon" />
                 </div>
@@ -67,7 +67,7 @@
                 (click)="this.back()" />
         </div>
         <div style="align-self: flex-start; padding-left: 5px;">
-            <a href="https://eshel-app.s3.eu-central-1.amazonaws.com/excel/%D7%A8%D7%A9%D7%99%D7%9E%D7%AA+%D7%93%D7%99%D7%99%D7%A8%D7%99%D7%9D+%D7%9C%D7%A7%D7%9C%D7%99%D7%98%D7%94.xlsx">קובץ לדוגמא</a>
+            <a href="https://eshel-app.s3.eu-central-1.amazonaws.com/excel/%D7%A8%D7%A9%D7%99%D7%9E%D7%AA+%D7%90%D7%91%D7%A8%D7%9B%D7%99%D7%9D+%D7%9C%D7%A7%D7%9C%D7%99%D7%98%D7%94.xlsx">קובץ לדוגמא</a>
           </div> 
         <div class="import-cards">
             
@@ -82,15 +82,15 @@
                             <th>{{ 'שם' }}</th>
                             <th>{{ 'כתובת' }}</th>
                             <th>{{ 'טלפון' }}</th>
-                            <th>{{ 'תאריך לידה' }}</th>
+                            <!-- <th>{{ 'תאריך לידה' }}</th> -->
                             <th>{{ '' }}</th>
                         </tr>
                         <ng-container *ngFor="let r of rows" style="border: 1px solid red">
                             <tr>
-                                <td contenteditable>{{ r.name }}</td>
-                                <td contenteditable>{{ r.address }}</td>
-                                <td contenteditable>{{ r.phone }}</td>
-                                <td contenteditable>{{ r.birthday }}</td>
+                                <td><input [(ngModel)]="r.name"></td>
+                                <td><input [(ngModel)]="r.address"></td>
+                                <td><input [(ngModel)]="r.phone"></td>
+                                <!-- <td contenteditable>{{ r.birthday }}</td> -->
                                 <td [style.text-align]="'center'"><mat-icon (click)="this.remove(r)">cancel</mat-icon>
                                 </td>
                             </tr>

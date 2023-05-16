@@ -380,8 +380,49 @@
   flex-direction: column;
   gap: 10px;
 }
+
+.visits-sep {
+  width: 245px;
+  height: 0px;
+  position: relative;
+  align-self: stretch;
+  margin-bottom: 5px;
+}
+
+.visits-text10 {
+  color: rgba(255, 255, 255, 1);
+  height: auto;
+  font-size: 14px;
+  align-self: auto;
+  font-style: Medium;
+  text-align: right;
+  font-family: Heebo;
+  font-weight: 500;
+  line-height: 107.87500143051147%;
+  font-stretch: normal;
+  margin-right: 6px;
+  margin-bottom: 0;
+  text-decoration: none;
+}
+
+.visits-address {
+  display: flex;
+  padding: 2px 5px;
+  position: relative;
+  align-items: flex-start;
+  border-color: transparent;
+  background-color: rgba(227, 172, 120, 1);
+}
+
+.visits-location1 {
+  width: 11px;
+  height: 14px;
+  position: relative;
+}
+
+
 .tenants-cardcontent {
-  height: 156px;
+  height: 120px;
   display: flex;
   padding: 10px;
   position: relative;
@@ -711,9 +752,9 @@
 }
 .tenants-text19 {
   top: 16px;
-  left: 29px;
+  left: 15px;
   color: rgba(255, 255, 255, 1);
-  width: 99px;
+  width: 120px;
   height: auto;
   position: absolute;
   font-size: 20px;
