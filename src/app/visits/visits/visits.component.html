@@ -68,7 +68,11 @@
         [style.borderWidth]="this.isNone(v)?  '2px':'7px'">
         <div class="visits-cardtitle">
           <div *ngIf="v.tenant" class="visits-tenantnameaddress">
+            <div style="display: flex;">
             <span class="visits-text08"><span>{{ v.tenant.name }}</span></span>
+            <!-- <img [src]="this.isVisited(v)?'/assets/validated.svg':'/assets/unValidated.svg'" style="width: 15px; height: 15px;" /> -->
+              <img *ngIf="this.isVisited(v)" src="/assets/validated.svg" style="width: 15px; height: 15px;" />
+          </div>
             <div *ngIf="v.tenant.address" class="visits-address">
               <span class="visits-text10"><span>{{ v.tenant.address }}</span></span>
               <img src="/assets/playground_assets/location1915-msq3.svg" alt="location1915" class="visits-location1" />
