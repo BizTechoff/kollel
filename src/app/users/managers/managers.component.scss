@@ -720,13 +720,14 @@
   width: 151px;
   height: 52px;
   position: absolute;
+  background-size: cover;
 }
 
 .visits-text17 {
   // top: 16px;
   // left: 19px;
   color: rgba(255, 255, 255, 1);
-  width: 100%;
+  width: 100px;
   height: 100%;
   position: relative;
   font-size: 20px;
@@ -739,7 +740,8 @@
   line-height: 107.87500143051147%;
   font-stretch: normal;
   text-decoration: none;
-  padding-top: 30px;
+  padding-top: 7px;
+  padding-right: 17px;
 }
 
 .visits-search {

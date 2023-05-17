@@ -107,7 +107,8 @@ export class TenantsComponent implements OnInit {
 
   }
 
-  async call(mobile = '') {
+  async call(e:any,mobile = '') {
+    e?.stopPropagation()
     if (mobile?.trim().length) {
       window.open(`tel:${mobile}`, '_blank')
     }

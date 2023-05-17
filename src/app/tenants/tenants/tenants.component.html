@@ -67,7 +67,7 @@
     </div>
     <div class="tenants-cards">
       <!-- (click)="this.edit()" -->
-      <div class="tenants-cardcontent" *ngFor="let t of this.tenants">
+      <div class="tenants-cardcontent" *ngFor="let t of this.tenants" (click)="this.edit(t.id)">
         <div class="tenants-cardtitle">
           <div class="tenants-tenantnameaddress">
             <span class="tenants-text08"><span>{{ t.name }}</span></span>
@@ -77,12 +77,12 @@
               <img src="/assets/playground_assets/location1915-msq3.svg" alt="location1915" class="visits-location1" />
             </div>
             <div *ngIf="t.mobile" class="visits-address">
-              <span (click)="this.call(t.mobile)" class="visits-text10"><span>{{ t.mobile }}</span></span>
-              <img src="/assets/playground_assets/call.svg" alt="location1915" class="visits-location1" />
+              <span class="visits-text10"><span>{{ t.mobile }}</span></span>
+              <img style="cursor: pointer;" (click)="this.call($event, t.mobile)" src="/assets/playground_assets/call.svg" alt="location1915" class="visits-location1" />
             </div>
             <div *ngIf="t.phone" class="visits-address">
-              <span (click)="this.call(t.phone)" class="visits-text10"><span>{{ t.phone }}</span></span>
-              <img src="/assets/playground_assets/call.svg" alt="location1915" class="visits-location1" />
+              <span class="visits-text10"><span>{{ t.phone }}</span></span>
+              <img style="cursor: pointer;" (click)="this.call($event, t.phone)" src="/assets/playground_assets/call.svg" alt="location1915" class="visits-location1" />
             </div>
 
             <!-- <div *ngIf="t.address" class="tenants-group1">
@@ -99,7 +99,7 @@
               <span class="tenants-text10"><span>{{ t.phone }}</span></span>
             </div> -->
           </div>
-          <div class="tenants-tenantphoto" (click)="this.edit(t.id)">
+          <div class="tenants-tenantphoto">
             <img alt="Vector1083" src="/assets/playground_assets/vector1083-8ojj.svg" class="tenants-vector06" />
  
 
@@ -142,8 +142,8 @@
           <div class="tenants-actions">
             <img alt="delete1084" src="/assets/playground_assets/delete1084-uqps.svg" (click)="this.delete(t)"
               class="tenants-delete" />
-            <img alt="edit1084" src="/assets/playground_assets/edit1084-xhhm.svg" (click)="this.edit(t.id)"
-              class="tenants-edit" />
+            <!-- <img alt="edit1084" src="/assets/playground_assets/edit1084-xhhm.svg" (click)="this.edit(t.id)"
+              class="tenants-edit" /> -->
 
 
             <!-- <label for="uploadImage2" style="display: flex; align-items: center;">

@@ -54,7 +54,7 @@
         <span class="visits-text09">סה"כ {{ this.query.group.caption }}: {{ totals.tenants }}</span>
         <!-- <span class="visits-text09">סה"כ מתנדבים: {{ totals.volunteers }}</span> -->
       </div>
-      <div class="visits-cardcontent" *ngFor="let m of branches">
+      <div class="visits-cardcontent" *ngFor="let m of branches" (click)="this.edit(m.id)">
         <div class="visits-cardtitle">
           <div class="visits-tenantnameaddress">
             <span class="visits-text07"><span>{{ m.name }}</span></span>
@@ -64,10 +64,11 @@
                 <img src="/assets/playground_assets/location4452-yc8ah.svg" alt="location4452"
                   class="visits-location1" />
               </div>
-              <div *ngIf="m.group" class="visits-addresscontainer">
+              <!-- <div *ngIf="m.group" class="visits-addresscontainer">
                 <span class="visits-text11"><span>{{ m.group.caption }}</span></span>
-                <img src="/assets/playground_assets/group.svg" alt="location4452" class="visits-location1" />
-              </div>
+                <mat-icon>local_library</mat-icon>
+              </div> -->
+                <!-- <img src="/assets/playground_assets/group.svg" alt="location4452" class="visits-location1" /> -->
             </div>
           </div>
         </div>
@@ -80,10 +81,10 @@
           <span>הערה: {{ m.remark }}</span>
         </span>
         <div class="tenants-actions">
-          <img alt="delete1084" src="/assets/playground_assets/delete1084-uqps.svg" (click)="this.delete(m)"
+          <img alt="delete1084" src="/assets/playground_assets/delete1084-uqps.svg" (click)="this.delete($event, m)"
             class="tenants-delete" />
-          <img alt="edit1084" src="/assets/playground_assets/edit1084-xhhm.svg" (click)="this.edit(m.id)"
-            class="tenants-edit" />
+          <!-- <img alt="edit1084" src="/assets/playground_assets/edit1084-xhhm.svg"
+            class="tenants-edit" /> -->
         </div>
       </div>
         <div class="visits-addtenant" (click)="this.addBranch()">

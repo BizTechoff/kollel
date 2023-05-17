@@ -125,7 +125,7 @@ export class VisitsReadonlyComponent implements OnInit {
   }
 
   rootmenu() {
-    // this.routeHelper.navigateToComponent(UserMenuComponent)
+    this.back()
   }
 
 }

@@ -45,7 +45,7 @@ export class VisitsExportComponent implements OnInit {
     let today = resetDateTime(new Date())
     this.query.fdate = firstDateOfWeek(today)
     this.query.tdate = lastDateOfWeek(today)
-    this.query.detailed = false
+    this.query.detailed = remult.user?.isManager ?? false
     this.query.type = ExportType.all
     //  remult.user!.isManager
     //   ? ExportType.all
@@ -180,6 +180,6 @@ export class VisitsExportComponent implements OnInit {
       //   let sep: exportDataRow = {}
       //   // sep[ 'sep=,'] = ''
       //   result.unshift(sep)
-      // } 
+      // }
       // xlsx.utils.book_append_sheet(wb, '')
       // xlsx.utils.sheet_to_csv(wb.Sheets[0]), `${dateFormat(this.query.fdate, '.')}-${dateFormat(this.query.tdate, '.')}`);

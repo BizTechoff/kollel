@@ -40,8 +40,7 @@
             <div class="visits-userinfo">
                 <span class="visits-text"><span> {{ remult.user?.name }} </span></span>
                 <div class="visits-location">
-                    <span class="visits-text02"><span>{{ remult.user?.isAdmin?'':remult.user?.isDonor?'':'ראש כולל' }} כולל
-                            {{ remult.user?.branchName }}</span></span>
+                    <span class="visits-text02"><span>{{ remult.user?.isAdmin?'':remult.user?.isDonor?'':'ראש כולל' }} {{ remult.user?.branchName?.replace('כולל','') }}</span></span>
                     <img src="/assets/playground_assets/locationicon1915-rc69.svg" alt="locationicon1915"
                         class="visits-locationicon" />
                 </div>

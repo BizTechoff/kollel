@@ -40,9 +40,8 @@
             <div class="export-userinfo">
                 <span class="export-text"><span>{{ remult.user?.name }}</span></span>
                 <div class="export-location">
-                    <span class="export-text02"><span>{{ remult.user?.isAdmin?'':remult.user?.isDonor?'':'ראש כולל' }} כולל
-                            {{
-                            remult.user?.branchName }}</span></span>
+                    <span class="export-text02"><span>{{ remult.user?.isAdmin?'':remult.user?.isDonor?'':'ראש כולל' }} {{
+                            remult.user?.branchName?.replace('כולל','') }}</span></span>
                     <img src="/assets/playground_assets/locationicon1253-rwl.svg" alt="locationicon1253"
                         class="export-locationicon" />
                 </div>

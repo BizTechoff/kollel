@@ -75,7 +75,8 @@ export class VisitsComponent implements OnInit {
     this.routeHelper.navigateToComponent(UserMenuComponent)
   }
 
-  async call(mobile = '') {
+  async call(e:any,mobile = '') {
+    e?.stopPropagation()
     if (mobile?.trim().length) {
       window.open(`tel:${mobile}`, '_blank')
     }

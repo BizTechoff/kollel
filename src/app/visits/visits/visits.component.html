@@ -25,14 +25,15 @@
           </div>
         </div>
       </div> -->
-      <div (click)="this.rootmenu()"> 
+      <div (click)="this.rootmenu()">
         <img src="/assets/Logo Colel Chabad.png" alt="Frame14430" class="chabad-colel-logo" />
         <!-- <img src="/assets/playground_assets/chabadLogo.svg" alt="Frame14430" class="chabad-get-chessed-logo" /> -->
       </div>
       <div class="visits-userinfo">
         <span class="visits-text"><span> {{ remult.user?.name }} </span></span>
         <div class="visits-location">
-          <span class="visits-text02"><span>{{ remult.user?.isAdmin?'':remult.user?.isDonor?'':'ראש כולל' }} {{ remult.user?.branchName?.replace('כולל','') }}</span></span>
+          <span class="visits-text02"><span>{{ remult.user?.isAdmin?'':remult.user?.isDonor?'':'ראש כולל' }} {{
+              remult.user?.branchName?.replace('כולל','') }}</span></span>
           <img src="/assets/playground_assets/locationicon1915-rc69.svg" alt="locationicon1915"
             class="visits-locationicon" />
         </div>
@@ -55,29 +56,30 @@
       </div>
       <img (click)="this.back()" src="/assets/playground_assets/back1915-xq3i.svg" alt="back1915" class="visits-back" />
     </div>
-    
+
     <!-- <div class="visits-weekly-answer">
       <span class="visits-weekly-answer-text"><span>השאלה השבועית: {{ weeklyQuestion }}</span>
     </span>
     </div> -->
     <div class="visits-cards">
-      
+
       <div class="visits-cardcontent" *ngFor="let v of this.visits" (click)="this.edit(v.id)"
-        [style.borderColor]="this.isNone(v)?  'rgba(227, 172, 120, 1)':'green'" [style.borderWidth]="this.isNone(v)?  '2px':'7px'">
+        [style.borderColor]="this.isNone(v)?  'rgba(227, 172, 120, 1)':'green'"
+        [style.borderWidth]="this.isNone(v)?  '2px':'7px'">
         <div class="visits-cardtitle">
-          <div class="visits-tenantnameaddress">
-            <span *ngIf="v.tenant" class="visits-text08"><span>{{ v.tenant.name }}</span></span>
-            <div class="visits-address">
-              <span *ngIf="v.tenant" class="visits-text10"><span>{{ v.tenant.address }}</span></span>
+          <div *ngIf="v.tenant" class="visits-tenantnameaddress">
+            <span class="visits-text08"><span>{{ v.tenant.name }}</span></span>
+            <div *ngIf="v.tenant.address" class="visits-address">
+              <span class="visits-text10"><span>{{ v.tenant.address }}</span></span>
               <img src="/assets/playground_assets/location1915-msq3.svg" alt="location1915" class="visits-location1" />
             </div>
             <div *ngIf="v.tenant.mobile" class="visits-address">
-              <span (click)="this.call(v.tenant.mobile)" class="visits-text10"><span>{{ v.tenant.mobile }}</span></span>
-              <img src="/assets/playground_assets/call.svg" alt="location1915" class="visits-location1" />
+              <span class="visits-text10"><span>{{ v.tenant.mobile }}</span></span>
+              <img style="cursor: pointer;" (click)="this.call($event, v.tenant.mobile)" src="/assets/playground_assets/call.svg" alt="location1915" class="visits-location1" />
             </div>
             <div *ngIf="v.tenant.phone" class="visits-address">
-              <span (click)="this.call(v.tenant.phone)" class="visits-text10"><span>{{ v.tenant.phone }}</span></span>
-              <img src="/assets/playground_assets/call.svg" alt="location1915" class="visits-location1" />
+              <span class="visits-text10"><span>{{ v.tenant.phone }}</span></span>
+              <img style="cursor: pointer;" (click)="this.call($event, v.tenant.phone)" src="/assets/playground_assets/call.svg" alt="location1915" class="visits-location1" />
             </div>
           </div>
           <div class="visits-tenantphoto">
@@ -90,7 +92,8 @@
             </div>
           </div>
         </div>
-        <img *ngIf="v.remark?.trim()!.length" src="/assets/playground_assets/sep1915-grj.svg" alt="sep1915" class="visits-sep" />
+        <img *ngIf="v.remark?.trim()!.length" src="/assets/playground_assets/sep1915-grj.svg" alt="sep1915"
+          class="visits-sep" />
         <!-- <div class="visits-volunteers">
           <span class="visits-text12"><span>{{ v.volunteersNames }}</span></span>
           <span class="visits-text14">:מתנדבים</span>
@@ -98,7 +101,7 @@
         <span *ngIf="v.remark?.trim()!.length" class="visits-text15"><span>הערה: </span>{{ v.remark }}</span>
       </div>
     </div>
-    
+
     <div class="menu-frame27" (click)="this.finished()">
       <div class="menu-exit">
         <span class="menu-text13"><span>סיימתי לדווח</span></span>

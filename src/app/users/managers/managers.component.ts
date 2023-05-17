@@ -71,7 +71,8 @@ export class ManagersComponent implements OnInit {
     this.routeHelper.navigateToComponent(ManagerComponent, { id: id })
   }
 
-  async delete(u: User) {
+  async delete(e:any, u: User) {
+    e?.stopPropagation()
     let yes = await this.ui.yesNoQuestion(`?להפוך את ${u.name} ללא פעיל`)
     if (yes) {
       u.active = false
@@ -84,7 +85,8 @@ export class ManagersComponent implements OnInit {
     this.routeHelper.navigateToComponent(UserMenuComponent)
   }
 
-  async call(mobile = '') {
+  async call(e:any, mobile = '') {
+    e?.stopPropagation()
     if (mobile?.trim().length) {
       window.open(`tel:${mobile}`, '_blank')
     }

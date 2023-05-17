@@ -96,7 +96,8 @@ export class BranchesComponent implements OnInit {
     this.routeHelper.navigateToComponent(BranchComponent, { id: id })
   }
 
-  async delete(u: Branch) {
+  async delete(e:any, u: Branch) {
+    e?.stopPropagation()
     let yes = await this.ui.yesNoQuestion(`?להפוך את ${u.name} ללא פעיל`)
     if (yes) {
       u.active = false
