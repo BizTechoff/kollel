@@ -116,7 +116,8 @@ export class TenantsComponent implements OnInit {
 
 
 
-  async delete(t: Tenant) {
+  async delete(e:any,t: Tenant) {
+    e?.stopPropagation()
     let yes = await this.ui.yesNoQuestion(`?להפוך את ${t.name} ללא פעיל`)
     if (yes) {
       t.active = false
