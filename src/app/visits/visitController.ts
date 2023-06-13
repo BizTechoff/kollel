@@ -67,6 +67,11 @@ export class VisitController extends ControllerBase {
     })
     group = BranchGroup.fromId(remult.user!.group)
 
+    @Fields.boolean<VisitController>({
+        caption: 'בפועל'
+    })
+    actual = false
+
 
     @BackendMethod({ allowed: [Roles.admin, Roles.donor] })
     async getVisitsByBranch() {
@@ -236,11 +241,14 @@ export class VisitController extends ControllerBase {
                 {
                     where: {
                         branch: {
-                            $id: (await remult.repo(Branch).find({ where: { active: true, system: false } }))
-                                .map(b => b.id),
-                            group: this.group === BranchGroup.all
-                                ? undefined!
-                                : this.group
+                            $id: (await remult.repo(Branch).find({
+                                where: {
+                                    active: true, system: false,
+                                    group: this.group === BranchGroup.all
+                                        ? undefined!
+                                        : this.group
+                                }
+                            })).map(b => b.id)
                         },
                         date: {
                             "$gte": this.fdate,
@@ -344,6 +352,16 @@ export class VisitController extends ControllerBase {
             where: {
                 visit: await remult.repo(Visit).find({
                     where: {
+                        $and: [
+                            this.actual
+                                ? {
+                                    $or: [
+                                        { status: VisitStatus.delivered },
+                                        { status: VisitStatus.visited }
+                                    ]
+                                }
+                                : {}
+                        ],
                         branch: remult.user?.isManager
                             ? { $id: remult.user.branch }
                             : await remult.repo(Branch).find({
@@ -380,6 +398,16 @@ export class VisitController extends ControllerBase {
         // build data
         for await (const v of remult.repo(Visit).query({
             where: {
+                $and: [
+                    this.actual
+                        ? {
+                            $or: [
+                                { status: VisitStatus.delivered },
+                                { status: VisitStatus.visited }
+                            ]
+                        }
+                        : {}
+                ],
                 branch: remult.user?.isManager
                     ? { $id: remult.user.branch }
                     : await remult.repo(Branch).find({
@@ -734,5 +762,5 @@ export class VisitController extends ControllerBase {
 
         return aoa
     }
-    
+
 }

@@ -47,6 +47,7 @@ export class VisitsExportComponent implements OnInit {
     this.query.tdate = lastDateOfWeek(today)
     this.query.detailed = remult.user?.isManager ?? false
     this.query.type = ExportType.all
+    this.query.actual = remult.user?.isAdmin ?? false
     //  remult.user!.isManager
     //   ? ExportType.all
     //   : ExportType.doneAndNotDone
@@ -116,6 +117,9 @@ export class VisitsExportComponent implements OnInit {
     if (dateDiff(this.query.fdate, this.query.tdate) > 45) {
       this.ui.info('מקסימום טווח של 45 יום')
       return false
+    }
+    if (![ExportType.all, ExportType.doneAndNotDone].includes(this.query.type)) {
+      this.query.actual = false
     }
     // if (!this.query.detailed) {
     //   this.query.type = ExportType.done

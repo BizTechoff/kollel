@@ -125,6 +125,20 @@
                     <!-- <span class="export-text12"><span>:עד תאריך</span></span> -->
                 </div>
 
+                <div *ngIf="[ExportType.all, ExportType.doneAndNotDone].includes(this.query.type)" class="export-cardcontent30">
+                    <ng-container class="export-cardcontent3">
+                        <div style="display: flex; flex-direction: column;">
+                            <div style="display: flex;">
+                                <span class="export-text16">
+                                    <span>כלול רק את ה{{ this.query.group.caption }} המדווחים </span>
+                                </span>
+                                <input name="actual" type="checkbox" [(ngModel)]="this.query.actual" [value]="true">
+                            </div>
+                            <span>{{ this.query.actual? '(כשמסומן: כולל רק ' + this.query.group.caption + ' שדווח עליהם)':'(כשלא מסומן: כולל את כל ה' + this.query.group.caption + ')' }}</span>
+                        </div>
+                    </ng-container>
+                </div>
+
                 <!-- <div class="export-cardcontent1">
                     <div
                         style="display: flex; flex-direction: row; justify-content: space-between; width: 100%; direction: rtl;">

@@ -126,7 +126,7 @@ export class VisitsChartComponent implements OnInit {
     this.query.fdate = firstDateOfWeek(today)
     this.query.tdate = lastDateOfWeek(today)
     // console.log(11)
-    console.log('CLIENT', this.query.fdate, this.query.tdate, this.query.detailed, this.query.type)
+    // console.log('CLIENT', this.query.fdate, this.query.tdate, this.query.detailed, this.query.type)
     this.count = await this.query.getWeeklyCounters()
     // console.log(22)
     this.pieChartColors = [{ backgroundColor: this.barChartColors }];
