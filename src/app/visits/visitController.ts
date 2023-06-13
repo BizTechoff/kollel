@@ -392,6 +392,8 @@ export class VisitController extends ControllerBase {
             }
         }
 
+        let weeksOrder = [] as { monthKey: string, month: string, weeks: { key: string, week: string }[] }[]
+
         let branchWeek = [] as { key: string, volunteers: string[] }[]
         let totalWeek = [] as { week: string, tt: number, tvol: number, td: number, tv: number }[]
 
@@ -429,6 +431,18 @@ export class VisitController extends ControllerBase {
         })) {
 
             let month = `חודש ${hebrewMonths[v.date.getMonth()]}`
+
+            // set monthsWeeks
+            let motiw = weeksOrder.find(itm => itm.month === month)
+            if (!motiw) {
+                motiw = {
+                    monthKey: `${v.date.getFullYear()}-${('0' + (v.date.getMonth() + 1)).slice(-2)}`,
+                    month: month,
+                    weeks: [] as { key: string, week: string }[]
+                }
+                weeksOrder.push(motiw)
+            }
+
             let foundMonth = data.find(d => d.month === month)
             if (!foundMonth) {
                 foundMonth = {
@@ -492,6 +506,16 @@ export class VisitController extends ControllerBase {
             let first = firstDateOfWeek(v.date)
             let last = lastDateOfWeek(v.date)
             let week = `שבוע ${first.getDate()}-${last.getDate()}.${last.getMonth() + 1}`
+
+            let motib = motiw.weeks.find(itm => itm.week === week)
+            if (!motib) {
+                motib = {
+                    key: `${first.getFullYear()}-${('0' + (first.getMonth() + 1)).slice(-2)}-${('0' + (first.getDate())).slice(-2)}`,
+                    week: week
+                }
+                motiw.weeks.push(motib)
+            }
+
             let foundWeek = foundBranch.weeks.find(w => w.week === week)
             if (!foundWeek) {
                 foundWeek = {
@@ -603,6 +627,11 @@ export class VisitController extends ControllerBase {
             }
         }
 
+        weeksOrder.sort((a, b) => a.monthKey.localeCompare(b.monthKey))
+        for (const motic of weeksOrder) {
+            motic.weeks.sort((a, b) => a.key.localeCompare(b.key))
+        }
+
         // build totals
         for (const m of data) {
             for (const b of m.branches) {
@@ -653,11 +682,15 @@ export class VisitController extends ControllerBase {
                 for (const w of b.weeks) {
                     let www = b.weeksCounter.indexOf(w.week)
 
+                    let wwwww = weeksOrder.find(itm => itm.month === m.month)
+                    let motiwwww = wwwww?.weeks.find(itm => itm.week === w.week)!
+                    let motiindex = wwwww?.weeks.indexOf(motiwwww)!
+
                     let fw = fb.weeks.find(ww => ww.week === w.week)
                     if (!fw) {
                         fw = {
                             week: w.week,
-                            col: www * 6 + 2,
+                            col: motiindex * 6 + 2,
                             visits: w.visits.length
                         }
                         fb.weeks.push(fw)
