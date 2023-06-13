@@ -47,12 +47,12 @@ export class uploader {
 
         // console.debug(`loadFiles: { isDevMode: ${isDevMode}, name: ${file.name}, type: ${file.type}, path: ${file.webkitRelativePath}, excel: ${this.excel} }`)
 
-        if (isDevMode) {
-          if (!this.excel) {
-            console.info(`DevMode = 'true', Files NOT uploaded! `)
-            continue
-          }
-        }
+        // if (isDevMode) {
+        //   if (!this.excel) {
+        //     console.info(`DevMode = 'true', Files NOT uploaded! `)
+        //     continue
+        //   }
+        // }
 
         // if (!mediaAllowedUploadFileTypes.includes(file.type)) {
         //   console.debug(`loadFiles(${file.name}): file type ${file.type} not allowed to upload`)

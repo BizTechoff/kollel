@@ -6,14 +6,14 @@ import * as xlsx from 'xlsx';
 //https://www.youtube.com/watch?v=yGYeYJpRWPM&ab_channel=SamMeech-Ward
 
 // const aws =  require('aws-sdk')
- 
+
 const s3Client = async () => {
     let result = undefined
     if (process.env['S3_CHANNEL_OPENED'] === 'true') {
         const region = process.env['AWS_S3_IAM_BTO_REGION']!
         const accessKeyId = process.env['AWS_S3_IAM_BTO_APP_ACCESS_KEY_ID']!
         const secretAccessKey = process.env['AWS_S3_IAM_BTO_APP_SECRET_ACCESS_KEY']!
- 
+
         const aws = require('aws-sdk')
         result = new aws.S3({
             region,
@@ -34,14 +34,15 @@ export async function generateUploadURL(action: string, fName: string, branch: s
     let result = ''
     const s3 = await s3Client()
     if (s3) {
+        let key = 'kollel/' + (excel
+            ? 'excel/tenants' + '/' + branch + "/" + fName
+            : 'dev' + '/' + branch + "/" + fName)
+        console.log(`upload.key: ${key}`)
         const params = ({
             Bucket: process.env['AWS_S3_IAM_BTO_APP_BUCKET']!,
-            Key:'kollel/' + excel ?
-                'excel/tenants' + '/' + branch + "/" + fName :
-                'dev' + '/' + branch + "/" + fName,
+            Key: key,
             Expires: 60 //sec
         })
-
         result = await s3.getSignedUrlPromise(action, params)
         // console.log('signed-url: ' + result)
     }
@@ -54,7 +55,7 @@ export async function download(fileName = '', branch = '') {
     if (fileName?.trim().length) {
         const s3 = await s3Client()
         if (s3) {
-            let key ='kollel/' + 'excel/tenants' + '/' + branch + "/" + fileName
+            let key = 'kollel/' + 'excel/tenants' + '/' + branch + "/" + fileName
             const params = ({
                 Bucket: process.env['AWS_S3_IAM_BTO_APP_BUCKET']!,
                 Key: key
@@ -107,14 +108,14 @@ export async function downloadByLink(link = '') {
             let key = link.substring(i + 1)
             console.debug(`download: { bucket: ${process.env['AWS_S3_IAM_BTO_APP_BUCKET']!}, key: ${key} }`);
 
-// let res = await fetch.default(link)
-// if(res?.ok){
-    
-// }
-// else{
-//     console.error(res?.statusText)
-// }
-//      return       
+            // let res = await fetch.default(link)
+            // if(res?.ok){
+
+            // }
+            // else{
+            //     console.error(res?.statusText)
+            // }
+            //      return       
             const s3 = await s3Client()
             if (s3) {
                 const params = ({
@@ -122,7 +123,7 @@ export async function downloadByLink(link = '') {
                     Key: 'kollel/' + key
                 })
                 var fileStream = await s3.getObject(params).createReadStream()
-                
+
                 await s3.getObject(params, async (err: any, data: any) => {
                     if (err) {
                         console.error('getObject return error', err, err.stack)
@@ -140,10 +141,10 @@ export async function downloadByLink(link = '') {
                                 console.info('SAVED!')
                             }
                         });
-                        
-                        console.log('data',data)
+
+                        console.log('data', data)
                     }
-                }).promise() 
+                }).promise()
             }
         }
     }

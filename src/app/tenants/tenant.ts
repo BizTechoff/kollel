@@ -147,6 +147,11 @@ export class Tenant extends IdEntity {
     phone = ''
 
     @Fields.string<Tenant>({
+        caption: 'ת.ז'
+    })
+    idNumber = ''
+
+    @Fields.string<Tenant>({
         caption: 'הערות לכתובת'
     })
     addressremark = ''

@@ -72,6 +72,7 @@
             <span class="visits-text08"><span>{{ v.tenant.name }}</span></span>
             <!-- <img [src]="this.isVisited(v)?'/assets/validated.svg':'/assets/unValidated.svg'" style="width: 15px; height: 15px;" /> -->
               <img *ngIf="this.isVisited(v)" src="/assets/validated.svg" style="width: 15px; height: 15px;" />
+              <img *ngIf="this.isDelivered(v)" src="/assets/playground_assets/late.png" style="width: 15px; height: 15px;" />
           </div>
             <div *ngIf="v.tenant.address" class="visits-address">
               <span class="visits-text10"><span>{{ v.tenant.address }}</span></span>

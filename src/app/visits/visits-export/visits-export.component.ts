@@ -77,7 +77,8 @@ export class VisitsExportComponent implements OnInit {
       wb.Workbook = { Views: [{ RTL: true }] };
       let ws = xlsx.utils.aoa_to_sheet(result)
       var name = `` +
-        `${this.query.fdate.getDate()}-` +
+        `${this.query.fdate.getDate()}.` +
+        `${this.query.fdate.getMonth() + 1}-` +
         `${this.query.tdate.getDate()}.` +
         `${this.query.tdate.getMonth() + 1}.` +
         `${this.query.tdate.getFullYear()}` +

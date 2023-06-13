@@ -458,7 +458,8 @@
   margin-bottom: 0px;
   justify-content: center;
 }
-.visit-paper-bag-i021 {
+.visit-late {
+  top: 30px;
   width: 137px;
   height: 117px;
   position: relative;
@@ -500,6 +501,7 @@
   align-items: center;
   border-color: transparent;
   flex-direction: column;
+  z-index: 1;
 }
 .visit-frame15 {
   display: flex;

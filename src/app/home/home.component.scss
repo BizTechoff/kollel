@@ -384,17 +384,17 @@
     position: absolute;
   }
   .frame1-chabad-colel-logo {
-    top: 575px;
-    left: 10px;
-    width: 84px;
-    height: 73px;
+    top: 525px;
+    left: calc(50% - 42px);
+    width: 100px;
+    // height: 90px;
     position: absolute;
   }
   .chabad-colel-logo {
     top: 0px;
     left: 10px;
-    width: 110px;
-    height: 100px;
+    width: 160px;
+    height: 150px;
     position: absolute;
     z-index: 1;
   }

@@ -918,12 +918,12 @@ async function createWeeklyVisits() {
     try {
         let counter = 0
         let bCounter = await remult.repo(Branch).count({ system: false, active: true })
-        for await (const branch of remult.repo(Branch).query({ where: { system: false, active: true } })) {
+        for await (const branch of remult.repo(Branch).query({ where: { system: false, active: true, id: '8424a79f-32f1-4d18-8359-2868dfbf9343' } })) {
             ++counter
             console.log('branch', branch.name, `${counter}/${bCounter}`)
             let visitsCounter = 0
-            for await (const tenant of remult.repo(Tenant).query({ where: { active: true, branch: branch }, orderBy: { name: 'asc' } })) {
-                // console.log('tenant', tenant.name)
+            for await (const tenant of remult.repo(Tenant).query({ where: { active: true, branch: branch, id: '83ca2193-ea9d-4ca5-b8f9-d017b6f48a7e' }, orderBy: { name: 'asc' } })) {
+                console.log('tenant', tenant.name)
                 let visit = await remult.repo(Visit).findFirst(
                     {
                         branch: branch,
