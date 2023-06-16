@@ -1,7 +1,7 @@
 import './common/dateFunc'
 
 export const terms = {
-    appVersion: '2023.06.13',
+    appVersion: '2023.06.16',
     username: "שם",
     signIn: "Sign In",
     confirmPassword: "Confirm Password",
