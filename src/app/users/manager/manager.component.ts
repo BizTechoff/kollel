@@ -242,17 +242,6 @@ export class ManagerComponent implements OnInit {
     })
   }
 
-  async groupChanged() {
-    let group = BranchGroup.fromId(remult.user!.group)
-    if (group) {
-      console.log(`ManagersComponent.groupChanged: { this.query.group: ${this.query.group.id}, group: ${group.id}`)
-      if (group !== this.query.group) {
-        this.query.group = group
-        // await this.retrieve()
-      }
-    }
-  }
-
   async selectVolunteers() {
     // let vols: { caption: string, id: string }[] = [] as { caption: string, id: string }[]
     // let uc = new UserController()
