@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { remult } from 'remult';
 import { BranchGroup } from '../branchGroup';
 
@@ -8,6 +8,8 @@ import { BranchGroup } from '../branchGroup';
   styleUrls: ['./branch-group.component.scss']
 })
 export class BranchGroupComponent implements OnInit {
+
+  @Input() readonly = false
 
   @Output() groupChanged = new EventEmitter(true)
   selected = BranchGroup.fromId(remult.user!.group)

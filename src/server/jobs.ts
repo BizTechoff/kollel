@@ -918,11 +918,11 @@ async function createWeeklyVisits() {
     try {
         let counter = 0
         let bCounter = await remult.repo(Branch).count({ system: false, active: true })
-        for await (const branch of remult.repo(Branch).query({ where: { system: false, active: true, id: '8424a79f-32f1-4d18-8359-2868dfbf9343' } })) {
+        for await (const branch of remult.repo(Branch).query({ where: { system: false, active: true } })) {
             ++counter
             console.log('branch', branch.name, `${counter}/${bCounter}`)
             let visitsCounter = 0
-            for await (const tenant of remult.repo(Tenant).query({ where: { active: true, branch: branch, id: '83ca2193-ea9d-4ca5-b8f9-d017b6f48a7e' }, orderBy: { name: 'asc' } })) {
+            for await (const tenant of remult.repo(Tenant).query({ where: { active: true, branch: branch }, orderBy: { name: 'asc' } })) {
                 console.log('tenant', tenant.name)
                 let visit = await remult.repo(Visit).findFirst(
                     {
@@ -933,8 +933,8 @@ async function createWeeklyVisits() {
                     { createIfNotFound: true })
                 if (visit.isNew()) {
                     await remult.repo(Visit).save(visit)
+                    ++result
                 }
-                ++result
                 // for await (const tv of remult.repo(TenantVolunteer).query({ where: { tenant: tenant } })) {
                 //     let vv = await remult.repo(VisitVolunteer).findFirst(
                 //         {
@@ -957,7 +957,9 @@ async function createWeeklyVisits() {
 }
 
 async function logJob(date: Date, job: string, status: JosStatus, error: any) {
-    let log = await remult.repo(Job).findFirst({ name: job, date: date }, { createIfNotFound: true })
+    let log = await remult.repo(Job).findFirst(
+        { name: job, date: date },
+        { createIfNotFound: true })
     log.status = status
     log.remark = error?.toString() ?? 'UnKnown'
     // log.date = new Date()

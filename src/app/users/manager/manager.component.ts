@@ -44,6 +44,8 @@ export class ManagerComponent implements OnInit {
   remult = remult;
 
   async ngOnInit(): Promise<void> {
+    remult.user!.lastComponent = ManagerComponent.name
+    this.query.group = BranchGroup.fromId(remult.user!.group)
     //console.log(`VisitComponent: { this.route.snapshot.paramMap: ${JSON.stringify(this.route.snapshot.paramMap)}}`)
     if (!this.args) {
       this.args = { id: '', ub: '', bid: '' }
@@ -228,6 +230,7 @@ export class ManagerComponent implements OnInit {
     // console.log('selectBranch..')
     let vols: { caption: string, id: string }[] = [] as { caption: string, id: string }[]
     let uc = new BranchController()
+    uc.group = this.query.group
     for (const v of await uc.getBranches()) {
       vols.push({ caption: v.name, id: v.id })
     }
@@ -237,6 +240,17 @@ export class ManagerComponent implements OnInit {
       onSelect: async (v) => { await this.addBranch(v.id, '') },
       onAdd: async (v) => { await this.addNewVolunteer(v.caption) }
     })
+  }
+
+  async groupChanged() {
+    let group = BranchGroup.fromId(remult.user!.group)
+    if (group) {
+      console.log(`ManagersComponent.groupChanged: { this.query.group: ${this.query.group.id}, group: ${group.id}`)
+      if (group !== this.query.group) {
+        this.query.group = group
+        // await this.retrieve()
+      }
+    }
   }
 
   async selectVolunteers() {

@@ -1,8 +1,8 @@
 import { Allow, BackendMethod, Controller, ControllerBase, Field, remult } from "remult";
 import { Branch } from "../branches/branch";
 import { BranchGroup } from "../branches/branchGroup";
-import { Tenant } from "../tenants/tenant";
 import { TenantVolunteer } from "../tenants/TenantVolunteer";
+import { Tenant } from "../tenants/tenant";
 import { Roles } from "./roles";
 import { User } from "./user";
 import { UserBranch } from "./userBranch";
@@ -103,7 +103,7 @@ export class UserController extends ControllerBase {
     async getUser(id: string) {
         let result!: User
         if (id?.trim().length) {
-            result = await remult.repo(User).findId(id, {})
+            result = await remult.repo(User).findId(id, { useCache: false })
         }
         return result
     }

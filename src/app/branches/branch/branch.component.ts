@@ -28,6 +28,8 @@ export class BranchComponent implements OnInit {
   BranchGroup = BranchGroup
 
   async ngOnInit(): Promise<void> {
+    remult.user!.lastComponent = BranchComponent.name
+
     let id = this.route.snapshot.paramMap.get('id') ?? '';
     if (id?.trim().length) {
       this.title = 'עדכון כולל'
