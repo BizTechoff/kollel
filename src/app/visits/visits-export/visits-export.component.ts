@@ -4,7 +4,7 @@ import * as xlsx from 'xlsx';
 import { BranchGroup } from '../../branches/branchGroup';
 import { RouteHelperService } from '../../common-ui-elements';
 import { UIToolsService } from '../../common/UIToolsService';
-import { dateDiff, firstDateOfWeek, lastDateOfWeek, resetDateTime } from '../../common/dateFunc';
+import { addDaysToDate, dateDiff, firstDateOfWeek, lastDateOfWeek, resetDateTime } from '../../common/dateFunc';
 import { terms } from '../../terms';
 import { UserMenuComponent } from '../../users/user-menu/user-menu.component';
 import { VisitController } from '../visitController';
@@ -70,7 +70,7 @@ export class VisitsExportComponent implements OnInit {
 
   // @https://www.npmjs.com/package/xlsx
   async export() {
-    if (this.validate()) {
+    if (await this.validate()) {
       // data
       let result = await this.query.exportVisits()
       // excel-sheet
@@ -100,7 +100,7 @@ export class VisitsExportComponent implements OnInit {
     }
   }
 
-  validate() {
+  async validate() {
     if (!this.query.fdate) {
       this.query.fdate = new Date()
       // this.ui.info('לא צויין תאריך התחלה')
@@ -114,16 +114,21 @@ export class VisitsExportComponent implements OnInit {
     if (this.query.tdate < this.query.fdate) {
       this.query.tdate = lastDateOfWeek(this.query.fdate)
     }
-    if (dateDiff(this.query.fdate, this.query.tdate) > 45) {
-      this.ui.info('מקסימום טווח של 45 יום')
-      return false
+    let sevenWeeks = 7 * 7 - 1
+    if (dateDiff(this.query.fdate, this.query.tdate) > sevenWeeks) {
+      let yes = await this.ui.yesNoQuestion('מקסימום טווח של 7 שבועות, לבחור לך תאריך כזה?')
+      if (!yes) {
+        return false
+      }
+      this.query.fdate = firstDateOfWeek(
+        addDaysToDate(this.query.tdate, -sevenWeeks))
     }
     if (![ExportType.all, ExportType.doneAndNotDone].includes(this.query.type)) {
       this.query.actual = false
     }
     // if (!this.query.detailed) {
     //   this.query.type = ExportType.done
-    // }
+    // } 
     return true
   }
 

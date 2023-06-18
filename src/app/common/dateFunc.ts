@@ -134,3 +134,16 @@ export function dateDiff(d1: Date, d2: Date) {
     let differentDays = Math.ceil(timeDifference / (1000 * 3600 * 24));
     return differentDays
 }
+
+export function addDaysToDate(date: Date, days = 0) {
+    return new Date(date.getFullYear(), date.getMonth(), date.getDate() + days)
+    // var result = new Date()
+    // if (date) {
+    //     result = date
+    // }
+    // if (days) {
+    //     result.setDate(
+    //         result.getDate() + days);
+    // }
+    // return result
+}
