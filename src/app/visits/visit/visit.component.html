@@ -25,9 +25,14 @@
           </div>
         </div>
       </div> -->
-      <div (click)="this.rootmenu()"> 
-        <img src="/assets/Logo Colel Chabad.png" alt="Frame14430" class="chabad-colel-logo" />
-        <!-- <img src="/assets/playground_assets/chabadLogo.svg" alt="Frame14430" class="chabad-get-chessed-logo" /> -->
+      <div style="display: flex; flex-direction: column;" (click)="this.rootmenu()">
+        <div>
+          <img src="/assets/Logo Colel Chabad.png" alt="Frame14430" class="chabad-colel-logo" />
+          <!-- <img src="/assets/playground_assets/chabadLogo.svg" alt="Frame14430" class="chabad-get-chessed-logo" /> -->
+        </div>
+        <div>
+          <img src="/assets/logo.ahavat.eliyau.svg" alt="Frame14430" class="ahavat-eliyau-logo" />
+        </div>
       </div>
       <div class="visit-userinfo">
         <span class="visit-text"><span>{{ this.remult.user?.name }}</span></span>

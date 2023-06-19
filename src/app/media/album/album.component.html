@@ -32,10 +32,15 @@
                     </div>
                 </div>
             </div> -->
-            <div (click)="this.rootmenu()"> 
-              <img src="/assets/Logo Colel Chabad.png" alt="Frame14430" class="chabad-colel-logo" />
-              <!-- <img src="/assets/playground_assets/chabadLogo.svg" alt="Frame14430" class="chabad-get-chessed-logo" /> -->
-            </div>
+            <div style="display: flex; flex-direction: column;" (click)="this.rootmenu()">
+                <div>
+                  <img src="/assets/Logo Colel Chabad.png" alt="Frame14430" class="chabad-colel-logo" />
+                  <!-- <img src="/assets/playground_assets/chabadLogo.svg" alt="Frame14430" class="chabad-get-chessed-logo" /> -->
+                </div>
+                <div>
+                  <img src="/assets/logo.ahavat.eliyau.svg" alt="Frame14430" class="ahavat-eliyau-logo" />
+                </div>
+              </div>
             <app-branch-group (groupChanged)="this.groupChanged()"></app-branch-group>
             <div class="album-userinfo">
                 <span class="album-text"><span>{{ remult.user?.name }}</span></span>

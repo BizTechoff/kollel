@@ -44,6 +44,10 @@ export class UserMenuComponent implements OnInit {
     this.routeHelper.navigateToComponent(HomeComponent)
   }
 
+  openBizTechoff(){
+    window?.open('https://biztechoff.co.il', '_blank')
+  }
+
   // async groupChanged() {
   //   this.group = BranchGroup.fromId(remult.user!.group)
   //   if (this.group) {
