@@ -26,15 +26,15 @@
         </div>
       </div> -->
 
-        <div style="display: flex; flex-direction: column;" (click)="this.rootmenu()">
-          <div>
-            <img src="/assets/Logo Colel Chabad.png" alt="Frame14430" class="chabad-colel-logo" />
-            <!-- <img src="/assets/playground_assets/chabadLogo.svg" alt="Frame14430" class="chabad-get-chessed-logo" /> -->
-          </div>
-          <div>
-            <img src="/assets/logo.ahavat.eliyau.svg" alt="Frame14430" class="ahavat-eliyau-logo" />
-          </div>
+      <div style="display: flex; flex-direction: column;" (click)="this.rootmenu()">
+        <div>
+          <img src="/assets/Logo Colel Chabad.png" alt="Frame14430" class="chabad-colel-logo" />
+          <!-- <img src="/assets/playground_assets/chabadLogo.svg" alt="Frame14430" class="chabad-get-chessed-logo" /> -->
         </div>
+        <div>
+          <img src="/assets/logo.ahavat.eliyau.svg" alt="Frame14430" class="ahavat-eliyau-logo" />
+        </div>
+      </div>
       <app-branch-group (groupChanged)="this.groupChanged()"></app-branch-group>
       <div class="visits-userinfo">
         <span class="visits-text"><span>{{ this.remult.user?.name }}</span></span>
@@ -74,7 +74,7 @@
                 <span class="visits-text11"><span>{{ m.group.caption }}</span></span>
                 <mat-icon>local_library</mat-icon>
               </div> -->
-                <!-- <img src="/assets/playground_assets/group.svg" alt="location4452" class="visits-location1" /> -->
+              <!-- <img src="/assets/playground_assets/group.svg" alt="location4452" class="visits-location1" /> -->
             </div>
           </div>
         </div>
@@ -92,9 +92,18 @@
           <!-- <img alt="edit1084" src="/assets/playground_assets/edit1084-xhhm.svg"
             class="tenants-edit" /> -->
         </div>
+
       </div>
-        <div class="visits-addtenant" (click)="this.addBranch()">
-          <img src="/assets/playground_assets/rectangle14454-mlr.svg" alt="Rectangle14454" class="visits-rectangle1" />
-          <span class="visits-text17"><span>הוספת כולל</span></span>
-        </div>
     </div>
+    
+    <div class="visits-addtenant" (click)="this.addBranch()">
+      <img src="/assets/playground_assets/rectangle14454-mlr_1.svg" alt="Rectangle14454"
+        class="visits-rectangle1" />
+      <span class="visits-text17"><span>הוספת כולל</span></span>
+    </div>
+  </div>
+</div>
+    <!-- <div class="visits-addtenant" (click)="this.addBranch()">
+           <img src="/assets/playground_assets/rectangle14454-mlr.svg" alt="Rectangle14454" class="visits-rectangle1" /> -->
+    <!-- <span class="visits-text17"><span>הוספת כולל</span></span>
+        </div> -->
