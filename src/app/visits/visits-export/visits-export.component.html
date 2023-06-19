@@ -34,18 +34,19 @@
             </div> -->
             <div style="display: flex; flex-direction: column;" (click)="this.rootmenu()">
                 <div>
-                  <img src="/assets/Logo Colel Chabad.png" alt="Frame14430" class="chabad-colel-logo" />
-                  <!-- <img src="/assets/playground_assets/chabadLogo.svg" alt="Frame14430" class="chabad-get-chessed-logo" /> -->
+                    <img src="/assets/Logo Colel Chabad.png" alt="Frame14430" class="chabad-colel-logo" />
+                    <!-- <img src="/assets/playground_assets/chabadLogo.svg" alt="Frame14430" class="chabad-get-chessed-logo" /> -->
                 </div>
                 <div>
-                  <img src="/assets/logo.ahavat.eliyau.svg" alt="Frame14430" class="ahavat-eliyau-logo" />
+                    <img src="/assets/logo.ahavat.eliyau.svg" alt="Frame14430" class="ahavat-eliyau-logo" />
                 </div>
-              </div>
+            </div>
             <app-branch-group (groupChanged)="this.groupChanged()"></app-branch-group>
             <div class="export-userinfo">
                 <span class="export-text"><span>{{ remult.user?.name }}</span></span>
                 <div class="export-location">
-                    <span class="export-text02"><span>{{ remult.user?.isAdmin?'':remult.user?.isDonor?'':'ראש כולל' }} {{
+                    <span class="export-text02"><span>{{ remult.user?.isAdmin?'':remult.user?.isDonor?'':'ראש כולל' }}
+                            {{
                             remult.user?.branchName?.replace('כולל','') }}</span></span>
                     <img src="/assets/playground_assets/locationicon1253-rwl.svg" alt="locationicon1253"
                         class="export-locationicon" />
@@ -130,7 +131,8 @@
                     <!-- <span class="export-text12"><span>:עד תאריך</span></span> -->
                 </div>
 
-                <div *ngIf="[ExportType.all, ExportType.doneAndNotDone].includes(this.query.type)" class="export-cardcontent30">
+                <div *ngIf="[ExportType.all, ExportType.doneAndNotDone].includes(this.query.type)"
+                    class="export-cardcontent30">
                     <ng-container class="export-cardcontent3">
                         <div style="display: flex; flex-direction: column;">
                             <div style="display: flex;">
@@ -139,7 +141,8 @@
                                 </span>
                                 <input name="actual" type="checkbox" [(ngModel)]="this.query.actual" [value]="true">
                             </div>
-                            <span>{{ this.query.actual? '(כשמסומן: כולל רק ' + this.query.group.caption + ' שדווח עליהם)':'(כשלא מסומן: כולל את כל ה' + this.query.group.caption + ')' }}</span>
+                            <span>{{ this.query.actual? '(כשמסומן: כולל רק ' + this.query.group.caption + ' שדווח
+                                עליהם)':'(כשלא מסומן: כולל את כל ה' + this.query.group.caption + ')' }}</span>
                         </div>
                     </ng-container>
                 </div>

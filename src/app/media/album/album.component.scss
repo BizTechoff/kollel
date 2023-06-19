@@ -398,7 +398,7 @@
   color: rgba(255, 255, 255, 1);
   width: 100%;
   height: auto;
-  font-size: 16px;
+  font-size: 14px;
   align-self: stretch;
   font-style: Black;
   text-align: right;
@@ -514,7 +514,7 @@
   text-decoration: none;
 }
 
-.album-title {
+.album-title-week {
   display: flex;
   padding: 8px 5px;
   position: relative;
@@ -527,6 +527,21 @@
   // margin-bottom: 10px;
   justify-content: space-between;
   background-color: rgba(35, 194, 233, 1);
+}
+
+.album-title-branch {
+  display: flex;
+  padding: 2px 2px;
+  position: relative;
+  align-self: stretch;
+  align-items: center;
+  vertical-align: middle;
+  flex-shrink: 0;
+  border-color: transparent;
+  border-radius: 15px;
+  // margin-bottom: 10px;
+  justify-content: space-between;
+  background-color: rgba(227, 172, 120, 1);
 }
 
 

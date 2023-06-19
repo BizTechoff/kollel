@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { remult } from 'remult';
 import { Branch } from '../../branches/branch';
 import { BranchGroup } from '../../branches/branchGroup';
-import { openDialog, RouteHelperService } from '../../common-ui-elements';
+import { RouteHelperService, openDialog } from '../../common-ui-elements';
 import { UIToolsService } from '../../common/UIToolsService';
 import { uploader } from '../../common/uploader';
 import { terms } from '../../terms';
@@ -19,7 +19,7 @@ import { MediaType } from '../mediaTypes';
 })
 export class AlbumComponent implements OnInit {
 
-  media = [] as { branch: Branch, last: Date, media: Media[] }[]
+  media = [] as { week: string, branches: { branch: Branch, last: Date, media: Media[] }[] }[]
   query = new MediaController()
 
   constructor(
@@ -51,16 +51,27 @@ export class AlbumComponent implements OnInit {
     }
   }
 
-  async mediaClicked(branch: Branch, m: Media) {
+  async mediaClicked(clicked: Media) {
     openDialog(GalleryComponent, self => {
-      let found = this.media.find(itm => branch.id === itm.branch.id)
-      if (found) {
-        let current = found.media.find(itm => m.id === itm.id)
-        if (current) {
-          self.args.media = found.media
-          self.args.current = current
+        for (const w of this.media) {
+      for (const b of w.branches) {
+          for (const m of b.media) {
+            if (m.id === clicked.id) {
+              self.args.media = b.media
+              self.args.current = m
+              break;
+            }
+          }
         }
       }
+      // let found = this.media.find(itm => branch.id === itm.branch.id)
+      // if (found) {
+      //   let current = found.media.find(itm => m.id === itm.id)
+      //   if (current) {
+      //     self.args.media = found.media
+      //     self.args.current = current
+      //   }
+      // }
     })
   }
 
