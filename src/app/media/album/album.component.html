@@ -78,15 +78,18 @@
         </div>
         <div>
             <div *ngFor="let w of this.media">
-                <div *ngIf="w.branches.length && !remult.user!.isManager" class="album-title-week">
-                    <span class="album-text080">
+                <div class="album-title-week">
+                    <span *ngIf="w.branches.length && !remult.user!.isManager" class="album-text080">
                         <span>{{ 'סה"כ: ' + w.branches.length + ' כוללים' }}</span>
                     </span>
+                    <!-- <span *ngIf="w.branches.length && remult.user!.isManager" class="album-text080">
+                        <span>{{ 'סה"כ: ' + w.branches.length + ' תמונות' }}</span>
+                    </span> -->
                     <span class="album-text08"><span>{{ w.week }}</span></span>
                 </div>
                 <div *ngFor="let b of w.branches">
                     <div class="album-crad">
-                        <div class="album-title-branch">
+                        <div *ngIf="w.branches.length && !remult.user!.isManager" class="album-title-branch">
                             <span class="album-text080">
                                 <span>{{ b.last? 'עודכן: ' + (b.last | date:'HH:mm dd/MM/yyyy') : '' }}</span>
                             </span>
