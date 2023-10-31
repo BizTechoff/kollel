@@ -112,10 +112,8 @@
                     </div>
 
                 </div>
-                <div *ngIf="!remult.user?.isManager" class="export-cardcontent1">
-                    <!-- <span style="height: 8px;"></span> -->
-                    <!-- <data-control class="export-text12" style="width: 100%;" dir="rtl"
-                        [field]="this.query.$.type"></data-control> -->
+
+                <!-- <div *ngIf="!remult.user?.isManager" class="export-cardcontent1">
                     <div
                         style="display: flex; flex-direction: row; justify-content: space-between; width: 100%; direction: rtl;">
                         <mat-label style="width: 100%;">סטטוס:</mat-label>
@@ -125,11 +123,7 @@
                                 }}</mat-option>
                         </mat-select>
                     </div>
-                    <!-- <span style="color: blue; text-align: center;"
-                        *ngIf="!(this.query.type === ExportType.done)">{{ '(כלול גם דיווחים שלא בוצעו)'
-                        }}</span> -->
-                    <!-- <span class="export-text12"><span>:עד תאריך</span></span> -->
-                </div>
+                </div> -->
 
                 <div *ngIf="[ExportType.all, ExportType.doneAndNotDone].includes(this.query.type)"
                     class="export-cardcontent30">

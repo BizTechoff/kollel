@@ -479,6 +479,7 @@ export class VisitController extends ControllerBase {
 
         var data = await this.buildData()
         // console.log(JSON.stringify(data))
+        // console.table(data[0].branches[0])
         var row = 0, col = 0
         var report = [] as string[][]
 
@@ -499,7 +500,7 @@ export class VisitController extends ControllerBase {
                 // console.log('s123',s1[0],s2[0],s2[1])
                 let ww = parseInt(s1[0]) + '-' + parseInt(s2[0]) + '.' + parseInt(s2[1])
 
-                report[row][col] = ww
+                report[row][col] ='שבוע ' + ww
                 col += 2
             }
 
@@ -513,8 +514,8 @@ export class VisitController extends ControllerBase {
 
             col = 3
             for (const w of m.weeks) {
-                report[row][col] = 'נוכחו'
-                report[row][col + 1] = 'הערות'
+                report[row][col] = 'נוכח'
+                report[row][col + 1] = 'הערה'
                 col += 2
             }
             if (m.weeks.length > 1) {
@@ -545,31 +546,37 @@ export class VisitController extends ControllerBase {
                     report[row][col] = sum + ''
                 }
 
-                b.tenants.sort((t1, t2) => t1.tenant.localeCompare(t2.tenant))
-                for (const t of b.tenants) {
-                    col = 0
-                    row += 1
-                    report[row] = [] as string[]
-                    // report[row][col + 1] = t.guide ? 'אחראי' : ''
-                    report[row][col + 2] = t.tenant
+                if (this.detailed) {
+                    b.tenants.sort((t1, t2) => t1.tenant.localeCompare(t2.tenant))
+                    for (const t of b.tenants) {
+                        col = 0
+                        row += 1
+                        report[row] = [] as string[]
+                        // report[row][col + 1] = t.guide ? 'אחראי' : ''
+                        report[row][col + 2] = t.tenant
 
-                    col = 3
-                    t.weeks.sort((w1, w2) => w1.name.localeCompare(w2.name))
-                    for (const w of t.weeks) {
-                        // report[brow /****/][col] = 1000000 + '' // w.total + ''
-                        // report[brow /****/][col] = w.total + ''
+                        col = 3
+                        t.weeks.sort((w1, w2) => w1.name.localeCompare(w2.name))
+                        for (const w of b.weeks) {
+                            let ww = t.weeks.find(itm=>itm.name === w.name)
+                            if(ww){
+                                
+                            report[row][col] = ww.presented ? 'כן' : ''
+                            report[row][col + 1] = ww.remark
+                            }
+                            // report[brow /****/][col] = 1000000 + '' // w.total + ''
+                            // report[brow /****/][col] = w.total + ''
 
-                        report[row][col] = w.presented ? 'כן' : ''
-                        report[row][col + 1] = w.remark
-                        col += 2
-                    }
-                    if (m.weeks.length > 1) {
-                        report[row][col] = t.totalPresented + ''
+                            col += 2
+                        }
+                        if (m.weeks.length > 1) {
+                            report[row][col] = t.totalPresented + ''
+                        }
                     }
                 }
             }
         }
-
+        console.table(report)
         return report
     }
 

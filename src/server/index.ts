@@ -11,10 +11,11 @@ import { download, generateUploadURL } from './aws-s3';
 import { getRequestMiddleware } from './getRequestMiddleware';
 import './jobs';
 import { runEveryFullHours } from './jobs';
+import { SqlDatabase } from 'remult';
 
 config(); //loads the configuration from the .env file
 // process.env['TZ'] = 'Asia/Jerusalem'
-// SqlDatabase.LogToConsole = true 
+SqlDatabase.LogToConsole = true 
 async function startup() {
 
     console.log('kollel.startup')
