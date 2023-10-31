@@ -207,7 +207,7 @@ export class MediaController extends ControllerBase {
                 },
                 orderBy: { created: 'desc' }
             })) {
-                // console.log(2222)
+                // console.log(22ack22)
                 let found = result.find(b => b.branch.id === m.branch.id)
                 if (!found) {
                     found = { branch: m.branch, weeks: [] as { week: string, last: Date, media: Media[] }[] }
