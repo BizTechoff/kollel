@@ -67,12 +67,14 @@ export class VisitsExportComponent implements OnInit {
       }
     }
   }
-
+ 
   // @https://www.npmjs.com/package/xlsx
   async export() {
     if (await this.validate()) {
       // data
-      let result = await this.query.exportVisits()
+      let result = await this.query.exportVisits3()
+      // console.log('result')
+      // console.table(result)
       // excel-sheet
       let wb = xlsx.utils.book_new();
       wb.Workbook = { Views: [{ RTL: true }] };
@@ -145,51 +147,51 @@ export class VisitsExportComponent implements OnInit {
 
 
 
-      // let ws = xlsx.utils.json_to_sheet(result)
-      // let csv = xlsx.utils.sheet_to_csv(ws, {  })
-      // console.log('csv', csv)
-      // `${dateFormat(this.query.fdate, '.')}-${dateFormat(this.query.tdate, '.')}`);
-      // let rows = [
-      //   { v: "Courier: 24", t: "s", s: { font: { name: "Courier", sz: 24 } } },
-      //   { v: "bold & color", t: "s", s: { font: { bold: true, color: { rgb: "FF0000" } } } },
-      //   { v: "fill: color", t: "s", s: { fill: { fgColor: { rgb: "E9E9E9" } } } },
-      //   { v: "line\nbreak", t: "s", s: { alignment: { wrapText: true } } },
-      //   { v: "border", t: "s", s: { border: { style: 'thin', color: '000000' } } }
-      // ];
-      // xlsx.utils.encode_cell
-      // const ws = xlsx.utils.aoa_to_sheet([rows]);
+// let ws = xlsx.utils.json_to_sheet(result)
+// let csv = xlsx.utils.sheet_to_csv(ws, {  })
+// console.log('csv', csv)
+// `${dateFormat(this.query.fdate, '.')}-${dateFormat(this.query.tdate, '.')}`);
+// let rows = [
+//   { v: "Courier: 24", t: "s", s: { font: { name: "Courier", sz: 24 } } },
+//   { v: "bold & color", t: "s", s: { font: { bold: true, color: { rgb: "FF0000" } } } },
+//   { v: "fill: color", t: "s", s: { fill: { fgColor: { rgb: "E9E9E9" } } } },
+//   { v: "line\nbreak", t: "s", s: { alignment: { wrapText: true } } },
+//   { v: "border", t: "s", s: { border: { style: 'thin', color: '000000' } } }
+// ];
+// xlsx.utils.encode_cell
+// const ws = xlsx.utils.aoa_to_sheet([rows]);
 
-      //   ws.s = { // styling for all cells
-      //     font: {
-      //         name: "arial"
-      //     },
-      //     alignment: {
-      //         vertical: "center",
-      //         horizontal: "center",
-      //         wrapText: '1', // any truthy value here
-      //     },
-      //     border: {
-      //         right: {
-      //             style: "thin",
-      //             color: "000000"
-      //         },
-      //         left: {
-      //             style: "thin",
-      //             color: "000000"
-      //         },
-      //     }
-      // };
+//   ws.s = { // styling for all cells
+//     font: {
+//         name: "arial"
+//     },
+//     alignment: {
+//         vertical: "center",
+//         horizontal: "center",
+//         wrapText: '1', // any truthy value here
+//     },
+//     border: {
+//         right: {
+//             style: "thin",
+//             color: "000000"
+//         },
+//         left: {
+//             style: "thin",
+//             color: "000000"
+//         },
+//     }
+// };
 
 
-      // xlsx.utils.book_append_sheet(wb, ws, "readme demo");
+// xlsx.utils.book_append_sheet(wb, ws, "readme demo");
 
-      // this.query.fdate = new Date(2023, 1, 6)
-      // this.query.tdate = new Date(2023, 1, 12)
-      // console.log('client', this.query.fdate, this.query.tdate, this.query.detailed, this.query.onlyDone)
-      // if (this.ext === 'csv') {
-      //   let sep: exportDataRow = {}
-      //   // sep[ 'sep=,'] = ''
-      //   result.unshift(sep)
-      // }
-      // xlsx.utils.book_append_sheet(wb, '')
-      // xlsx.utils.sheet_to_csv(wb.Sheets[0]), `${dateFormat(this.query.fdate, '.')}-${dateFormat(this.query.tdate, '.')}`);
+// this.query.fdate = new Date(2023, 1, 6)
+// this.query.tdate = new Date(2023, 1, 12)
+// console.log('client', this.query.fdate, this.query.tdate, this.query.detailed, this.query.onlyDone)
+// if (this.ext === 'csv') {
+//   let sep: exportDataRow = {}
+//   // sep[ 'sep=,'] = ''
+//   result.unshift(sep)
+// }
+// xlsx.utils.book_append_sheet(wb, '')
+// xlsx.utils.sheet_to_csv(wb.Sheets[0]), `${dateFormat(this.query.fdate, '.')}-${dateFormat(this.query.tdate, '.')}`);
