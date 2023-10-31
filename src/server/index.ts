@@ -15,7 +15,7 @@ import { SqlDatabase } from 'remult';
 
 config(); //loads the configuration from the .env file
 // process.env['TZ'] = 'Asia/Jerusalem'
-SqlDatabase.LogToConsole = true 
+// SqlDatabase.LogToConsole = true 
 async function startup() {
 
     console.log('kollel.startup')

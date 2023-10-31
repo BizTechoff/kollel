@@ -80,7 +80,7 @@ export class MediaController extends ControllerBase {
                 },
                 orderBy: { created: 'desc' }
             })) {
-                console.log(m.branch.id)
+                // console.log(m.branch.id)
                 let found = result.find(b => b.branch.id === m.branch.id)
                 if (!found) {
                     found = { branch: m.branch, last: undefined!, media: [] as Media[] }
@@ -207,7 +207,7 @@ export class MediaController extends ControllerBase {
                 },
                 orderBy: { created: 'desc' }
             })) {
-                console.log(2222)
+                // console.log(2222)
                 let found = result.find(b => b.branch.id === m.branch.id)
                 if (!found) {
                     found = { branch: m.branch, weeks: [] as { week: string, last: Date, media: Media[] }[] }

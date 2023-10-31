@@ -500,7 +500,7 @@ export class VisitController extends ControllerBase {
                 // console.log('s123',s1[0],s2[0],s2[1])
                 let ww = parseInt(s1[0]) + '-' + parseInt(s2[0]) + '.' + parseInt(s2[1])
 
-                report[row][col] ='שבוע ' + ww
+                report[row][col] = 'שבוע ' + ww
                 col += 2
             }
 
@@ -536,10 +536,16 @@ export class VisitController extends ControllerBase {
                 col = 3
 
                 b.weeks.sort((w1, w2) => w1.name.localeCompare(w2.name))
-                for (const w of b.weeks) {
-                    sum += w.totalPresented
-                    report[row][col] = w.totalPresented + ''
+                for (const w of m.weeks) {
+                    let ww = b.weeks.find(itm => itm.name === w)
+                    if (ww) {
+                        sum += ww.totalPresented
+                        report[row][col] = ww.totalPresented + ''
+                    }
                     col += 2
+                }
+                if (b.weeks.length < 4) {
+                    console.log('######', b.branch)
                 }
 
                 if (m.weeks.length > 1) {
@@ -557,12 +563,12 @@ export class VisitController extends ControllerBase {
 
                         col = 3
                         t.weeks.sort((w1, w2) => w1.name.localeCompare(w2.name))
-                        for (const w of b.weeks) {
-                            let ww = t.weeks.find(itm=>itm.name === w.name)
-                            if(ww){
-                                
-                            report[row][col] = ww.presented ? 'כן' : ''
-                            report[row][col + 1] = ww.remark
+                        for (const w of m.weeks) {
+                            let ww = t.weeks.find(itm => itm.name === w)
+                            if (ww) {
+
+                                report[row][col] = ww.presented ? 'כן' : ''
+                                report[row][col + 1] = ww.remark
                             }
                             // report[brow /****/][col] = 1000000 + '' // w.total + ''
                             // report[brow /****/][col] = w.total + ''
@@ -576,7 +582,7 @@ export class VisitController extends ControllerBase {
                 }
             }
         }
-        console.table(report)
+        // console.table(report)
         return report
     }
 
