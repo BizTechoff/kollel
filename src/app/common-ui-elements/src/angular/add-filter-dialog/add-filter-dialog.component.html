@@ -21,7 +21,7 @@
     <button *ngIf="this.allowAdd && this.searchString?.length" mat-icon-button (click)="this.add()">
         <mat-icon>add</mat-icon>
     </button>
-    <button mat-icon-button mat-dialog-close>
+    <button *ngIf="this.clear" mat-icon-button mat-dialog-close (click)="this.clearIt()">
         <mat-icon>clear</mat-icon>
     </button>
 </div>

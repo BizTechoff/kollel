@@ -61,7 +61,7 @@ export class UIToolsService implements UITools {
     async confirmDelete(of: string) {
         return await this.yesNoQuestion(terms.areYouSureYouWouldLikeToDelete + " " + of + "?");
     }
-    async selectValuesDialog<T extends { caption?: string; }>(args: { values: T[]; onSelect: (selected: T) => void; onAdd?: (add: T) => void; title?: string; allowAdd?: boolean; }): Promise<void> {
+    async selectValuesDialog<T extends { caption?: string; }>(args: { values: T[]; onSelect: (selected: T) => void; onAdd?: (add: T) => void; title?: string; allowAdd?: boolean;  clear?: boolean}): Promise<void> {
         await openDialog(SelectValueDialogComponent, x => x.args(args))
     }
     private enhanceFieldOptionsAndDataControlOptions(commonUIPlugin: CommonUIElementsPluginsService) {

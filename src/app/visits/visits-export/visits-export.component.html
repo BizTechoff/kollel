@@ -65,6 +65,14 @@
                 <span class="help-text">"שבוע פעילות" = "יום שני עד ראשון שאחריו"</span>
             </div> -->
             <div class="export-dataviewas">
+                <div class="export-cardcontent" (click)="this.selectBranch()">
+                    <div class="export-search">
+                      <img src="/assets/playground_assets/vector2031-n52p.svg" alt="Vector2031" class="export-vector4" />
+                      <img src="/assets/playground_assets/vector2031-8sa.svg" alt="Vector2031" class="export-vector5" />
+                    </div>
+                    <span class="export-text06"><span>{{ this.selectedBranch?this.selectedBranch.name:'' }}</span></span>
+                    <span class="export-text08"><span>:כולל</span></span>
+                  </div>
                 <!-- <div class="export-cardcontent2"> -->
                 <div class="export-cardcontent">
                     <!-- <mat-form-field class="example-full-width">

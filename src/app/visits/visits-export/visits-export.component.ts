@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { remult } from 'remult';
 import * as xlsx from 'xlsx';
+import { Branch } from '../../branches/branch';
+import { BranchController } from '../../branches/branchController';
 import { BranchGroup } from '../../branches/branchGroup';
 import { RouteHelperService } from '../../common-ui-elements';
 import { UIToolsService } from '../../common/UIToolsService';
@@ -20,6 +22,7 @@ export class VisitsExportComponent implements OnInit {
   query = new VisitController()
   ext = 'xlsx'
   allowChangeExt = false
+  selectedBranch!: Branch
 
   constructor(private routeHelper: RouteHelperService,
     private ui: UIToolsService) { }
@@ -27,6 +30,26 @@ export class VisitsExportComponent implements OnInit {
   remult = remult;
   ExportType = ExportType
   BranchGroup = BranchGroup
+
+  async selectBranch() {
+    // console.log('selectBranch..')
+    let vols: { caption: string, id: string }[] = [] as { caption: string, id: string }[]
+    let uc = new BranchController()
+    uc.group = this.query.group
+    for (const v of await uc.getBranches()) {
+      vols.push({ caption: v.name, id: v.id })
+    }
+    await this.ui.selectValuesDialog({
+      clear: true,
+      title: 'בחירת כוללים',
+      values: vols,
+      onSelect: async (selected) => {
+        console.log(selected)
+        this.selectedBranch = await remult.repo(Branch).findId(selected.id)
+        console.log('selected branch changed: ' + this.selectedBranch?.name)
+      }
+    })
+  }
 
   startFilter = (d: Date): boolean => {
     const day = d.getDay();
@@ -67,7 +90,7 @@ export class VisitsExportComponent implements OnInit {
       }
     }
   }
- 
+
   // @https://www.npmjs.com/package/xlsx
   async export() {
     if (await this.validate()) {
@@ -128,6 +151,7 @@ export class VisitsExportComponent implements OnInit {
     if (![ExportType.all, ExportType.doneAndNotDone].includes(this.query.type)) {
       this.query.actual = false
     }
+    this.query.branch =  this.selectedBranch
     // if (!this.query.detailed) {
     //   this.query.type = ExportType.done
     // } 

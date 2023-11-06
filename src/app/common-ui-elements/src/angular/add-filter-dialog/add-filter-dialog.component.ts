@@ -33,6 +33,8 @@ export class SelectValueDialogComponent {
     /*internal*/
     title!: string;
     /*internal*/
+    clear!:boolean
+    /*internal*/
     onSelect!: (selected: { caption?: string }) => void;
     /*internal*/
     onAdd!: (add: { caption?: string }) => void;
@@ -43,13 +45,15 @@ export class SelectValueDialogComponent {
         values: T[],
         onSelect: (selected: T) => void,
         onAdd?: (add: T) => void,
-        title?: string
+        title?: string,
+        clear?: boolean
     }) {
         this.allowAdd = args.allowAdd as boolean
         this.values = args.values;
         this.onSelect = args.onSelect as any;
         this.onAdd = args.onAdd as any;
         this.title = args.title!;
+        this.clear = args.clear!;
     }
 
     select(x: { caption?: string }) {
@@ -63,4 +67,11 @@ export class SelectValueDialogComponent {
             this.dialog.close();
         }
     }
+
+    clearIt(){
+        let x  :{ caption?: string } = {caption: ''}
+        this.onSelect(x);
+        this.dialog.close();
+    }
+
 }

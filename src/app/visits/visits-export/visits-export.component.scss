@@ -176,6 +176,23 @@
     justify-content: flex-start;
     background-color: transparent;
   }
+  
+.export-vector4 {
+  top: 10px;
+  left: 10px;
+//   width: 19px;
+//   height: 18px;
+  position: absolute;
+}
+.export-vector5 {
+  top: 25px;
+  left: 25px;
+  // top: 14.9927978515625px;
+  // left: 15.125179290771484px;
+  // width: 2px;
+  // height: 12px;
+  position: absolute;
+}
   .export-vector {
     top: 1.5709927082061768px;
     left: 0.0000010694303682612372px;
@@ -386,7 +403,7 @@
     color: rgba(0, 0, 0, 1);
     height: auto;
     flex-grow: 1;
-    font-size: 20px;
+    font-size: 16px;
     align-self: stretch;
     font-style: ExtraBold;
     text-align: center;
@@ -394,9 +411,11 @@
     font-weight: 800;
     line-height: 107.87500143051147%;
     font-stretch: normal;
-    margin-right: 5px;
-    margin-bottom: 0;
+    // margin-right: 5px;
+    // margin-bottom: 0;
     text-decoration: none;
+    word-wrap: break-word;
+    width: 100%;
   }
   .export-text08 {
     color: rgba(0, 0, 0, 1);
@@ -413,6 +432,7 @@
     margin-right: 0;
     margin-bottom: 0;
     text-decoration: none;
+    width: 100%;
   }
   .export-cardcontent1 {
     display: flex;

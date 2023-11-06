@@ -41,6 +41,12 @@ const COLUMN_VISITED = 'ביקרו'
 @Controller('visit')
 export class VisitController extends ControllerBase {
 
+    // @DataControl<VisitController,Branch>({readonly: true})
+    @Field<VisitController, Branch>(() => Branch, {
+        caption: 'כולל', displayValue: (row, col) => col?.name
+    })
+    branch!: Branch
+
     @DataControl({ clickIcon: 'edit' })
     @Fields.dateOnly<VisitController>({
         caption: 'מתאריך'
@@ -362,16 +368,18 @@ export class VisitController extends ControllerBase {
                 ],
                 branch: remult.user?.isManager
                     ? { $id: remult.user.branch }
-                    : await remult.repo(Branch).find({
-                        where:
-                        {
-                            active: true,
-                            system: false,
-                            group: this.group === BranchGroup.all
-                                ? undefined!
-                                : this.group
-                        }
-                    }),
+                    : this.branch ?
+                        this.branch :
+                        await remult.repo(Branch).find({
+                            where:
+                            {
+                                active: true,
+                                system: false,
+                                group: this.group === BranchGroup.all
+                                    ? undefined!
+                                    : this.group
+                            }
+                        }),
                 date: {
                     "$gte": this.fdate,
                     "$lte": this.tdate
@@ -510,7 +518,7 @@ export class VisitController extends ControllerBase {
 
             report[row][col] = 'כולל'
             // report[row][col + 1] = 'אחראי'
-            report[row][col + 2] = 'אברך'
+            report[row][col + 2] = this.group.single
 
             col = 3
             for (const w of m.weeks) {
@@ -523,6 +531,7 @@ export class VisitController extends ControllerBase {
             }
 
             m.branches.sort((b1, b2) => b1.branch.localeCompare(b2.branch))
+            let sumTotal = 0
             // values
             for (const b of m.branches) {
 
@@ -543,9 +552,6 @@ export class VisitController extends ControllerBase {
                         report[row][col] = ww.totalPresented + ''
                     }
                     col += 2
-                }
-                if (b.weeks.length < 4) {
-                    console.log('######', b.branch)
                 }
 
                 if (m.weeks.length > 1) {
@@ -580,6 +586,11 @@ export class VisitController extends ControllerBase {
                         }
                     }
                 }
+            }
+
+            if (m.weeks.length > 1) {
+                // report[row][col] = sumTotal + ''
+                console.log('sumTotal', sumTotal)
             }
         }
         // console.table(report)
