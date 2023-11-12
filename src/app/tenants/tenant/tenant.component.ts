@@ -111,7 +111,7 @@ export class TenantComponent implements OnInit {
   }
 
   setDate() {
-    console.log('setDate clicked')
+    // console.log('setDate clicked')
     this.tenant.birthday = new Date()
   }
 

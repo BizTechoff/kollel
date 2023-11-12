@@ -1,3 +1,4 @@
+<script src="frontend/js/exif.js"></script>
 <div class="album-container">
     <div class="album-album">
         <div class="album-top">
@@ -51,10 +52,10 @@
                         class="album-locationicon" />
                 </div>
             </div>
-        </div>
+        </div> 
         <div class="album-nav">
 
-            <div *ngIf="this.remult.user?.isManager" style="display: flex;">
+            <div *ngIf="this.remult.user?.isManager && !this.uploading" style="display: flex;">
                 <!-- upload to branch-profile -->
                 <label for="uploadImage" style="display: flex; align-items: center;">
                     <img src="/assets/playground_assets/upload8013-fkng.svg" alt="upload8013" class="album-upload" />

@@ -25,9 +25,9 @@ export class TenantsImportComponent implements OnInit {
     private ui: UIToolsService) { }
 
   ngOnInit(): void {
-    console.log('Helloaaa 1 - 1')
+    // console.log('Helloaaa 1 - 1')
     document.getElementById('openFileSelector')?.click()
-    console.log('Helloaaa 1 - 2')
+    // console.log('Helloaaa 1 - 2')
     // this.onFileInput(undefined!, undefined!)
   }
   terms = terms;
@@ -121,21 +121,21 @@ export class TenantsImportComponent implements OnInit {
       if (branch) {
         // console.log('this.rows', JSON.stringify(this.rows))
         for (let i = this.rows.length - 1; i >= 0; --i) {
-          console.log(1,i)
+          // console.log(1,i)
           let r = this.rows[i]
           // console.log('current: ' + JSON.stringify(r))
           if (!(r.name?.trim().length ?? 0)) {
-            console.log(2)
+            // console.log(2)
             r.error = 'שם: שדה חובה'
             r.color = 'red'
           }
           else if (!(r.address?.trim().length ?? 0)) {
-            console.log(3)
+            // console.log(3)
             r.error = 'כתובת: שדה חובה'
             r.color = 'red'
           }
           else {
-            console.log(4)
+            // console.log(4)
             let found =
               r.phone?.trim().length ?
                 await remult.repo(Tenant).findFirst({
@@ -155,7 +155,7 @@ export class TenantsImportComponent implements OnInit {
               r.color = 'red'
             } 
             else {
-              console.log(5)
+              // console.log(5)
               // let date!: Date
               // try { date = new Date(r.birthday) }
               // catch (err) { console.error(`error convert date '${r.birthday}', err: ${err}`) }
@@ -168,7 +168,7 @@ export class TenantsImportComponent implements OnInit {
                     phone: r.phone//,
                     // birthday: r.birthday?.trim().length ? date : undefined!
                   })
-                  console.log(6)
+                  // console.log(6)
                   this.remove(r)
                   ++count
                 }

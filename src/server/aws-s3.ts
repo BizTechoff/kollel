@@ -10,9 +10,9 @@ import * as xlsx from 'xlsx';
 const s3Client = async () => {
     let result = undefined
     if (process.env['S3_CHANNEL_OPENED'] === 'true') {
-        const region = process.env['AWS_S3_IAM_BTO_REGION']!
-        const accessKeyId = process.env['AWS_S3_IAM_BTO_APP_ACCESS_KEY_ID']!
-        const secretAccessKey = process.env['AWS_S3_IAM_BTO_APP_SECRET_ACCESS_KEY']!
+        const region = process.env['AWS_S3_IAM_BTO_REGION']
+        const accessKeyId = process.env['AWS_S3_IAM_BTO_APP_ACCESS_KEY_ID']
+        const secretAccessKey = process.env['AWS_S3_IAM_BTO_APP_SECRET_ACCESS_KEY']
 
         const aws = require('aws-sdk')
         result = new aws.S3({
@@ -21,6 +21,7 @@ const s3Client = async () => {
             secretAccessKey,
             signatureVersion: 'v4'
         })
+        // console.debug('result',result);
     }
     else {
         console.debug('s3Client.error: aws-S3 Channel is Closed!!');
@@ -34,17 +35,25 @@ export async function generateUploadURL(action: string, fName: string, branch: s
     let result = ''
     const s3 = await s3Client()
     if (s3) {
-        let key = 'kollel/' + (excel
-            ? 'excel/tenants' + '/' + branch + "/" + fName
-            : 'dev' + '/' + branch + "/" + fName)
-        console.log(`upload.key: ${key}`)
+        let key = 'kollel/' +
+            (
+                excel
+                    ? 'excel/tenants'
+                    : 'dev'
+            ) +
+            '/' + branch + "/" + fName
+        console.log(`upload.url.key: ${key}`)
         const params = ({
             Bucket: process.env['AWS_S3_IAM_BTO_APP_BUCKET']!,
             Key: key,
             Expires: 60 //sec
         })
         result = await s3.getSignedUrlPromise(action, params)
-        // console.log('signed-url: ' + result)
+        console.log('signed-url: ' + result)
+        // var d = s3.getSignedUrlPromise(action, params)
+        // d.then(
+        //     (url = '') => { /*success*/ },
+        //     (err = '') => { /*failure*/ })
     }
     return result;
 }
@@ -207,6 +216,7 @@ export async function upload(text = '', branch = '') {
         }
 
     }
+    else console.error('upload.error: NO BRANCH')
 
 
     return result

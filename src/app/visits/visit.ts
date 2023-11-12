@@ -141,7 +141,7 @@ export class Visit extends IdEntity {
     @Fields.date<Visit>({
         // allowApiUpdate: false
     })
-    statusModified = new Date();
+    statusModified!:Date;
 
     @Fields.date<Visit>({
         allowApiUpdate: false

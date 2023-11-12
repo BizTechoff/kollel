@@ -234,7 +234,7 @@ export class SignInController extends ControllerBase {
                         //set user-branch
                         let ub = await remult.repo(UserBranch).findFirst({ user: { $id: u.id } }, {useCache: false})
                         if (ub) {
-                            console.log('u.id',u.id,ub.branch,ub.user,ub)
+                            // console.log('u.id',u.id,ub.branch,ub.user,ub)
                             remult.user.branch = ub.branch.id
                             remult.user.branchName = ub.branch.name
                             remult.user.group = ub.branch.group?.id

@@ -182,12 +182,12 @@ export class VisitsChartComponent implements OnInit {
 
     if (!remult.user?.isManager) {
       if (e.active && e.active.length > 0) {
-        console.log(e.active[0])
+        // console.log(e.active[0])
         let index = e.active[0]._index;
         let label = e.active[0]._model.label
 
         let branch = this.count[index] //.id
-        console.log(branch)
+        // console.log(branch)
 
         // this.routeHelper.navigateToComponent(VisitsReadonlyComponent)
         openDialog(

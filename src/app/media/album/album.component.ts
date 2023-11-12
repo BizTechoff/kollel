@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+// import exifr from 'exifr';
 import { remult } from 'remult';
 import { Branch } from '../../branches/branch';
 import { BranchGroup } from '../../branches/branchGroup';
-import { RouteHelperService, openDialog } from '../../common-ui-elements';
+import { BusyService, RouteHelperService, openDialog } from '../../common-ui-elements';
 import { UIToolsService } from '../../common/UIToolsService';
 import { uploader } from '../../common/uploader';
 import { terms } from '../../terms';
@@ -24,7 +25,8 @@ export class AlbumComponent implements OnInit {
 
   constructor(
     private routeHelper: RouteHelperService,
-    private ui: UIToolsService) { }
+    private busy: BusyService,
+    private ui: UIToolsService /*,private upload:uploader*/) { }
   MediaType = MediaType
   terms = terms;
   remult = remult;
@@ -53,8 +55,8 @@ export class AlbumComponent implements OnInit {
 
   async mediaClicked(clicked: Media) {
     openDialog(GalleryComponent, self => {
-        for (const w of this.media) {
-      for (const b of w.branches) {
+      for (const w of this.media) {
+        for (const b of w.branches) {
           for (const m of b.media) {
             if (m.id === clicked.id) {
               self.args.media = b.media
@@ -81,19 +83,74 @@ export class AlbumComponent implements OnInit {
   //   }
   // }
 
+  async onFileInput2(e: any, target: string) {
+    // await this.uploader.run(e.target.files)
+
+    // const files = await this.aws.run(e.target.files)
+    // await this.db.run(files)
+  }
+
+  uploading = false
   async onFileInput(e: any, target: string) {
 
-    let s3 = new uploader(
-      false,
-      undefined!,
-      undefined!,
-      undefined!,
-      undefined!)
+    // var exifr = require( 'exifr')
+    // console.log('11')
+    // let files3 = Array.from(e.target.files)
+    // console.log('22')
+    // let exifs = await Promise.all<any>(files3.map(exifr.parse))
+    // console.log('33')
+    // let dates = exifs.map(exif => exif.DateTimeOriginal.toGMTString())
+    // console.log('44')
+    // console.log(`${files3.length} photos taken on:`, dates)
 
-    let files = await s3.loadFiles(e.target.files)
-    if (files?.length) {
-      await this.retrieve()
+    // var rec = remult.repo(Media).create()
+    // rec.id = '7575'
+    // rec.link = 'aws.7575'
+    // await remult.repo(Media).save(rec)
+    // await remult.repo(Media).insert({
+    //   id: '7575',
+    //   link: 'aws.7575'
+    // })
+
+    // let files1 = Array.from(e.target.files)
+    // var f = e.target.files[0]
+    // console.log('f', f)
+    // console.log('f', JSON.stringify(f))
+    // var exifr = require('exifr')
+    // let ex = exifr.parse(f, true)
+    // console.log('ex', ex)
+    // return
+
+    try {
+      // console.log('busy - 1')
+      this.uploading = true
+
+      await this.busy.doWhileShowingBusy(
+        async () => {
+          // console.log('busy - 2')
+          let s3 = new uploader(
+            false,
+            undefined!,
+            undefined!,
+            undefined!,
+            undefined!)
+
+          // console.log('busy - 3')
+          var files = [] as string[]
+          files.push(... await s3.handleFiles/*loadFiles*/(e.target.files))
+          // console.log('busy - 4')
+          if (files?.length) {
+            // console.log('busy - 5')
+            await this.retrieve()
+          }
+        }
+      )
+    } finally {
+      this.uploading = false
+      // console.log('busy - 6')
     }
+
+    // console.log('busy - end')
   }
 
   async uploadText() {

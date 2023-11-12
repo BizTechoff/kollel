@@ -37,7 +37,7 @@ export class VisitsFinishedMessagesComponent implements OnInit {
     this.query.fdate = firstDateOfWeek(date)
     this.query.tdate = lastDateOfWeek(date)
     this.news = await this.query.getWeeklyNews()
-    console.log(`found ${this.news.length} weekly news`)
+    // console.log(`found ${this.news.length} weekly news`)
     await this.saw()
   }
 

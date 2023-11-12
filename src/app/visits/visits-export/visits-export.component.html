@@ -65,7 +65,7 @@
                 <span class="help-text">"שבוע פעילות" = "יום שני עד ראשון שאחריו"</span>
             </div> -->
             <div class="export-dataviewas">
-                <div class="export-cardcontent" (click)="this.selectBranch()">
+                <div *ngIf="!remult.user?.isManager" class="export-cardcontent" (click)="this.selectBranch()">
                     <div class="export-search">
                       <img src="/assets/playground_assets/vector2031-n52p.svg" alt="Vector2031" class="export-vector4" />
                       <img src="/assets/playground_assets/vector2031-8sa.svg" alt="Vector2031" class="export-vector5" />

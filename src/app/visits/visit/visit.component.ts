@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { remult } from 'remult';
-import { RouteHelperService } from '../../common-ui-elements';
-import { firstDateOfWeek, lastDateOfWeek, resetDateTime } from '../../common/dateFunc';
+import { BusyService, RouteHelperService } from '../../common-ui-elements';
 import { UIToolsService } from '../../common/UIToolsService';
+import { firstDateOfWeek, lastDateOfWeek, resetDateTime } from '../../common/dateFunc';
 import { uploader } from '../../common/uploader';
 import { terms } from '../../terms';
 import { User } from '../../users/user';
@@ -13,9 +13,9 @@ import { VolunteerComponent } from '../../users/volunteer/volunteer.component';
 import { Visit } from '../visit';
 import { VisitVolunteer } from '../visit-volunteer';
 import { VisitController } from '../visitController';
-import { VisitsComponent } from '../visits/visits.component';
 import { VisitStatus } from '../visitStatus';
 import { VisitVolunteerController } from '../visitVolunteerController';
+import { VisitsComponent } from '../visits/visits.component';
 
 @Component({
   selector: 'app-visit',
@@ -38,7 +38,8 @@ export class VisitComponent implements OnInit {
   constructor(
     private routeHelper: RouteHelperService,
     private route: ActivatedRoute,
-    private ui: UIToolsService) {
+    private ui: UIToolsService,
+    private busy: BusyService) {
     // ,
     // private uploader:uploader
   }
@@ -118,7 +119,7 @@ export class VisitComponent implements OnInit {
   isVisited() {
     return this.visit?.status?.id === VisitStatus.visited.id
   }
- 
+
   async visited() {
     if (this.visit) {
       if (this.visit.status === VisitStatus.visited) {
@@ -211,16 +212,46 @@ export class VisitComponent implements OnInit {
   //   //console.log('prev', 'curIndex', this.curIndex, 'visits.length', this.visits.length)
   // }
 
+  uploading = false
   async onFileInput(e: any, target: string) {
 
-    let s3 = new uploader(
-      false,
-      this.visit,
-      undefined!,
-      undefined!,
-      undefined!)
+    try {
+      // console.log('busy - 1')
+      this.uploading = true
 
-    await s3.loadFiles(e.target.files) //, target)
+      await this.busy.doWhileShowingBusy(
+        async () => {
+          // console.log('busy - 2')
+          let s3 = new uploader(
+            false,
+            undefined!,
+            undefined!,
+            undefined!,
+            undefined!)
+
+          // console.log('busy - 3')
+          var files = [] as string[]
+          files.push(... await s3.handleFiles/*loadFiles*/(e.target.files))
+          // console.log('busy - 4')
+          if (files?.length) {
+            // console.log('busy - 5')
+            // await this.retrieve()
+          }
+        }
+      )
+    } finally {
+      this.uploading = false
+      // console.log('busy - 6')
+    }
+
+    // let s3 = new uploader(
+    //   false,
+    //   this.visit,
+    //   undefined!,
+    //   undefined!,
+    //   undefined!)
+
+    // await s3.loadFiles(e.target.files) //, target)
   }
 
   async uploadToBranch() {

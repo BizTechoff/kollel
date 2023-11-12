@@ -41,12 +41,12 @@ export class VisitsExportComponent implements OnInit {
     }
     await this.ui.selectValuesDialog({
       clear: true,
-      title: 'בחירת כוללים',
+      title: 'בחירת כולל',
       values: vols,
       onSelect: async (selected) => {
-        console.log(selected)
+        // console.log(selected)
         this.selectedBranch = await remult.repo(Branch).findId(selected.id)
-        console.log('selected branch changed: ' + this.selectedBranch?.name)
+        // console.log('selected branch changed: ' + this.selectedBranch?.name)
       }
     })
   }
@@ -81,7 +81,7 @@ export class VisitsExportComponent implements OnInit {
   async groupChanged() {
     let group = BranchGroup.fromId(remult.user!.group)
     if (group) {
-      console.log(`AlbumComponent.groupChanged: { this.query.group: ${this.query.group.id}, group: ${group.id}`)
+      // console.log(`AlbumComponent.groupChanged: { this.query.group: ${this.query.group.id}, group: ${group.id}`)
       if (group !== this.query.group) {
         this.query.group = group
         // var swap = this.query.type

@@ -235,7 +235,7 @@ export class ManagerComponent implements OnInit {
       vols.push({ caption: v.name, id: v.id })
     }
     await this.ui.selectValuesDialog({
-      title: 'בחירת כוללים',
+      title: 'בחירת כולל',
       values: vols,
       onSelect: async (v) => { await this.addBranch(v.id, '') },
       onAdd: async (v) => { await this.addNewVolunteer(v.caption) }
