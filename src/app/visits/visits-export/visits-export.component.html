@@ -168,6 +168,7 @@
                         }}</span>
                 </div> -->
                 <!-- <span>{{this.ext}}</span> -->
+
                 <div *ngIf="this.allowChangeExt" class="export-cardcontent5">
                     <div class="export-cardcontent6">
                         <span class="export-text161">
@@ -189,7 +190,15 @@
                         </span>
                         <input name="ext" type="radio" [(ngModel)]="this.ext" [value]="'html'">
                     </div>
+
+                    <!-- <div class="export-cardcontent6">
+                        <span class="export-text161">
+                            <span>xls</span>
+                        </span>
+                        <input name="ext" type="radio" checked [(ngModel)]="this.ext" [value]="'xls'">
+                    </div> -->
                 </div>
+
             </div>
             <div class="export-close" (click)="this.export()">
                 <img src="/assets/playground_assets/rectangle11256-g5m5.svg" alt="Rectangle11256"

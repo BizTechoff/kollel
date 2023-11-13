@@ -20,8 +20,8 @@ import { ExportType } from './exportType';
 export class VisitsExportComponent implements OnInit {
 
   query = new VisitController()
-  ext = 'xls'
-  allowChangeExt = false
+  ext = 'xlsx'
+  allowChangeExt = true
   selectedBranch!: Branch
 
   constructor(private routeHelper: RouteHelperService,
@@ -75,7 +75,7 @@ export class VisitsExportComponent implements OnInit {
     //   ? ExportType.all
     //   : ExportType.doneAndNotDone
     this.query.group = BranchGroup.fromId(remult.user!.group)
-    this.ext = 'xls'
+    this.ext = 'xlsx'
   }
 
   async groupChanged() {
@@ -110,8 +110,8 @@ export class VisitsExportComponent implements OnInit {
         `${this.query.tdate.getFullYear()}` +
         ` ${this.query.group.caption}`
 
-        console.log('name',name)
-        //דוח דיווחים מפורט - 2023-11-12T092658.966.xlsx
+      console.log('name', name)
+      //דוח דיווחים מפורט - 2023-11-12T092658.966.xlsx
 
       xlsx.utils.book_append_sheet(
         wb,
@@ -121,7 +121,8 @@ export class VisitsExportComponent implements OnInit {
         wb,
         `דוח דיווחים${this.query.detailed ? ' מפורט' : ''}.${this.ext}`,
         {
-          bookType: this.ext === 'html' ? 'html' : this.ext === 'csv' ? 'csv' : 'xls',
+          bookType: this.ext === 'html' ? 'html' : this.ext === 'csv' ? 'csv' : 'xlsx',
+          // bookType: this.ext === 'html' ? 'html' : this.ext === 'csv' ? 'csv' : this.ext === 'xls' ? 'xls' : 'xlsx',
           Props: { Company: 'BizTechoff™' },
           cellStyles: true
         });
@@ -154,7 +155,7 @@ export class VisitsExportComponent implements OnInit {
     if (![ExportType.all, ExportType.doneAndNotDone].includes(this.query.type)) {
       this.query.actual = false
     }
-    this.query.branch =  this.selectedBranch
+    this.query.branch = this.selectedBranch
     // if (!this.query.detailed) {
     //   this.query.type = ExportType.done
     // } 
