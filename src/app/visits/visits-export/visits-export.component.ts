@@ -77,7 +77,7 @@ export class VisitsExportComponent implements OnInit {
 
     this.selectedMonthChanged()
 
-    // this.selectedWeek = { num: -1, display: 'כולם', start: undefined!, end: undefined! }
+    // this.selectedWeek = { num: -1, display: 'כל החודש', start: undefined!, end: undefined! }
     // this.weeks.push(this.selectedWeek)
 
     // this.loadFromStorage()
@@ -106,7 +106,7 @@ export class VisitsExportComponent implements OnInit {
         break;
       }
     }
-    this.weeks.push({ num: -1, display: 'כולם', start: undefined!, end: undefined! })
+    this.weeks.push({ num: -1, display: 'כל החודש', start: undefined!, end: undefined! })
     this.selectedWeek = this.weeks.length - 1
   }
 

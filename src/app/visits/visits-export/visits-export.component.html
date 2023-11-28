@@ -66,8 +66,20 @@
             </div> -->
             <div class="export-dataviewas">
 
-                <div style="width: 100%; display: flex; flex-direction: row; justify-content: space-evenly;">
-                    <div style="width: 45%;" [style.display]="this.selectedBranch ? '' : 'none'" *ngIf="!remult.user?.isManager" class="export-cardcontent"
+                <!-- <div style="width: 100%; display: flex; flex-direction: column; justify-content: space-evenly;">
+                    <div *ngIf="!remult.user?.isManager" class="export-cardcontent1" (click)="this.selectBranch()">
+                        <div class="export-search">
+                            <img src="/assets/playground_assets/vector2031-n52p.svg" alt="Vector2031"
+                                class="export-vector4" />
+                            <img src="/assets/playground_assets/vector2031-8sa.svg" alt="Vector2031"
+                                class="export-vector5" />
+                        </div>
+                        <span class="export-text06"><span>{{ this.selectedBranch?this.selectedBranch.name:''
+                                }}</span></span>
+                        <span class="export-text08"><span>:כולל</span></span>
+                    </div>
+                    <div *ngIf="!remult.user?.isManager" style="width: 100%;"
+                        [style.display]="this.selectedBranch ? '' : 'none'" class="export-cardcontent"
                         (click)="this.selectTenant()">
                         <div class="export-search">
                             <img src="/assets/playground_assets/vector2031-n52p.svg" alt="Vector2031"
@@ -79,24 +91,13 @@
                                 }}</span></span>
                         <span class="export-text08"><span>:אברך</span></span>
                     </div>
-                    <div *ngIf="!remult.user?.isManager" class="export-cardcontent"
-                        (click)="this.selectBranch()">
-                        <div class="export-search">
-                            <img src="/assets/playground_assets/vector2031-n52p.svg" alt="Vector2031"
-                                class="export-vector4" />
-                            <img src="/assets/playground_assets/vector2031-8sa.svg" alt="Vector2031"
-                                class="export-vector5" />
-                        </div>
-                        <span class="export-text06"><span>{{ this.selectedBranch?this.selectedBranch.name:''
-                                }}</span></span>
-                        <span class="export-text08"><span>:כולל</span></span>
-                    </div>
-                </div>
+                </div> -->
 
                 <div style="display: flex; flex-direction: row; width: 100%; justify-content: center;">
 
                     <div class="export-cardcontent">
-                        <mat-select [(value)]="selectedYear" dir="rtl" style="font-weight: bold;" (selectionChange)="this.selectedMonthChanged()">
+                        <mat-select [(value)]="selectedYear" dir="rtl" style="font-weight: bold;"
+                            (selectionChange)="this.selectedMonthChanged()">
                             <mat-option *ngFor="let y of this.years" [value]="y">
                                 {{ y }}
                             </mat-option>
@@ -104,7 +105,8 @@
                     </div>
 
                     <div class="export-cardcontent">
-                        <mat-select [(value)]="selectedMonth" dir="rtl" style="font-weight: bold;" (selectionChange)="this.selectedMonthChanged()">
+                        <mat-select [(value)]="selectedMonth" dir="rtl" style="font-weight: bold;"
+                            (selectionChange)="this.selectedMonthChanged()">
                             <mat-option *ngFor="let m of hebrewMonths;let i = index" [value]="i">
                                 {{ m }}
                             </mat-option>
