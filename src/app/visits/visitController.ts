@@ -47,6 +47,21 @@ export class VisitController extends ControllerBase {
     })
     branch!: Branch
 
+    @Fields.number<VisitController>({
+        caption: 'חודש'
+    })
+    week = 1
+
+    @Fields.number<VisitController>({
+        caption: 'חודש'
+    })
+    month = (new Date()).getMonth()
+
+    @Fields.number<VisitController>({
+        caption: 'שנה'
+    })
+    year = (new Date()).getFullYear()
+
     @DataControl({ clickIcon: 'edit' })
     @Fields.dateOnly<VisitController>({
         caption: 'מתאריך'
@@ -354,6 +369,10 @@ export class VisitController extends ControllerBase {
             }[]
         }[]
 
+        // this.fdate = resetDateTime(new Date(this.year, this.month, 1))
+        // this.tdate = lastDateOfMonth(this.fdate)
+        // var vMonthlyDates = [] as string[]
+
         for await (const v of remult.repo(Visit).query({
             where: {
                 $and: [
@@ -485,6 +504,11 @@ export class VisitController extends ControllerBase {
     @BackendMethod({ allowed: Allow.authenticated })
     async exportVisits3() {
 
+
+        console.log(
+            'branch', this.branch?.name,
+            'year', this.year)
+        
         var data = await this.buildData()
         // console.log(JSON.stringify(data))
         // console.table(data[0].branches[0])

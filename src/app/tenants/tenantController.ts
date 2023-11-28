@@ -1,11 +1,15 @@
-import { Allow, BackendMethod, Controller, ControllerBase, remult } from "remult";
+import { Allow, BackendMethod, Controller, ControllerBase, Field, remult } from "remult";
 import { Branch } from "../branches/branch";
-import { UserBranch } from "../users/userBranch";
-import { Tenant } from "./tenant";
 import { TenantVolunteer } from "./TenantVolunteer";
+import { Tenant } from "./tenant";
 
 @Controller('tenant')
 export class TenantController extends ControllerBase {
+
+    @Field<TenantController, Branch>(() => Branch, {
+        caption: 'כולל', displayValue: (row, col) => col?.name
+    })
+    kollel!: Branch
 
     @BackendMethod({ allowed: Allow.authenticated })
     async getTenants(active = true) {
@@ -50,6 +54,18 @@ export class TenantController extends ControllerBase {
             }
         }
         return result
+    }
+
+    @BackendMethod({ allowed: Allow.authenticated })
+    async getTenantsByKollel(active = true) {
+        let tenants = await remult.repo(Tenant).find({
+            where: {
+                active: active,
+                branch: this.kollel
+            },
+            orderBy: { name: 'asc', address: 'asc' }
+        })
+        return tenants
     }
 
 }

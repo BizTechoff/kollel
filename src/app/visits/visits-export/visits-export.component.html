@@ -31,7 +31,7 @@
                             class="export-frame1" />
                     </div>
                 </div>
-            </div> --> 
+            </div> -->
             <div style="display: flex; flex-direction: column;" (click)="this.rootmenu()">
                 <div>
                     <img src="/assets/Logo Colel Chabad.png" alt="Frame14430" class="chabad-colel-logo" />
@@ -65,40 +65,72 @@
                 <span class="help-text">"שבוע פעילות" = "יום שני עד ראשון שאחריו"</span>
             </div> -->
             <div class="export-dataviewas">
-                <div *ngIf="!remult.user?.isManager" class="export-cardcontent" (click)="this.selectBranch()">
-                    <div class="export-search">
-                      <img src="/assets/playground_assets/vector2031-n52p.svg" alt="Vector2031" class="export-vector4" />
-                      <img src="/assets/playground_assets/vector2031-8sa.svg" alt="Vector2031" class="export-vector5" />
+
+                <div style="width: 100%; display: flex; flex-direction: row; justify-content: space-evenly;">
+                    <div style="width: 45%;" [style.display]="this.selectedBranch ? '' : 'none'" *ngIf="!remult.user?.isManager" class="export-cardcontent"
+                        (click)="this.selectTenant()">
+                        <div class="export-search">
+                            <img src="/assets/playground_assets/vector2031-n52p.svg" alt="Vector2031"
+                                class="export-vector4" />
+                            <img src="/assets/playground_assets/vector2031-8sa.svg" alt="Vector2031"
+                                class="export-vector5" />
+                        </div>
+                        <span class="export-text06"><span>{{ this.selectedTenant?this.selectedTenant.name:''
+                                }}</span></span>
+                        <span class="export-text08"><span>:אברך</span></span>
                     </div>
-                    <span class="export-text06"><span>{{ this.selectedBranch?this.selectedBranch.name:'' }}</span></span>
-                    <span class="export-text08"><span>:כולל</span></span>
-                  </div>
-                <!-- <div class="export-cardcontent2"> -->
-                <div class="export-cardcontent">
-                    <!-- <mat-form-field class="example-full-width">
-                        <input matInput [matDatepickerFilter]="startFilter" [matDatepicker]="picker" placeholder="Choose a date">
-                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                        <mat-datepicker #picker></mat-datepicker>
-                      </mat-form-field> -->
+                    <div *ngIf="!remult.user?.isManager" class="export-cardcontent"
+                        (click)="this.selectBranch()">
+                        <div class="export-search">
+                            <img src="/assets/playground_assets/vector2031-n52p.svg" alt="Vector2031"
+                                class="export-vector4" />
+                            <img src="/assets/playground_assets/vector2031-8sa.svg" alt="Vector2031"
+                                class="export-vector5" />
+                        </div>
+                        <span class="export-text06"><span>{{ this.selectedBranch?this.selectedBranch.name:''
+                                }}</span></span>
+                        <span class="export-text08"><span>:כולל</span></span>
+                    </div>
+                </div>
+
+                <div style="display: flex; flex-direction: row; width: 100%; justify-content: center;">
+
+                    <div class="export-cardcontent">
+                        <mat-select [(value)]="this.query.year" dir="rtl" style="font-weight: bold;">
+                            <mat-option *ngFor="let y of this.years" [value]="y">
+                                {{ y }}
+                            </mat-option>
+                        </mat-select>
+                    </div>
+
+                    <div class="export-cardcontent">
+                        <mat-select [(value)]="this.query.month" dir="rtl" style="font-weight: bold;">
+                            <mat-option *ngFor="let m of hebrewMonths;let i = index" [value]="i">
+                                {{ m }}
+                            </mat-option>
+                        </mat-select>
+                    </div>
+
+                    <div class="export-cardcontent">
+                        <mat-select [(value)]="this.query.week" dir="rtl" style="font-weight: bold;">
+                            <mat-option *ngFor="let w of this.weeks;let i = index" [value]="i">
+                                {{ w.display }}
+                                <!-- {{ w.display }} - {{ w.num }} -->
+                            </mat-option>
+                        </mat-select>
+                    </div>
+
+                </div>
+
+                <!-- <div class="export-cardcontent">
                     <data-control class="export-text06" style="width: 100%; text-align: center;" dir="rtl"
                         [field]="this.query.$.fdate"></data-control>
-                    <!-- <span class="export-text06"><span>________</span></span>
-            <span class="export-text08"><span>:מתאריך</span></span> -->
                 </div>
                 <div class="export-cardcontent1">
                     <data-control class="export-text12" style="width: 100%;" dir="rtl"
                         [field]="this.query.$.tdate"></data-control>
-                    <!-- <span class="export-text12"><span>:עד תאריך</span></span> -->
-                </div>
-                <!-- </div> -->
-                <!-- <div class="export-cardcontent2">
-            <span class="export-text14"><span>הצג רק ברמת כוללים</span></span>
-            <img
-              src="/assets/playground_assets/rectangle91251-x9lb-200h.png"
-              alt="Rectangle91251"
-              class="export-rectangle9"
-            />
-          </div> -->
+                </div> -->
+
                 <div class="export-cardcontent2">
                     <div class="export-cardcontent3">
                         <span class="export-text16">

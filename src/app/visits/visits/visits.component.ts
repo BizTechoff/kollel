@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { remult } from 'remult';
 import { RouteHelperService } from '../../common-ui-elements';
-import { firstDateOfWeek, lastDateOfWeek, resetDateTime } from '../../common/dateFunc';
 import { UIToolsService } from '../../common/UIToolsService';
+import { addDaysToDate, firstDateOfWeek, lastDateOfWeek, resetDateTime } from '../../common/dateFunc';
 import { JobController } from '../../jobs/jobController';
 import { NewsController } from '../../news/newsController';
 import { terms } from '../../terms';
@@ -10,8 +10,8 @@ import { UserMenuComponent } from '../../users/user-menu/user-menu.component';
 import { Visit } from '../visit';
 import { VisitComponent } from '../visit/visit.component';
 import { VisitController } from '../visitController';
-import { VisitsFinishedBlessingComponent } from '../visits-finished-blessing/visits-finished-blessing.component';
 import { VisitStatus } from '../visitStatus';
+import { VisitsFinishedBlessingComponent } from '../visits-finished-blessing/visits-finished-blessing.component';
 
 @Component({
   selector: 'app-visits',
@@ -38,7 +38,7 @@ export class VisitsComponent implements OnInit {
     // await this.jobs.getLastWeeklyVisitsRun()
     // let date = this.jobs.lastJobRun
     // console.log('this.jobs.lastJobRun', this.jobs.lastJobRun)
-    let today = resetDateTime(new Date())
+    let today = addDaysToDate(resetDateTime(new Date()), -7*2)
     this.query.fdate = firstDateOfWeek(today)
     this.query.tdate = lastDateOfWeek(today)
     this.visits = await this.query.getVisits()
@@ -75,7 +75,7 @@ export class VisitsComponent implements OnInit {
     this.routeHelper.navigateToComponent(UserMenuComponent)
   }
 
-  async call(e:any,mobile = '') {
+  async call(e: any, mobile = '') {
     e?.stopPropagation()
     if (mobile?.trim().length) {
       window.open(`tel:${mobile}`, '_blank')
@@ -137,6 +137,33 @@ export class VisitsComponent implements OnInit {
 
   rootmenu() {
     this.routeHelper.navigateToComponent(UserMenuComponent)
+  }
+
+  async visited(visit: Visit) {
+    if (visit) {
+      console.log(visit.status, VisitStatus.visited,visit.status === VisitStatus.visited )
+      if (this.isVisited(visit)) {
+        visit.status = VisitStatus.none
+        visit.statusModified = undefined!
+      }
+      else {
+        visit.status = VisitStatus.visited
+        visit.statusModified = new Date()
+      }
+      await remult.repo(Visit).save(visit)
+    }
+  }
+
+  async delivered(visit: Visit) {
+    if (visit) {
+      if (this.isDelivered(visit)) {
+        visit.status = VisitStatus.none
+      }
+      else {
+        visit.status = VisitStatus.delivered
+      }
+      await remult.repo(Visit).save(visit)
+    }
   }
 
 }

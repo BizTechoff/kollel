@@ -106,7 +106,7 @@ export class VisitComponent implements OnInit {
 
   async delivered() {
     if (this.visit) {
-      if (this.visit.status === VisitStatus.delivered) {
+      if (this.isDelivered()) {
         this.visit.status = VisitStatus.none
       }
       else {
@@ -122,7 +122,7 @@ export class VisitComponent implements OnInit {
 
   async visited() {
     if (this.visit) {
-      if (this.visit.status === VisitStatus.visited) {
+      if (this.isVisited()) {
         this.visit.status = VisitStatus.none
         this.visit.statusModified = undefined!
       }

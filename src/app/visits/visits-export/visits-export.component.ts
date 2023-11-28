@@ -6,9 +6,12 @@ import { BranchController } from '../../branches/branchController';
 import { BranchGroup } from '../../branches/branchGroup';
 import { RouteHelperService } from '../../common-ui-elements';
 import { UIToolsService } from '../../common/UIToolsService';
-import { addDaysToDate, dateDiff, firstDateOfWeek, lastDateOfWeek, resetDateTime } from '../../common/dateFunc';
-import { terms } from '../../terms';
+import { addDaysToDate, dateDiff, firstDateOfWeek, getWeekNumber, lastDateOfWeek, resetDateTime } from '../../common/dateFunc';
+import { Tenant } from '../../tenants/tenant';
+import { TenantController } from '../../tenants/tenantController';
+import { hebrewMonths, terms } from '../../terms';
 import { UserMenuComponent } from '../../users/user-menu/user-menu.component';
+import { Visit } from '../visit';
 import { VisitController } from '../visitController';
 import { ExportType } from './exportType';
 
@@ -23,13 +26,75 @@ export class VisitsExportComponent implements OnInit {
   ext = 'xlsx'
   allowChangeExt = true
   selectedBranch!: Branch
+  selectedTenant!: Tenant
+  years = [new Date().getFullYear()] as number[]
+  weeks = [] as { num: number, display: string }[]
 
-  constructor(private routeHelper: RouteHelperService,
+  constructor(
+    private routeHelper: RouteHelperService,
     private ui: UIToolsService) { }
   terms = terms;
   remult = remult;
+  hebrewMonths = hebrewMonths
   ExportType = ExportType
   BranchGroup = BranchGroup
+
+  async ngOnInit() {
+    remult.user!.lastComponent = VisitsExportComponent.name
+    let today = resetDateTime(new Date())
+    this.query.fdate = firstDateOfWeek(today)
+    this.query.tdate = lastDateOfWeek(today)
+    this.query.detailed = remult.user?.isManager ?? false
+    this.query.type = ExportType.all
+    this.query.actual = remult.user?.isAdmin ?? false
+    //  remult.user!.isManager
+    //   ? ExportType.all
+    //   : ExportType.doneAndNotDone
+    this.query.group = BranchGroup.fromId(remult.user!.group)
+    this.ext = 'xlsx'
+
+    let ystart = (await remult.repo(Visit).findFirst({}, { orderBy: { date: 'asc' } }))?.date.getFullYear()
+    let yend = (await remult.repo(Visit).findFirst({}, { orderBy: { date: 'desc' } }))?.date.getFullYear()
+    let wstart = 1
+    let wend = 52
+
+    for (let i = ystart; i <= yend; ++i) {
+      if (!this.years.includes(i)) {
+        this.years.push(i)
+      }
+    }
+
+    // for (let i = wstart; i <= wend; ++i) {
+    //   if (!this.weeks.includes(i)) {
+    //     this.weeks.push(i)
+    //   }
+    // }
+
+    let month = this.query.month
+    let date = new Date(ystart, month, 1)
+    for (let d = 1; d <= 31; ++d) {
+      console.log('date.getDay()', date.getDay())
+      if (date.getDay() === 4 /*Thursday*/) {
+        let f = firstDateOfWeek(date)
+        console.log('getWeekNumber(f)', getWeekNumber(f))
+        let l = lastDateOfWeek(date)
+        let display = `שבוע ${f.getDate()}-${l.getDate()}.${l.getMonth() + 1}`
+        this.weeks.push({
+          num: getWeekNumber(f)[1],
+          display: display
+        })
+      }
+      // if has next day
+      date = addDaysToDate(date, 1)
+      let m = date.getMonth()
+      if (m !== month) {
+        break;
+      }
+    }
+    this.weeks.push({ num: -1, display: 'כולם' })
+
+    this.loadFromStorage()
+  }
 
   async selectBranch() {
     // console.log('selectBranch..')
@@ -45,7 +110,44 @@ export class VisitsExportComponent implements OnInit {
       values: vols,
       onSelect: async (selected) => {
         // console.log(selected)
-        this.selectedBranch = await remult.repo(Branch).findId(selected.id)
+        let b = await remult.repo(Branch).findId(selected.id)
+        this.selectedBranch = b
+        await this.onSelectedBranchChanged()
+        // if (b && b.id !== this.selectedBranch?.id)
+        //   { this.selectedBranch = b }
+        // console.log('selected branch changed: ' + this.selectedBranch?.name)
+      }
+    })
+  }
+
+  async onSelectedBranchChanged() {
+    // this.selectedTenants.splice(0)
+    // if (this.selectedBranch?.id?.length) {
+    //   let q = new TenantController()
+    //   q.kollel = this.selectedBranch
+    //   let tenants = await q.getTenants()
+    //   this.selectedTenants.push(...tenants)
+    // }
+    // else {
+    //   this.ui.info(`לא נבחר כולל`)
+    // }
+  }
+
+  async selectTenant() {
+    // console.log('selectBranch..')
+    let vols: { caption: string, id: string }[] = [] as { caption: string, id: string }[]
+    let uc = new TenantController()
+    uc.kollel = this.selectedBranch
+    for (const v of await uc.getTenantsByKollel()) {
+      vols.push({ caption: v.name, id: v.id })
+    }
+    await this.ui.selectValuesDialog({
+      clear: true,
+      title: 'בחירת אברך',
+      values: vols,
+      onSelect: async (selected) => {
+        // console.log(selected)
+        this.selectedTenant = await remult.repo(Tenant).findId(selected.id)
         // console.log('selected branch changed: ' + this.selectedBranch?.name)
       }
     })
@@ -61,21 +163,6 @@ export class VisitsExportComponent implements OnInit {
     const day = d.getDay();
     // Prevent Saturday and Sunday from being selected.
     return day === 4
-  }
-
-  ngOnInit(): void {
-    remult.user!.lastComponent = VisitsExportComponent.name
-    let today = resetDateTime(new Date())
-    this.query.fdate = firstDateOfWeek(today)
-    this.query.tdate = lastDateOfWeek(today)
-    this.query.detailed = remult.user?.isManager ?? false
-    this.query.type = ExportType.all
-    this.query.actual = remult.user?.isAdmin ?? false
-    //  remult.user!.isManager
-    //   ? ExportType.all
-    //   : ExportType.doneAndNotDone
-    this.query.group = BranchGroup.fromId(remult.user!.group)
-    this.ext = 'xlsx'
   }
 
   async groupChanged() {
@@ -94,6 +181,7 @@ export class VisitsExportComponent implements OnInit {
   // @https://www.npmjs.com/package/xlsx
   async export() {
     if (await this.validate()) {
+      this.storeToStorage()
       // data
       let result = await this.query.exportVisits3()
       // console.log('result')
@@ -128,6 +216,28 @@ export class VisitsExportComponent implements OnInit {
         });
     }
   }
+
+  storeToStorage() {
+    localStorage.setItem('bto.kollel.export.year', this.query.year + '')
+    localStorage.setItem('bto.kollel.export.month', this.query.month + '')
+    localStorage.setItem('bto.kollel.export.week', this.query.week + '')
+  }
+
+  loadFromStorage() {
+    let year = localStorage.getItem('bto.kollel.export.year')
+    if (year) {
+      this.query.year = parseInt(year)
+    }
+    let month = localStorage.getItem('bto.kollel.export.month')
+    if (month) {
+      this.query.month = parseInt(month)
+    }
+    let week = localStorage.getItem('bto.kollel.export.week')
+    if (week) {
+      this.query.week = parseInt(week)
+    }
+  }
+
 
   async validate() {
     if (!this.query.fdate) {

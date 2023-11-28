@@ -111,6 +111,7 @@ export class MediaController extends ControllerBase {
     @BackendMethod({ allowed: Allow.authenticated })
     async getPhotos() {
         let result = [] as { week: string, branches: { branch: Branch, last: Date, media: Media[] }[] }[]
+        let today = new Date()
         for await (const m of remult.repo(Media).query({
             where: {
                 active: true,

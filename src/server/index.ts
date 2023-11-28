@@ -11,7 +11,6 @@ import { download, generateUploadURL } from './aws-s3';
 import { getRequestMiddleware } from './getRequestMiddleware';
 import './jobs';
 import { runEveryFullHours } from './jobs';
-import { SqlDatabase } from 'remult';
 
 config(); //loads the configuration from the .env file
 // process.env['TZ'] = 'Asia/Jerusalem'
@@ -53,7 +52,7 @@ async function startup() {
     // await createWeeklyVisits()
 
     // migrate()
- 
+
     app.get("/api/s3Url", async (req, res) => {//?key=[key]&f=[fname]&branch=[branch]
         // console.log('upload.10')
         let result: { url: string, error: string } = { url: '', error: '' };
@@ -78,7 +77,7 @@ async function startup() {
         }
         res.send(JSON.stringify(result));
     })
-
+ 
     app.get("/api/download", async (req, res) => {//?key=[key]&f=[fname]&branch=[branch]
         // console.log('upload.10')
         let result: { data: string[], error: string } = { data: [] as string[], error: '' };

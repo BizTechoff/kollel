@@ -4,9 +4,8 @@ import { ValueListFieldType } from "remult"
     caption: 'סטטוס ביקור'
 })
 export class VisitStatus {
-    static none = new VisitStatus('לא צוין', 'transparent', 'a-none')// 'איחר'
+    static none = new VisitStatus('לא צוין', 'transparent', 'a-none')
     static visited = new VisitStatus('ביקרתי', 'orange', 'visited')// 'נוכח'
-    static delivered = new VisitStatus('מסרתי', 'green', 'delivered')
+    static delivered = new VisitStatus('מסרתי', 'green', 'delivered')// 'איחר'
     constructor(public caption = '', public color = '', public id = '') { }
 }
- 

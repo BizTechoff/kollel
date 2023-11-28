@@ -1,7 +1,7 @@
 import './common/dateFunc'
 
 export const terms = {
-    appVersion: '2023.11.12',
+    appVersion: '2023.11.28',
     username: "שם",
     signIn: "Sign In",
     confirmPassword: "Confirm Password",
@@ -17,7 +17,7 @@ export const terms = {
     volunteer: 'מתנדב',
     tenant: 'דייר',
     yes: 'כן',
-    no: 'לא',
+    no: 'לא', 
     ok: 'אישור',
     areYouSureYouWouldLikeToDelete: "Are you sure you would like to delete",
     cancel: 'Cancel',
@@ -40,6 +40,21 @@ export const terms = {
     required: 'חובה'
 }
 
+
+export const hebrewMonths = [
+    'ינואר',//index 0
+    'פברואר',
+    'מרץ',
+    'אפריל',
+    'מאי',
+    'יוני',
+    'יולי',
+    'אוגוסט',
+    'ספטמבר',
+    'אוקטובר',
+    'נובמבר',
+    'דצמבר'
+]
  
 declare module 'remult' {
     export interface UserInfo {

@@ -68,28 +68,31 @@
     </div> -->
     <div class="visits-cards">
 
-      <div class="visits-cardcontent" *ngFor="let v of this.visits" (click)="this.edit(v.id)"
+      <div class="visits-cardcontent" *ngFor="let v of this.visits"
         [style.borderColor]="this.isNone(v)?  'rgba(227, 172, 120, 1)':'green'"
         [style.borderWidth]="this.isNone(v)?  '2px':'7px'">
-        <div class="visits-cardtitle">
+        <div class="visits-cardtitle" (click)="this.edit(v.id)">
           <div *ngIf="v.tenant" class="visits-tenantnameaddress">
             <div style="display: flex;">
-            <span class="visits-text08"><span>{{ v.tenant.name }}</span></span>
-            <!-- <img [src]="this.isVisited(v)?'/assets/validated.svg':'/assets/unValidated.svg'" style="width: 15px; height: 15px;" /> -->
+              <span class="visits-text08"><span>{{ v.tenant.name }}</span></span>
+              <!-- <img [src]="this.isVisited(v)?'/assets/validated.svg':'/assets/unValidated.svg'" style="width: 15px; height: 15px;" /> -->
               <img *ngIf="this.isVisited(v)" src="/assets/validated.svg" style="width: 15px; height: 15px;" />
-              <img *ngIf="this.isDelivered(v)" src="/assets/playground_assets/late.png" style="width: 15px; height: 15px;" />
-          </div>
+              <img *ngIf="this.isDelivered(v)" src="/assets/playground_assets/late.png"
+                style="width: 15px; height: 15px;" />
+            </div>
             <div *ngIf="v.tenant.address" class="visits-address">
               <span class="visits-text10"><span>{{ v.tenant.address }}</span></span>
               <img src="/assets/playground_assets/location1915-msq3.svg" alt="location1915" class="visits-location1" />
             </div>
             <div *ngIf="v.tenant.mobile" class="visits-address">
               <span class="visits-text10"><span>{{ v.tenant.mobile }}</span></span>
-              <img style="cursor: pointer;" (click)="this.call($event, v.tenant.mobile)" src="/assets/playground_assets/call.svg" alt="location1915" class="visits-location1" />
+              <img style="cursor: pointer;" (click)="this.call($event, v.tenant.mobile)"
+                src="/assets/playground_assets/call.svg" alt="location1915" class="visits-location1" />
             </div>
             <div *ngIf="v.tenant.phone" class="visits-address">
               <span class="visits-text10"><span>{{ v.tenant.phone }}</span></span>
-              <img style="cursor: pointer;" (click)="this.call($event, v.tenant.phone)" src="/assets/playground_assets/call.svg" alt="location1915" class="visits-location1" />
+              <img style="cursor: pointer;" (click)="this.call($event, v.tenant.phone)"
+                src="/assets/playground_assets/call.svg" alt="location1915" class="visits-location1" />
             </div>
           </div>
           <div class="visits-tenantphoto">
@@ -102,8 +105,22 @@
             </div>
           </div>
         </div>
+        <div class="visits-cardaction">
+          <button mat-raised-button (click)="this.visited(v)" [style.background-color]="this.isVisited(v)? 'rgba(38, 195, 234, 1)' : 'transparent'">
+            <mat-label>נוכח</mat-label>
+            <img src="/assets/validated.svg" style="width: 20px; height: 20px;" />
+            <!-- <mat-icon></mat-icon> -->
+          </button>
+          <button mat-raised-button (click)="this.delivered(v)" [style.backgroundColor]="this.isDelivered(v)? 'rgba(38, 195, 234, 1)' : 'transparent'">
+            <mat-label>איחר</mat-label>
+            <img src="/assets/playground_assets/late.png" style="width: 20px; height: 20px;" />
+            <!-- <mat-icon></mat-icon> -->
+          </button>
+        </div>
+        
         <img *ngIf="v.remark?.trim()!.length" src="/assets/playground_assets/sep1915-grj.svg" alt="sep1915"
           class="visits-sep" />
+
         <!-- <div class="visits-volunteers">
           <span class="visits-text12"><span>{{ v.volunteersNames }}</span></span>
           <span class="visits-text14">:מתנדבים</span>
