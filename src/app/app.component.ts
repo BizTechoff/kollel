@@ -86,7 +86,7 @@ export class AppComponent implements OnInit, OnDestroy {
     let isDevMode = await (new AppController()).isDevMode()
     if (isDevMode) {
       // console.log('Helloaaa 1')
-      this.routeHelper.navigateToComponent(UserMenuComponent)
+      this.routeHelper.navigateToComponent(VisitsExportComponent)
     } else {
       // console.log('Helloaaa 2')
       // alert(JSON.stringify(remult?.user))

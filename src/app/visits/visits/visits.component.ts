@@ -38,7 +38,7 @@ export class VisitsComponent implements OnInit {
     // await this.jobs.getLastWeeklyVisitsRun()
     // let date = this.jobs.lastJobRun
     // console.log('this.jobs.lastJobRun', this.jobs.lastJobRun)
-    let today = addDaysToDate(resetDateTime(new Date()), -7*2)
+    let today = addDaysToDate(resetDateTime(new Date()))//, -7*2)
     this.query.fdate = firstDateOfWeek(today)
     this.query.tdate = lastDateOfWeek(today)
     this.visits = await this.query.getVisits()

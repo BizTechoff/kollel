@@ -6,7 +6,7 @@ import { BranchController } from '../../branches/branchController';
 import { BranchGroup } from '../../branches/branchGroup';
 import { RouteHelperService } from '../../common-ui-elements';
 import { UIToolsService } from '../../common/UIToolsService';
-import { addDaysToDate, dateDiff, firstDateOfWeek, getWeekNumber, lastDateOfWeek, resetDateTime } from '../../common/dateFunc';
+import { addDaysToDate, firstDateOfWeek, getWeekNumber, lastDateOfWeek, resetDateTime } from '../../common/dateFunc';
 import { Tenant } from '../../tenants/tenant';
 import { TenantController } from '../../tenants/tenantController';
 import { hebrewMonths, terms } from '../../terms';
@@ -28,7 +28,10 @@ export class VisitsExportComponent implements OnInit {
   selectedBranch!: Branch
   selectedTenant!: Tenant
   years = [new Date().getFullYear()] as number[]
-  weeks = [] as { num: number, display: string }[]
+  weeks = [] as { num: number, display: string, start: Date, end: Date }[]
+  selectedYear = 0
+  selectedMonth = 0
+  selectedWeek = 0
 
   constructor(
     private routeHelper: RouteHelperService,
@@ -42,6 +45,8 @@ export class VisitsExportComponent implements OnInit {
   async ngOnInit() {
     remult.user!.lastComponent = VisitsExportComponent.name
     let today = resetDateTime(new Date())
+    this.selectedYear = today.getFullYear()
+    this.selectedMonth = today.getMonth()
     this.query.fdate = firstDateOfWeek(today)
     this.query.tdate = lastDateOfWeek(today)
     this.query.detailed = remult.user?.isManager ?? false
@@ -70,30 +75,39 @@ export class VisitsExportComponent implements OnInit {
     //   }
     // }
 
-    let month = this.query.month
-    let date = new Date(ystart, month, 1)
+    this.selectedMonthChanged()
+
+    // this.selectedWeek = { num: -1, display: 'כולם', start: undefined!, end: undefined! }
+    // this.weeks.push(this.selectedWeek)
+
+    // this.loadFromStorage()
+  }
+
+  selectedMonthChanged() {
+    this.weeks.splice(0)
+    let date = new Date(this.selectedYear, this.selectedMonth, 1)
     for (let d = 1; d <= 31; ++d) {
-      console.log('date.getDay()', date.getDay())
+      // console.log('date.getDay()', date.getDay())
       if (date.getDay() === 4 /*Thursday*/) {
         let f = firstDateOfWeek(date)
-        console.log('getWeekNumber(f)', getWeekNumber(f))
+        // console.log('getWeekNumber(f)', getWeekNumber(f))
         let l = lastDateOfWeek(date)
         let display = `שבוע ${f.getDate()}-${l.getDate()}.${l.getMonth() + 1}`
         this.weeks.push({
+          start: f,
+          end: l,
           num: getWeekNumber(f)[1],
           display: display
         })
-      }
-      // if has next day
+      }// if has next day
       date = addDaysToDate(date, 1)
       let m = date.getMonth()
-      if (m !== month) {
+      if (m !== this.selectedMonth) {
         break;
       }
     }
-    this.weeks.push({ num: -1, display: 'כולם' })
-
-    this.loadFromStorage()
+    this.weeks.push({ num: -1, display: 'כולם', start: undefined!, end: undefined! })
+    this.selectedWeek = this.weeks.length - 1
   }
 
   async selectBranch() {
@@ -218,50 +232,68 @@ export class VisitsExportComponent implements OnInit {
   }
 
   storeToStorage() {
-    localStorage.setItem('bto.kollel.export.year', this.query.year + '')
-    localStorage.setItem('bto.kollel.export.month', this.query.month + '')
-    localStorage.setItem('bto.kollel.export.week', this.query.week + '')
+    localStorage.setItem('bto.kollel.export.selected.year', this.selectedYear + '')
+    localStorage.setItem('bto.kollel.export.selected.month', this.selectedMonth + '')
+    localStorage.setItem('bto.kollel.export.selected.week', JSON.stringify(this.selectedWeek) + '')
   }
 
   loadFromStorage() {
-    let year = localStorage.getItem('bto.kollel.export.year')
+    let year = localStorage.getItem('bto.kollel.export.selected.year')
     if (year) {
-      this.query.year = parseInt(year)
+      this.selectedYear = parseInt(year)
     }
-    let month = localStorage.getItem('bto.kollel.export.month')
+    let month = localStorage.getItem('bto.kollel.export.selected.month')
     if (month) {
-      this.query.month = parseInt(month)
+      this.selectedMonth = parseInt(month)
     }
-    let week = localStorage.getItem('bto.kollel.export.week')
+    let week = localStorage.getItem('bto.kollel.export.selected.week')
     if (week) {
-      this.query.week = parseInt(week)
+      this.selectedWeek = JSON.parse(week)
     }
   }
 
 
   async validate() {
-    if (!this.query.fdate) {
-      this.query.fdate = new Date()
-      // this.ui.info('לא צויין תאריך התחלה')
-      // return false
+
+    var year = this.selectedYear
+    var month = this.selectedMonth
+    var week = this.weeks[ this.selectedWeek]
+
+    console.log('this.selectedWeek', JSON.stringify(this.selectedWeek))
+
+    var fdate = week.start
+    var tdate = week.end
+    if (!fdate || !tdate) {
+      fdate = new Date(year, month, 1)
+      tdate = addDaysToDate(new Date(fdate.getFullYear(), fdate.getMonth() + 1, 1), -1)
     }
-    this.query.fdate = firstDateOfWeek(this.query.fdate)
-    if (!this.query.tdate) {
-      this.query.tdate = this.query.fdate
-    }
-    this.query.tdate = lastDateOfWeek(this.query.tdate)
-    if (this.query.tdate < this.query.fdate) {
-      this.query.tdate = lastDateOfWeek(this.query.fdate)
-    }
-    let sevenWeeks = 7 * 7 - 1
-    if (dateDiff(this.query.fdate, this.query.tdate) > sevenWeeks) {
-      let yes = await this.ui.yesNoQuestion('מקסימום טווח של 7 שבועות, לבחור לך תאריך כזה?')
-      if (!yes) {
-        return false
-      }
-      this.query.fdate = firstDateOfWeek(
-        addDaysToDate(this.query.tdate, -sevenWeeks))
-    }
+    this.query.fdate = fdate
+    this.query.tdate = tdate
+
+    // console.log(fdate, tdate)
+    // return false
+    // if (!this.query.fdate) {
+    //   this.query.fdate = new Date()
+    //   // this.ui.info('לא צויין תאריך התחלה')
+    //   // return false
+    // }
+    // this.query.fdate = firstDateOfWeek(this.query.fdate)
+    // if (!this.query.tdate) {
+    //   this.query.tdate = this.query.fdate
+    // }
+    // this.query.tdate = lastDateOfWeek(this.query.tdate)
+    // if (this.query.tdate < this.query.fdate) {
+    //   this.query.tdate = lastDateOfWeek(this.query.fdate)
+    // }
+    // let sevenWeeks = 7 * 7 - 1
+    // if (dateDiff(this.query.fdate, this.query.tdate) > sevenWeeks) {
+    //   let yes = await this.ui.yesNoQuestion('מקסימום טווח של 7 שבועות, לבחור לך תאריך כזה?')
+    //   if (!yes) {
+    //     return false
+    //   }
+    //   this.query.fdate = firstDateOfWeek(
+    //     addDaysToDate(this.query.tdate, -sevenWeeks))
+    // }
     if (![ExportType.all, ExportType.doneAndNotDone].includes(this.query.type)) {
       this.query.actual = false
     }
