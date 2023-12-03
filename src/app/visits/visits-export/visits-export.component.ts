@@ -80,8 +80,10 @@ export class VisitsExportComponent implements OnInit {
     // this.selectedWeek = { num: -1, display: 'כל החודש', start: undefined!, end: undefined! }
     // this.weeks.push(this.selectedWeek)
 
-    // this.loadFromStorage()
+    this.loadFromStorage()
   }
+
+  hebrewNumbers = ['ראשון', 'שני', 'שלישי', 'רביעי', 'חמישי']
 
   selectedMonthChanged() {
     this.weeks.splice(0)
@@ -91,13 +93,15 @@ export class VisitsExportComponent implements OnInit {
       if (date.getDay() === 4 /*Thursday*/) {
         let f = firstDateOfWeek(date)
         // console.log('getWeekNumber(f)', getWeekNumber(f))
-        let l = lastDateOfWeek(date)
-        let display = `שבוע ${f.getDate()}-${l.getDate()}.${l.getMonth() + 1}`
+        let l = lastDateOfWeek(date)//this.hebrewNumbers[this.weeks.length]
+        // let display =`שבוע (${this.weeks.length + 1}): ` + `${f.getDate()}-${l.getDate()}.${l.getMonth() + 1}`.padEnd(12,' ')
+        // let display =`${this.weeks.length + 1}) שבוע` + ' ' + `${f.getDate()}-${l.getDate()}.${l.getMonth() + 1}`
+        let display = `(ש${this.weeks.length + 1})` + '\t' + `${f.getDate()}-${l.getDate()}.${l.getMonth() + 1}`
         this.weeks.push({
           start: f,
           end: l,
           num: getWeekNumber(f)[1],
-          display: display
+          display: display.trim()
         })
       }// if has next day
       date = addDaysToDate(date, 1)
@@ -234,21 +238,36 @@ export class VisitsExportComponent implements OnInit {
   storeToStorage() {
     localStorage.setItem('bto.kollel.export.selected.year', this.selectedYear + '')
     localStorage.setItem('bto.kollel.export.selected.month', this.selectedMonth + '')
-    localStorage.setItem('bto.kollel.export.selected.week', JSON.stringify(this.selectedWeek) + '')
+    localStorage.setItem('bto.kollel.export.selected.week', this.selectedWeek + '')
+    localStorage.setItem('bto.kollel.export.selected.detailed', this.query.detailed + '')
+    localStorage.setItem('bto.kollel.export.selected.actual', this.query.actual + '')
+    localStorage.setItem('bto.kollel.export.selected.ext', this.ext + '')
   }
 
   loadFromStorage() {
-    let year = localStorage.getItem('bto.kollel.export.selected.year')
-    if (year) {
-      this.selectedYear = parseInt(year)
-    }
-    let month = localStorage.getItem('bto.kollel.export.selected.month')
-    if (month) {
-      this.selectedMonth = parseInt(month)
-    }
-    let week = localStorage.getItem('bto.kollel.export.selected.week')
-    if (week) {
-      this.selectedWeek = JSON.parse(week)
+    // let year = localStorage.getItem('bto.kollel.export.selected.year')
+    // if (year) {
+    //   this.selectedYear = parseInt(year)
+    // }
+    // let month = localStorage.getItem('bto.kollel.export.selected.month')
+    // if (month) {
+    //   this.selectedMonth = parseInt(month)
+    // }
+    // let week = localStorage.getItem('bto.kollel.export.selected.week')
+    // if (week) {
+    //   this.selectedWeek = parseInt(week)
+    // }
+    // let detailed = localStorage.getItem('bto.kollel.export.selected.detailed')
+    // if (detailed) {
+    //   this.query.detailed = detailed === 'true'
+    // }
+    // let actual = localStorage.getItem('bto.kollel.export.selected.actual')
+    // if (actual) {
+    //   this.query.actual = actual === 'true'
+    // }
+    let ext = localStorage.getItem('bto.kollel.export.selected.ext')
+    if (ext) {
+      this.ext = ext
     }
   }
 
@@ -257,7 +276,7 @@ export class VisitsExportComponent implements OnInit {
 
     var year = this.selectedYear
     var month = this.selectedMonth
-    var week = this.weeks[ this.selectedWeek]
+    var week = this.weeks[this.selectedWeek]
 
     console.log('this.selectedWeek', JSON.stringify(this.selectedWeek))
 
