@@ -330,13 +330,15 @@ export class VisitController extends ControllerBase {
             branches: {
                 branch: string,
                 totalPresented: number,
+                totalPayed: number,
                 tenants: {
                     tenant: string,
                     guide: boolean,
-                    weeks: { name: string, presented: boolean, remark: string, total: number }[],
-                    totalPresented: number
+                    weeks: { name: string, presented: boolean, payed: number, remark: string, total: number }[],
+                    totalPresented: number,
+                    payed: number
                 }[],
-                weeks: { name: string, totalPresented: number }[]
+                weeks: { name: string, totalPresented: number, totalPayed: number }[]
             }[]
         }[] = [] as {
             month: string,
@@ -344,13 +346,15 @@ export class VisitController extends ControllerBase {
             branches: {
                 branch: string,
                 totalPresented: number,
+                totalPayed: number,
                 tenants: {
                     tenant: string,
                     guide: boolean,
-                    weeks: { name: string, presented: boolean, remark: string, total: number }[],
+                    payed: number,
+                    weeks: { name: string, presented: boolean, payed: number, remark: string, total: number }[],
                     totalPresented: number
                 }[],
-                weeks: { name: string, totalPresented: number }[]
+                weeks: { name: string, totalPresented: number, totalPayed: number }[]
             }[]
         }[]
 
@@ -402,13 +406,15 @@ export class VisitController extends ControllerBase {
                     branches: [] as {
                         branch: string,
                         totalPresented: number,
+                        totalPayed: number,
                         tenants: {
                             tenant: string,
                             guide: boolean,
-                            weeks: { name: string, presented: boolean, remark: string, total: number }[],
+                            payed: number,
+                            weeks: { name: string, presented: boolean, payed: number, remark: string, total: number }[],
                             totalPresented: number
                         }[],
-                        weeks: { name: string, totalPresented: number }[]
+                        weeks: { name: string, totalPresented: number, totalPayed: number }[]
                     }[]
                 }
                 result.push(m)
@@ -424,13 +430,15 @@ export class VisitController extends ControllerBase {
                 b = {
                     branch: branch,
                     totalPresented: 0,
+                    totalPayed: 0,
                     tenants: [] as {
                         tenant: string,
                         guide: boolean,
-                        weeks: { name: string, presented: boolean, remark: string, total: number }[],
+                        payed: number,
+                        weeks: { name: string, presented: boolean, payed: number, remark: string, total: number }[],
                         totalPresented: number
                     }[],
-                    weeks: [] as { name: string, totalPresented: number }[]
+                    weeks: [] as { name: string, totalPresented: number, totalPayed: number }[]
                 }
                 m.branches.push(b)
             }
@@ -442,8 +450,9 @@ export class VisitController extends ControllerBase {
                 t = {
                     tenant: tenant,
                     guide: false,
-                    weeks: [] as { name: string, presented: boolean, remark: string, total: number }[],
-                    totalPresented: 0
+                    weeks: [] as { name: string, presented: boolean, payed: number, remark: string, total: number }[],
+                    totalPresented: 0,
+                    payed: 0
                 }
                 b.tenants.push(t)
             }
@@ -458,6 +467,12 @@ export class VisitController extends ControllerBase {
                 w = {
                     name: week,
                     presented: v.status === VisitStatus.visited,
+                    payed:
+                        v.status === VisitStatus.visited
+                            ? v.branch.payment
+                            : v.status === VisitStatus.delivered
+                                ? v.branch.payment / 2
+                                : 0,
                     remark: v.remark,
                     total: 0
                 }
@@ -469,16 +484,24 @@ export class VisitController extends ControllerBase {
 
                 var bw = b.weeks.find(itm => itm.name === week)
                 if (!bw) {
-                    bw = { name: week, totalPresented: 0 }
+                    bw = { name: week, totalPresented: 0, totalPayed: 0 }
                     b.weeks.push(bw)
                 }
 
                 let add = w.presented ? 1 : 0
+                let addPayed = w.payed
+                // w.presented ? w.payed : 0
 
                 bw.totalPresented += add
                 b.totalPresented += add
                 t.totalPresented += add
                 w.total += add
+
+                bw.totalPayed += addPayed
+                b.totalPayed += addPayed
+                t.payed += addPayed
+                // w.payed += addPayed
+
             }
         }
 
@@ -488,6 +511,8 @@ export class VisitController extends ControllerBase {
 
     @BackendMethod({ allowed: Allow.authenticated })
     async exportVisits3() {
+
+        const isManager = remult.user?.isManager ?? false
 
         var data = await this.buildData()
         // console.log(JSON.stringify(data))
@@ -505,7 +530,9 @@ export class VisitController extends ControllerBase {
             report[row][col] = m.month
             // headers
             col = 3
-            m.weeks.sort((w1, w2) => w1.localeCompare(w2))
+            // console.log('m.weeks 1',m.weeks)
+            // m.weeks.sort((w1, w2) => w1.localeCompare(w2))
+            // console.log('m.weeks 2',m.weeks)
             for (const w of m.weeks) {
                 let s1 = w.replace('שבוע', '').trim().split('-')
                 let s2 = s1[1].split('.')
@@ -513,7 +540,10 @@ export class VisitController extends ControllerBase {
                 let ww = parseInt(s1[0]) + '-' + parseInt(s2[0]) + '.' + parseInt(s2[1])
 
                 report[row][col] = 'שבוע ' + ww
-                col += 2
+                col += 3
+            }
+            if (m.weeks.length > 1) {
+                report[row][col] = 'סיכום '
             }
 
             col = 0
@@ -527,11 +557,13 @@ export class VisitController extends ControllerBase {
             col = 3
             for (const w of m.weeks) {
                 report[row][col] = 'נוכח'
-                report[row][col + 1] = 'הערה'
-                col += 2
+                report[row][col + 1] = 'תשלום'
+                report[row][col + 2] = 'הערה'
+                col += 3
             }
             if (m.weeks.length > 1) {
-                report[row][col] = 'סיכום'
+                report[row][col] = 'נוכחים'
+                report[row][col + 1] = 'תשלומים'
             }
 
             m.branches.sort((b1, b2) => b1.branch.localeCompare(b2.branch))
@@ -544,8 +576,10 @@ export class VisitController extends ControllerBase {
                 report[row] = [] as string[]
                 report[row][col] = b.branch
                 report[row][col + 2] = b.tenants.length + ''
+                // report[row][col + 3] = b.totalPayed + ''
 
                 let sum = 0
+                let sumPayed = 0
                 col = 3
 
                 b.weeks.sort((w1, w2) => w1.name.localeCompare(w2.name))
@@ -554,12 +588,15 @@ export class VisitController extends ControllerBase {
                     if (ww) {
                         sum += ww.totalPresented
                         report[row][col] = ww.totalPresented + ''
+                        sumPayed += ww.totalPayed
+                        report[row][col + 1] = ww.totalPayed + ''
                     }
-                    col += 2
+                    col += 3
                 }
 
                 if (m.weeks.length > 1) {
                     report[row][col] = sum + ''
+                    report[row][col + 1] = sumPayed + ''
                 }
 
                 if (this.detailed) {
@@ -570,6 +607,7 @@ export class VisitController extends ControllerBase {
                         report[row] = [] as string[]
                         // report[row][col + 1] = t.guide ? 'אחראי' : ''
                         report[row][col + 2] = t.tenant
+                        // report[row][col + 3] = 15 + t.payed + ''
 
                         col = 3
                         t.weeks.sort((w1, w2) => w1.name.localeCompare(w2.name))
@@ -578,15 +616,17 @@ export class VisitController extends ControllerBase {
                             if (ww) {
 
                                 report[row][col] = ww.presented ? 'כן' : ''
-                                report[row][col + 1] = ww.remark
+                                report[row][col + 2] = ww.remark
+                                report[row][col + 1] = ww.payed + ''
                             }
                             // report[brow /****/][col] = 1000000 + '' // w.total + ''
                             // report[brow /****/][col] = w.total + ''
 
-                            col += 2
+                            col += 3
                         }
                         if (m.weeks.length > 1) {
                             report[row][col] = t.totalPresented + ''
+                            report[row][col + 1] = t.payed + ''
                         }
                     }
                 }

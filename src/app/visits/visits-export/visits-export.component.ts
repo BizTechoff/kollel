@@ -63,10 +63,14 @@ export class VisitsExportComponent implements OnInit {
     let wstart = 1
     let wend = 52
 
-    for (let i = ystart; i <= yend; ++i) {
+    this.years.splice(0)
+    for (let i = yend; i >= ystart; --i) {
       if (!this.years.includes(i)) {
         this.years.push(i)
       }
+    }
+    if(!this.years.length){
+      this.years.push(new Date().getFullYear())
     }
 
     // for (let i = wstart; i <= wend; ++i) {
@@ -216,7 +220,7 @@ export class VisitsExportComponent implements OnInit {
         `${this.query.tdate.getFullYear()}` +
         ` ${this.query.group.caption}`
 
-      console.log('name', name)
+      // console.log('name', name)
       //דוח דיווחים מפורט - 2023-11-12T092658.966.xlsx
 
       xlsx.utils.book_append_sheet(
@@ -278,7 +282,7 @@ export class VisitsExportComponent implements OnInit {
     var month = this.selectedMonth
     var week = this.weeks[this.selectedWeek]
 
-    console.log('this.selectedWeek', JSON.stringify(this.selectedWeek))
+    // console.log('this.selectedWeek', JSON.stringify(this.selectedWeek))
 
     var fdate = week.start
     var tdate = week.end

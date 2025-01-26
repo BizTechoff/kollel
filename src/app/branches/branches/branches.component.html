@@ -82,6 +82,7 @@
         <div class="tenants-summary">
           <!-- <span class="visits-text14">{{ 'מתנדבים: ' + m.volunteersCount }}</span> -->
           <span class="visits-text14">{{ this.query.group.caption + ': ' + m.tenantsCount }}</span>
+          <span class="visits-text14">{{ 'תשלום חודשי בש"ח: ' + m.payment }}</span>
         </div>
         <span *ngIf="m.remark?.trim()!.length" class="visits-text15">
           <span>הערה: {{ m.remark }}</span>

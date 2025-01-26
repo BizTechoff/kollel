@@ -29,6 +29,35 @@ last-sent
 let isProduction = (process.env['NODE_ENV'] ?? '') === 'production'
 console.log('isProduction: ', isProduction)
 
+export const addWomen = async () => {
+    console.log('addWomen called')
+    // return
+    const data = [] as { name: string, address: string, addressremark: string, phone: string, idnumber: string }[]
+
+    const repo = remult.repo(Tenant)
+    const branch = await remult.repo(Branch).findId('ec1731c7-9258-4d85-b543-197a062d1006')
+    // return
+    const newTenants = [] as Tenant[]
+    for (const d of data) {
+        const t = repo.create()
+        t.branch = branch
+        t.name = d.name
+        t.address = d.address
+        t.addressremark = d.addressremark
+        t.phone = d.phone
+        t.idNumber = d.idnumber
+        try {
+            await repo.save(t)
+            console.log("OK")
+            // break
+        }
+        catch (error) {
+            console.log(JSON.stringify(d), error)
+            break
+        }
+    }
+}
+
 export const runEveryFullHours = async () => {
     if (isProduction) {
         const Hour = 60 * 60 * 1000;
@@ -41,6 +70,7 @@ export const runEveryFullHours = async () => {
         }, firstCall);
     }
     else {
+        // await api.withRemult(undefined!, undefined!, async () => await addWomen());
         // await api.withRemult(undefined!, undefined!, async () => await createWeeklyVisits());
     }
     // const Hour = 60 * 60 * 1000;

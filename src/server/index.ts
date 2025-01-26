@@ -2,7 +2,7 @@ import compression from 'compression';
 import session from "cookie-session";
 import csrf from "csurf";
 import { config } from 'dotenv';
-import express from 'express';
+import express, { Request, Response, NextFunction } from 'express';
 import helmet from 'helmet';
 import sslRedirect from 'heroku-ssl-redirect';
 import { SignInController } from '../app/users/SignInController';
@@ -26,13 +26,24 @@ async function startup() {
     }));
     app.use(compression());
     app.use(helmet({ contentSecurityPolicy: false }));
-    app.use('/api', (req, res, next) => {
-        //disable csrf for the `currentUser` backend method that is the first call of the web site.
+    // app.use('/api', (req, res, next) => {
+    //     //disable csrf for the `currentUser` backend method that is the first call of the web site.
+    //     const currentUserMethodName: keyof typeof SignInController = 'currentUser';
+    //     if (req.path === '/' + currentUserMethodName)
+    //         csrf({ ignoreMethods: ["post"] })(req, res, next);
+    //     else
+    //         csrf({})(req, res, next);
+    // });
+    app.use('/api', (req: Request, res: Response, next: NextFunction) => {
+        // Disable CSRF for the `currentUser` backend method that is the first call of the website.
         const currentUserMethodName: keyof typeof SignInController = 'currentUser';
-        if (req.path === '/' + currentUserMethodName)
-            csrf({ ignoreMethods: ["post"] })(req, res, next);
-        else
+        
+        if (req.path === '/' + currentUserMethodName) {
+            // Ignore CSRF for `currentUser` method
+            csrf({ ignoreMethods: ["POST"] })(req, res, next);
+        } else {
             csrf({})(req, res, next);
+        }
     });
     app.use("/api", (req, res, next) => {
         res.cookie("XSRF-TOKEN", req.csrfToken());
