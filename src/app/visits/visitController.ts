@@ -634,7 +634,7 @@ export class VisitController extends ControllerBase {
 
             if (m.weeks.length > 1) {
                 // report[row][col] = sumTotal + ''
-                console.log('sumTotal', sumTotal)
+                // console.log('sumTotal', sumTotal)
             }
         }
         // console.table(report)
