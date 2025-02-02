@@ -2,7 +2,7 @@ import { Allow, BackendMethod, Controller, ControllerBase, Field, Fields, remult
 import { Branch } from "../branches/branch";
 import { BranchGroup } from "../branches/branchGroup";
 import { DataControl } from "../common-ui-elements/interfaces";
-import { firstDateOfWeek, lastDateOfWeek, resetDateTime } from "../common/dateFunc";
+import { firstDateOfWeek, hourFormat, lastDateOfWeek, resetDateTime } from "../common/dateFunc";
 import { Tenant } from "../tenants/tenant";
 import { Roles } from "../users/roles";
 import { Visit } from "./visit";
@@ -334,7 +334,7 @@ export class VisitController extends ControllerBase {
                 tenants: {
                     tenant: string,
                     guide: boolean,
-                    weeks: { name: string, presented: boolean, payed: number, remark: string, total: number }[],
+                    weeks: { name: string, presented: boolean, payed: number, remark: string, total: number, hour: string }[],
                     totalPresented: number,
                     payed: number
                 }[],
@@ -351,7 +351,7 @@ export class VisitController extends ControllerBase {
                     tenant: string,
                     guide: boolean,
                     payed: number,
-                    weeks: { name: string, presented: boolean, payed: number, remark: string, total: number }[],
+                    weeks: { name: string, presented: boolean, payed: number, remark: string, total: number, hour: string }[],
                     totalPresented: number
                 }[],
                 weeks: { name: string, totalPresented: number, totalPayed: number }[]
@@ -411,7 +411,7 @@ export class VisitController extends ControllerBase {
                             tenant: string,
                             guide: boolean,
                             payed: number,
-                            weeks: { name: string, presented: boolean, payed: number, remark: string, total: number }[],
+                            weeks: { name: string, presented: boolean, payed: number, remark: string, total: number, hour: string }[],
                             totalPresented: number
                         }[],
                         weeks: { name: string, totalPresented: number, totalPayed: number }[]
@@ -435,7 +435,7 @@ export class VisitController extends ControllerBase {
                         tenant: string,
                         guide: boolean,
                         payed: number,
-                        weeks: { name: string, presented: boolean, payed: number, remark: string, total: number }[],
+                        weeks: { name: string, presented: boolean, payed: number, remark: string, total: number, hour: string }[],
                         totalPresented: number
                     }[],
                     weeks: [] as { name: string, totalPresented: number, totalPayed: number }[]
@@ -450,7 +450,7 @@ export class VisitController extends ControllerBase {
                 t = {
                     tenant: tenant,
                     guide: false,
-                    weeks: [] as { name: string, presented: boolean, payed: number, remark: string, total: number }[],
+                    weeks: [] as { name: string, presented: boolean, payed: number, remark: string, total: number, hour: string }[],
                     totalPresented: 0,
                     payed: 0
                 }
@@ -474,7 +474,8 @@ export class VisitController extends ControllerBase {
                                 ? v.branch.payment / 2
                                 : 0,
                     remark: v.remark,
-                    total: 0
+                    total: 0,
+                    hour: hourFormat(v.statusModified)
                 }
                 t.weeks.push(w)
 
@@ -523,6 +524,7 @@ export class VisitController extends ControllerBase {
         report[row] = [] as string[]
         report[row][col] = 'בס"ד'
         for (const m of data) {
+            console.log('m.weeks',m.weeks)
             col = 0
             row += 2
             report[row] = [] as string[]
@@ -556,7 +558,7 @@ export class VisitController extends ControllerBase {
 
             col = 3
             for (const w of m.weeks) {
-                report[row][col] = 'נוכח'
+                report[row][col] = 'ש.עדכון'
                 report[row][col + 1] = 'תשלום'
                 report[row][col + 2] = 'הערה'
                 col += 3
@@ -615,7 +617,7 @@ export class VisitController extends ControllerBase {
                             let ww = t.weeks.find(itm => itm.name === w)
                             if (ww) {
 
-                                report[row][col] = ww.presented ? 'כן' : ''
+                                report[row][col] = ww.hour // ww.hour !== '00:00' && ww.hour !== '' ? ww.hour : ''
                                 report[row][col + 2] = ww.remark
                                 report[row][col + 1] = ww.payed + ''
                             }

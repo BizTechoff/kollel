@@ -88,6 +88,19 @@ export function dateFormat(date: Date, delimiter = '/') {
     return result
 }
 
+export function hourFormat(date: Date, delimiter = ':') {
+    let result = ''
+    if (date) {
+        let hour = date.getHours()
+        let minute = date.getMinutes()
+
+        result += ('00' + hour).slice(-2)
+        result += delimiter
+        result += ('00' + minute).slice(-2)
+    }
+    return result
+}
+
 export function calculateDiff(data1: Date, date2: Date) {
     let days = Math.floor((data1.getTime() - date2.getTime()) / 1000 / 60 / 60 / 24);
     return days;
