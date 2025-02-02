@@ -1,6 +1,6 @@
 {
   "name": "kollel",
-  "version": "2023.11.28",
+  "version": "2025.02.02",
   "engines": {
     "node": "18.x"
   },
@@ -15,7 +15,7 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "~13.3.0",
-    "@angular/cdk": "^13.3.0",
+    "@angular/cdk": "^13.3.9",
     "@angular/common": "~13.3.0",
     "@angular/compiler": "~13.3.0",
     "@angular/core": "~13.3.0",
