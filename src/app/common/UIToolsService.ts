@@ -55,11 +55,11 @@ export class UIToolsService implements UITools {
         return await openDialog(DataAreaDialogComponent, d => d.args = { title: 'בחר תאריך', fields: [], ok: () => { } }, d => d?.ok);
         // return await openDialog(YesNoQuestionComponent, d => d.args = { message: message }, d => d.okPressed);
     }
-    async yesNoQuestion(question: string) {
-        return await openDialog(YesNoQuestionComponent, d => d.args = { message: question }, d => d.okPressed);
+    async yesNoQuestion(question: string, isQuestion = true) {
+        return await openDialog(YesNoQuestionComponent, d => d.args = { message: question, isAQuestion: isQuestion }, d => d.okPressed);
     }
-    async confirmDelete(of: string) {
-        return await this.yesNoQuestion(terms.areYouSureYouWouldLikeToDelete + " " + of + "?");
+    async confirmDelete(of: string, isQuestion = true) {
+        return await this.yesNoQuestion(terms.areYouSureYouWouldLikeToDelete + " " + of + "?", isQuestion);
     }
     async selectValuesDialog<T extends { caption?: string; }>(args: { values: T[]; onSelect: (selected: T) => void; onAdd?: (add: T) => void; title?: string; allowAdd?: boolean;  clear?: boolean}): Promise<void> {
         await openDialog(SelectValueDialogComponent, x => x.args(args))

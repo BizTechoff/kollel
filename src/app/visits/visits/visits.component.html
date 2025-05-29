@@ -56,6 +56,7 @@
         <img src="/assets/playground_assets/vector1915-r5bg.svg" alt="Vector1915" class="visits-vector05" />
       </div> -->
       <div class="visits-title">
+        <span class="visits-text04"><span>לשבוע זה</span></span>
         <span class="visits-text04"><span>נוכחות</span></span>
         <span class="visits-text06"><span>דיווחי</span></span>
       </div>
@@ -106,18 +107,20 @@
           </div>
         </div>
         <div class="visits-cardaction">
-          <button mat-raised-button (click)="this.visited(v)" [style.background-color]="this.isVisited(v)? 'rgba(38, 195, 234, 1)' : 'transparent'">
+          <button mat-raised-button (click)="this.visited(v)"
+            [style.background-color]="this.isVisited(v)? 'rgba(38, 195, 234, 1)' : 'transparent'">
             <mat-label>נוכח</mat-label>
             <img src="/assets/validated.svg" style="width: 20px; height: 20px;" />
             <!-- <mat-icon></mat-icon> -->
           </button>
-          <button mat-raised-button (click)="this.delivered(v)" [style.backgroundColor]="this.isDelivered(v)? 'rgba(38, 195, 234, 1)' : 'transparent'">
+          <button mat-raised-button (click)="this.delivered(v)"
+            [style.backgroundColor]="this.isDelivered(v)? 'rgba(38, 195, 234, 1)' : 'transparent'">
             <mat-label>איחר</mat-label>
             <img src="/assets/playground_assets/late.png" style="width: 20px; height: 20px;" />
             <!-- <mat-icon></mat-icon> -->
           </button>
         </div>
-        
+
         <img *ngIf="v.remark?.trim()!.length" src="/assets/playground_assets/sep1915-grj.svg" alt="sep1915"
           class="visits-sep" />
 
@@ -129,10 +132,36 @@
       </div>
     </div>
 
-    <div class="menu-frame27" (click)="this.finished()">
+    <div *ngIf="this.visits.length" class="menu-frame27" (click)="this.finished()">
       <div class="menu-exit">
         <span class="menu-text13"><span>סיימתי לדווח</span></span>
       </div>
     </div>
+ 
+    <div *ngIf="!this.visits.length && loaded" class="empty-visits-container">
+      <div class="content-wrapper">
+        <div class="message-section">
+          <p class="main-message">כיוון שעד לרגע זה לא בוצע שיעור</p>
+          <p class="sub-message">ישנה אפשרות לפתוח שיעור כרגע למטרת דיווחים</p>
+        </div>
+
+        <div class="action-section">
+          <button mat-raised-button color="primary" class="create-button" (click)="this.createVisits()">
+            פתח שיעור מהיום למטרת דיווחי נוכחות
+          </button>
+        </div>
+
+        <div class="notice-section">
+          <span class="notice-text">
+            <mat-icon class="notice-icon">info</mat-icon>
+            <div style="display: flex; flex-direction: column;">
+              <span>לתשומת לב: ניתן לפתוח שיעור</span>
+              <span><strong>פעם אחת בשבוע בלבד</strong></span>
+            </div>
+          </span>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>

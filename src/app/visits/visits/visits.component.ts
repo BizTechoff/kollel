@@ -8,6 +8,7 @@ import { NewsController } from '../../news/newsController';
 import { terms } from '../../terms';
 import { UserMenuComponent } from '../../users/user-menu/user-menu.component';
 import { Visit } from '../visit';
+import { VisitService } from '../visit.service';
 import { VisitComponent } from '../visit/visit.component';
 import { VisitController } from '../visitController';
 import { VisitStatus } from '../visitStatus';
@@ -24,8 +25,10 @@ export class VisitsComponent implements OnInit {
   query = new VisitController()
   jobs = new JobController()
   weeklyQuestion = ''
+  loaded = false
 
   constructor(
+    private visitService: VisitService,
     private routeHelper: RouteHelperService,
     private ui: UIToolsService) {
   }
@@ -33,7 +36,6 @@ export class VisitsComponent implements OnInit {
   remult = remult;
 
   async ngOnInit(): Promise<void> {
-
     remult.user!.lastComponent = VisitsComponent.name
     // await this.jobs.getLastWeeklyVisitsRun()
     // let date = this.jobs.lastJobRun
@@ -41,7 +43,6 @@ export class VisitsComponent implements OnInit {
     let today = addDaysToDate(resetDateTime(new Date()))//, -7*2)
     this.query.fdate = firstDateOfWeek(today)
     this.query.tdate = lastDateOfWeek(today)
-    this.visits = await this.query.getVisits()
 
     let news = new NewsController()
     let content = (await news.getWeeklyQuestion())?.content
@@ -53,6 +54,12 @@ export class VisitsComponent implements OnInit {
     this.weeklyQuestion = content
     // this.weeklyQuestion = 'היי בוקר טוב יש למלא את כל הטפסים ששלחנו לכם כל אחד לפי הצוות שלו ולעדכן חזרה את הראש כולל לא לשכוח זאת תודה ופסח כשר ושמח'
     // this.weeklyQuestion += this.weeklyQuestion 
+    await this.retrieve()
+  }
+
+  async retrieve() {
+    this.visits = await this.query.getVisits()
+    this.loaded = true
   }
 
   isNone(v: Visit) {
@@ -141,7 +148,7 @@ export class VisitsComponent implements OnInit {
 
   async visited(visit: Visit) {
     if (visit) {
-      console.log(visit.status, VisitStatus.visited,visit.status === VisitStatus.visited )
+      console.log(visit.status, VisitStatus.visited, visit.status === VisitStatus.visited)
       if (this.isVisited(visit)) {
         visit.status = VisitStatus.none
         visit.statusModified = undefined!
@@ -163,6 +170,30 @@ export class VisitsComponent implements OnInit {
         visit.status = VisitStatus.delivered
       }
       await remult.repo(Visit).save(visit)
+    }
+  }
+
+  async createVisits() {
+    const yes = await this.ui.yesNoQuestion('האם לפתוח שיעור להיום')
+    if (yes) {
+      const branchId = remult.user!.branch
+      if (!branchId) {
+        this.ui.error('שגיאת מערכת: סניף של היוזר הנוכחי אינו מוגדר')
+        return
+      }
+      this.ui.info('מכין רשומות דיווח להיום..')
+      const response = await this.visitService.createVisits(branchId)
+      if (!response) {
+        this.ui.error('שגיאת מערכת: התקבלה תשובה שגויה מהשרת')
+        return
+      }
+      if (response.success) {
+        this.ui.info(response.message)
+        this.retrieve()
+      }
+      else {
+        this.ui.yesNoQuestion(response.message, false)
+      }
     }
   }
 

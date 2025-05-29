@@ -2,15 +2,17 @@ import compression from 'compression';
 import session from "cookie-session";
 import csrf from "csurf";
 import { config } from 'dotenv';
-import express, { Request, Response, NextFunction } from 'express';
+import express, { NextFunction, Request, Response } from 'express';
 import helmet from 'helmet';
 import sslRedirect from 'heroku-ssl-redirect';
+import { remult } from 'remult';
+import { Branch } from '../app/branches/branch';
 import { SignInController } from '../app/users/SignInController';
 import { api } from './api';
 import { download, generateUploadURL } from './aws-s3';
 import { getRequestMiddleware } from './getRequestMiddleware';
 import './jobs';
-import { runEveryFullHours } from './jobs';
+import { createWeeklyVisits, runEveryFullHours } from './jobs';
 
 config(); //loads the configuration from the .env file
 // process.env['TZ'] = 'Asia/Jerusalem'
@@ -37,7 +39,7 @@ async function startup() {
     app.use('/api', (req: Request, res: Response, next: NextFunction) => {
         // Disable CSRF for the `currentUser` backend method that is the first call of the website.
         const currentUserMethodName: keyof typeof SignInController = 'currentUser';
-        
+
         if (req.path === '/' + currentUserMethodName) {
             // Ignore CSRF for `currentUser` method
             csrf({ ignoreMethods: ["POST"] })(req, res, next);
@@ -64,11 +66,38 @@ async function startup() {
 
     // migrate()
 
+    app.post("/api/visits/create", api.withRemult, async (req, res) => {
+        let result: { success: boolean, message: string } = { success: false, message: '' };
+        let key = req.query['key'] as unknown as string;
+        if (key === process.env['SERVER_API_KEY']!) {
+            // console.log('upload.11')
+            let branchId = req.body['branchId'] as unknown as string;
+            if (branchId) {
+                const branch = await remult.repo(Branch).findId(branchId)
+                if (branch) {
+                    const added = await createWeeklyVisits(branch)
+                    result.success = true
+                    result.message = `נוספו ${added} רשומות דיווח`
+                }
+                else {
+                    result.message = `Branch NOT_EXISTS for id: '${branchId}'`
+                }
+            }
+            else {
+                result.message = 'branchId MISSING'
+            }
+        }
+        else {
+            result.message = 'API-KEY MISSING'
+        }
+        res.send(JSON.stringify(result));
+    })
+
     app.get("/api/s3Url", async (req, res) => {//?key=[key]&f=[fname]&branch=[branch]
         // console.log('upload.10')
         let result: { url: string, error: string } = { url: '', error: '' };
         let key = req.query['key'] as string;
-        if (key === process.env['AWS_CLIENT_KEY']!) {
+        if (key === process.env['SERVER_API_KEY']!) {
             // console.log('upload.11')
             let fName = req.query['f'] as string;
             let branch = req.query['branch'] as string;
@@ -88,12 +117,12 @@ async function startup() {
         }
         res.send(JSON.stringify(result));
     })
- 
+
     app.get("/api/download", async (req, res) => {//?key=[key]&f=[fname]&branch=[branch]
         // console.log('upload.10')
         let result: { data: string[], error: string } = { data: [] as string[], error: '' };
         let key = req.query['key'] as string;
-        if (key === process.env['AWS_CLIENT_KEY']!) {
+        if (key === process.env['SERVER_API_KEY']!) {
             // console.log('upload.11')
             let fName = req.query['f'] as string;
             let branch = req.query['branch'] as string;

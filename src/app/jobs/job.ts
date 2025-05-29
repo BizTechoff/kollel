@@ -1,4 +1,5 @@
 import { Entity, Field, Fields, IdEntity, isBackend, remult } from "remult";
+import { Branch } from "../branches/branch";
 import { JosStatus } from "./jobStatus";
 
 @Entity<Job>('jobs', {
@@ -13,6 +14,9 @@ import { JosStatus } from "./jobStatus";
     }
 })
 export class Job extends IdEntity {
+
+    @Field<Job, Branch>(() => Branch, { caption: 'כולל' })
+    branch!: Branch/// _BY_?????_BRANCH_
 
     @Fields.string<Job>({ caption: 'שם' })
     name = ''

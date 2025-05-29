@@ -58,10 +58,10 @@ export const api = remultExpress({
                     system: true,
                     group: undefined
                 })
-            } 
+            }
         } catch (err) {
             console.log('initApi-err', err)
         }
- 
+
     }
 });

@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  SERVER_API_KEY: 'bto-kollel-api-key'
 };

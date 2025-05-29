@@ -145,7 +145,7 @@ export class VisitController extends ControllerBase {
         // console.log('SERVER 5',this.fdate, this.tdate, this.detailed, this.onlyDone)
         this.fdate = resetDateTime(this.fdate)
         this.tdate = resetDateTime(this.tdate)
-        // console.log('SERVER 6',this.fdate, this.tdate, this.detailed, this.onlyDone)
+        // console.log('SERVER 6',this.fdate, this.tdate, this.detailed)
         let rows = await remult.repo(Visit).find({
             where: {
                 branch: {
