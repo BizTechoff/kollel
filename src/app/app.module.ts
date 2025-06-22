@@ -11,6 +11,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
@@ -22,6 +23,7 @@ import { ChartsModule } from 'ng2-charts';
 import { remult } from 'remult';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BranchGroupComponent } from './branches/branch-group/branch-group.component';
 import { BranchComponent } from './branches/branch/branch.component';
 import { BranchesComponent } from './branches/branches/branches.component';
 import { DataAreaDialogComponent } from './common/data-area-dialog/data-area-dialog.component';
@@ -31,6 +33,8 @@ import { YesNoQuestionComponent } from './common/yes-no-question/yes-no-question
 import { HomeComponent } from './home/home.component';
 import { AlbumComponent } from './media/album/album.component';
 import { GalleryComponent } from './media/gallery/gallery.component';
+import { MediaTextComponent } from './media/media-text/media-text.component';
+import { UploadFileService } from './media/upload.file.service';
 import { NewsWeeklyQuestionComponent } from './news/news-weekly-question/news-weekly-question.component';
 import { NewsComponent } from './news/news/news.component';
 import { NewsesComponent } from './news/newses/newses.component';
@@ -41,7 +45,6 @@ import { AdminGuard, DonorGuard, ManagerGuard, ManagerOrAboveGuard, TenantGuard,
 import { ManagerComponent } from './users/manager/manager.component';
 import { ManagersComponent } from './users/managers/managers.component';
 import { SignInController } from './users/SignInController';
-import {MatRadioModule} from '@angular/material/radio';
 import { UserMenuComponent } from './users/user-menu/user-menu.component';
 import { UserMenu2Component } from './users/user-menu2/user-menu2.component';
 import { UserRegistrationComponent } from './users/user-registration/user-registration.component';
@@ -56,11 +59,9 @@ import { VisitsExportComponent } from './visits/visits-export/visits-export.comp
 import { VisitsFinishedBlessingComponent } from './visits/visits-finished-blessing/visits-finished-blessing.component';
 import { VisitsFinishedMessagesComponent } from './visits/visits-finished-messages/visits-finished-messages.component';
 import { VisitsFinishedSummaryComponent } from './visits/visits-finished-summary/visits-finished-summary.component';
+import { VisitsReadonlyComponent } from './visits/visits-readonly/visits-readonly.component';
 import { VisitsReportComponent } from './visits/visits-report/visits-report.component';
 import { VisitsComponent } from './visits/visits/visits.component';
-import { BranchGroupComponent } from './branches/branch-group/branch-group.component';
-import { MediaTextComponent } from './media/media-text/media-text.component';
-import { VisitsReadonlyComponent } from './visits/visits-readonly/visits-readonly.component';
 
 @NgModule({
   declarations: [
@@ -132,6 +133,7 @@ import { VisitsReadonlyComponent } from './visits/visits-readonly/visits-readonl
     ManagerGuard,
     VolunteerGuard,
     TenantGuard,
+    UploadFileService,
     ManagerOrAboveGuard,
     {
       provide: APP_INITIALIZER,
