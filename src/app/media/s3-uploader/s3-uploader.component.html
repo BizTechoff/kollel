@@ -1,0 +1,50 @@
+<!-- 
+  אזור הגרירה:
+  - התמונה הוסרה מכאן ותוטמע כרקע ב-CSS.
+  - משתמש ב-[class.disabled] כדי לשלוט על הניטרול מהקוד.
+-->
+<div [class.disabled]="isDisabled" class="drop-zone" 
+     (dragover)="onDragOver($event)"
+     (dragleave)="onDragLeave($event)" 
+     (drop)="onDrop($event)" 
+     (click)="isDisabled ? null : fileInput.click()" 
+     [class.drag-over]="isDragging">
+
+  <input #fileInput type="file" multiple (change)="onFileSelected($event)" style="display: none;">
+
+  <div class="drop-zone-text">
+    <span>גרור לכאן קבצים או לחץ לבחירה</span>
+  </div>
+</div>
+
+
+<!-- 
+  תור ההעלאות:
+  אין שינוי בחלק זה. הוא מוכן להצגת קבצים מרובים.
+-->
+<div class="upload-queue" *ngIf="uploadQueue.length > 0">
+  <h4>קבצים בתור</h4>
+  <ul>
+    <li *ngFor="let item of uploadQueue">
+      <div class="file-info">
+        <span class="file-name">{{ item.file.name }}</span>
+        <span class="file-size">{{ (item.file.size / 1024 / 1024).toFixed(2) }} MB</span>
+      </div>
+
+      <div class="progress-bar-container" *ngIf="item.status === 'uploading'">
+        <div class="progress-bar" [style.width.%]="item.progress">
+          {{ item.progress }}%
+        </div>
+      </div>
+      
+      <div class="status-indicator">
+        <mat-icon *ngIf="item.status === 'pending'">hourglass_empty</mat-icon>
+        <mat-icon *ngIf="item.status === 'getting_url'">cloud_queue</mat-icon>
+        <mat-icon *ngIf="item.status === 'success'" color="primary">check_circle</mat-icon>
+        <mat-icon *ngIf="item.status === 'error'" color="warn">error</mat-icon>
+        
+        <span class="error-message" *ngIf="item.errorMessage">{{ item.errorMessage }}</span>
+      </div>
+    </li>
+  </ul>
+</div>

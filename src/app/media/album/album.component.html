@@ -52,24 +52,25 @@
                         class="album-locationicon" />
                 </div>
             </div>
-        </div> 
+        </div>
         <div class="album-nav">
 
             <div *ngIf="this.remult.user?.isManager && !this.uploading" style="display: flex;">
+                <app-s3-uploader></app-s3-uploader>
                 <!-- upload to branch-profile -->
-                <label for="uploadImage" style="display: flex; align-items: center;">
+                <!-- <label for="uploadImage" style="display: flex; align-items: center;">
                     <img src="/assets/playground_assets/upload8013-fkng.svg" alt="upload8013" class="album-upload" />
                 </label>
-                <input excludeAcceptAllOption=true #fileInput type="file" (input)="onFileInput($event, 'profile')"
-                    accept="audio/mp3,video/mp4,video/avi,image/png,image/jpg,image/jpeg" id="uploadImage"
-                    style="display:none" />
+                <input id="uploadImage" excludeAcceptAllOption=true #fileInput type="file"
+                    (input)="onFileInput($event, 'profile')"
+                    accept="audio/mp3,video/mp4,video/avi,image/png,image/jpg,image/jpeg" style="display:none" /> -->
 
-                <div style="box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25); display: flex;">
+                <!-- <div style="box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25); display: flex;">
                     <button (click)="this.uploadText()"
                         style="margin-top: 5px; color: rgba(38, 195, 234, 1); border-radius: 15px; background-color: white; border: none;">
                         <mat-icon style="font-size:18px; height:12px; width:12px;">edit_note</mat-icon>
                     </button>
-                </div>
+                </div> -->
             </div>
 
             <!-- <img src="/assets/playground_assets/upload8013-fkng.svg" alt="upload8013" class="album-upload" (click)="this.upload()" /> -->

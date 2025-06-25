@@ -62,6 +62,7 @@ import { VisitsFinishedSummaryComponent } from './visits/visits-finished-summary
 import { VisitsReadonlyComponent } from './visits/visits-readonly/visits-readonly.component';
 import { VisitsReportComponent } from './visits/visits-report/visits-report.component';
 import { VisitsComponent } from './visits/visits/visits.component';
+import { S3UploaderComponent } from './media/s3-uploader/s3-uploader.component';
 
 @NgModule({
   declarations: [
@@ -100,7 +101,8 @@ import { VisitsComponent } from './visits/visits/visits.component';
     GalleryComponent,
     BranchGroupComponent,
     MediaTextComponent,
-    VisitsReadonlyComponent
+    VisitsReadonlyComponent,
+    S3UploaderComponent
   ],
   imports: [
     BrowserModule,

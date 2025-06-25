@@ -1,0 +1,104 @@
+:host {
+  font-family: Arial, sans-serif;
+  width: 100%;
+}
+
+.drop-zone {
+  position: relative;
+  width: 100%;
+  // min-height: 150px;
+  padding: 1rem;
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  
+  // מרכז את התוכן הפנימי (הטקסט)
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
+  
+  // --- השינוי המרכזי: הטמעת התמונה כרקע ---
+  background-image: url('/assets/playground_assets/upload8013-fkng.svg');
+  background-repeat: no-repeat;
+  background-position: top right;
+  background-size: 35px; // אפשר לשנות את גודל האייקון לפי הצורך  
+}
+
+.drop-zone.drag-over {
+  border-color: #007bff;
+  background-color: #e9f5ff;
+}
+
+// קלאס הניטרול הכללי
+.drop-zone.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+  cursor: not-allowed;
+  filter: grayscale(80%);
+}
+
+.drop-zone-text {
+  // עיצוב הטקסט כדי שיראה טוב על הרקע
+  color: #555;
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+}
+
+
+/* --- עיצוב תור ההעלאות (ללא שינוי) --- */
+
+.upload-queue {
+  margin-top: 1rem;
+  h4 { margin-bottom: 0.5rem; color: #333; }
+  ul { list-style-type: none; padding: 0; margin: 0; }
+  li {
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    padding: 0.75rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+
+.file-info {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  .file-name { font-weight: bold; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .file-size { font-size: 0.8em; color: #666; }
+}
+
+.progress-bar-container {
+  flex-basis: 40%;
+  height: 10px;
+  background-color: #e9ecef;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: #28a745;
+  transition: width 0.3s ease-in-out;
+}
+
+.status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-basis: 150px;
+
+  .error-message { color: #dc3545; font-size: 0.9em; }
+  mat-icon[color="primary"] { color: #28a745; }
+  mat-icon[color="warn"] { color: #dc3545; }
+}

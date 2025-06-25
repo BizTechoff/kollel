@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { UploadFileInfo, UploadFilesResult } from '../../shared/order.upload.type';
+import { S3UploadRequest } from '../../shared/S3Controller';
 import { S3Service } from './s3.service';
 
 @Injectable({
@@ -11,7 +12,7 @@ export class UploadFileService {
 
     constructor(private s3Service: S3Service) { }
 
-    async onFileSelected(files: File[]): Promise<UploadFilesResult> {
+    async onFileSelected(files: File[], branch: string): Promise<UploadFilesResult> {
         const result: UploadFilesResult = { success: false, message: '', files: [] as UploadFileInfo[] }
 
         if (!files?.length) {
@@ -19,7 +20,7 @@ export class UploadFileService {
             return result
         }
 
-        const allowed= ['pdf','jpg', 'jpeg', 'png', 'gif', 'bmp', 'webp','mp3', 'mp4'] as string[]
+        const allowed = ['pdf', 'jpg', 'jpeg', 'png', 'gif', 'bmp', 'webp', 'mp3', 'mp4'] as string[]
         const PromiseArray = []
         for (let i = 0; i < files.length; ++i) {
 
@@ -38,7 +39,7 @@ export class UploadFileService {
             }
 
             // הוספת ה-Promise למערך
-            PromiseArray.push(this.uploadFile(f));
+            PromiseArray.push(this.uploadFile(f, branch));
         }
 
         // המתנה לכל ההעלאות שיסתיימו
@@ -54,7 +55,7 @@ export class UploadFileService {
         return result
     }
 
-    private async uploadFile(file: File): Promise<UploadFileInfo> {
+    private async uploadFile(file: File, branch: string): Promise<UploadFileInfo> {
         const result: UploadFileInfo = { name: '', pages: 0, size: 0, type: '', url: '' }
         if (!file) {
             // alert('לא נבחר קובץ להעלאה');
@@ -79,14 +80,16 @@ export class UploadFileService {
 
         this.isUploading = true;
         try {
+            const req = {
+                fileName: result.name,
+                fileType: result.type,
+                branch: ''
+            } as S3UploadRequest
             // Step 1: Get the signed URL
-            const signedUrlresponse = await this.s3Service.getSignedUrl(
-                result.name,
-                result.type,
-                '');
+            const signedUrlresponse = await this.s3Service.getSignedUrl(req);
             if (signedUrlresponse.success) {
                 // Step 2: Upload the file using the signed URL directly from client to S3
-                await this.s3Service.uploadFileToS3(signedUrlresponse.url, f);
+                await this.s3Service.uploadFileToS3(signedUrlresponse.url, f, branch);
                 // Step 3: Emit the URL after successful upload
                 result.url = signedUrlresponse.url.split('?')[0]; // Remove query params to get the file URL
 
@@ -107,7 +110,7 @@ export class UploadFileService {
                 console.info('File uploaded successfully!');
             }
             else {
-                console.error('File uploaded error: ' + signedUrlresponse.error);
+                console.error('File uploaded error: ' + signedUrlresponse.message);
             }
         } catch (error) {
             console.error('Error uploading file:', error);
@@ -122,25 +125,25 @@ export class UploadFileService {
     }
 
     // ✅ פונקציה חדשה לפתיחת קבצים עם Signed URLs
-    async openFile(fileName: string, fileExtension: string, bucketKey: string = 'casual'): Promise<boolean> {
-        try {
-            console.log('Opening file:', fileName, fileExtension, bucketKey);
-            
-            // קבל signed URL מהשרת
-            const signedUrlResponse = await this.s3Service.getDownloadUrl(fileName, fileExtension, bucketKey);
-            console.log('signedUrlResponse',signedUrlResponse.url)
-            if (signedUrlResponse.success) {
-                // פתח הקובץ בטאב חדש
-                window.open(signedUrlResponse.url, '_blank');
-                return true;
-            } else {
-                console.error('Failed to get signed URL:', signedUrlResponse.error);
-                return false;
-            }
-        } catch (error) {
-            console.error('Error opening file:', error);
-            return false;
-        }
-    }
+    // async openFile(fileName: string, fileExtension: string, bucketKey: string = 'casual'): Promise<boolean> {
+    //     try {
+    //         console.log('Opening file:', fileName, fileExtension, bucketKey);
+
+    //         // קבל signed URL מהשרת
+    //         const signedUrlResponse = await this.s3Service.getDownloadUrl(fileName, fileExtension, bucketKey);
+    //         console.log('signedUrlResponse', signedUrlResponse.url)
+    //         if (signedUrlResponse.success) {
+    //             // פתח הקובץ בטאב חדש
+    //             window.open(signedUrlResponse.url, '_blank');
+    //             return true;
+    //         } else {
+    //             console.error('Failed to get signed URL:', signedUrlResponse.error);
+    //             return false;
+    //         }
+    //     } catch (error) {
+    //         console.error('Error opening file:', error);
+    //         return false;
+    //     }
+    // }
 
 }

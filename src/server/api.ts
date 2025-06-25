@@ -27,6 +27,7 @@ import { Visit } from '../app/visits/visit';
 import { VisitVolunteer } from '../app/visits/visit-volunteer';
 import { VisitController } from '../app/visits/visitController';
 import { VisitVolunteerController } from '../app/visits/visitVolunteerController';
+import { S3Controller } from '../shared/S3Controller';
 
 config(); //loads the configuration from the .env file
 
@@ -35,7 +36,7 @@ export const api = remultExpress({
         TenantVolunteer, VisitVolunteer, NewsUser, NewsBranch],
     controllers: [AppController, SignInController, RegisterController, BranchController, UserController, VisitController,
         VisitVolunteerController, NewsController, TenantController, TenantVolunteerController,
-        MediaController, HelperController, JobController, ExcelController],
+        MediaController, HelperController, JobController, ExcelController, S3Controller],
     getUser: request => request?.session!['user'],
     // {
     //     let ui = request.session!['user']
