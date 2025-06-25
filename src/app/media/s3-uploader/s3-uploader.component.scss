@@ -7,7 +7,7 @@
   position: relative;
   width: 100%;
   // min-height: 150px;
-  padding: 1rem;
+  padding: 0.9rem 0.4rem;;
   border: 2px dashed #ccc;
   border-radius: 8px;
   
@@ -22,7 +22,7 @@
   // --- השינוי המרכזי: הטמעת התמונה כרקע ---
   background-image: url('/assets/playground_assets/upload8013-fkng.svg');
   background-repeat: no-repeat;
-  background-position: top right;
+  background-position: center center;
   background-size: 35px; // אפשר לשנות את גודל האייקון לפי הצורך  
 }
 
@@ -44,7 +44,7 @@
   color: #555;
   font-weight: bold;
   background-color: rgba(255, 255, 255, 0.7);
-  padding: 0.25rem 0.75rem;
+  // padding: 0.25rem 0.75rem;
   border-radius: 1rem;
 }
 
