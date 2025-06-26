@@ -133,7 +133,7 @@ export class MediaController extends ControllerBase {
             let first = firstDateOfWeek(m.created)
             let last = lastDateOfWeek(m.created)
             let week = `שבוע ${first.getDate()}-${last.getDate()}.${last.getMonth() + 1}`
-            let weekKey = `${last.getFullYear()}${last.getMonth()}${last.getDate()}_${first.getDate()}-${last.getDate()}:${week}`
+            let weekKey = `${first.getFullYear()}${first.getMonth()}_${first.getDate()}-${last.getDate()}:${week}`
             week = weekKey
 
             let found = result.find(w => w.week === week)
