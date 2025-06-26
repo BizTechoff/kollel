@@ -5,7 +5,7 @@ import { config } from 'dotenv';
 import express, { NextFunction, Request, Response } from 'express';
 import helmet from 'helmet';
 import sslRedirect from 'heroku-ssl-redirect';
-import { remult } from 'remult';
+import { remult, SqlDatabase } from 'remult';
 import { Branch } from '../app/branches/branch';
 import { SignInController } from '../app/users/SignInController';
 import { api } from './api';

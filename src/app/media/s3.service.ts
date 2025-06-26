@@ -25,7 +25,7 @@ export class S3Service {
      * @param resign - Whether to get a new signed URL before uploading
      * @returns An Observable that emits upload progress (0-100)
      */
-    uploadFileToS3(signedUrl: string, file: File, branch: string, resign = false): Observable<number> {
+    uploadFileToS3(signedUrl: string, file: File, branchKey: string, resign = false): Observable<number> {
         // בדיקה ראשונית של הקובץ. אם לא תקין, מחזירים Observable שזורק שגיאה.
         if (!file) {
             return throwError(() => new Error('File is null or undefined.'));
@@ -35,7 +35,7 @@ export class S3Service {
         // אם resign=true, ניקח את ה-URL מהפונקציה הא-סינכרונית.
         // אם resign=false, פשוט נשתמש ב-URL שקיבלנו.
         const url$: Observable<string> = resign
-            ? from(this.getSignedUrl({ fileName: file.name, fileType: file.type, branch })).pipe(
+            ? from(this.getSignedUrl({ fileName: file.name, fileType: file.type, branchKey })).pipe(
                 map(res => res.url) // `from` הופך Promise ל-Observable
             )
             : of(signedUrl); // `of` הופך ערך רגיל ל-Observable

@@ -7,9 +7,10 @@ const aws = require('aws-sdk');
 
 // ממשקים משותפים לשני הצדדים
 export interface S3UploadRequest {
-    branch: string;
+    branchKey: string;
     fileName: string;
     fileType: string;
+    // file: File;
 }
 
 export interface S3UploadResponse {
@@ -58,15 +59,15 @@ export class S3Controller extends ControllerBase {
         const s3Client = S3Controller.createS3Client();
         if (!s3Client) {
             result.message = "S3 client is not available or configured."
-            // throw new Error(result.message);
+            return result
         }
         const BUCKET_NAME = process.env['AWS_S3_IAM_BTO_APP_BUCKET'];
         if (!BUCKET_NAME) {
             result.message = "Bucket name is not configured in environment variables."
-            // throw new Error(result.message);
+            return result
         }
-        const FIXED_PREFIX = 'kollel/prod';
-        const BRANCH_NAME = request.branch;
+        const FIXED_PREFIX = process.env['AWS_S3_ROOT'];
+        const BRANCH_NAME = request.branchKey;
         const uniqueFileName = `${id}.${request.fileName.split('.').pop()}`;
         const key = `${FIXED_PREFIX}/${BRANCH_NAME}/${uniqueFileName}`;
         const s3Params = {
@@ -81,7 +82,6 @@ export class S3Controller extends ControllerBase {
             result.success = true
         } catch (error) {
             result.message = "Error creating pre-signed URL with SDK v2: " + error
-            // throw new Error(result.message);
         }
         return result
     }
@@ -106,7 +106,7 @@ export class S3Controller extends ControllerBase {
         // שלב 1: איסוף כל הבקשות ליצירת URL-ים חתומים
         const urlPromises = Array.from(files).map(file => {
             return S3Controller.generateUploadUrl({
-                branch,
+                branchKey: branch,
                 fileName: file.name,
                 fileType: file.type,
             }).then(response => ({ ...response, file })); // נוסיף את הקובץ המקורי לתשובה

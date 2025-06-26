@@ -87,7 +87,7 @@
                     <!-- <span *ngIf="w.branches.length && remult.user!.isManager" class="album-text080">
                         <span>{{ 'סה"כ: ' + w.branches.length + ' תמונות' }}</span>
                     </span> -->
-                    <span class="album-text08"><span>{{ w.week }}</span></span>
+                    <span class="album-text08"><span>{{ w.week.split(':').pop() }}</span></span>
                 </div>
                 <div *ngFor="let b of w.branches">
                     <div class="album-crad">

@@ -54,7 +54,7 @@ export class MediaController {
             let branchEngName = branch.email.trim().split('@')[0]
             // הנתיב ישמש אותנו כשדה 'link' בטבלה
             const { url } = await S3Controller.generateUploadUrl({
-                branch: branchEngName,
+                branchKey: branchEngName,
                 fileName: fileInfo.fileName,
                 fileType: fileInfo.fileType,
             });

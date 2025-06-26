@@ -31,6 +31,7 @@ export class S3UploaderComponent implements OnInit {
   @Input() tenant?: Tenant;
   @Input() volunteer?: User;
   @Input() news?: News;
+  @Input() addMediaEntity = true
 
   branch: Branch | null = null; // אותחל ל-null לבדיקה ברורה יותר
   branchName: string | null = null; // אותחל ל-null
@@ -42,20 +43,20 @@ export class S3UploaderComponent implements OnInit {
   uploadQueue: FileUploadState[] = [];
 
   constructor(private s3Service: S3Service, private ui: UIToolsService) { }
-  
+
   async ngOnInit() {
     if (remult.user?.isManager && remult.user.branch) {
       try {
         this.branch = await remult.repo(Branch).findId(remult.user.branch);
         if (this.branch) {
-            this.branchName = this.branch.email.trim().split('@')[0];
+          this.branchName = this.branch.email.trim().split('@')[0];
         }
       } catch (error) {
         console.error("Could not find branch", error);
       }
     }
   }
-  
+
   // Getter פשוט שקובע אם המעלה מנוטרל
   public get isDisabled(): boolean {
     return !this.branch || this.uploadingCount > 0;
@@ -133,17 +134,17 @@ export class S3UploaderComponent implements OnInit {
       if (!this.branch || !this.branchName) {
         throw new Error("Branch information is not available.");
       }
-      
+
       const request: S3UploadRequest = {
         fileName: upload.file.name,
         fileType: upload.file.type,
-        branch: this.branchName
+        branchKey: this.branchName
       };
 
       const response = await this.s3Service.getSignedUrl(request);
-      
+
       // שמירת ה-URL החתום במשתנה שיהיה זמין לכל אורך התהליך
-      const signedUrl = response.url; 
+      const signedUrl = response.url;
 
       upload.status = 'uploading';
       this.uploadingCount++; // הגדלת מונה ההעלאות הפעילות
@@ -164,21 +165,23 @@ export class S3UploaderComponent implements OnInit {
           upload.status = 'success';
 
           try {
-            // ה-URL הקבוע הוא החלק שלפני סימן השאלה
-            const permanentUrl = signedUrl.split('?')[0];
+            if (this.addMediaEntity) {
+              // ה-URL הקבוע הוא החלק שלפני סימן השאלה
+              const permanentUrl = signedUrl.split('?')[0];
 
-            // שימוש במשתנים שזמינים כעת בסקופ הנכון
-            await MediaController.createMediaRecord(
-              this.branch!, // שימוש ב-! כי אנחנו יודעים שהוא קיים מהבדיקה למעלה
-              this.visit, 
-              this.tenant, 
-              this.volunteer, 
-              this.news,
-              '', // פרמטר ID ריק כפי שרצית
-              permanentUrl, // הקישור הקבוע לקובץ
-              upload.file.type
-            );
-            
+              // שימוש במשתנים שזמינים כעת בסקופ הנכון
+              await MediaController.createMediaRecord(
+                this.branch!, // שימוש ב-! כי אנחנו יודעים שהוא קיים מהבדיקה למעלה
+                this.visit,
+                this.tenant,
+                this.volunteer,
+                this.news,
+                '', // פרמטר ID ריק כפי שרצית
+                permanentUrl, // הקישור הקבוע לקובץ
+                upload.file.type
+              );
+            }
+
             // הסרת הפריט המוצלח מהתור לאחר השהייה קצרה
             setTimeout(() => {
               const i = this.uploadQueue.indexOf(upload);

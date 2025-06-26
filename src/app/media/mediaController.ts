@@ -117,7 +117,7 @@ export class MediaController extends ControllerBase {
                 active: true,
                 branch: (remult.user!.isAdmin || remult.user!.isDonor)
                     ? await remult.repo(Branch).find({
-                        where: {
+                         where: {
                             system: false,
                             active: true,
                             group: this.group === BranchGroup.all
@@ -129,10 +129,12 @@ export class MediaController extends ControllerBase {
             },
             orderBy: { branch: "asc", created: 'desc' }
         })) {
-            
+
             let first = firstDateOfWeek(m.created)
             let last = lastDateOfWeek(m.created)
             let week = `שבוע ${first.getDate()}-${last.getDate()}.${last.getMonth() + 1}`
+            let weekKey = `${last.getFullYear()}${last.getMonth()}${last.getDate()}_${first.getDate()}-${last.getDate()}:${week}`
+            week = weekKey
 
             let found = result.find(w => w.week === week)
             if (!found) {
@@ -149,7 +151,12 @@ export class MediaController extends ControllerBase {
             }
             foundMonth.media.push(m)
         }
-        
+
+        result.sort((a,b) => b.week.localeCompare(a.week))
+        for (const w of result) {
+            w.branches.sort((a,b) => a.branch.name.localeCompare(b.branch.name))
+        }
+
         return result
     }
 

@@ -34,7 +34,6 @@ import { HomeComponent } from './home/home.component';
 import { AlbumComponent } from './media/album/album.component';
 import { GalleryComponent } from './media/gallery/gallery.component';
 import { MediaTextComponent } from './media/media-text/media-text.component';
-import { UploadFileService } from './media/upload.file.service';
 import { NewsWeeklyQuestionComponent } from './news/news-weekly-question/news-weekly-question.component';
 import { NewsComponent } from './news/news/news.component';
 import { NewsesComponent } from './news/newses/newses.component';
@@ -135,7 +134,6 @@ import { S3UploaderComponent } from './media/s3-uploader/s3-uploader.component';
     ManagerGuard,
     VolunteerGuard,
     TenantGuard,
-    UploadFileService,
     ManagerOrAboveGuard,
     {
       provide: APP_INITIALIZER,
