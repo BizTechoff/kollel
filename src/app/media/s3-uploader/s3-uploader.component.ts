@@ -154,9 +154,12 @@ export class S3UploaderComponent implements OnInit {
           upload.progress = progress;
         },
         error: err => {
+          let json = ''
+          try { json = JSON.stringify(err) }
+          catch { }
           this.uploadingCount--; // הקטנת המונה גם במקרה של שגיאה
           upload.status = 'error';
-          upload.errorMessage = 'העלאה ל-S3 נכשלה';
+          upload.errorMessage = `העלאה ל-S3 נכשלה {file: '${upload.file.name}', err: '${err}', json: '${json}'}`;
           console.error(`S3 Upload failed for ${upload.file.name}:`, err);
         },
         complete: async () => {
