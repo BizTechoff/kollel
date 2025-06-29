@@ -114,7 +114,7 @@
 
                                 <ng-container *ngIf="m.type.id === 'photo'">
                                     <!-- <span class="overlay-date">{{ m.created | date:'HH:mm dd/MM/yyyy' }}</span> -->
-                                    <img oncontextmenu="return false;" crossorigin="anonymous" [src]='m.link'>
+                                    <img oncontextmenu="return false;" crossorigin="anonymous" [src]='m.link' loading="lazy">
                                 </ng-container>
 
                                 <!-- <img [src]='m.link' alt="" loading="lazy"> -->
